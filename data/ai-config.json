@@ -1,0 +1,26 @@
+{
+  "enabled": true,
+  "proxy_url": "ai-proxy.php",
+  "dev_mode": true,
+  "dev_openrouter_key": "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",
+  "models": {
+    "explain": "arcee-ai/trinity-large-preview:free",
+    "chat": "arcee-ai/trinity-large-preview:free",
+    "hint": "liquid/lfm-2.5-1.2b-instruct:free",
+    "coach": "arcee-ai/trinity-large-preview:free"
+  },
+  "limits": {
+    "max_tokens_explain": 150,
+    "max_tokens_chat": 200,
+    "max_tokens_hint": 100,
+    "max_tokens_coach": 400,
+    "max_chat_turns": 5,
+    "max_lab_hints": 3
+  },
+  "system_prompts": {
+    "explain": "You are an electrical safety instructor. Given a wrong answer on a training exam, explain the correct answer concisely in 2-3 sentences. Be educational and safety-focused. Do not repeat the question back.",
+    "chat": "You are an expert electrical safety trainer specializing in arc flash, LOTO, and NFPA 70E. Answer questions clearly and concisely. Keep responses under 4 sentences. If asked about standard-specific terminology, refer to the active standard context provided.",
+    "hint": "You are a fault diagnosis coach for electrical troubleshooting training. Give ONE progressive hint to help the student diagnose the electrical fault without revealing the answer directly. Keep it under 2 sentences. Do not name the fault.",
+    "coach": "You are an electrical safety training coach. Analyze the student exam results and write a personalized 3-5 point study plan focusing on their weakest areas. Be specific and actionable. Use bullet points. Start each point with a strong action verb."
+  }
+}

@@ -1,0 +1,18 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Editor/IDE spaces
+.vscode/
+.idea/
+
+# temporary files
+*.tmp
+*.bak
+*.swp

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/arcready/">
+    
+    <!-- Main Site Styles -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- AI Assistant Styles -->
+    <link rel="stylesheet" href="css/ai.css"><!-- Main Styles -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- AI Assistant Styles -->
+    <link rel="stylesheet" href="css/ai.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArcReady - Electrical Safety Training</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/ai.css">
+    <style>
+        /* Lab tab styles */
+        #lab-tab { display: none; }
+        #lab-tab.active { display: block; }
+        .circuit-select { margin: 20px 0; padding: 15px; background: #f5f5f5; border-radius: 8px; }
+        .circuit-select label { font-weight: bold; display: block; margin-bottom: 10px; }
+        .circuit-select select { padding: 8px; font-size: 16px; border: 2px solid #CC0000; border-radius: 4px; }
+        .circuit-svg-container { width: 100%; height: 600px; border: 2px solid #1A1A1A; background: white; border-radius: 8px; overflow: auto; margin: 20px 0; }
+        .multimeter { text-align: center; padding: 20px; background: #333; color: #0f0; font-family: monospace; font-size: 24px; border-radius: 8px; margin: 20px 0; }
+        .probe-reset { display: block; width: 100%; padding: 12px; background: #CC0000; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin: 20px 0; }
+        .probe-reset:hover { background: #990000; }
+        .lab-controls { margin: 20px 0; }
+        .lab-controls button { margin: 5px; padding: 10px 20px; border: 2px solid #CC0000; background: white; color: #CC0000; border-radius: 4px; cursor: pointer; }
+        .lab-controls button.active { background: #CC0000; color: white; }
+        .lab-controls button:hover:not(.active) { background: #ffe0e0; }
+        .switch-container { display: flex; align-items: center; gap: 10px; margin: 10px 0; }
+        .switch-label { font-weight: bold; }
+        .lab-toggle { padding: 5px; border: 1px solid #CC0000; border-radius: 4px; }
+        .challenge-panel { padding: 15px; background: #f5f5f5; border-radius: 8px; margin: 20px 0; }
+        .challenge-stats { margin: 10px 0; font-weight: bold; }
+        .probe-indicator { display: inline-block; padding: 5px 10px; background: #333; color: white; border-radius: 4px; margin: 5px; }
+        .probe-red { color: #ff6b6b; }
+        .probe-black { color: #4ecdc4; }
+        .fault-badge { background: #2E7D32; color: white; padding: 3px 8px; border-radius: 4px; font-size: 12px; }
+        .voltage-update-pulse { animation: voltagePulse 0.3s ease-out; }
+        @keyframes voltagePulse { 0% { background-color: rgba(204, 0, 0, 0.3); } 100% { background-color: transparent; } }
+        .reading-history { max-height: 200px; overflow-y: auto; border: 1px solid #ddd; padding: 10px; margin-top: 10px; }
+        .reading-history div { padding: 5px 0; border-bottom: 1px solid #eee; }
+        .controls-container { display: flex; gap: 15px; margin: 15px 0; }
+        .mode-controls { margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <!-- Tab Navigation -->
+    <nav class="tab-nav" id="tab-nav">
+        <button data-tab="home" class="tab-btn active">Home</button>
+        <button data-tab="safety" class="tab-btn">Safety</button>
+        <button data-tab="theory" class="tab-btn">Theory</button>
+        <button data-tab="lab" class="tab-btn">Lab</button>
+        <button data-tab="reference" class="tab-btn">Reference</button>
+        <button data-tab="progress" class="tab-btn">My Progress</button>
+    </nav>
+
+    <!-- Tab Content Container -->
+    <div class="tab-content" id="tab-content">
+
+        <!-- Home Tab -->
+        <div id="home-tab" class="tab-content-section active">
+            <h1>Welcome to ArcReady</h1>
+            <p>Your electrical safety training platform.</p>
+            <div class="dashboard">
+                <div class="progress-card">
+                    <h3>Certification Progress</h3>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                    <p>0% Complete</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Safety Tab -->
+        <div id="safety-tab" class="tab-content-section">
+            <h1>Safety Section</h1>
+            <p>NFPA 70E compliant electrical safety training.</p>
+            <button class="study-btn">Start Study Mode</button>
+            <button class="certify-btn" disabled>Get Certified (Requires 100%)</button>
+        </div>
+
+        <!-- Theory Tab -->
+        <div id="theory-tab" class="tab-content-section">
+            <h1>Theory Section</h1>
+            <p>Electrical theory and circuit fundamentals.</p>
+            <button class="study-btn">Start Study Mode</button>
+            <button class="certify-btn" disabled>Get Certified (Requires 85%)</button>
+        </div>
+
+        <!-- Lab Tab -->
+        <div id="lab-tab" class="tab-content-section">
+            <h1>Virtual Lab</h1>
+            <p>Interactive fault diagnosis and troubleshooting simulator</p>
+
+            <!-- Circuit Selector -->
+            <div class="circuit-select">
+                <label for="circuit-select">Select Circuit:</label>
+                <select id="circuit-select">
+                    <option value="circuit-a">Circuit A - 3-Phase Motor Control</option>
+                    <option value="circuit-b">Circuit B - 120VAC Parallel</option>
+                    <option value="circuit-practice" style="display:none">Practice Schematic</option>
+                </select>
+
+                <!-- Voltage Switch (Circuit A only) -->
+                <div id="voltage-switch-container" class="controls-container" style="display:none">
+                    <label class="switch-label">Input Voltage:</label>
+                    <select id="voltage-switch">
+                        <option value="480V">480V</option>
+                        <option value="208V">208V</option>
+                    </select>
+                </div>
+
+                <!-- Motor Switch (Circuit A only) -->
+                <div id="motor-switch-container" class="controls-container" style="display:none">
+                    <label class="switch-label">Motor Start:</label>
+                    <select id="motor-switch">
+                        <option value="closed">Closed (Running)</option>
+                        <option value="open">Open (Stopped)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Circuit Display -->
+            <div class="circuit-svg-container" id="circuit-svg-container"></div>
+
+            <!-- Circuit Title and Fault Badge -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin: 10px 0;">
+                <span id="circuit-title">Circuit A - 480V 3-Phase Motor Control</span>
+                <span id="current-fault-badge" class="fault-badge">Normal Operation</span>
+            </div>
+
+            <!-- Multimeter Display -->
+            <div class="multimeter">
+                <div id="multimeter-reading">---</div>
+                <div id="multimeter-unit" style="color: #888; font-size: 14px; margin-top: 5px">V AC</div>
+                <div style="color: #888; font-size: 14px; margin-top: 10px;">
+                    RED: <span id="probe-red-value">--</span> | BLACK: <span id="probe-black-value">--</span>
+                </div>
+            </div>
+
+            <!-- Probe Reset Button -->
+            <button id="probe-reset" class="probe-reset">Reset Probes</button>
+
+            <!-- Fault Controls -->
+            <div class="lab-controls" id="fault-controls">
+                <button data-fault="normal" class="active">Normal</button>
+                <button data-fault="f1-blown">F1 Blown</button>
+                <button data-fault="f2-blown">F2 Blown</button>
+                <button data-fault="f3-blown">F3 Blown</button>
+                <button data-fault="ms-open">MS Open</button>
+                <button data-fault="ol-tripped">OL Tripped</button>
+            </div>
+
+            <!-- Mode Controls -->
+            <div class="mode-controls">
+                <button id="btn-mode-guided" class="lab-mode-btn active" data-lab-mode="guided">Guided Mode</button>
+                <button id="btn-mode-challenge" class="lab-mode-btn" data-lab-mode="challenge">Challenge Mode</button>
+            </div>
+
+            <!-- Challenge Panel -->
+            <div id="challenge-panel" style="display: none;">
+                <h3>Challenge Mode</h3>
+                <div class="challenge-stats">
+                    <span id="challenge-probes-left">8 probes left</span>
+                    <span style="margin: 0 10px">|</span>
+                    <span id="challenge-score">Score: 0</span>
+                </div>
+                <select id="challenge-fault-select" class="diagnosis-select" style="margin: 10px 0; padding: 8px;">
+                    <option value="">-- Select your diagnosis --</option>
+                    <option value="f1-blown">F1 Blown</option>
+                    <option value="f2-blown">F2 Blown</option>
+                    <option value="f3-blown">F3 Blown</option>
+                    <option value="ms-open">Motor Starter Open</option>
+                    <option value="ol-tripped">Overload Tripped</option>
+                </select>
+                <button id="challenge-submit" class="submit-diagnosis-btn">Submit Diagnosis</button>
+                <div id="challenge-result" style="margin-top: 10px;"></div>
+                <button id="challenge-restart" class="challenge-restart-btn" style="display: none;">Restart Challenge</button>
+            </div>
+
+            <!-- Reading History -->
+            <div style="margin-top: 20px;">
+                <h3>Reading History</h3>
+                <button id="clear-history" style="margin-bottom: 10px; padding: 5px 10px;">Clear History</button>
+                <div id="reading-history" class="reading-history"></div>
+            </div>
+
+            <!-- Lab Instruction -->
+            <p id="lab-instruction-text" style="margin-top: 20px; color: #666;">Select a circuit to begin. Click test points to place probes.</p>
+        </div>
+
+        <!-- Reference Tab -->
+        <div id="reference-tab" class="tab-content-section">
+            <h1>Reference</h1>
+            <p>Electrical formulas, symbols, and quick reference materials.</p>
+            <div class="reference-grid">
+                <div class="reference-card"><h3>Ohm's Law Calculator</h3><p>V = I × R</p></div>
+                <div class="reference-card"><h3>Power Formula</h3><p>P = V × I</p></div>
+                <div class="reference-card"><h3>NFPA 70E Standards</h3><p>Electrical safety standards</p></div>
+            </div>
+        </div>
+
+        <!-- Progress Tab -->
+        <div id="progress-tab" class="tab-content-section">
+            <h1>My Progress</h1>
+            <p>Track your learning journey and certification status.</p>
+            <div class="progress-section">
+                <h3>Safety Section</h3>
+                <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                <p>Score: 0%</p>
+            </div>
+            <div class="progress-section">
+                <h3>Theory Section</h3>
+                <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                <p>Score: 0%</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts (MUST load in correct order) -->
+    <script src="js/standards.js"></script>
+    <script src="js/svg-circuits.js"></script>
+    <script src="js/ai-assistant.js"></script>
+    <script src="js/test-engine.js"></script>
+    <script src="js/reference.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/lab.js"></script>
+</body>
+</html>

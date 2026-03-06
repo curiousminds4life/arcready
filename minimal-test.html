@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArcReady Minimal Test</title>
+    <base href="/arcready/">
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        button { padding: 10px 20px; margin: 10px; background: #CC0000; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #AA0000; }
+        .result { margin: 10px; padding: 10px; border: 1px solid #ccc; min-height: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Minimal JavaScript Test</h1>
+
+    <div class="result" id="dom-test">DOM not ready yet...</div>
+    <button id="test-button">Click Me (Test Event Listener)</button>
+    <div class="result" id="click-test">No clicks yet</div>
+
+    <button id="load-app">Load App.js</button>
+    <div class="result" id="app-test">App.js not loaded</div>
+
+    <h2>Global Variables</h2>
+    <div class="result" id="globals-test">Checking...</div>
+
+    <script>
+        // Test 1: DOM ready
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("dom-test").textContent = "✓ DOM is ready!";
+            document.getElementById("dom-test").style.background = "#d4edda";
+        });
+
+        // Test 2: Event listener
+        document.getElementById("test-button").addEventListener("click", function() {
+            document.getElementById("click-test").textContent = "✓ Click detected! Event listeners work!";
+            document.getElementById("click-test").style.background = "#d4edda";
+        });
+
+        // Test 3: Load app.js and check global
+        document.getElementById("load-app").addEventListener("click", function() {
+            var script = document.createElement("script");
+            script.src = "js/app.js";
+            script.onload = function() {
+                document.getElementById("app-test").textContent = "✓ app.js loaded!";
+                document.getElementById("app-test").style.background = "#d4edda";
+
+                // Check global variable
+                if (typeof window.ArcReady !== "undefined") {
+                    document.getElementById("globals-test").innerHTML = 
+                        "✓ ArcReady is defined<br>" + 
+                        "✓ Version: " + (window.ArcReady.version || "unknown");
+                    document.getElementById("globals-test").style.background = "#d4edda";
+                } else {
+                    document.getElementById("globals-test").textContent = "✗ ArcReady is NOT defined";
+                    document.getElementById("globals-test").style.background = "#f8d7da";
+                }
+            };
+            script.onerror = function() {
+                document.getElementById("app-test").textContent = "✗ Failed to load app.js";
+                document.getElementById("app-test").style.background = "#f8d7da";
+            };
+            document.head.appendChild(script);
+        });
+
+        // Test global variables now
+        setTimeout(function() {
+            var globals = [
+                "ArcReady", "SVGCircuits", "TestEngine", 
+                "AIAssistant", "StandardsMode"
+            ];
+
+            var result = "Global variables:
+";
+            globals.forEach(function(name) {
+                result += (typeof window[name] !== "undefined" ? "✓ " : "✗ ") + name + "
+";
+            });
+
+            document.getElementById("globals-test").textContent = result;
+        }, 1000);
+    </script>
+</body>
+</html>

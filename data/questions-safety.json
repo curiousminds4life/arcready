@@ -1,0 +1,2561 @@
+[
+  {
+    "id": "S001",
+    "topic": "Arc Flash Fundamentals",
+    "question": "What unit is used to measure incident energy from an arc flash event?",
+    "options": {
+      "A": "Volts per meter (V/m)",
+      "B": "Calories per centimeter squared (cal/cm²)",
+      "C": "Joules per second (J/s)",
+      "D": "Amperes per foot (A/ft)"
+    },
+    "answer": "B",
+    "explanation": "Incident energy is measured in cal/cm² (calories per centimeter squared), representing the thermal energy received at a working distance from an arc flash event.",
+    "standard": "both"
+  },
+  {
+    "id": "S002",
+    "topic": "Arc Flash Fundamentals",
+    "question": "What is the primary cause of an arc flash?",
+    "options": {
+      "A": "Overcurrent through a circuit breaker",
+      "B": "Electrical current passing through the air between conductors or from a conductor to ground",
+      "C": "Excessive voltage on a grounded conductor",
+      "D": "Insulation failure in a motor winding"
+    },
+    "answer": "B",
+    "explanation": "Arc flash occurs when electrical current passes through the air (ionized plasma) between conductors or from a conductor to ground, releasing enormous amounts of energy in the form of heat, light, pressure, and sound.",
+    "standard": "both"
+  },
+  {
+    "id": "S003",
+    "topic": "Arc Flash Fundamentals",
+    "question": "At what incident energy level is energized work PROHIBITED under Workplace Safety Standards?",
+    "options": {
+      "A": "Greater than 25 cal/cm²",
+      "B": "Greater than 40 cal/cm²",
+      "C": "Greater than 8 cal/cm²",
+      "D": "Greater than 100 cal/cm²"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace Safety Standards, work on energized electrical equipment is PROHIBITED when incident energy exceeds 40 cal/cm². Equipment must be de-energized before work can proceed.",
+    "standard": "workplace",
+    "text_nfpa": "At what incident energy level is energized work PROHIBITED under NFPA 70E Art.130?",
+    "options_nfpa": {
+      "A": "Greater than 25 cal/cm²",
+      "B": "Greater than 40 cal/cm²",
+      "C": "Greater than 8 cal/cm²",
+      "D": "Greater than 100 cal/cm²"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E Art.130, work on energized electrical equipment is PROHIBITED when incident energy exceeds 40 cal/cm². Equipment must be de-energized before work can proceed."
+  },
+  {
+    "id": "S004",
+    "topic": "Arc Flash Fundamentals",
+    "question": "Which of the following hazards is produced by an arc flash event?",
+    "options": {
+      "A": "Thermal energy only",
+      "B": "Thermal energy, pressure wave, molten metal, and intense light",
+      "C": "Electrical shock only",
+      "D": "Magnetic field only"
+    },
+    "answer": "B",
+    "explanation": "An arc flash releases multiple hazards simultaneously: intense thermal energy (heat), a pressure blast wave, molten metal shrapnel, intense ultraviolet/visible light, and acoustic energy.",
+    "standard": "both"
+  },
+  {
+    "id": "S005",
+    "topic": "Arc Flash Fundamentals",
+    "question": "How often must an Arc Flash Hazard Analysis be reviewed at a minimum?",
+    "options": {
+      "A": "Every year",
+      "B": "Every 3 years",
+      "C": "Every 5 years",
+      "D": "Every 10 years"
+    },
+    "answer": "C",
+    "explanation": "Per Workplace Safety Standards, Arc Flash Hazard Analysis must be reviewed at a minimum of every 5 years to ensure accuracy with current system conditions.",
+    "standard": "workplace",
+    "text_nfpa": "How often must an Arc Flash Hazard Analysis be reviewed at a minimum?",
+    "options_nfpa": {
+      "A": "Every year",
+      "B": "Every 3 years",
+      "C": "Every 5 years",
+      "D": "Every 10 years"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "Per NFPA 70E Art.130, Arc Flash Hazard Analysis must be reviewed at a minimum of every 5 years to ensure accuracy with current system conditions."
+  },
+  {
+    "id": "S006",
+    "topic": "Arc Flash Fundamentals",
+    "question": "Which equipment types are required to have arc flash warning labels?",
+    "options": {
+      "A": "All electrical equipment above 120V",
+      "B": "Only equipment over 600V",
+      "C": "Switchboards, panelboards, motor control centers, and industrial control panels",
+      "D": "Only equipment with exposed bus bars"
+    },
+    "answer": "C",
+    "explanation": "Workplace Safety Standards requires arc flash labels on switchboards, panelboards, motor control centers (MCCs), and industrial control panels where personnel could be exposed to arc flash hazards.",
+    "standard": "workplace",
+    "text_nfpa": "Which equipment types are required to have arc flash warning labels?",
+    "options_nfpa": {
+      "A": "All electrical equipment above 120V",
+      "B": "Only equipment over 600V",
+      "C": "Switchboards, panelboards, motor control centers, and industrial control panels",
+      "D": "Only equipment with exposed bus bars"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "NFPA 70E Art.130 requires arc flash labels on switchboards, panelboards, motor control centers (MCCs), and industrial control panels where personnel could be exposed to arc flash hazards."
+  },
+  {
+    "id": "S007",
+    "topic": "Arc Flash Fundamentals",
+    "question": "What does 'working distance' refer to in arc flash calculations?",
+    "options": {
+      "A": "The distance between the worker and the panel room door",
+      "B": "The distance between the worker's face/chest and the potential arc source",
+      "C": "The distance between two energized conductors",
+      "D": "The minimum approach distance required by NFPA 70E"
+    },
+    "answer": "B",
+    "explanation": "Working distance is the distance between the worker's face and chest (the most vulnerable area) and the potential arc flash source. Incident energy calculations are based on this distance.",
+    "standard": "both"
+  },
+  {
+    "id": "S008",
+    "topic": "Arc Flash Fundamentals",
+    "question": "Which factor does NOT affect the severity of an arc flash event?",
+    "options": {
+      "A": "Available fault current",
+      "B": "Duration of the arc (clearing time)",
+      "C": "Color of the enclosure",
+      "D": "Working distance from the arc"
+    },
+    "answer": "C",
+    "explanation": "Arc flash severity is determined by available fault current, arcing duration (how fast protective devices clear the fault), working distance, and bus gap. Enclosure color has no bearing on incident energy.",
+    "standard": "both"
+  },
+  {
+    "id": "S009",
+    "topic": "Arc Flash Fundamentals",
+    "question": "What is the arc flash protection boundary?",
+    "options": {
+      "A": "The distance at which a worker could receive a second-degree burn (1.2 cal/cm²) if unprotected",
+      "B": "The distance a worker must stand from all electrical equipment",
+      "C": "The area around a panel marked with yellow tape",
+      "D": "The distance between limited and restricted approach boundaries"
+    },
+    "answer": "A",
+    "explanation": "The arc flash protection boundary is the distance at which incident energy equals 1.2 cal/cm² — the threshold for a second-degree burn on unprotected skin. Anyone inside this boundary must wear appropriate arc-rated PPE.",
+    "standard": "both"
+  },
+  {
+    "id": "S010",
+    "topic": "Arc Flash Fundamentals",
+    "question": "What type of burns does arc flash primarily cause?",
+    "options": {
+      "A": "Chemical burns from ionized gas",
+      "B": "Electrical burns from current through the body only",
+      "C": "Thermal burns from the intense heat of the arc plasma",
+      "D": "Radiation burns from X-ray emission"
+    },
+    "answer": "C",
+    "explanation": "Arc flash primarily causes thermal burns from the intense heat of the arc plasma, which can reach temperatures of up to 35,000°F — four times hotter than the surface of the sun.",
+    "standard": "both"
+  },
+  {
+    "id": "S011",
+    "topic": "Arc Flash Fundamentals",
+    "question": "Which special area condition in Workplace Safety Standards requires explosion-proof or intrinsically safe equipment?",
+    "options": {
+      "A": "Areas with fluorescent lighting",
+      "B": "Isopropyl alcohol storage areas, wet locations, and waste plastic/resin areas",
+      "C": "Areas with computer equipment",
+      "D": "Areas above 480V"
+    },
+    "answer": "B",
+    "explanation": "Workplace Safety Standards specifically identifies isopropyl alcohol storage areas, wet locations, and waste plastic/resin areas as hazardous locations requiring explosion-proof or intrinsically safe electrical equipment.",
+    "standard": "workplace",
+    "text_nfpa": "Which special area condition in NFPA 70E Art.130 requires explosion-proof or intrinsically safe equipment?",
+    "options_nfpa": {
+      "A": "Areas with fluorescent lighting",
+      "B": "Isopropyl alcohol storage areas, wet locations, and waste plastic/resin areas",
+      "C": "Areas with computer equipment",
+      "D": "Areas above 480V"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "NFPA 70E Art.130 specifically identifies isopropyl alcohol storage areas, wet locations, and waste plastic/resin areas as hazardous locations requiring explosion-proof or intrinsically safe electrical equipment."
+  },
+  {
+    "id": "S012",
+    "topic": "Arc Flash Fundamentals",
+    "question": "What does an arc blast produce that poses a physical injury hazard separate from burns?",
+    "options": {
+      "A": "Static electricity",
+      "B": "A high-pressure shock wave that can cause physical trauma and hearing damage",
+      "C": "Increased humidity",
+      "D": "Electromagnetic pulse (EMP)"
+    },
+    "answer": "B",
+    "explanation": "The arc blast produces a high-pressure shock wave that can knock workers off ladders, cause hearing damage, and propel molten metal and equipment debris at high velocity.",
+    "standard": "both"
+  },
+  {
+    "id": "S013",
+    "topic": "Arc Flash Fundamentals",
+    "question": "Under Workplace Safety Standards, MCC and distribution panel mechanical inspections must be performed every:",
+    "options": {
+      "A": "1 year",
+      "B": "2 years",
+      "C": "5 years",
+      "D": "10 years"
+    },
+    "answer": "C",
+    "explanation": "Workplace Safety Standards requires mechanical inspections of MCCs and distribution panels every 5 years to ensure equipment integrity and reduce arc flash risk from deteriorated components.",
+    "standard": "workplace",
+    "text_nfpa": "Under NFPA 70E Art.130, MCC and distribution panel mechanical inspections must be performed every:",
+    "options_nfpa": {
+      "A": "1 year",
+      "B": "2 years",
+      "C": "5 years",
+      "D": "10 years"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "NFPA 70E Art.130 requires mechanical inspections of MCCs and distribution panels every 5 years to ensure equipment integrity and reduce arc flash risk from deteriorated components."
+  },
+  {
+    "id": "S014",
+    "topic": "Arc Flash Fundamentals",
+    "question": "Which type of associates are required for power distribution work per Workplace Safety Standards?",
+    "options": {
+      "A": "Any trained maintenance employee",
+      "B": "Authorized Electrical Associates approved by the Electrical Board",
+      "C": "Only licensed electricians with 10+ years experience",
+      "D": "Any supervisor with electrical awareness training"
+    },
+    "answer": "B",
+    "explanation": "Workplace Safety Standards requires Authorized Electrical Associates (approved by the Electrical Board) for power distribution work, ensuring only properly vetted and trained personnel perform high-risk electrical tasks.",
+    "standard": "workplace",
+    "text_nfpa": "Which type of associates are required for power distribution work per NFPA 70E Art.130?",
+    "options_nfpa": {
+      "A": "Any trained maintenance employee",
+      "B": "Qualified Persons approved by the qualified authority",
+      "C": "Only licensed electricians with 10+ years experience",
+      "D": "Any supervisor with electrical awareness training"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "NFPA 70E Art.130 requires Qualified Persons (approved by the qualified authority) for power distribution work, ensuring only properly vetted and trained personnel perform high-risk electrical tasks."
+  },
+  {
+    "id": "S015",
+    "topic": "Arc Flash Fundamentals",
+    "question": "What is the correct JHA hierarchy of controls from first to last priority?",
+    "options": {
+      "A": "PPE → Engineering → Administrative → Elimination",
+      "B": "Elimination → Substitution → Engineering → Awareness → Administrative → PPE",
+      "C": "Administrative → PPE → Engineering → Elimination",
+      "D": "PPE → Administrative → Substitution → Elimination"
+    },
+    "answer": "B",
+    "explanation": "The JHA hierarchy of controls from Workplace Safety Standards prioritizes: Elimination (remove the hazard entirely), Substitution, Engineering controls, Awareness controls, Administrative controls, and PPE as the last resort.",
+    "standard": "workplace",
+    "text_nfpa": "What is the correct JHA hierarchy of controls from first to last priority?",
+    "options_nfpa": {
+      "A": "PPE → Engineering → Administrative → Elimination",
+      "B": "Elimination → Substitution → Engineering → Awareness → Administrative → PPE",
+      "C": "Administrative → PPE → Engineering → Elimination",
+      "D": "PPE → Administrative → Substitution → Elimination"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "The JHA hierarchy of controls from NFPA 70E Art.130 prioritizes: Elimination (remove the hazard entirely), Substitution, Engineering controls, Awareness controls, Administrative controls, and PPE as the last resort."
+  },
+  {
+    "id": "S016",
+    "topic": "Approach Boundaries",
+    "question": "Which approach boundary defines the minimum safe distance for unqualified persons from exposed energized conductors?",
+    "options": {
+      "A": "Restricted Approach Boundary",
+      "B": "Prohibited Approach Boundary",
+      "C": "Limited Approach Boundary",
+      "D": "Arc Flash Protection Boundary"
+    },
+    "answer": "C",
+    "explanation": "The Limited Approach Boundary is the closest unqualified persons may approach exposed energized electrical conductors or circuit parts without special authorization or an escort from a qualified person.",
+    "standard": "workplace",
+    "text_nfpa": "Which approach boundary defines the minimum safe distance for unqualified persons from exposed energized conductors?",
+    "options_nfpa": {
+      "A": "Restricted Approach Boundary",
+      "B": "Arc Flash Boundary",
+      "C": "Limited Approach Boundary",
+      "D": "Arc Flash Protection Boundary"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "The Limited Approach Boundary is the closest unqualified persons may approach exposed energized electrical conductors or circuit parts without special authorization or an escort from a qualified person. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S017",
+    "topic": "Approach Boundaries",
+    "question": "Crossing the Restricted Approach Boundary requires which of the following?",
+    "options": {
+      "A": "No special requirements — any employee may enter",
+      "B": "Only awareness training",
+      "C": "Qualified person status and appropriate PPE; same as touching the conductor",
+      "D": "Supervisor approval only"
+    },
+    "answer": "C",
+    "explanation": "The Restricted Approach Boundary is so close to exposed energized parts that it is treated the same as physical contact with the conductor. Only qualified persons with appropriate PPE may cross this boundary.",
+    "standard": "both"
+  },
+  {
+    "id": "S018",
+    "topic": "Approach Boundaries",
+    "question": "What does crossing the Prohibited Approach Boundary require?",
+    "options": {
+      "A": "Simply notifying a supervisor",
+      "B": "The same precautions as directly touching the live part — only under specific written permit",
+      "C": "Standard leather gloves",
+      "D": "No requirements if wearing a hard hat"
+    },
+    "answer": "B",
+    "explanation": "The Prohibited Approach Boundary represents an extremely close proximity to energized conductors. Crossing requires the same level of protection as direct contact and must be covered under specific energized work permit procedures.",
+    "standard": "workplace",
+    "text_nfpa": "What does crossing the Arc Flash Boundary require?",
+    "options_nfpa": {
+      "A": "Simply notifying a supervisor",
+      "B": "The same precautions as directly touching the live part — only under specific written permit",
+      "C": "Standard leather gloves",
+      "D": "No requirements if wearing a hard hat"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "The Arc Flash Boundary represents an extremely close proximity to energized conductors. Crossing requires the same level of protection as direct contact and must be covered under specific energized work permit procedures. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S019",
+    "topic": "Approach Boundaries",
+    "question": "An unqualified person approaches a panel that is being worked on by a qualified electrician. The unqualified person must stay outside which boundary?",
+    "options": {
+      "A": "Restricted Approach Boundary",
+      "B": "Prohibited Approach Boundary",
+      "C": "Limited Approach Boundary",
+      "D": "They may approach as close as they like"
+    },
+    "answer": "C",
+    "explanation": "Unqualified persons must remain outside the Limited Approach Boundary unless escorted by a qualified person who is aware of the electrical hazards present.",
+    "standard": "workplace",
+    "text_nfpa": "An unqualified person approaches a panel that is being worked on by a qualified electrician. The unqualified person must stay outside which boundary?",
+    "options_nfpa": {
+      "A": "Restricted Approach Boundary",
+      "B": "Arc Flash Boundary",
+      "C": "Limited Approach Boundary",
+      "D": "They may approach as close as they like"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "Unqualified persons must remain outside the Limited Approach Boundary unless escorted by a qualified person who is aware of the electrical hazards present. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S020",
+    "topic": "Approach Boundaries",
+    "question": "From outermost to innermost, what is the correct order of shock approach boundaries?",
+    "options": {
+      "A": "Restricted → Limited → Prohibited",
+      "B": "Limited → Restricted → Prohibited",
+      "C": "Prohibited → Restricted → Limited",
+      "D": "Limited → Prohibited → Restricted"
+    },
+    "answer": "B",
+    "explanation": "Moving toward the energy source: Limited Approach Boundary (outermost, unqualified persons stop here), then Restricted Approach Boundary (qualified persons with PPE), then Prohibited Approach Boundary (innermost, same as contact).",
+    "standard": "workplace",
+    "text_nfpa": "From outermost to innermost, what is the correct order of shock approach boundaries?",
+    "options_nfpa": {
+      "A": "Restricted → Limited → Prohibited",
+      "B": "Limited → Restricted → Prohibited",
+      "C": "Prohibited → Restricted → Limited",
+      "D": "Limited → Prohibited → Restricted"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Moving toward the energy source: Limited Approach Boundary (outermost, unqualified persons stop here), then Restricted Approach Boundary (qualified persons with PPE), then Arc Flash Boundary (innermost, same as contact). (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S021",
+    "topic": "Approach Boundaries",
+    "question": "Who may escort an unqualified person past the Limited Approach Boundary?",
+    "options": {
+      "A": "Any co-worker familiar with the area",
+      "B": "A qualified person who is continuously aware of the electrical hazard",
+      "C": "A supervisor who has completed awareness training",
+      "D": "Any person wearing arc-rated PPE"
+    },
+    "answer": "B",
+    "explanation": "An unqualified person may cross the Limited Approach Boundary if continuously escorted by a qualified person who is aware of the electrical hazards and ensures the unqualified person does not approach closer boundaries.",
+    "standard": "both"
+  },
+  {
+    "id": "S022",
+    "topic": "Approach Boundaries",
+    "question": "The Arc Flash Protection Boundary is based on what specific incident energy threshold?",
+    "options": {
+      "A": "4.0 cal/cm²",
+      "B": "8.0 cal/cm²",
+      "C": "1.2 cal/cm²",
+      "D": "0.5 cal/cm²"
+    },
+    "answer": "C",
+    "explanation": "The Arc Flash Protection Boundary is the distance at which incident energy equals 1.2 cal/cm² — the onset of a second-degree burn threshold on unprotected skin. PPE is required within this distance.",
+    "standard": "both"
+  },
+  {
+    "id": "S023",
+    "topic": "Approach Boundaries",
+    "question": "An arc flash label shows an Arc Flash Boundary of 4 feet. A worker with appropriate PPE is standing 3 feet from the panel. Is this acceptable?",
+    "options": {
+      "A": "Yes, because they have PPE",
+      "B": "Yes, because the label is just a recommendation",
+      "C": "No — the worker must be outside the 4-foot arc flash boundary unless the task requires closer proximity and PPE matches the incident energy at that distance",
+      "D": "No — no one may be within 10 feet of any panel"
+    },
+    "answer": "C",
+    "explanation": "Being inside the Arc Flash Boundary requires PPE rated for the actual incident energy at that working distance. Simply wearing PPE is acceptable only if that PPE meets or exceeds the cal/cm² at the worker's actual position.",
+    "standard": "both"
+  },
+  {
+    "id": "S024",
+    "topic": "Approach Boundaries",
+    "question": "Which boundary applies specifically to arc flash hazard (not electric shock approach)?",
+    "options": {
+      "A": "Limited Approach Boundary",
+      "B": "Restricted Approach Boundary",
+      "C": "Prohibited Approach Boundary",
+      "D": "Arc Flash Protection Boundary"
+    },
+    "answer": "D",
+    "explanation": "The Arc Flash Protection Boundary is specific to the arc flash hazard and is calculated based on incident energy, not voltage. The Limited, Restricted, and Prohibited boundaries address electric shock hazards.",
+    "standard": "workplace",
+    "text_nfpa": "Which boundary applies specifically to arc flash hazard (not electric shock approach)?",
+    "options_nfpa": {
+      "A": "Limited Approach Boundary",
+      "B": "Restricted Approach Boundary",
+      "C": "Arc Flash Boundary",
+      "D": "Arc Flash Protection Boundary"
+    },
+    "answer_nfpa": "D",
+    "explanation_nfpa": "The Arc Flash Protection Boundary is specific to the arc flash hazard and is calculated based on incident energy, not voltage. The Limited, Restricted, and Prohibited boundaries address electric shock hazards. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S025",
+    "topic": "Approach Boundaries",
+    "question": "What must an arc flash label display regarding boundaries?",
+    "options": {
+      "A": "Only the shock approach distances",
+      "B": "Only the restricted approach boundary",
+      "C": "The arc flash boundary distance",
+      "D": "No boundary information is required on labels"
+    },
+    "answer": "C",
+    "explanation": "Arc flash labels must display the arc flash boundary distance (along with highest voltage, incident energy, and minimum arc rating for PPE), enabling workers to understand the safe approach distance.",
+    "standard": "both"
+  },
+  {
+    "id": "S026",
+    "topic": "Approach Boundaries",
+    "question": "A maintenance worker needs to read a meter on an energized panel. They have electrical awareness training only (not qualified). Can they approach to read the meter?",
+    "options": {
+      "A": "Yes, reading meters requires no restrictions",
+      "B": "Yes, if they wear rubber gloves",
+      "C": "Only if a qualified person escorts them and they stay outside the Restricted Approach Boundary",
+      "D": "Only if they stay outside the Limited Approach Boundary or are escorted by a qualified person"
+    },
+    "answer": "D",
+    "explanation": "An unqualified person may perform tasks near energized equipment only if they remain outside the Limited Approach Boundary or are continuously escorted by a qualified person.",
+    "standard": "both"
+  },
+  {
+    "id": "S027",
+    "topic": "Approach Boundaries",
+    "question": "Overhead power lines require which safety action per Workplace Safety Standards?",
+    "options": {
+      "A": "No special actions — overhead lines are insulated",
+      "B": "A JHA is required; de-energize and ground where applicable",
+      "C": "Workers must simply wear hard hats",
+      "D": "Standard clearance of 1 foot is sufficient for all voltages"
+    },
+    "answer": "B",
+    "explanation": "Workplace Safety Standards requires a JHA for any work near overhead power lines and states they should be de-energized and grounded where applicable before work proceeds.",
+    "standard": "workplace",
+    "text_nfpa": "Overhead power lines require which safety action per NFPA 70E Art.130?",
+    "options_nfpa": {
+      "A": "No special actions — overhead lines are insulated",
+      "B": "A JHA is required; de-energize and ground where applicable",
+      "C": "Workers must simply wear hard hats",
+      "D": "Standard clearance of 1 foot is sufficient for all voltages"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "NFPA 70E Art.130 requires a JHA for any work near overhead power lines and states they should be de-energized and grounded where applicable before work proceeds."
+  },
+  {
+    "id": "S028",
+    "topic": "Approach Boundaries",
+    "question": "Per NFPA 70E, a qualified person must be able to do which of the following?",
+    "options": {
+      "A": "Perform electrical work without any PPE if experienced enough",
+      "B": "Determine the nominal voltage, identify hazards, and select appropriate PPE",
+      "C": "Approve energized work for any voltage level",
+      "D": "Work on any energized equipment with verbal supervisor permission only"
+    },
+    "answer": "B",
+    "explanation": "A qualified person must be able to determine the nominal voltage of exposed live parts, identify the hazards involved, and select appropriate PPE and boundaries per NFPA 70E.",
+    "standard": "both"
+  },
+  {
+    "id": "S029",
+    "topic": "Approach Boundaries",
+    "question": "Why is it important to know the specific approach boundaries before beginning electrical work?",
+    "options": {
+      "A": "It determines which hard hat color to wear",
+      "B": "It defines the physical distances at which specific levels of shock and arc flash protection are needed, enabling proper PPE selection",
+      "C": "It is only relevant for work above 1000V",
+      "D": "It determines how long the work permit is valid"
+    },
+    "answer": "B",
+    "explanation": "Approach boundaries define the physical perimeters where specific electrical hazards exist. Knowing these distances enables workers to select correct PPE, determine who may enter the work zone, and take appropriate precautions.",
+    "standard": "both"
+  },
+  {
+    "id": "S030",
+    "topic": "Approach Boundaries",
+    "question": "Barricades are required near circuits operating at what minimum voltage?",
+    "options": {
+      "A": "120V AC",
+      "B": "50V AC and higher",
+      "C": "480V AC",
+      "D": "600V AC"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, barricades are required near circuits operating at 50V AC and higher to prevent unqualified persons from inadvertently entering the limited approach boundary.",
+    "standard": "workplace",
+    "text_nfpa": "Barricades are required near circuits operating at what minimum voltage?",
+    "options_nfpa": {
+      "A": "120V AC",
+      "B": "50V AC and higher",
+      "C": "480V AC",
+      "D": "600V AC"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per ASTM F1506, barricades are required near circuits operating at 50V AC and higher to prevent unqualified persons from inadvertently entering the limited approach boundary. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S031",
+    "topic": "Arc Flash Label Reading",
+    "question": "Which four pieces of information are required to appear on an arc flash warning label per Workplace Safety Standards?",
+    "options": {
+      "A": "Voltage, current, frequency, panel ID",
+      "B": "Highest voltage, arc flash boundary, incident energy, minimum arc rating of PPE",
+      "C": "Fault current, clearing time, conductor size, PPE color",
+      "D": "Panel name, circuit number, engineer signature, date"
+    },
+    "answer": "B",
+    "explanation": "Workplace Safety Standards states arc flash labels must show: (1) highest voltage present, (2) arc flash boundary distance, (3) incident energy in cal/cm², and (4) minimum arc rating required for PPE.",
+    "standard": "workplace",
+    "text_nfpa": "Which four pieces of information are required to appear on an arc flash warning label per NFPA 70E Art.130?",
+    "options_nfpa": {
+      "A": "Voltage, current, frequency, panel ID",
+      "B": "Highest voltage, arc flash boundary, incident energy, minimum arc rating of PPE",
+      "C": "Fault current, clearing time, conductor size, PPE color",
+      "D": "Panel name, circuit number, engineer signature, date"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "NFPA 70E Art.130 states arc flash labels must show: (1) highest voltage present, (2) arc flash boundary distance, (3) incident energy in cal/cm², and (4) minimum arc rating required for PPE."
+  },
+  {
+    "id": "S032",
+    "topic": "Arc Flash Label Reading",
+    "question": "An arc flash label reads: Incident Energy = 6.5 cal/cm². What is the minimum HRC category of PPE required?",
+    "options": {
+      "A": "HRC 0",
+      "B": "HRC 1",
+      "C": "HRC 2",
+      "D": "HRC 3"
+    },
+    "answer": "C",
+    "explanation": "HRC 2 covers incident energy from 4 to 8 cal/cm² (per Workplace Safety Standards). At 6.5 cal/cm², HRC 2 rated PPE is the minimum required. HRC 1 only covers up to 4 cal/cm².",
+    "standard": "workplace",
+    "text_nfpa": "An arc flash label reads: Incident Energy = 6.5 cal/cm². What is the minimum Arc Flash PPE Category category of PPE required?",
+    "options_nfpa": {
+      "A": "Arc Flash PPE Category 0",
+      "B": "Arc Flash PPE Category 1",
+      "C": "Arc Flash PPE Category 2",
+      "D": "Arc Flash PPE Category 3"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "Arc Flash PPE Category 2 covers incident energy from 4 to 8 cal/cm² (per NFPA 70E Art.130). At 6.5 cal/cm², Arc Flash PPE Category 2 rated PPE is the minimum required. Arc Flash PPE Category 1 only covers up to 4 cal/cm²."
+  },
+  {
+    "id": "S033",
+    "topic": "Arc Flash Label Reading",
+    "question": "What does the 'minimum arc rating' on an arc flash label represent?",
+    "options": {
+      "A": "The maximum voltage the panel can handle",
+      "B": "The cal/cm² rating that PPE must meet or exceed to provide adequate protection",
+      "C": "The minimum distance a worker must stand from the panel",
+      "D": "The overcurrent protection rating of the panel"
+    },
+    "answer": "B",
+    "explanation": "The minimum arc rating indicates the minimum cal/cm² value that PPE must be rated for at the working distance. Workers must wear PPE with an arc rating at or above this value.",
+    "standard": "both"
+  },
+  {
+    "id": "S034",
+    "topic": "Arc Flash Label Reading",
+    "question": "An arc flash label shows an incident energy of 32 cal/cm². What action should a worker take?",
+    "options": {
+      "A": "Proceed with standard HRC 3 PPE",
+      "B": "Proceed only if wearing HRC 4 PPE (25-40 cal/cm² range)",
+      "C": "Contact supervision — incident energy above 40 cal/cm² is prohibited but 32 cal/cm² is in HRC 4 range",
+      "D": "Energized work is prohibited at this level"
+    },
+    "answer": "B",
+    "explanation": "32 cal/cm² falls within the HRC 4 range (25-40 cal/cm²). The worker may proceed with full HRC 4 PPE. Work is only prohibited above 40 cal/cm².",
+    "standard": "workplace",
+    "text_nfpa": "An arc flash label shows an incident energy of 32 cal/cm². What action should a worker take?",
+    "options_nfpa": {
+      "A": "Proceed with standard Arc Flash PPE Category 3 PPE",
+      "B": "Proceed only if wearing Arc Flash PPE Category 4 PPE (25-40 cal/cm² range)",
+      "C": "Contact supervision — incident energy above 40 cal/cm² is prohibited but 32 cal/cm² is in Arc Flash PPE Category 4 range",
+      "D": "Energized work is prohibited at this level"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "32 cal/cm² falls within the Arc Flash PPE Category 4 range (25-40 cal/cm²). The worker may proceed with full Arc Flash PPE Category 4 PPE. Work is only prohibited above 40 cal/cm². (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S035",
+    "topic": "Arc Flash Label Reading",
+    "question": "Why must the highest voltage be displayed on an arc flash label?",
+    "options": {
+      "A": "To calculate the monthly electric bill",
+      "B": "To enable workers to select appropriate voltage-rated PPE (gloves, tools) and determine shock boundaries",
+      "C": "It is required only for government inspections",
+      "D": "To determine the color of the label"
+    },
+    "answer": "B",
+    "explanation": "The highest voltage on the label allows workers to select voltage-rated rubber gloves, insulated tools, and to reference the correct shock approach boundary distances for that voltage level.",
+    "standard": "both"
+  },
+  {
+    "id": "S036",
+    "topic": "Arc Flash Label Reading",
+    "question": "An arc flash label shows Arc Flash Boundary = 8 feet and Incident Energy = 12 cal/cm² at 18 inches. A worker plans to work at 3 feet. Which statement is correct?",
+    "options": {
+      "A": "Working at 3 feet is safe because it is less than 8 feet",
+      "B": "The worker must wear PPE rated for at least HRC 3 (8-25 cal/cm²) since they are within the arc flash boundary",
+      "C": "The worker can work at 3 feet with only safety glasses",
+      "D": "The incident energy at 3 feet will be higher than 12 cal/cm² since they are closer than 18 inches"
+    },
+    "answer": "B",
+    "explanation": "The worker is inside the 8-foot arc flash boundary, so arc-rated PPE is required. The minimum arc rating must match or exceed the incident energy at the actual working distance. At 3 feet (farther than 18 inches), energy is less than 12 cal/cm² but HRC 3 PPE (rated for the label values) provides adequate protection.",
+    "standard": "workplace",
+    "text_nfpa": "An arc flash label shows Arc Flash Boundary = 8 feet and Incident Energy = 12 cal/cm² at 18 inches. A worker plans to work at 3 feet. Which statement is correct?",
+    "options_nfpa": {
+      "A": "Working at 3 feet is safe because it is less than 8 feet",
+      "B": "The worker must wear PPE rated for at least Arc Flash PPE Category 3 (8-25 cal/cm²) since they are within the arc flash boundary",
+      "C": "The worker can work at 3 feet with only safety glasses",
+      "D": "The incident energy at 3 feet will be higher than 12 cal/cm² since they are closer than 18 inches"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "The worker is inside the 8-foot arc flash boundary, so arc-rated PPE is required. The minimum arc rating must match or exceed the incident energy at the actual working distance. At 3 feet (farther than 18 inches), energy is less than 12 cal/cm² but Arc Flash PPE Category 3 PPE (rated for the label values) provides adequate protection. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S037",
+    "topic": "Arc Flash Label Reading",
+    "question": "If an arc flash label is missing from required equipment, what should a worker do?",
+    "options": {
+      "A": "Proceed with work since the label is just informational",
+      "B": "Estimate the hazard and select any available PPE",
+      "C": "Treat the equipment as having the highest possible hazard level and do not perform energized work until a hazard analysis is completed and label is applied",
+      "D": "Call the equipment manufacturer for voltage information"
+    },
+    "answer": "C",
+    "explanation": "A missing arc flash label means the hazard level is unknown. Per NFPA 70E, equipment should be treated as having the maximum potential hazard and energized work should not proceed until a proper arc flash hazard analysis has been performed and a label applied.",
+    "standard": "both"
+  },
+  {
+    "id": "S038",
+    "topic": "Arc Flash Label Reading",
+    "question": "What is the significance of the 'arc flash boundary' distance on a label?",
+    "options": {
+      "A": "It marks where the voltage drops to zero",
+      "B": "It is the distance at which incident energy equals 1.2 cal/cm² — onset of a second-degree burn for unprotected skin",
+      "C": "It is the distance the panel door can swing open",
+      "D": "It marks the minimum distance for any electrical work"
+    },
+    "answer": "B",
+    "explanation": "The arc flash boundary marks the distance at which incident energy equals 1.2 cal/cm². Any person inside this boundary during an arc flash event without protection could receive a second-degree burn.",
+    "standard": "both"
+  },
+  {
+    "id": "S039",
+    "topic": "Arc Flash Label Reading",
+    "question": "Arc flash labels are required on which of the following based on Workplace Safety Standards?",
+    "options": {
+      "A": "Every electrical outlet in a facility",
+      "B": "Switchboards, panelboards, MCCs, and industrial control panels",
+      "C": "Only equipment rated above 600V",
+      "D": "Only equipment with a fault current above 10,000 amperes"
+    },
+    "answer": "B",
+    "explanation": "Workplace Safety Standards specifically requires arc flash labels on switchboards, panelboards, motor control centers (MCCs), and industrial control panels — locations where workers could be exposed to arc flash hazards during normal operations.",
+    "standard": "workplace",
+    "text_nfpa": "Arc flash labels are required on which of the following based on NFPA 70E Art.130?",
+    "options_nfpa": {
+      "A": "Every electrical outlet in a facility",
+      "B": "Switchboards, panelboards, MCCs, and industrial control panels",
+      "C": "Only equipment rated above 600V",
+      "D": "Only equipment with a fault current above 10,000 amperes"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "NFPA 70E Art.130 specifically requires arc flash labels on switchboards, panelboards, motor control centers (MCCs), and industrial control panels — locations where workers could be exposed to arc flash hazards during normal operations."
+  },
+  {
+    "id": "S040",
+    "topic": "Arc Flash Label Reading",
+    "question": "A label shows Incident Energy = 0.8 cal/cm². What HRC category applies?",
+    "options": {
+      "A": "HRC 1",
+      "B": "HRC 0",
+      "C": "HRC 2",
+      "D": "No PPE required at this level"
+    },
+    "answer": "B",
+    "explanation": "HRC Category 0 covers incident energy below 1.2 cal/cm². At 0.8 cal/cm², HRC 0 applies, which requires non-melting, flammable clothing but has the lowest arc-rated PPE requirements.",
+    "standard": "workplace",
+    "text_nfpa": "A label shows Incident Energy = 0.8 cal/cm². What Arc Flash PPE Category category applies?",
+    "options_nfpa": {
+      "A": "Arc Flash PPE Category 1",
+      "B": "Arc Flash PPE Category 0",
+      "C": "Arc Flash PPE Category 2",
+      "D": "No PPE required at this level"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Arc Flash PPE Category Category 0 covers incident energy below 1.2 cal/cm². At 0.8 cal/cm², Arc Flash PPE Category 0 applies, which requires non-melting, flammable clothing but has the lowest arc-rated PPE requirements. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S041",
+    "topic": "PPE & HRC Categories",
+    "question": "What is the incident energy range for HRC Category 1?",
+    "options": {
+      "A": "Less than 1.2 cal/cm²",
+      "B": "1.2 to 4 cal/cm²",
+      "C": "4 to 8 cal/cm²",
+      "D": "8 to 25 cal/cm²"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace Safety Standards, HRC Category 1 covers incident energy from 1.2 to 4 cal/cm². This requires arc-rated clothing with a minimum 4 cal/cm² arc rating.",
+    "standard": "workplace",
+    "text_nfpa": "What is the incident energy range for Arc Flash PPE Category Category 1?",
+    "options_nfpa": {
+      "A": "Less than 1.2 cal/cm²",
+      "B": "1.2 to 4 cal/cm²",
+      "C": "4 to 8 cal/cm²",
+      "D": "8 to 25 cal/cm²"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E Art.130, Arc Flash PPE Category Category 1 covers incident energy from 1.2 to 4 cal/cm². This requires arc-rated clothing with a minimum 4 cal/cm² arc rating."
+  },
+  {
+    "id": "S042",
+    "topic": "PPE & HRC Categories",
+    "question": "What is the incident energy range for HRC Category 2?",
+    "options": {
+      "A": "1.2 to 4 cal/cm²",
+      "B": "4 to 8 cal/cm²",
+      "C": "8 to 25 cal/cm²",
+      "D": "25 to 40 cal/cm²"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace Safety Standards, HRC Category 2 covers incident energy from 4 to 8 cal/cm². PPE must be rated at minimum 8 cal/cm².",
+    "standard": "workplace",
+    "text_nfpa": "What is the incident energy range for Arc Flash PPE Category Category 2?",
+    "options_nfpa": {
+      "A": "1.2 to 4 cal/cm²",
+      "B": "4 to 8 cal/cm²",
+      "C": "8 to 25 cal/cm²",
+      "D": "25 to 40 cal/cm²"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E Art.130, Arc Flash PPE Category Category 2 covers incident energy from 4 to 8 cal/cm². PPE must be rated at minimum 8 cal/cm²."
+  },
+  {
+    "id": "S043",
+    "topic": "PPE & HRC Categories",
+    "question": "What is the incident energy range for HRC Category 3?",
+    "options": {
+      "A": "4 to 8 cal/cm²",
+      "B": "8 to 25 cal/cm²",
+      "C": "25 to 40 cal/cm²",
+      "D": "Greater than 40 cal/cm²"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace Safety Standards, HRC Category 3 covers incident energy from 8 to 25 cal/cm². This requires a full arc flash suit system with a minimum arc rating of 25 cal/cm².",
+    "standard": "workplace",
+    "text_nfpa": "What is the incident energy range for Arc Flash PPE Category Category 3?",
+    "options_nfpa": {
+      "A": "4 to 8 cal/cm²",
+      "B": "8 to 25 cal/cm²",
+      "C": "25 to 40 cal/cm²",
+      "D": "Greater than 40 cal/cm²"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E Art.130, Arc Flash PPE Category Category 3 covers incident energy from 8 to 25 cal/cm². This requires a full arc flash suit system with a minimum arc rating of 25 cal/cm²."
+  },
+  {
+    "id": "S044",
+    "topic": "PPE & HRC Categories",
+    "question": "What is the incident energy range for HRC Category 4?",
+    "options": {
+      "A": "8 to 25 cal/cm²",
+      "B": "25 to 40 cal/cm²",
+      "C": "Greater than 40 cal/cm²",
+      "D": "40 to 100 cal/cm²"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace Safety Standards, HRC Category 4 covers incident energy from 25 to 40 cal/cm². This is the highest rated protection category; above 40 cal/cm², energized work is prohibited.",
+    "standard": "workplace",
+    "text_nfpa": "What is the incident energy range for Arc Flash PPE Category Category 4?",
+    "options_nfpa": {
+      "A": "8 to 25 cal/cm²",
+      "B": "25 to 40 cal/cm²",
+      "C": "Greater than 40 cal/cm²",
+      "D": "40 to 100 cal/cm²"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E Art.130, Arc Flash PPE Category Category 4 covers incident energy from 25 to 40 cal/cm². This is the highest rated protection category; above 40 cal/cm², energized work is prohibited."
+  },
+  {
+    "id": "S045",
+    "topic": "PPE & HRC Categories",
+    "question": "Which fabrics are PROHIBITED for electrical work due to melt-and-drip hazards?",
+    "options": {
+      "A": "Cotton and wool blends",
+      "B": "Acetate, nylon, polyester, and rayon unless arc-rated",
+      "C": "Denim and canvas",
+      "D": "Leather and rubber composites"
+    },
+    "answer": "B",
+    "explanation": "Workplace Safety Standards prohibits wearing acetate, nylon, polyester, and rayon fabrics during electrical work because these synthetic materials can melt and adhere to skin, dramatically worsening burn injuries. Unless these are arc-rated, they must not be worn.",
+    "standard": "workplace",
+    "text_nfpa": "Which fabrics are PROHIBITED for electrical work due to melt-and-drip hazards?",
+    "options_nfpa": {
+      "A": "Cotton and wool blends",
+      "B": "Acetate, nylon, polyester, and rayon unless arc-rated",
+      "C": "Denim and canvas",
+      "D": "Leather and rubber composites"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "NFPA 70E Art.130 prohibits wearing acetate, nylon, polyester, and rayon fabrics during electrical work because these synthetic materials can melt and adhere to skin, dramatically worsening burn injuries. Unless these are arc-rated, they must not be worn."
+  },
+  {
+    "id": "S046",
+    "topic": "PPE & HRC Categories",
+    "question": "Conductive apparel and jewelry are prohibited during electrical work because:",
+    "options": {
+      "A": "They may be damaged by the magnetic fields",
+      "B": "They can carry electrical current and create a path to ground through the body, causing severe burns or electrocution",
+      "C": "They are uncomfortable when wearing arc flash PPE",
+      "D": "They violate dress code only, not a safety issue"
+    },
+    "answer": "B",
+    "explanation": "Workplace Safety Standards prohibits conductive apparel (metal zippers, rings, watches, necklaces) during electrical work because they can conduct current, creating a path through the body and causing severe arc burn or electrocution injuries.",
+    "standard": "workplace",
+    "text_nfpa": "Conductive apparel and jewelry are prohibited during electrical work because:",
+    "options_nfpa": {
+      "A": "They may be damaged by the magnetic fields",
+      "B": "They can carry electrical current and create a path to ground through the body, causing severe burns or electrocution",
+      "C": "They are uncomfortable when wearing arc flash PPE",
+      "D": "They violate dress code only, not a safety issue"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "NFPA 70E Art.130 prohibits conductive apparel (metal zippers, rings, watches, necklaces) during electrical work because they can conduct current, creating a path through the body and causing severe arc burn or electrocution injuries."
+  },
+  {
+    "id": "S047",
+    "topic": "PPE & HRC Categories",
+    "question": "Arc flash protective clothing must comply with which standard per Workplace PPE Standards?",
+    "options": {
+      "A": "ASTM F-1506",
+      "B": "ANSI Z87.1",
+      "C": "ASTM D120",
+      "D": "IEC 900"
+    },
+    "answer": "A",
+    "explanation": "Per Workplace PPE Standards, arc flash clothing must comply with ASTM F-1506 and must be labeled with its cal/cm² arc rating to be considered arc-rated apparel.",
+    "standard": "workplace",
+    "text_nfpa": "Arc flash protective clothing must comply with which standard per ASTM F1506?",
+    "options_nfpa": {
+      "A": "ASTM F-1506",
+      "B": "ANSI Z87.1",
+      "C": "ASTM D120",
+      "D": "IEC 900"
+    },
+    "answer_nfpa": "A",
+    "explanation_nfpa": "Per ASTM F1506, arc flash clothing must comply with ASTM F-1506 and must be labeled with its cal/cm² arc rating to be considered arc-rated apparel. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S048",
+    "topic": "PPE & HRC Categories",
+    "question": "Safety shoes used during electrical work must bear what marking?",
+    "options": {
+      "A": "ASTM F2413 steel toe marking",
+      "B": "EH (Electrical Hazard) marking per ANSI Z41 Section 4",
+      "C": "HRC rating printed on the sole",
+      "D": "Voltage rating on the insole"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, safety shoes must bear the EH (Electrical Hazard) marking compliant with ANSI Z41 Section 4. Semi-conductive shoes are explicitly PROHIBITED.",
+    "standard": "workplace",
+    "text_nfpa": "Safety shoes used during electrical work must bear what marking?",
+    "options_nfpa": {
+      "A": "ASTM F2413 steel toe marking",
+      "B": "EH (Electrical Hazard) marking per ANSI Z41 Section 4",
+      "C": "Arc Flash PPE Category rating printed on the sole",
+      "D": "Voltage rating on the insole"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per ASTM F1506, safety shoes must bear the EH (Electrical Hazard) marking compliant with ANSI Z41 Section 4. Semi-conductive shoes are explicitly PROHIBITED. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S049",
+    "topic": "PPE & HRC Categories",
+    "question": "Hard hats used for electrical work must meet which specification?",
+    "options": {
+      "A": "ANSI Z89.1 Class A, tested at 10KV",
+      "B": "ANSI Z89.1 Class B, tested at 20KV RMS for 3 minutes",
+      "C": "ANSI Z89.1 Class G, tested at 2.2KV",
+      "D": "Any ANSI-rated hard hat"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, hard hats for electrical work must meet ANSI Z89.1 Class B, which is tested at 20KV RMS for 3 minutes — the highest electrical protection class for head protection.",
+    "standard": "workplace",
+    "text_nfpa": "Hard hats used for electrical work must meet which specification?",
+    "options_nfpa": {
+      "A": "ANSI Z89.1 Class A, tested at 10KV",
+      "B": "ANSI Z89.1 Class B, tested at 20KV RMS for 3 minutes",
+      "C": "ANSI Z89.1 Class G, tested at 2.2KV",
+      "D": "Any ANSI-rated hard hat"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per ASTM F1506, hard hats for electrical work must meet ANSI Z89.1 Class B, which is tested at 20KV RMS for 3 minutes — the highest electrical protection class for head protection. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S050",
+    "topic": "PPE & HRC Categories",
+    "question": "What standard must voltage-rated rubber gloves meet per Workplace PPE Standards?",
+    "options": {
+      "A": "ANSI Z41",
+      "B": "ASTM F 4696, ASTM D120, or ASTM F 496",
+      "C": "IEC 900 only",
+      "D": "NFPA 2112"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, voltage-rated rubber gloves must meet ASTM F 4696, ASTM D120, or ASTM F 496 standards to ensure adequate dielectric protection.",
+    "standard": "workplace",
+    "text_nfpa": "What standard must voltage-rated rubber gloves meet per ASTM F1506?",
+    "options_nfpa": {
+      "A": "ANSI Z41",
+      "B": "ASTM F 4696, ASTM D120, or ASTM F 496",
+      "C": "IEC 900 only",
+      "D": "NFPA 2112"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per ASTM F1506, voltage-rated rubber gloves must meet ASTM F 4696, ASTM D120, or ASTM F 496 standards to ensure adequate dielectric protection. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S051",
+    "topic": "PPE & HRC Categories",
+    "question": "Safety glasses used during electrical work must meet which standard?",
+    "options": {
+      "A": "ANSI Z49.1",
+      "B": "ANSI Z87.1 with non-metallic/plastic frames",
+      "C": "OSHA 29 CFR 1910.135",
+      "D": "ASTM F2413"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, safety glasses must be ANSI Z87.1 compliant with non-metallic (plastic encapsulated) frames to prevent electrical conductivity near energized equipment.",
+    "standard": "workplace",
+    "text_nfpa": "Safety glasses used during electrical work must meet which standard?",
+    "options_nfpa": {
+      "A": "ANSI Z49.1",
+      "B": "ANSI Z87.1 with non-metallic/plastic frames",
+      "C": "OSHA 29 CFR 1910.135",
+      "D": "ASTM F2413"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per ASTM F1506, safety glasses must be ANSI Z87.1 compliant with non-metallic (plastic encapsulated) frames to prevent electrical conductivity near energized equipment. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S052",
+    "topic": "PPE & HRC Categories",
+    "question": "When must shaded lens safety glasses NOT be worn?",
+    "options": {
+      "A": "When working with 480V equipment",
+      "B": "Indoors or after sunset",
+      "C": "When wearing arc flash PPE",
+      "D": "When using insulated tools"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, shaded lens safety glasses must not be worn indoors or after sunset because they reduce visibility to unsafe levels in those lighting conditions.",
+    "standard": "workplace",
+    "text_nfpa": "When must shaded lens safety glasses NOT be worn?",
+    "options_nfpa": {
+      "A": "When working with 480V equipment",
+      "B": "Indoors or after sunset",
+      "C": "When wearing arc flash PPE",
+      "D": "When using insulated tools"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E 130.7, shaded lens safety glasses must not be worn indoors or after sunset because they reduce visibility to unsafe levels in those lighting conditions."
+  },
+  {
+    "id": "S053",
+    "topic": "PPE & HRC Categories",
+    "question": "Safety glasses must be worn in what position when using a face shield or arc flash hood?",
+    "options": {
+      "A": "Removed — the face shield provides sufficient protection",
+      "B": "Always worn UNDER face shields or hoods as secondary eye protection",
+      "C": "Worn on top of the face shield",
+      "D": "Optional when wearing a full arc suit"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, safety glasses must always be worn UNDER face shields or arc flash hoods, not removed. They provide secondary protection if the primary shield is compromised.",
+    "standard": "workplace",
+    "text_nfpa": "Safety glasses must be worn in what position when using a face shield or arc flash hood?",
+    "options_nfpa": {
+      "A": "Removed — the face shield provides sufficient protection",
+      "B": "Always worn UNDER face shields or hoods as secondary eye protection",
+      "C": "Worn on top of the face shield",
+      "D": "Optional when wearing a full arc suit"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E 130.7, safety glasses must always be worn UNDER face shields or arc flash hoods, not removed. They provide secondary protection if the primary shield is compromised."
+  },
+  {
+    "id": "S054",
+    "topic": "PPE & HRC Categories",
+    "question": "Hairnets and beard nets worn during electrical work must have which property?",
+    "options": {
+      "A": "They must be static-dissipative",
+      "B": "They must be non-melting and arc-rated",
+      "C": "They must be made of cotton only",
+      "D": "No requirements apply to hairnets"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, hairnets and beard nets must be non-melting and arc-rated. Synthetic non-rated hairnets could melt and cause additional injury during an arc flash event.",
+    "standard": "workplace",
+    "text_nfpa": "Hairnets and beard nets worn during electrical work must have which property?",
+    "options_nfpa": {
+      "A": "They must be static-dissipative",
+      "B": "They must be non-melting and arc-rated",
+      "C": "They must be made of cotton only",
+      "D": "No requirements apply to hairnets"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per ASTM F1506, hairnets and beard nets must be non-melting and arc-rated. Synthetic non-rated hairnets could melt and cause additional injury during an arc flash event. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S055",
+    "topic": "PPE & HRC Categories",
+    "question": "Non-conductive ladders must comply with which standards per Workplace PPE Standards?",
+    "options": {
+      "A": "OSHA 29 CFR 1926.1053",
+      "B": "ANSI A14.1 and A14.5",
+      "C": "ASTM F2413",
+      "D": "ANSI Z89.1"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, non-conductive ladders must comply with ANSI A14.1 (wood ladders) and ANSI A14.5 (fiberglass ladders) standards, and must be kept free of conductive process materials.",
+    "standard": "workplace",
+    "text_nfpa": "Non-conductive ladders must comply with which standards per ASTM F1506?",
+    "options_nfpa": {
+      "A": "OSHA 29 CFR 1926.1053",
+      "B": "ANSI A14.1 and A14.5",
+      "C": "ASTM F2413",
+      "D": "ANSI Z89.1"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per ASTM F1506, non-conductive ladders must comply with ANSI A14.1 (wood ladders) and ANSI A14.5 (fiberglass ladders) standards, and must be kept free of conductive process materials. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S056",
+    "topic": "PPE & HRC Categories",
+    "question": "Fuse holders used in electrical work must be made of:",
+    "options": {
+      "A": "Metal with painted insulation",
+      "B": "Fully insulated high-impact nylon or glass-filled polypropylene",
+      "C": "Any material rated for the circuit voltage",
+      "D": "Aluminum with rubber coating"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, fuse holders must be fully insulated and made of high-impact nylon or glass-filled polypropylene to prevent accidental contact with energized conductors during fuse replacement.",
+    "standard": "workplace",
+    "text_nfpa": "Fuse holders used in electrical work must be made of:",
+    "options_nfpa": {
+      "A": "Metal with painted insulation",
+      "B": "Fully insulated high-impact nylon or glass-filled polypropylene",
+      "C": "Any material rated for the circuit voltage",
+      "D": "Aluminum with rubber coating"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per ASTM F1506, fuse holders must be fully insulated and made of high-impact nylon or glass-filled polypropylene to prevent accidental contact with energized conductors during fuse replacement. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S057",
+    "topic": "PPE & HRC Categories",
+    "question": "Portable cord and plug equipment used near electrical hazards must have what type of connectors per Workplace Safety Standards?",
+    "options": {
+      "A": "Standard twist-lock connectors",
+      "B": "Locking-type connectors; prohibited in wet conditions",
+      "C": "Standard straight-blade connectors are acceptable",
+      "D": "Only extension cord adapters with GFCI"
+    },
+    "answer": "B",
+    "explanation": "Workplace Safety Standards requires locking-type connectors on portable cord and plug equipment to prevent accidental disconnection, and all such equipment is prohibited in wet conditions.",
+    "standard": "workplace",
+    "text_nfpa": "Portable cord and plug equipment used near electrical hazards must have what type of connectors per NFPA 70E Art.130?",
+    "options_nfpa": {
+      "A": "Standard twist-lock connectors",
+      "B": "Locking-type connectors; prohibited in wet conditions",
+      "C": "Standard straight-blade connectors are acceptable",
+      "D": "Only extension cord adapters with GFCI"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "NFPA 70E Art.130 requires locking-type connectors on portable cord and plug equipment to prevent accidental disconnection, and all such equipment is prohibited in wet conditions."
+  },
+  {
+    "id": "S058",
+    "topic": "PPE & HRC Categories",
+    "question": "An arc flash suit is being inspected and shows signs of contamination and deterioration. What action is required?",
+    "options": {
+      "A": "Clean it with bleach solution and return to service",
+      "B": "Remove it from service immediately",
+      "C": "It can continue to be used if the damage is minor",
+      "D": "Re-rate it to a lower HRC category and continue use"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, arc flash protective apparel showing damage, deterioration, or contamination must be removed from service immediately. Clothing without a valid arc rating must also be removed.",
+    "standard": "workplace",
+    "text_nfpa": "An arc flash suit is being inspected and shows signs of contamination and deterioration. What action is required?",
+    "options_nfpa": {
+      "A": "Clean it with bleach solution and return to service",
+      "B": "Remove it from service immediately",
+      "C": "It can continue to be used if the damage is minor",
+      "D": "Re-rate it to a lower Arc Flash PPE Category category and continue use"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E 130.7, arc flash protective apparel showing damage, deterioration, or contamination must be removed from service immediately. Clothing without a valid arc rating must also be removed."
+  },
+  {
+    "id": "S059",
+    "topic": "PPE & HRC Categories",
+    "question": "How must arc flash protective clothing be laundered?",
+    "options": {
+      "A": "Dry clean only",
+      "B": "Machine wash with bleach to remove contamination",
+      "C": "Mild soap only, NO bleach, machine dry on low heat",
+      "D": "Hand wash only with hot water"
+    },
+    "answer": "C",
+    "explanation": "Per Workplace PPE Standards, arc flash apparel must be laundered with mild soap only, NO bleach (bleach degrades arc-rated fibers), and machine dried on low heat to preserve the fabric's arc protection properties.",
+    "standard": "workplace",
+    "text_nfpa": "How must arc flash protective clothing be laundered?",
+    "options_nfpa": {
+      "A": "Dry clean only",
+      "B": "Machine wash with bleach to remove contamination",
+      "C": "Mild soap only, NO bleach, machine dry on low heat",
+      "D": "Hand wash only with hot water"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "Per NFPA 70E 130.7, arc flash apparel must be laundered with mild soap only, NO bleach (bleach degrades arc-rated fibers), and machine dried on low heat to preserve the fabric's arc protection properties."
+  },
+  {
+    "id": "S060",
+    "topic": "PPE & HRC Categories",
+    "question": "Safety signs and tags at electrical work sites must comply with:",
+    "options": {
+      "A": "OSHA 29 CFR 1910.145 only",
+      "B": "ANSI Z535",
+      "C": "NFPA 70 Article 110",
+      "D": "ASTM F1506"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, safety signs and tags at electrical work sites must comply with ANSI Z535, which establishes standardized color coding and hazard signal words for safety communications.",
+    "standard": "workplace",
+    "text_nfpa": "Safety signs and tags at electrical work sites must comply with:",
+    "options_nfpa": {
+      "A": "OSHA 29 CFR 1910.145 only",
+      "B": "ANSI Z535",
+      "C": "NFPA 70 Article 110",
+      "D": "ASTM F1506"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per ASTM F1506, safety signs and tags at electrical work sites must comply with ANSI Z535, which establishes standardized color coding and hazard signal words for safety communications. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S061",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "What is Step 1 of the Workplace Safety Standards LOTOTO procedure?",
+    "options": {
+      "A": "Shut down the equipment",
+      "B": "Apply lockout devices",
+      "C": "Identify all energy sources",
+      "D": "Notify affected employees"
+    },
+    "answer": "C",
+    "explanation": "Step 1 of the 8-step LOTOTO procedure from Workplace Safety Standards is to identify ALL energy sources associated with the equipment — electrical, hydraulic, pneumatic, mechanical, thermal, chemical, and gravity.",
+    "standard": "workplace",
+    "text_nfpa": "What is Step 1 of the NFPA 70E Art.120 Lockout/Tagout (LOTO) procedure?",
+    "options_nfpa": {
+      "A": "Shut down the equipment",
+      "B": "Apply lockout devices",
+      "C": "Identify all energy sources",
+      "D": "Notify affected employees"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "Step 1 of the 7-step Lockout/Tagout (LOTO) procedure from NFPA 70E Art.120 is to identify ALL energy sources associated with the equipment — electrical, hydraulic, pneumatic, mechanical, thermal, chemical, and gravity."
+  },
+  {
+    "id": "S062",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "What is Step 2 of the Workplace Safety Standards LOTOTO procedure?",
+    "options": {
+      "A": "Isolate all energy sources",
+      "B": "Notify affected employees",
+      "C": "Verify isolation (Tryout)",
+      "D": "Release stored energy"
+    },
+    "answer": "B",
+    "explanation": "Step 2 of the LOTOTO procedure is to notify affected employees who operate or work in the area of the equipment being locked out, so they are aware work is being performed.",
+    "standard": "workplace",
+    "text_nfpa": "What is Step 2 of the NFPA 70E Art.120 Lockout/Tagout (LOTO) procedure?",
+    "options_nfpa": {
+      "A": "Isolate all energy sources",
+      "B": "Notify affected employees",
+      "C": "Verify isolation (Tryout)",
+      "D": "Release stored energy"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Step 2 of the Lockout/Tagout (LOTO) procedure is to notify affected employees who operate or work in the area of the equipment being locked out, so they are aware work is being performed. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S063",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "What is Step 3 of the Workplace Safety Standards LOTOTO procedure?",
+    "options": {
+      "A": "Apply lockout/tagout devices",
+      "B": "Identify all energy sources",
+      "C": "Shut down equipment using normal stopping procedure",
+      "D": "Perform the maintenance work"
+    },
+    "answer": "C",
+    "explanation": "Step 3 is to shut down the equipment using the normal stopping procedure (e.g., pressing stop button, following standard shutdown sequence) before isolating energy sources.",
+    "standard": "workplace",
+    "text_nfpa": "What is Step 3 of the NFPA 70E Art.120 Lockout/Tagout (LOTO) procedure?",
+    "options_nfpa": {
+      "A": "Apply lockout/tagout devices",
+      "B": "Identify all energy sources",
+      "C": "Shut down equipment using normal stopping procedure",
+      "D": "Perform the maintenance work"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "Step 3 is to shut down the equipment using the normal stopping procedure (e.g., pressing stop button, following standard shutdown sequence) before isolating energy sources. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S064",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "What is Step 4 of the Workplace Safety Standards LOTOTO procedure?",
+    "options": {
+      "A": "Release or restrain stored energy",
+      "B": "Verify isolation",
+      "C": "Isolate all energy sources",
+      "D": "Notify affected employees"
+    },
+    "answer": "C",
+    "explanation": "Step 4 is to isolate all energy sources by operating all disconnects, valves, and other energy-isolating devices to the safe (de-energized) position.",
+    "standard": "workplace",
+    "text_nfpa": "What is Step 4 of the NFPA 70E Art.120 Lockout/Tagout (LOTO) procedure?",
+    "options_nfpa": {
+      "A": "Release or restrain stored energy",
+      "B": "Verify isolation",
+      "C": "Isolate all energy sources",
+      "D": "Notify affected employees"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "Step 4 is to isolate all energy sources by operating all disconnects, valves, and other energy-isolating devices to the safe (de-energized) position. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S065",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "What is Step 5 of the Workplace Safety Standards LOTOTO procedure?",
+    "options": {
+      "A": "Release or restrain stored energy",
+      "B": "Apply lockout/tagout devices to all energy isolating devices",
+      "C": "Verify isolation by attempting to start",
+      "D": "Perform the maintenance work"
+    },
+    "answer": "B",
+    "explanation": "Step 5 is to apply lockout and tagout devices to every energy-isolating device. Each authorized associate applies their own personal lock, ensuring the equipment cannot be re-energized by anyone else.",
+    "standard": "workplace",
+    "text_nfpa": "What is Step 5 of the NFPA 70E Art.120 Lockout/Tagout (LOTO) procedure?",
+    "options_nfpa": {
+      "A": "Release or restrain stored energy",
+      "B": "Apply lockout/tagout devices to all energy isolating devices",
+      "C": "Verify isolation by attempting to start",
+      "D": "Perform the maintenance work"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Step 5 is to apply lockout and tagout devices to every energy-isolating device. Each authorized associate applies their own personal lock, ensuring the equipment cannot be re-energized by anyone else. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S066",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "What is Step 6 of the Workplace Safety Standards LOTOTO procedure?",
+    "options": {
+      "A": "Apply lockout/tagout devices",
+      "B": "Notify affected employees",
+      "C": "Release or restrain stored energy (capacitors, springs, gravity)",
+      "D": "Shut down equipment"
+    },
+    "answer": "C",
+    "explanation": "Step 6 is to release or restrain stored energy. After isolating energy sources, residual energy must be dissipated or restrained — capacitors discharged, springs blocked, elevated components lowered or secured.",
+    "standard": "workplace",
+    "text_nfpa": "What is Step 6 of the NFPA 70E Art.120 Lockout/Tagout (LOTO) procedure?",
+    "options_nfpa": {
+      "A": "Apply lockout/tagout devices",
+      "B": "Notify affected employees",
+      "C": "Release or restrain stored energy (capacitors, springs, gravity)",
+      "D": "Shut down equipment"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "Step 6 is to release or restrain stored energy. After isolating energy sources, residual energy must be dissipated or restrained — capacitors discharged, springs blocked, elevated components lowered or secured. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S067",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "What is Step 7 of the Workplace Safety Standards LOTOTO procedure?",
+    "options": {
+      "A": "Apply lockout devices",
+      "B": "Notify affected employees",
+      "C": "Verify isolation — attempt to start the equipment (Tryout)",
+      "D": "Perform the maintenance work"
+    },
+    "answer": "C",
+    "explanation": "Step 7 is the Tryout — attempt to start the equipment using normal controls to verify it cannot be energized. This confirms the lockout is effective before work begins.",
+    "standard": "workplace",
+    "text_nfpa": "What is Step 7 of the NFPA 70E Art.120 Lockout/Tagout (LOTO) procedure?",
+    "options_nfpa": {
+      "A": "Apply lockout devices",
+      "B": "Notify affected employees",
+      "C": "Verify isolation — attempt to start the equipment (Tryout)",
+      "D": "Perform the maintenance work"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "Step 7 is the Tryout — attempt to start the equipment using normal controls to verify it cannot be energized. This confirms the lockout is effective before work begins. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S068",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "What is Step 8 of the Workplace Safety Standards LOTOTO procedure?",
+    "options": {
+      "A": "Release stored energy",
+      "B": "Perform the maintenance work",
+      "C": "Remove lockout devices",
+      "D": "Notify supervision that LOTO is applied"
+    },
+    "answer": "B",
+    "explanation": "Step 8 is to perform the authorized maintenance or service work. All previous 7 steps must be completed in order before any work begins on the equipment.",
+    "standard": "workplace",
+    "text_nfpa": "What is Step 8 of the NFPA 70E Art.120 Lockout/Tagout (LOTO) procedure?",
+    "options_nfpa": {
+      "A": "Release stored energy",
+      "B": "Perform the maintenance work",
+      "C": "Remove lockout devices",
+      "D": "Notify supervision that LOTO is applied"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Step 8 is to perform the authorized maintenance or service work. All previous 7 steps must be completed in order before any work begins on the equipment. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S069",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "What color must all lockout locks be per Workplace Safety Standards?",
+    "options": {
+      "A": "Yellow",
+      "B": "Orange",
+      "C": "Red",
+      "D": "Blue"
+    },
+    "answer": "C",
+    "explanation": "Workplace Safety Standards requires all lockout locks to be RED for immediate visual identification as a lockout lock. Only Master Locks or American Locks are permitted.",
+    "standard": "workplace",
+    "text_nfpa": "What color must all lockout locks be per NFPA 70E Art.120?",
+    "options_nfpa": {
+      "A": "Yellow",
+      "B": "Orange",
+      "C": "Red",
+      "D": "Blue"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "NFPA 70E Art.120 requires all lockout locks to be RED for immediate visual identification as a lockout lock. Only listed lockout devices or listed lockout devices are permitted."
+  },
+  {
+    "id": "S070",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "Per Workplace Safety Standards, which lock brands are approved for LOTOTO use?",
+    "options": {
+      "A": "Any padlock rated for outdoor use",
+      "B": "Master Lock or American Lock only",
+      "C": "Any red padlock purchased from a hardware store",
+      "D": "Yale and Schlage locks only"
+    },
+    "answer": "B",
+    "explanation": "Workplace Safety Standards specifically permits only Master Locks or American Locks for LOTOTO. These brands meet the required security standards and key control requirements.",
+    "standard": "workplace",
+    "text_nfpa": "Per NFPA 70E Art.120, which lock brands are approved for Lockout/Tagout (LOTO) use?",
+    "options_nfpa": {
+      "A": "Any padlock rated for outdoor use",
+      "B": "listed lockout device or listed lockout device only",
+      "C": "Any red padlock purchased from a hardware store",
+      "D": "Yale and Schlage locks only"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "NFPA 70E Art.120 specifically permits only listed lockout devices or listed lockout devices for Lockout/Tagout (LOTO). These brands meet the required security standards and key control requirements."
+  },
+  {
+    "id": "S071",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "Per Workplace Safety Standards, how many keys are permitted per LOTOTO lock?",
+    "options": {
+      "A": "Two — one for the worker and one for their supervisor",
+      "B": "One key per associate only — never shared",
+      "C": "Three — worker, supervisor, and safety department",
+      "D": "No limit as long as a log is maintained"
+    },
+    "answer": "B",
+    "explanation": "Workplace Safety Standards requires one key per associate for their personal lockout lock, and that key is never shared. This ensures that only the person who applied the lock can remove it, preventing unauthorized re-energization.",
+    "standard": "workplace",
+    "text_nfpa": "Per NFPA 70E Art.120, how many keys are permitted per Lockout/Tagout (LOTO) lock?",
+    "options_nfpa": {
+      "A": "Two — one for the worker and one for their supervisor",
+      "B": "One key per associate only — never shared",
+      "C": "Three — worker, supervisor, and safety department",
+      "D": "No limit as long as a log is maintained"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "NFPA 70E Art.120 requires one key per associate for their personal lockout lock, and that key is never shared. This ensures that only the person who applied the lock can remove it, preventing unauthorized re-energization."
+  },
+  {
+    "id": "S072",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "LOTOTO tags per Workplace Safety Standards must be:",
+    "options": {
+      "A": "Paper tags with the machine name only",
+      "B": "Laminated with space for the associate's name and date",
+      "C": "Any available tag from the parts room",
+      "D": "Red tags with a caution symbol only"
+    },
+    "answer": "B",
+    "explanation": "Workplace Safety Standards requires LOTOTO tags to be laminated (for durability) with space for the associate's name and date of application, providing clear accountability for who applied the lockout.",
+    "standard": "workplace",
+    "text_nfpa": "Lockout/Tagout (LOTO) tags per NFPA 70E Art.120 must be:",
+    "options_nfpa": {
+      "A": "Paper tags with the machine name only",
+      "B": "Laminated with space for the associate's name and date",
+      "C": "Any available tag from the parts room",
+      "D": "Red tags with a caution symbol only"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "NFPA 70E Art.120 requires Lockout/Tagout (LOTO) tags to be laminated (for durability) with space for the associate's name and date of application, providing clear accountability for who applied the lockout."
+  },
+  {
+    "id": "S073",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "Under the Facility Service Model in Workplace Safety Standards, Level 4 service requires:",
+    "options": {
+      "A": "No LOTOTO required",
+      "B": "Limited LOTOTO only",
+      "C": "Category 3 interlocks",
+      "D": "Full HECP Section D compliance — comprehensive LOTOTO"
+    },
+    "answer": "D",
+    "explanation": "Facility Service Level 4 service involves the most complex maintenance tasks and requires full HECP Section D compliance with comprehensive lockout/tagout procedures covering all energy sources.",
+    "standard": "workplace",
+    "text_nfpa": "Under the Simple/Complex Lockout in NFPA 70E Art.120, Level 4 service requires:",
+    "options_nfpa": {
+      "A": "No Lockout/Tagout (LOTO) required",
+      "B": "Limited Lockout/Tagout (LOTO) only",
+      "C": "Category 3 interlocks",
+      "D": "Full HECP Section D compliance — comprehensive Lockout/Tagout (LOTO)"
+    },
+    "answer_nfpa": "D",
+    "explanation_nfpa": "Simple/Complex Lockout Level 4 service involves the most complex maintenance tasks and requires full HECP Section D compliance with comprehensive lockout/tagout procedures covering all energy sources. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S074",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "Authorized Associates performing LOTOTO must complete Machine Safety Awareness training every:",
+    "options": {
+      "A": "6 months",
+      "B": "1 year",
+      "C": "2 years",
+      "D": "5 years"
+    },
+    "answer": "C",
+    "explanation": "Per Workplace Safety Standards, Authorized Associates must complete Machine Safety Awareness training every 2 years, and must read all applicable HECPs and complete machine-specific hands-on training before working.",
+    "standard": "workplace",
+    "text_nfpa": "Authorized Associates performing Lockout/Tagout (LOTO) must complete Machine Safety Awareness training every:",
+    "options_nfpa": {
+      "A": "6 months",
+      "B": "1 year",
+      "C": "2 years",
+      "D": "5 years"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "Per NFPA 70E Art.120, Authorized Associates must complete Machine Safety Awareness training every 2 years, and must read all applicable HECPs and complete machine-specific hands-on training before working."
+  },
+  {
+    "id": "S075",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "Equipment-specific Hazardous Energy Control Procedures (HECPs) are required for:",
+    "options": {
+      "A": "Only equipment above 480V",
+      "B": "Every machine in the facility",
+      "C": "Only machines with hydraulic energy",
+      "D": "Only machines that have caused past injuries"
+    },
+    "answer": "B",
+    "explanation": "Workplace Safety Standards requires equipment-specific HECPs for every machine. These procedures document all energy sources and the exact steps to safely de-energize each specific piece of equipment.",
+    "standard": "workplace",
+    "text_nfpa": "Equipment-specific Hazardous Energy Control Procedures (HECPs) are required for:",
+    "options_nfpa": {
+      "A": "Only equipment above 480V",
+      "B": "Every machine in the facility",
+      "C": "Only machines with hydraulic energy",
+      "D": "Only machines that have caused past injuries"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "NFPA 70E Art.120 requires equipment-specific HECPs for every machine. These procedures document all energy sources and the exact steps to safely de-energize each specific piece of equipment."
+  },
+  {
+    "id": "S076",
+    "topic": "Energized Work Permits",
+    "question": "Per NFPA 70E, when is an Energized Electrical Work Permit required?",
+    "options": {
+      "A": "Only for work above 1000V",
+      "B": "When the task cannot be performed in a de-energized state and there is exposure to energized electrical conductors or circuit parts above 50V",
+      "C": "Only when a lockout has failed",
+      "D": "For all electrical work regardless of voltage"
+    },
+    "answer": "B",
+    "explanation": "An Energized Electrical Work Permit is required when work must be performed on or near exposed energized electrical conductors or circuit parts above 50V, and the task cannot be performed de-energized.",
+    "standard": "both"
+  },
+  {
+    "id": "S077",
+    "topic": "Energized Work Permits",
+    "question": "Who must approve an Energized Electrical Work Permit?",
+    "options": {
+      "A": "The electrician performing the work",
+      "B": "Any available supervisor on shift",
+      "C": "A qualified person in management or supervision responsible for the work",
+      "D": "The facility safety coordinator only"
+    },
+    "answer": "C",
+    "explanation": "Per NFPA 70E, Energized Work Permits must be approved by a qualified person in management or supervision — someone with responsibility for the work and knowledge of the electrical hazards involved.",
+    "standard": "both"
+  },
+  {
+    "id": "S078",
+    "topic": "Energized Work Permits",
+    "question": "Which of the following tasks typically does NOT require an Energized Work Permit?",
+    "options": {
+      "A": "Replacing a fuse in an energized panel",
+      "B": "Infrared thermography inspection with covers in place (diagnostics)",
+      "C": "Tightening terminations in an energized MCC",
+      "D": "Probing an energized bus bar"
+    },
+    "answer": "B",
+    "explanation": "Diagnostics like infrared thermography performed from outside the arc flash boundary with equipment covers in place does not require an energized work permit because there is no exposure to energized parts.",
+    "standard": "both"
+  },
+  {
+    "id": "S079",
+    "topic": "Energized Work Permits",
+    "question": "A Job Hazard Analysis (JHA) for energized work must identify:",
+    "options": {
+      "A": "Only the voltage level of the circuit",
+      "B": "Hazards present, controls to be used, PPE required, and the justification for doing the work energized",
+      "C": "Only the PPE required",
+      "D": "Only the name of the qualified person performing the work"
+    },
+    "answer": "B",
+    "explanation": "A JHA for energized work must comprehensively identify: all hazards present, controls to be applied (engineering and administrative), required PPE, and justification for why the work must be performed energized rather than de-energized.",
+    "standard": "both"
+  },
+  {
+    "id": "S080",
+    "topic": "Energized Work Permits",
+    "question": "What is the primary reason work should be performed de-energized (rather than energized) whenever possible?",
+    "options": {
+      "A": "De-energized work is faster",
+      "B": "Establishing an electrically safe work condition eliminates the electrical hazard entirely — the highest level of the JHA hierarchy",
+      "C": "Insurance requirements mandate de-energized work",
+      "D": "De-energized work does not require any PPE"
+    },
+    "answer": "B",
+    "explanation": "Per the JHA hierarchy of controls, elimination is the highest priority. Creating an electrically safe work condition (de-energizing) eliminates the hazard entirely, making all energized work PPE and boundaries unnecessary.",
+    "standard": "both"
+  },
+  {
+    "id": "S081",
+    "topic": "Energized Work Permits",
+    "question": "An Energized Work Permit must document which information?",
+    "options": {
+      "A": "Equipment description, voltage level, and available fault current only",
+      "B": "Description of work, voltage, incident energy, PPE required, boundaries, justification for energized work, and approvals",
+      "C": "Worker names and shift times only",
+      "D": "Equipment model number and purchase date"
+    },
+    "answer": "B",
+    "explanation": "An Energized Work Permit must comprehensively document: the work to be performed, voltage levels, incident energy, PPE requirements, approach boundaries, justification for energized work, and all required signatures and approvals.",
+    "standard": "both"
+  },
+  {
+    "id": "S082",
+    "topic": "Energized Work Permits",
+    "question": "Working on or near energized conductors with exposed energized parts is considered:",
+    "options": {
+      "A": "Standard maintenance work requiring only awareness training",
+      "B": "Energized electrical work — subject to all NFPA 70E hazard controls",
+      "C": "Acceptable at any voltage if a supervisor is present",
+      "D": "Only hazardous above 277V"
+    },
+    "answer": "B",
+    "explanation": "Per NFPA 70E, any work performed on or near exposed energized electrical conductors or circuit parts constitutes energized electrical work, regardless of voltage level, and is subject to all associated hazard controls.",
+    "standard": "both"
+  },
+  {
+    "id": "S083",
+    "topic": "Energized Work Permits",
+    "question": "What must be established before any maintenance work on electrical equipment according to NFPA 70E?",
+    "options": {
+      "A": "A verbal agreement with the supervisor",
+      "B": "An Electrically Safe Work Condition — unless an Energized Work Permit justifies otherwise",
+      "C": "A standard work order",
+      "D": "Only PPE selection"
+    },
+    "answer": "B",
+    "explanation": "NFPA 70E establishes that an Electrically Safe Work Condition must be established before electrical maintenance begins. Energized work is the exception and requires a formal permit justifying why de-energizing is not feasible.",
+    "standard": "both"
+  },
+  {
+    "id": "S084",
+    "topic": "Qualified Person Rules",
+    "question": "Per NFPA 70E, a 'Qualified Person' is defined as:",
+    "options": {
+      "A": "Any person who holds an electrician's license",
+      "B": "A person who has demonstrated skills and knowledge related to the construction and operation of electrical equipment and has received training to recognize and avoid electrical hazards",
+      "C": "Any person who has completed a 4-hour electrical safety awareness course",
+      "D": "Any maintenance employee with more than 5 years of experience"
+    },
+    "answer": "B",
+    "explanation": "Per NFPA 70E, a Qualified Person has demonstrated skills/knowledge of electrical construction and operation, AND has received training to recognize electrical hazards AND how to avoid them. It is skills-based, not just experience-based.",
+    "standard": "both"
+  },
+  {
+    "id": "S085",
+    "topic": "Qualified Person Rules",
+    "question": "A Qualified Person is responsible for which of the following when planning energized work?",
+    "options": {
+      "A": "Completing the work as quickly as possible without documentation",
+      "B": "Determining nominal voltage, identifying hazards, selecting PPE, and ensuring approach boundaries are observed",
+      "C": "Only verifying that lockout tags are applied",
+      "D": "Only selecting gloves rated for the voltage"
+    },
+    "answer": "B",
+    "explanation": "A Qualified Person must determine the nominal voltage of exposed live parts, identify all associated hazards (shock, arc flash, blast), select appropriate PPE, and ensure proper approach boundaries are observed before and during work.",
+    "standard": "both"
+  },
+  {
+    "id": "S086",
+    "topic": "Qualified Person Rules",
+    "question": "Can a Qualified Person authorize an Unqualified Person to perform energized electrical work independently?",
+    "options": {
+      "A": "Yes, if the unqualified person has completed awareness training",
+      "B": "Yes, if the task is below 120V",
+      "C": "No — unqualified persons may not perform energized work independently",
+      "D": "Yes, as long as the qualified person is nearby"
+    },
+    "answer": "C",
+    "explanation": "Unqualified persons may not perform energized electrical work independently. A Qualified Person must directly perform energized work or maintain direct supervision. Awareness training alone does not qualify a person for energized work.",
+    "standard": "both"
+  },
+  {
+    "id": "S087",
+    "topic": "Qualified Person Rules",
+    "question": "What distinguishes an 'Unqualified Person' from a 'Qualified Person' in the context of electrical safety?",
+    "options": {
+      "A": "Unqualified persons have fewer years of experience",
+      "B": "Unqualified persons have not demonstrated the skills and training to identify and avoid electrical hazards",
+      "C": "Unqualified persons do not own their PPE",
+      "D": "Unqualified persons work on AC circuits while qualified persons work on DC"
+    },
+    "answer": "B",
+    "explanation": "The key distinction is demonstrated skills, knowledge, and training to recognize and avoid electrical hazards. Without this demonstrated competency, a person is Unqualified regardless of years on the job.",
+    "standard": "both"
+  },
+  {
+    "id": "S088",
+    "topic": "Qualified Person Rules",
+    "question": "Who is responsible for signing and approving an Energized Work Permit?",
+    "options": {
+      "A": "The Unqualified Person who requested the work",
+      "B": "A Qualified Person in management or supervision responsible for the task",
+      "C": "The safety department administrator",
+      "D": "The facility's insurance carrier"
+    },
+    "answer": "B",
+    "explanation": "A Qualified Person in management or supervision with responsibility for the specific work task must sign and approve Energized Work Permits, accepting accountability for the risk assessment and controls.",
+    "standard": "both"
+  },
+  {
+    "id": "S089",
+    "topic": "Qualified Person Rules",
+    "question": "A Qualified Person determines that a task requires working within the arc flash boundary. What must they do before proceeding?",
+    "options": {
+      "A": "Proceed immediately — being qualified grants automatic permission",
+      "B": "Obtain an Energized Work Permit if the work cannot be performed de-energized, and don appropriate arc-rated PPE",
+      "C": "Simply notify a co-worker",
+      "D": "The Qualified Person may waive PPE requirements based on experience"
+    },
+    "answer": "B",
+    "explanation": "Even a Qualified Person must obtain an Energized Work Permit for work inside the arc flash boundary if the work cannot be performed de-energized, and must don PPE rated for the actual incident energy at the working distance.",
+    "standard": "both"
+  },
+  {
+    "id": "S090",
+    "topic": "Qualified Person Rules",
+    "question": "A Qualified Person encounters an arc flash label showing an incident energy exceeding 40 cal/cm². What should they do?",
+    "options": {
+      "A": "Proceed with full HRC 4 PPE (maximum protection)",
+      "B": "De-energize the equipment before performing any work — energized work above 40 cal/cm² is PROHIBITED",
+      "C": "Call for a second qualified person to assist",
+      "D": "Proceed only if they have HRC 5 PPE"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace Safety Standards, energized work is PROHIBITED when incident energy exceeds 40 cal/cm². No HRC category exists for this level. The equipment must be de-energized before work proceeds.",
+    "standard": "workplace",
+    "text_nfpa": "A Qualified Person encounters an arc flash label showing an incident energy exceeding 40 cal/cm². What should they do?",
+    "options_nfpa": {
+      "A": "Proceed with full Arc Flash PPE Category 4 PPE (maximum protection)",
+      "B": "De-energize the equipment before performing any work — energized work above 40 cal/cm² is PROHIBITED",
+      "C": "Call for a second qualified person to assist",
+      "D": "Proceed only if they have Arc Flash PPE Category 5 PPE"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E Art.130, energized work is PROHIBITED when incident energy exceeds 40 cal/cm². No Arc Flash PPE Category category exists for this level. The equipment must be de-energized before work proceeds."
+  },
+  {
+    "id": "S091",
+    "topic": "Qualified Person Rules",
+    "question": "Unqualified persons must receive electrical safety training when?",
+    "options": {
+      "A": "Only once, upon hire",
+      "B": "Only when assigned to electrical work areas",
+      "C": "Prior to working near electrical hazards and every 2 years thereafter",
+      "D": "Only when written up for safety violations"
+    },
+    "answer": "C",
+    "explanation": "Per Workplace Safety Standards, Unqualified Persons must receive electrical safety training prior to working near electrical hazards and must be retrained every 2 years to maintain awareness of current safety standards.",
+    "standard": "workplace",
+    "text_nfpa": "Unqualified persons must receive electrical safety training when?",
+    "options_nfpa": {
+      "A": "Only once, upon hire",
+      "B": "Only when assigned to electrical work areas",
+      "C": "Prior to working near electrical hazards and every 2 years thereafter",
+      "D": "Only when written up for safety violations"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "Per NFPA 70E Art.120, Unqualified Persons must receive electrical safety training prior to working near electrical hazards and must be retrained every 2 years to maintain awareness of current safety standards."
+  },
+  {
+    "id": "S092",
+    "topic": "PPE Inspection & Testing",
+    "question": "Voltage-rated rubber gloves must be air-tested:",
+    "options": {
+      "A": "Monthly",
+      "B": "Before every use",
+      "C": "Annually",
+      "D": "Only after suspected damage"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, voltage-rated rubber gloves must be air-tested (inflated and checked for air leaks) before every use, in addition to visual inspection, to detect pinholes or cuts not visible to the eye.",
+    "standard": "workplace",
+    "text_nfpa": "Voltage-rated rubber gloves must be air-tested:",
+    "options_nfpa": {
+      "A": "Monthly",
+      "B": "Before every use",
+      "C": "Annually",
+      "D": "Only after suspected damage"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E 130.7, voltage-rated rubber gloves must be air-tested (inflated and checked for air leaks) before every use, in addition to visual inspection, to detect pinholes or cuts not visible to the eye."
+  },
+  {
+    "id": "S093",
+    "topic": "PPE Inspection & Testing",
+    "question": "Voltage-rated rubber gloves must undergo electrical retesting by an ASTM-certified vendor every:",
+    "options": {
+      "A": "3 months",
+      "B": "6 months",
+      "C": "1 year",
+      "D": "2 years"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, rubber gloves must be electrically retested at their rated voltage by an ASTM-certified vendor every 6 months to verify continued dielectric integrity.",
+    "standard": "workplace",
+    "text_nfpa": "Voltage-rated rubber gloves must undergo electrical retesting by an ASTM-certified vendor every:",
+    "options_nfpa": {
+      "A": "3 months",
+      "B": "6 months",
+      "C": "1 year",
+      "D": "2 years"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E 130.7, rubber gloves must be electrically retested at their rated voltage by an ASTM-certified vendor every 6 months to verify continued dielectric integrity."
+  },
+  {
+    "id": "S094",
+    "topic": "PPE Inspection & Testing",
+    "question": "Rubber gloves that are stored but not issued may be stored up to how long after manufacture before requiring electrical retesting?",
+    "options": {
+      "A": "3 months",
+      "B": "6 months",
+      "C": "12 months",
+      "D": "24 months"
+    },
+    "answer": "C",
+    "explanation": "Per Workplace PPE Standards, rubber gloves stored but not issued may be stored up to 12 months after manufacture before requiring electrical retesting. Gloves in service must be retested every 6 months.",
+    "standard": "workplace",
+    "text_nfpa": "Rubber gloves that are stored but not issued may be stored up to how long after manufacture before requiring electrical retesting?",
+    "options_nfpa": {
+      "A": "3 months",
+      "B": "6 months",
+      "C": "12 months",
+      "D": "24 months"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "Per NFPA 70E 130.7, rubber gloves stored but not issued may be stored up to 12 months after manufacture before requiring electrical retesting. Gloves in service must be retested every 6 months."
+  },
+  {
+    "id": "S095",
+    "topic": "PPE Inspection & Testing",
+    "question": "When rubber gloves fail electrical testing, what action must be taken?",
+    "options": {
+      "A": "Downgrade them to a lower voltage class and continue use",
+      "B": "Destroy the gloves immediately",
+      "C": "Send them for repair and retest",
+      "D": "Mark them as defective and return to storage"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, rubber gloves that fail electrical testing must be DESTROYED immediately to prevent any possibility of their accidental use. There is no repair option — failed gloves are never returned to service.",
+    "standard": "workplace",
+    "text_nfpa": "When rubber gloves fail electrical testing, what action must be taken?",
+    "options_nfpa": {
+      "A": "Downgrade them to a lower voltage class and continue use",
+      "B": "Destroy the gloves immediately",
+      "C": "Send them for repair and retest",
+      "D": "Mark them as defective and return to storage"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E 130.7, rubber gloves that fail electrical testing must be DESTROYED immediately to prevent any possibility of their accidental use. There is no repair option — failed gloves are never returned to service."
+  },
+  {
+    "id": "S096",
+    "topic": "PPE Inspection & Testing",
+    "question": "During rubber glove inspection, which condition would require the gloves to be removed from service?",
+    "options": {
+      "A": "Slight discoloration from normal use",
+      "B": "Holes, tears, cuts, punctures, ozone damage, texture changes, or foreign objects embedded in the rubber",
+      "C": "Stiffness in cold weather",
+      "D": "Minor scuff marks on the exterior"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, rubber gloves with holes, tears, cuts, punctures, ozone damage, embedded foreign objects, or any texture change indicating deterioration must be removed from service immediately.",
+    "standard": "workplace",
+    "text_nfpa": "During rubber glove inspection, which condition would require the gloves to be removed from service?",
+    "options_nfpa": {
+      "A": "Slight discoloration from normal use",
+      "B": "Holes, tears, cuts, punctures, ozone damage, texture changes, or foreign objects embedded in the rubber",
+      "C": "Stiffness in cold weather",
+      "D": "Minor scuff marks on the exterior"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E 130.7, rubber gloves with holes, tears, cuts, punctures, ozone damage, embedded foreign objects, or any texture change indicating deterioration must be removed from service immediately."
+  },
+  {
+    "id": "S097",
+    "topic": "PPE Inspection & Testing",
+    "question": "Rubber gloves must be stored in what manner per Workplace PPE Standards?",
+    "options": {
+      "A": "Folded flat in a metal tool box",
+      "B": "Hung on hooks by the cuff",
+      "C": "Clean, dry, dark location in natural shape inside a canvas glove bag",
+      "D": "In a sealed plastic bag with silica gel"
+    },
+    "answer": "C",
+    "explanation": "Per Workplace PPE Standards, rubber gloves must be stored clean, dry, in a dark location (UV degrades rubber), in their natural unfolded shape, inside a canvas glove bag to prevent physical damage and ozone degradation.",
+    "standard": "workplace",
+    "text_nfpa": "Rubber gloves must be stored in what manner per NFPA 70E 130.7?",
+    "options_nfpa": {
+      "A": "Folded flat in a metal tool box",
+      "B": "Hung on hooks by the cuff",
+      "C": "Clean, dry, dark location in natural shape inside a canvas glove bag",
+      "D": "In a sealed plastic bag with silica gel"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "Per NFPA 70E 130.7, rubber gloves must be stored clean, dry, in a dark location (UV degrades rubber), in their natural unfolded shape, inside a canvas glove bag to prevent physical damage and ozone degradation."
+  },
+  {
+    "id": "S098",
+    "topic": "PPE Inspection & Testing",
+    "question": "A rubber glove's test date stamp shows testing was performed 7 months ago. Is this glove acceptable for use?",
+    "options": {
+      "A": "Yes — gloves are tested annually",
+      "B": "No — the test date must not exceed 6 months for gloves in service",
+      "C": "Yes — as long as it passes the visual and air test",
+      "D": "Yes — 7 months is within the acceptable range"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, the rubber glove test date must not exceed 6 months for gloves in service. A glove tested 7 months ago is overdue for retesting and must not be used until recertified by an ASTM-certified vendor.",
+    "standard": "workplace",
+    "text_nfpa": "A rubber glove's test date stamp shows testing was performed 7 months ago. Is this glove acceptable for use?",
+    "options_nfpa": {
+      "A": "Yes — gloves are tested annually",
+      "B": "No — the test date must not exceed 6 months for gloves in service",
+      "C": "Yes — as long as it passes the visual and air test",
+      "D": "Yes — 7 months is within the acceptable range"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E 130.7, the rubber glove test date must not exceed 6 months for gloves in service. A glove tested 7 months ago is overdue for retesting and must not be used until recertified by an ASTM-certified vendor."
+  },
+  {
+    "id": "S099",
+    "topic": "PPE Inspection & Testing",
+    "question": "The rubber glove manufacturer's stamp must show which information?",
+    "options": {
+      "A": "Only the voltage class",
+      "B": "Type, test date, voltage class, and maximum use voltage",
+      "C": "Manufacturing date and country of origin",
+      "D": "The OSHA approval number"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, the manufacturer's stamp on rubber gloves must show: Type (I or II), test date, voltage class (00 through 4), and maximum use voltage. This information is essential for verifying proper glove selection and currency of testing.",
+    "standard": "workplace",
+    "text_nfpa": "The rubber glove manufacturer's stamp must show which information?",
+    "options_nfpa": {
+      "A": "Only the voltage class",
+      "B": "Type, test date, voltage class, and maximum use voltage",
+      "C": "Manufacturing date and country of origin",
+      "D": "The OSHA approval number"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E 130.7, the manufacturer's stamp on rubber gloves must show: Type (I or II), test date, voltage class (00 through 4), and maximum use voltage. This information is essential for verifying proper glove selection and currency of testing."
+  },
+  {
+    "id": "S100",
+    "topic": "PPE Inspection & Testing",
+    "question": "Hard hats must be inspected:",
+    "options": {
+      "A": "Annually by a safety professional",
+      "B": "Visually before each use, and replaced if damaged or deteriorated",
+      "C": "Only after an impact event",
+      "D": "Every 6 months regardless of condition"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, hard hats must be visually inspected for damage or deterioration before use and must be replaced if damage is found, as structural integrity cannot be restored once compromised.",
+    "standard": "workplace",
+    "text_nfpa": "Hard hats must be inspected:",
+    "options_nfpa": {
+      "A": "Annually by a safety professional",
+      "B": "Visually before each use, and replaced if damaged or deteriorated",
+      "C": "Only after an impact event",
+      "D": "Every 6 months regardless of condition"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E 130.7, hard hats must be visually inspected for damage or deterioration before use and must be replaced if damage is found, as structural integrity cannot be restored once compromised."
+  },
+  {
+    "id": "S101",
+    "topic": "PPE Inspection & Testing",
+    "question": "How must safety shoes be checked before electrical work?",
+    "options": {
+      "A": "Check the size and fit only",
+      "B": "Inspect for the EH (Electrical Hazard) marking and check for wear, damage, exposed metal toes, or conductive contamination",
+      "C": "Only verify they are tied properly",
+      "D": "Annual inspection by safety department is sufficient"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, safety shoes must be checked before each use for the EH marking (confirming electrical hazard protection), and inspected for wear, damage, exposed steel toes, or conductive contamination that could compromise insulation.",
+    "standard": "workplace",
+    "text_nfpa": "How must safety shoes be checked before electrical work?",
+    "options_nfpa": {
+      "A": "Check the size and fit only",
+      "B": "Inspect for the EH (Electrical Hazard) marking and check for wear, damage, exposed metal toes, or conductive contamination",
+      "C": "Only verify they are tied properly",
+      "D": "Annual inspection by safety department is sufficient"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E 130.7, safety shoes must be checked before each use for the EH marking (confirming electrical hazard protection), and inspected for wear, damage, exposed steel toes, or conductive contamination that could compromise insulation."
+  },
+  {
+    "id": "S102",
+    "topic": "PPE Inspection & Testing",
+    "question": "Arc flash apparel articles that lack a manufacturer's arc rating label must be:",
+    "options": {
+      "A": "Used only for low-voltage work",
+      "B": "Removed from service",
+      "C": "Re-rated based on fabric weight",
+      "D": "Used for HRC 0 work only"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, any arc flash apparel without a valid arc rating label must be removed from service. Without a confirmed arc rating, the garment provides no certifiable protection and cannot be used as PPE.",
+    "standard": "workplace",
+    "text_nfpa": "Arc flash apparel articles that lack a manufacturer's arc rating label must be:",
+    "options_nfpa": {
+      "A": "Used only for low-voltage work",
+      "B": "Removed from service",
+      "C": "Re-rated based on fabric weight",
+      "D": "Used for Arc Flash PPE Category 0 work only"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E 130.7, any arc flash apparel without a valid arc rating label must be removed from service. Without a confirmed arc rating, the garment provides no certifiable protection and cannot be used as PPE."
+  },
+  {
+    "id": "S103",
+    "topic": "PPE Inspection & Testing",
+    "question": "PPE test records must be documented in which system per Workplace PPE Standards?",
+    "options": {
+      "A": "Paper logbook maintained by the supervisor",
+      "B": "Compliance Wire system (requires WWID and password)",
+      "C": "Facility CMMS maintenance system",
+      "D": "OSHA 300 log"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, all PPE test documentation must be entered into the Compliance Wire system, requiring WWID (worker ID), password, and a read-and-understood acknowledgment. The form control number is VWA-1104.",
+    "standard": "workplace",
+    "text_nfpa": "PPE test records must be documented in which system per NFPA 70E 130.7?",
+    "options_nfpa": {
+      "A": "Paper logbook maintained by the supervisor",
+      "B": "program records system (requires WWID and password)",
+      "C": "Facility CMMS maintenance system",
+      "D": "OSHA 300 log"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E 130.7, all PPE test documentation must be entered into the program records system, requiring WWID (worker ID), password, and a read-and-understood acknowledgment. The form control number is VWA-1104."
+  },
+  {
+    "id": "S104",
+    "topic": "PPE Inspection & Testing",
+    "question": "Insulated tools must be kept:",
+    "options": {
+      "A": "In a locked cabinet to maintain their rating",
+      "B": "Free of dirt, grease, and contaminants; visually inspected and cleaned with mild soap",
+      "C": "In a climate-controlled storage area",
+      "D": "Coated with an insulating spray every 6 months"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, insulated tools must be kept free of dirt, grease, and contaminants. They must be visually inspected before use and cleaned with mild soap and water. Contamination can compromise the insulating rating.",
+    "standard": "workplace",
+    "text_nfpa": "Insulated tools must be kept:",
+    "options_nfpa": {
+      "A": "In a locked cabinet to maintain their rating",
+      "B": "Free of dirt, grease, and contaminants; visually inspected and cleaned with mild soap",
+      "C": "In a climate-controlled storage area",
+      "D": "Coated with an insulating spray every 6 months"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E 130.7, insulated tools must be kept free of dirt, grease, and contaminants. They must be visually inspected before use and cleaned with mild soap and water. Contamination can compromise the insulating rating."
+  },
+  {
+    "id": "S105",
+    "topic": "PPE Inspection & Testing",
+    "question": "Non-conductive ladders near electrical work must be:",
+    "options": {
+      "A": "Electrically tested every year",
+      "B": "Inspected prior to use and kept free of conductive process materials; cleaned or replaced if contaminated",
+      "C": "Rated for the maximum circuit voltage",
+      "D": "Replaced every 5 years regardless of condition"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, non-conductive ladders must be inspected before use and kept free of conductive process materials (oils, metal shavings, chemicals). Contaminated ladders must be cleaned or replaced to maintain their non-conductive properties.",
+    "standard": "workplace",
+    "text_nfpa": "Non-conductive ladders near electrical work must be:",
+    "options_nfpa": {
+      "A": "Electrically tested every year",
+      "B": "Inspected prior to use and kept free of conductive process materials; cleaned or replaced if contaminated",
+      "C": "Rated for the maximum circuit voltage",
+      "D": "Replaced every 5 years regardless of condition"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per NFPA 70E 130.7, non-conductive ladders must be inspected before use and kept free of conductive process materials (oils, metal shavings, chemicals). Contaminated ladders must be cleaned or replaced to maintain their non-conductive properties."
+  },
+  {
+    "id": "S106",
+    "topic": "PPE Inspection & Testing",
+    "question": "A worker notices their arc flash face shield has a crack across the viewing area. What is the correct action?",
+    "options": {
+      "A": "Apply clear tape over the crack and continue use",
+      "B": "Remove the face shield from service immediately and replace it",
+      "C": "Use it for low-voltage work only",
+      "D": "Notify the safety department and continue working while awaiting a replacement"
+    },
+    "answer": "B",
+    "explanation": "Any damage to arc flash PPE — including cracks in face shields — requires immediate removal from service. Cracked face shields cannot provide reliable arc flash protection and must be replaced before work continues.",
+    "standard": "both"
+  },
+  {
+    "id": "S107",
+    "topic": "PPE Purchasing Standards",
+    "question": "Insulated tools per Workplace PPE Standards are rated for a maximum working voltage of:",
+    "options": {
+      "A": "600V AC",
+      "B": "1,000V AC",
+      "C": "5,000V AC",
+      "D": "10,000V AC"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, insulated tools are rated for use up to a maximum of 1,000V AC. They must not be used above this voltage level.",
+    "standard": "workplace",
+    "text_nfpa": "Insulated tools per ASTM F1506 are rated for a maximum working voltage of:",
+    "options_nfpa": {
+      "A": "600V AC",
+      "B": "1,000V AC",
+      "C": "5,000V AC",
+      "D": "10,000V AC"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per ASTM F1506, insulated tools are rated for use up to a maximum of 1,000V AC. They must not be used above this voltage level. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S108",
+    "topic": "PPE Purchasing Standards",
+    "question": "At what voltage are insulated tools tested during manufacture per Workplace PPE Standards?",
+    "options": {
+      "A": "1,000V AC",
+      "B": "5,000V AC",
+      "C": "10,000V AC",
+      "D": "20,000V AC"
+    },
+    "answer": "C",
+    "explanation": "Per Workplace PPE Standards, insulated tools are tested at 10,000V AC during manufacture — ten times their rated working voltage — providing a safety factor for tools rated at 1,000V AC.",
+    "standard": "workplace",
+    "text_nfpa": "At what voltage are insulated tools tested during manufacture per ASTM F1506?",
+    "options_nfpa": {
+      "A": "1,000V AC",
+      "B": "5,000V AC",
+      "C": "10,000V AC",
+      "D": "20,000V AC"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "Per ASTM F1506, insulated tools are tested at 10,000V AC during manufacture — ten times their rated working voltage — providing a safety factor for tools rated at 1,000V AC. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S109",
+    "topic": "PPE Purchasing Standards",
+    "question": "Insulated tools are identified by which construction feature per Workplace PPE Standards?",
+    "options": {
+      "A": "Single orange outer layer only",
+      "B": "White inner dielectric layer and bright orange outer flame-retardant layer (double-triangle 1,000V symbol)",
+      "C": "All-black grip with yellow stripe",
+      "D": "Red handle with white tip"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, insulated tools have a white inner dielectric layer and a bright orange outer flame-retardant layer. They are marked with the double-triangle 1,000V symbol. The white layer visible through damage signals that the insulation is compromised.",
+    "standard": "workplace",
+    "text_nfpa": "Insulated tools are identified by which construction feature per ASTM F1506?",
+    "options_nfpa": {
+      "A": "Single orange outer layer only",
+      "B": "White inner dielectric layer and bright orange outer flame-retardant layer (double-triangle 1,000V symbol)",
+      "C": "All-black grip with yellow stripe",
+      "D": "Red handle with white tip"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per ASTM F1506, insulated tools have a white inner dielectric layer and a bright orange outer flame-retardant layer. They are marked with the double-triangle 1,000V symbol. The white layer visible through damage signals that the insulation is compromised. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S110",
+    "topic": "PPE Purchasing Standards",
+    "question": "Insulated tools must comply with which standards per Workplace PPE Standards?",
+    "options": {
+      "A": "ASTM F1506 and NFPA 70E",
+      "B": "IEC 900 and ASTM 1505",
+      "C": "ANSI Z87.1 and OSHA 29 CFR",
+      "D": "ASTM D120 and ASTM F496"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, insulated tools must comply with IEC 900 and ASTM 1505 standards, marked with the double-triangle 1,000V symbol, and must not be used above 1,000V AC.",
+    "standard": "workplace",
+    "text_nfpa": "Insulated tools must comply with which standards per ASTM F1506?",
+    "options_nfpa": {
+      "A": "ASTM F1506 and NFPA 70E",
+      "B": "IEC 900 and ASTM 1505",
+      "C": "ANSI Z87.1 and OSHA 29 CFR",
+      "D": "ASTM D120 and ASTM F496"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per ASTM F1506, insulated tools must comply with IEC 900 and ASTM 1505 standards, marked with the double-triangle 1,000V symbol, and must not be used above 1,000V AC. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S111",
+    "topic": "PPE Purchasing Standards",
+    "question": "Semi-conductive safety shoes are classified how per Workplace PPE Standards?",
+    "options": {
+      "A": "Acceptable for low-voltage work under 120V",
+      "B": "PROHIBITED for electrical work",
+      "C": "Acceptable if they also bear the EH marking",
+      "D": "Required for static-sensitive areas"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, semi-conductive shoes are explicitly PROHIBITED for electrical work. They are designed to dissipate static electricity but provide no electrical hazard protection and could create a path to ground.",
+    "standard": "workplace",
+    "text_nfpa": "Semi-conductive safety shoes are classified how per ASTM F1506?",
+    "options_nfpa": {
+      "A": "Acceptable for low-voltage work under 120V",
+      "B": "PROHIBITED for electrical work",
+      "C": "Acceptable if they also bear the EH marking",
+      "D": "Required for static-sensitive areas"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per ASTM F1506, semi-conductive shoes are explicitly PROHIBITED for electrical work. They are designed to dissipate static electricity but provide no electrical hazard protection and could create a path to ground. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S112",
+    "topic": "PPE Purchasing Standards",
+    "question": "Which insulated tool marking indicates the double triangle rating symbol?",
+    "options": {
+      "A": "A red square with the voltage printed inside",
+      "B": "Two triangles side by side with “1000V” — the IEC international standard symbol for insulated tools",
+      "C": "An orange diamond with kV rating",
+      "D": "A yellow circle with the ASTM approval number"
+    },
+    "answer": "B",
+    "explanation": "The internationally recognized double-triangle (two overlapping triangles) symbol with '1000V' is the IEC standard marking for insulated tools rated to 1,000V AC. Workers should verify this mark before selecting any insulated tool.",
+    "standard": "both"
+  },
+  {
+    "id": "S113",
+    "topic": "PPE Purchasing Standards",
+    "question": "Safety signs and tags at electrical worksites must comply with which standard?",
+    "options": {
+      "A": "NFPA 70E Table 130.7",
+      "B": "ANSI Z535",
+      "C": "OSHA 29 CFR 1910.145",
+      "D": "ASTM F2413"
+    },
+    "answer": "B",
+    "explanation": "Per Workplace PPE Standards, all safety signs and tags at electrical work locations must comply with ANSI Z535, which standardizes signal words (DANGER, WARNING, CAUTION), colors, and format for hazard communication.",
+    "standard": "workplace",
+    "text_nfpa": "Safety signs and tags at electrical worksites must comply with which standard?",
+    "options_nfpa": {
+      "A": "NFPA 70E Table 130.7",
+      "B": "ANSI Z535",
+      "C": "OSHA 29 CFR 1910.145",
+      "D": "ASTM F2413"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per ASTM F1506, all safety signs and tags at electrical work locations must comply with ANSI Z535, which standardizes signal words (DANGER, WARNING, CAUTION), colors, and format for hazard communication. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S114",
+    "topic": "Safety Scenarios",
+    "question": "A worker is asked to quickly tighten a loose wire in an energized 480V MCC because taking it off-line will cause a production shutdown. The correct action is:",
+    "options": {
+      "A": "Tighten it quickly while being careful — the production impact justifies the risk",
+      "B": "Refuse to perform the work energized unless a formal Energized Work Permit is issued, proper arc-rated PPE is donned, and a qualified person approves",
+      "C": "Tighten it wearing only leather gloves since 480V is low risk",
+      "D": "Ask a co-worker to hold a flashlight while working"
+    },
+    "answer": "B",
+    "explanation": "Working inside an energized MCC requires an Energized Work Permit, appropriate arc-rated PPE for the incident energy level, and approval by a qualified person in supervision. Production pressures never override electrical safety requirements.",
+    "standard": "both"
+  },
+  {
+    "id": "S115",
+    "topic": "Safety Scenarios",
+    "question": "During LOTOTO removal after maintenance, a worker discovers they have lost their personal lock key. What should they do?",
+    "options": {
+      "A": "Cut off the lock with bolt cutters and re-energize the equipment",
+      "B": "Ask a co-worker to use their lock removal key",
+      "C": "Follow the facility's written lock removal procedure, which requires supervisor approval and verification that all workers are clear",
+      "D": "Leave the lock on until a replacement key is found"
+    },
+    "answer": "C",
+    "explanation": "Lost key situations must follow the facility's documented lock removal procedure per Workplace Safety Standards. This requires supervisor authorization, verification that all personnel are clear of the equipment, and documentation — never unilateral removal.",
+    "standard": "workplace",
+    "text_nfpa": "During Lockout/Tagout (LOTO) removal after maintenance, a worker discovers they have lost their personal lock key. What should they do?",
+    "options_nfpa": {
+      "A": "Cut off the lock with bolt cutters and re-energize the equipment",
+      "B": "Ask a co-worker to use their lock removal key",
+      "C": "Follow the facility's written lock removal procedure, which requires supervisor approval and verification that all workers are clear",
+      "D": "Leave the lock on until a replacement key is found"
+    },
+    "answer_nfpa": "C",
+    "explanation_nfpa": "Lost key situations must follow the facility's documented lock removal procedure per NFPA 70E Art.120. This requires supervisor authorization, verification that all personnel are clear of the equipment, and documentation — never unilateral removal."
+  },
+  {
+    "id": "S116",
+    "topic": "Safety Scenarios",
+    "question": "A worker arrives at an electrical panel to perform a voltage reading. The arc flash label shows 9 cal/cm² incident energy. They have HRC 2 (rated to 8 cal/cm²) PPE available. Can they proceed?",
+    "options": {
+      "A": "Yes — HRC 2 is close enough for 9 cal/cm²",
+      "B": "No — the PPE is rated below the actual incident energy; HRC 3 PPE (rated 8-25 cal/cm²) is required",
+      "C": "Yes — voltage readings have no arc flash risk",
+      "D": "Yes if they stay outside the arc flash boundary"
+    },
+    "answer": "B",
+    "explanation": "PPE must meet or exceed the actual incident energy. At 9 cal/cm², HRC 2 PPE rated to 8 cal/cm² is insufficient. HRC 3 PPE (rated for 8-25 cal/cm²) is required before proceeding with the task.",
+    "standard": "workplace",
+    "text_nfpa": "A worker arrives at an electrical panel to perform a voltage reading. The arc flash label shows 9 cal/cm² incident energy. They have Arc Flash PPE Category 2 (rated to 8 cal/cm²) PPE available. Can they proceed?",
+    "options_nfpa": {
+      "A": "Yes — Arc Flash PPE Category 2 is close enough for 9 cal/cm²",
+      "B": "No — the PPE is rated below the actual incident energy; Arc Flash PPE Category 3 PPE (rated 8-25 cal/cm²) is required",
+      "C": "Yes — voltage readings have no arc flash risk",
+      "D": "Yes if they stay outside the arc flash boundary"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "PPE must meet or exceed the actual incident energy. At 9 cal/cm², Arc Flash PPE Category 2 PPE rated to 8 cal/cm² is insufficient. Arc Flash PPE Category 3 PPE (rated for 8-25 cal/cm²) is required before proceeding with the task. (Ref: NFPA 70E 2024)"
+  },
+  {
+    "id": "S117",
+    "topic": "Safety Scenarios",
+    "question": "An unqualified worker in a production area notices sparking inside an electrical panel. What should they do?",
+    "options": {
+      "A": "Open the panel and investigate — quick action prevents damage",
+      "B": "Stay outside the limited approach boundary, immediately notify a qualified person, and evacuate the area if necessary",
+      "C": "Use a fire extinguisher on the panel",
+      "D": "Call the equipment manufacturer for advice"
+    },
+    "answer": "B",
+    "explanation": "Unqualified workers must not interact with energized electrical equipment. The correct action is to stay clear of approach boundaries, immediately notify a qualified person, and initiate evacuation procedures if warranted by the hazard.",
+    "standard": "both"
+  },
+  {
+    "id": "S118",
+    "topic": "Safety Scenarios",
+    "question": "A worker wearing synthetic polyester work clothes is asked to perform a panel inspection. Before they approach the energized equipment, what must happen?",
+    "options": {
+      "A": "Nothing — polyester is acceptable if not directly touching conductors",
+      "B": "The worker must change into non-melting, non-flammable clothing or arc-rated apparel before approaching energized equipment",
+      "C": "The worker can proceed if they wear leather gloves",
+      "D": "Polyester is only prohibited above 480V"
+    },
+    "answer": "B",
+    "explanation": "Workplace Safety Standards prohibits synthetic meltable fabrics (acetate, nylon, polyester, rayon) during electrical work unless they are arc-rated. The worker must change into appropriate clothing — natural fibers or arc-rated apparel — before approaching energized equipment.",
+    "standard": "workplace",
+    "text_nfpa": "A worker wearing synthetic polyester work clothes is asked to perform a panel inspection. Before they approach the energized equipment, what must happen?",
+    "options_nfpa": {
+      "A": "Nothing — polyester is acceptable if not directly touching conductors",
+      "B": "The worker must change into non-melting, non-flammable clothing or arc-rated apparel before approaching energized equipment",
+      "C": "The worker can proceed if they wear leather gloves",
+      "D": "Polyester is only prohibited above 480V"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "NFPA 70E Art.130 prohibits synthetic meltable fabrics (acetate, nylon, polyester, rayon) during electrical work unless they are arc-rated. The worker must change into appropriate clothing — natural fibers or arc-rated apparel — before approaching energized equipment."
+  },
+  {
+    "id": "S119",
+    "topic": "Safety Scenarios",
+    "question": "During a LOTOTO application, a worker isolates the main circuit breaker but realizes there is also a secondary feed from a UPS (uninterruptible power supply). What must they do?",
+    "options": {
+      "A": "Proceed — the main breaker is isolated so the equipment is safe",
+      "B": "Go back to Step 1 and identify all energy sources; the UPS must also be isolated and locked out before work proceeds",
+      "C": "Place a warning tag on the UPS and proceed",
+      "D": "Note the UPS in the work order and address it later"
+    },
+    "answer": "B",
+    "explanation": "Per Step 1 of Workplace Safety Standards LOTOTO, ALL energy sources must be identified before lockout. A missed energy source (UPS) means the lockout is incomplete and the equipment is not safe. The team must return to Step 1 and address all sources.",
+    "standard": "workplace",
+    "text_nfpa": "During a Lockout/Tagout (LOTO) application, a worker isolates the main circuit breaker but realizes there is also a secondary feed from a UPS (uninterruptible power supply). What must they do?",
+    "options_nfpa": {
+      "A": "Proceed — the main breaker is isolated so the equipment is safe",
+      "B": "Go back to Step 1 and identify all energy sources; the UPS must also be isolated and locked out before work proceeds",
+      "C": "Place a warning tag on the UPS and proceed",
+      "D": "Note the UPS in the work order and address it later"
+    },
+    "answer_nfpa": "B",
+    "explanation_nfpa": "Per Step 1 of NFPA 70E Art.120 Lockout/Tagout (LOTO), ALL energy sources must be identified before lockout. A missed energy source (UPS) means the lockout is incomplete and the equipment is not safe. The team must return to Step 1 and address all sources."
+  },
+  {
+    "id": "S120",
+    "topic": "Safety Scenarios",
+    "question": "A supervisor verbally tells a worker that arc-rated PPE is 'not really necessary' for a quick task inside an energized panel because 'it won't take long.' The worker should:",
+    "options": {
+      "A": "Trust the supervisor — they are more experienced",
+      "B": "Comply but work as fast as possible",
+      "C": "Refuse to perform the work without proper PPE — arc flash events are instantaneous and duration of task is irrelevant",
+      "D": "Perform the task but file a safety report afterward"
+    },
+    "answer": "C",
+    "explanation": "Arc flash events are instantaneous — the duration of a task provides no protection. Every worker has the right and responsibility to refuse unsafe work. Arc-rated PPE is required regardless of how quick the task is when working inside the arc flash boundary.",
+    "standard": "both"
+  },
+  {
+    "id": 121,
+    "standard": "nfpa",
+    "topic": "LOTO",
+    "difficulty": "medium",
+    "question": "Under NFPA 70E 2024 Sec 120.2, when is Complex Lockout/Tagout required instead of Simple Lockout?",
+    "options": {
+      "A": "Any time more than one energy source exists",
+      "B": "Multiple energy sources, workers, craft groups, or locations requiring a written plan",
+      "C": "Only for equipment above 480V",
+      "D": "All electrical lockouts require Complex LOTO"
+    },
+    "answer": "B",
+    "explanation": "NFPA 70E 2024 Sec 120.2: Complex LOTO required for multiple energy sources, persons, craft groups, or locations. Requires written plan and designated person-in-charge. Simple LOTO: single person, single source."
+  },
+  {
+    "id": 122,
+    "standard": "nfpa",
+    "topic": "Arc Flash",
+    "difficulty": "hard",
+    "question": "NFPA 70E 2024 Sec 130.5(B): Which statement about the two PPE selection methods is CORRECT?",
+    "options": {
+      "A": "Both methods may be used on the same equipment simultaneously",
+      "B": "Incident energy analysis always supersedes the PPE category method",
+      "C": "Only ONE method shall be used per piece of equipment — not both",
+      "D": "PPE category method always requires a site arc flash study first"
+    },
+    "answer": "C",
+    "explanation": "NFPA 70E 2024 Sec 130.5(B): Both methods shall NOT be used for the same equipment. Choose either incident energy analysis OR arc flash PPE category method per Table 130.5(G)."
+  },
+  {
+    "id": 123,
+    "standard": "nfpa",
+    "topic": "LOTO",
+    "difficulty": "hard",
+    "question": "NFPA 70E 2024 Sec 120.6(B) requires voltage testing to verify electrically safe work condition must include:",
+    "options": {
+      "A": "Phase-to-ground testing only",
+      "B": "Phase-to-phase testing only",
+      "C": "Phase-to-phase AND phase-to-ground, plus confirming meter on known live source before and after",
+      "D": "Visual inspection of disconnecting means position only"
+    },
+    "answer": "C",
+    "explanation": "NFPA 70E 2024 Sec 120.6(B): Test each phase-to-phase AND phase-to-ground. Verify instrument on known live source before AND after. Prevents false zero-volt readings."
+  },
+  {
+    "id": 124,
+    "standard": "nfpa",
+    "topic": "LOTO",
+    "difficulty": "medium",
+    "question": "Under NFPA 70E 2024, if a qualified person leaves the work location, what must happen before work resumes?",
+    "options": {
+      "A": "Nothing — LOTO verification remains valid indefinitely",
+      "B": "Notify the person-in-charge verbally",
+      "C": "Re-verify the electrically safe work condition with voltage testing",
+      "D": "Issue a new energized work permit"
+    },
+    "answer": "C",
+    "explanation": "NFPA 70E 2024 Sec 120.6(B): Electrically safe work condition must be re-verified when workers return after absence. Locks still in place is insufficient — complete voltage test required."
+  },
+  {
+    "id": 125,
+    "standard": "nfpa",
+    "topic": "Arc Flash",
+    "difficulty": "easy",
+    "question": "Per NFPA 70E 2024 Article 100, the Arc Flash Boundary is the distance at which incident energy equals:",
+    "options": {
+      "A": "0.5 cal/cm² — threshold for first-degree burn",
+      "B": "1.2 cal/cm² — onset of second-degree burn on unprotected skin",
+      "C": "4.0 cal/cm² — minimum Arc Flash PPE Category 1",
+      "D": "8.0 cal/cm² — minimum Arc Flash PPE Category 2"
+    },
+    "answer": "B",
+    "explanation": "NFPA 70E 2024 Art 100: Arc Flash Boundary = 1.2 cal/cm², onset of second-degree burn on unprotected skin. Arc-rated PPE required inside this distance."
+  },
+  {
+    "id": 126,
+    "standard": "nfpa",
+    "topic": "Arc Flash",
+    "difficulty": "medium",
+    "question": "NFPA 70E 2024 Sec 130.5(G): Arc flash hazard analysis must be reviewed at intervals not exceeding:",
+    "options": {
+      "A": "1 year",
+      "B": "3 years",
+      "C": "5 years",
+      "D": "10 years or upon major changes"
+    },
+    "answer": "C",
+    "explanation": "NFPA 70E 2024 Sec 130.5(G): Arc flash analysis reviewed at intervals not exceeding 5 years, or when major modifications to the electrical system occur."
+  },
+  {
+    "id": 127,
+    "standard": "nfpa",
+    "topic": "Qualified Person",
+    "difficulty": "medium",
+    "question": "NFPA 70E 2024 Sec 110.2(D): A Qualified Person must demonstrate skills and knowledge at minimum how often?",
+    "options": {
+      "A": "Every 6 months",
+      "B": "Annually (every year)",
+      "C": "Every 2 years",
+      "D": "Every 3 years"
+    },
+    "answer": "B",
+    "explanation": "NFPA 70E 2024 Sec 110.2(D): Annual demonstration of skills and knowledge required. Workers absent 12+ months need additional training before performing independently."
+  },
+  {
+    "id": 128,
+    "standard": "nfpa",
+    "topic": "Energized Work",
+    "difficulty": "hard",
+    "question": "NFPA 70E 2024 Sec 130.2(B)(2) explicitly EXEMPTS which from requiring an energized electrical work permit?",
+    "options": {
+      "A": "Replacing a blown fuse in an energized panel",
+      "B": "Infrared thermography outside the Restricted Approach Boundary without removing covers",
+      "C": "Voltage measurements with a multimeter inside a live panel",
+      "D": "Any diagnostic task under 5 minutes"
+    },
+    "answer": "B",
+    "explanation": "NFPA 70E 2024 Sec 130.2(B)(2): Non-contact diagnostics (IR thermography) outside the Restricted Approach Boundary without removing covers are exempt from energized work permit requirements."
+  },
+  {
+    "id": 129,
+    "standard": "nfpa",
+    "topic": "Arc Flash",
+    "difficulty": "medium",
+    "question": "NFPA 70E 2024 Sec 130.7(E) requires arc flash barricades be placed:",
+    "options": {
+      "A": "At the Restricted Approach Boundary only",
+      "B": "At or outside the Arc Flash Boundary to prevent unqualified persons from entering",
+      "C": "At any convenient location near the work",
+      "D": "Only when incident energy exceeds 8 cal/cm²"
+    },
+    "answer": "B",
+    "explanation": "NFPA 70E 2024 Sec 130.7(E): Barricades placed at or outside the arc flash boundary when it extends beyond the Limited Approach Boundary. Warning signs required."
+  },
+  {
+    "id": 130,
+    "standard": "nfpa",
+    "topic": "PPE",
+    "difficulty": "easy",
+    "question": "NFPA 70E 2024 Sec 130.6(D) prohibits conductive jewelry and clothing within the Limited Approach Boundary of:",
+    "options": {
+      "A": "Any energized circuit regardless of voltage",
+      "B": "Only circuits above 600V",
+      "C": "Exposed energized conductors at 50V or more",
+      "D": "Only if not covered by arc-rated gloves"
+    },
+    "answer": "C",
+    "explanation": "NFPA 70E 2024 Sec 130.6(D): Conductive articles prohibited within Limited Approach Boundary of exposed energized conductors at 50V or more."
+  }
+]
