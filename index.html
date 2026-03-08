@@ -538,64 +538,67 @@
                             place probes.</p>
 
                     </div>
-                </div>
 
-                <div class="multimeter-sidebar">
-                    <div class="multimeter">
-                        <div class="multimeter-brand">FLUK 117</div>
-                        <div class="multimeter-display">
-                            <div id="multimeter-reading" class="multimeter-reading">0.0</div>
-                            <div id="multimeter-unit" class="multimeter-unit">V AC</div>
+                    <div class="multimeter-sidebar">
+                        <div class="multimeter">
+                            <div class="multimeter-brand">FLUK 117</div>
+                            <div class="multimeter-display">
+                                <div id="multimeter-reading" class="multimeter-reading">0.0</div>
+                                <div id="multimeter-unit" class="multimeter-unit">V AC</div>
+                            </div>
+                            <div class="multimeter-leads">
+                                <div class="lead lead--red">RED: <span id="probe-red-value">--</span></div>
+                                <div class="lead lead--black">COM: <span id="probe-black-value">--</span></div>
+                            </div>
+                            <button id="probe-reset" class="btn multimeter-clear">Reset Probes</button>
                         </div>
-                        <div class="multimeter-leads">
-                            <div class="lead lead--red">RED: <span id="probe-red-value">--</span></div>
-                            <div class="lead lead--black">COM: <span id="probe-black-value">--</span></div>
+
+                        <div class="fault-panel" id="fault-controls">
+                            <div class="fault-panel-title">Instructor Controls</div>
+                            <div class="fault-list">
+                                <button data-fault="normal" class="fault-btn fault-btn--active">Normal</button>
+                                <button data-fault="f1-blown" class="fault-btn">F1 Blown</button>
+                                <button data-fault="f2-blown" class="fault-btn">F2 Blown</button>
+                                <button data-fault="f3-blown" class="fault-btn">F3 Blown</button>
+                                <button data-fault="ms-open" class="fault-btn">MS Open</button>
+                                <button data-fault="ol-tripped" class="fault-btn">OL Tripped</button>
+                            </div>
                         </div>
-                        <button id="probe-reset" class="btn multimeter-clear">Reset Probes</button>
-                    </div>
-                </div>
 
-                <div class="fault-panel" id="fault-controls">
-                    <div class="fault-panel-title">Instructor Controls</div>
-                    <div class="fault-list">
-                        <button data-fault="normal" class="fault-btn fault-btn--active">Normal</button>
-                        <button data-fault="f1-blown" class="fault-btn">F1 Blown</button>
-                        <button data-fault="f2-blown" class="fault-btn">F2 Blown</button>
-                        <button data-fault="f3-blown" class="fault-btn">F3 Blown</button>
-                        <button data-fault="ms-open" class="fault-btn">MS Open</button>
-                        <button data-fault="ol-tripped" class="fault-btn">OL Tripped</button>
-                    </div>
-                </div>
+                        <div id="challenge-panel" class="fault-panel" style="display: none;">
+                            <div class="fault-panel-title">Challenge Tasks</div>
+                            <div class="challenge-stats" style="margin-bottom: 12px; font-size: 13px;">
+                                <span id="challenge-probes-left" class="text-blue font-mono font-bold">8 probes
+                                    left</span>
+                                <span style="margin: 0 5px; color: #ccc;">|</span>
+                                <span id="challenge-score" class="text-charcoal font-bold">Score: 0</span>
+                            </div>
+                            <select id="challenge-fault-select" class="form-input"
+                                style="width: 100%; margin-bottom: 12px; font-size: 12px; padding: 6px;">
+                                <option value="">-- Diagnosis --</option>
+                                <option value="f1-blown">F1 Blown</option>
+                                <option value="f2-blown">F2 Blown</option>
+                                <option value="f3-blown">F3 Blown</option>
+                                <option value="ms-open">Motor Starter Open</option>
+                                <option value="ol-tripped">Overload Tripped</option>
+                            </select>
+                            <button id="challenge-submit" class="btn btn-primary" style="width: 100%;">Submit
+                                Diagnosis</button>
+                            <div id="challenge-result" style="margin-top: 10px; font-size: 13px;"></div>
+                            <button id="challenge-restart" class="btn btn-outline"
+                                style="display: none; width: 100%; margin-top: 10px;">Restart Challenge</button>
+                        </div>
 
-                <div id="challenge-panel" class="fault-panel" style="display: none;">
-                    <div class="fault-panel-title">Challenge Tasks</div>
-                    <div class="challenge-stats" style="margin-bottom: 12px; font-size: 13px;">
-                        <span id="challenge-probes-left" class="text-blue font-mono font-bold">8 probes left</span>
-                        <span style="margin: 0 5px; color: #ccc;">|</span>
-                        <span id="challenge-score" class="text-charcoal font-bold">Score: 0</span>
+                        <div class="reading-history-panel"
+                            style="margin-top: 20px; background: white; border: 1px solid #ddd; border-radius: 6px; padding: 15px;">
+                            <h3 style="margin-top: 0; font-size: 14px; color: #333; margin-bottom: 10px;">Reading
+                                History</h3>
+                            <button id="clear-history" class="btn btn-outline"
+                                style="margin-bottom: 10px; font-size: 11px; padding: 4px 8px;">Clear History</button>
+                            <div id="reading-history" class="reading-history"
+                                style="max-height: 200px; overflow-y: auto; font-size: 12px;"></div>
+                        </div>
                     </div>
-                    <select id="challenge-fault-select" class="form-input"
-                        style="width: 100%; margin-bottom: 12px; font-size: 12px; padding: 6px;">
-                        <option value="">-- Diagnosis --</option>
-                        <option value="f1-blown">F1 Blown</option>
-                        <option value="f2-blown">F2 Blown</option>
-                        <option value="f3-blown">F3 Blown</option>
-                        <option value="ms-open">Motor Starter Open</option>
-                        <option value="ol-tripped">Overload Tripped</option>
-                    </select>
-                    <button id="challenge-submit" class="btn btn-primary" style="width: 100%;">Submit Diagnosis</button>
-                    <div id="challenge-result" style="margin-top: 10px; font-size: 13px;"></div>
-                    <button id="challenge-restart" class="btn btn-outline"
-                        style="display: none; width: 100%; margin-top: 10px;">Restart Challenge</button>
-                </div>
-
-                <div class="reading-history-panel"
-                    style="margin-top: 20px; background: white; border: 1px solid #ddd; border-radius: 6px; padding: 15px;">
-                    <h3 style="margin-top: 0; font-size: 14px; color: #333; margin-bottom: 10px;">Reading History</h3>
-                    <button id="clear-history" class="btn btn-outline"
-                        style="margin-bottom: 10px; font-size: 11px; padding: 4px 8px;">Clear History</button>
-                    <div id="reading-history" class="reading-history"
-                        style="max-height: 200px; overflow-y: auto; font-size: 12px;"></div>
                 </div>
             </section>
 
