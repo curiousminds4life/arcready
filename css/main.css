@@ -58,7 +58,6 @@ body {
   background: var(--gray-light);
   color: var(--charcoal);
   line-height: 1.6;
-  min-width: 1024px;
   overflow-x: hidden;
 }
 
@@ -103,6 +102,7 @@ ul {
   align-items: center;
   padding: 0 24px;
   gap: 32px;
+  justify-content: space-between;
 }
 
 .nav-brand {
@@ -167,6 +167,45 @@ ul {
   font-size: 14px;
 }
 
+/* Nav Toggle (Hamburger) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.nav-toggle span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--white);
+  border-radius: 10px;
+  transition: all 0.3s linear;
+}
+
+/* Nav Active States */
+.nav-inner.nav-active .nav-toggle span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-inner.nav-active .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-inner.nav-active .nav-toggle span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.nav-inner.nav-active .nav-tabs {
+  display: flex !important;
+}
+
 .tab-icon--red {
   color: var(--red);
   font-size: 10px;
@@ -186,9 +225,10 @@ ul {
 }
 
 .container {
+  width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 24px;
 }
 
 /* ============================================================
@@ -4093,4 +4133,163 @@ ul {
   width: 48px;
   height: 48px;
   margin-bottom: 12px;
+}
+
+/* ============================================================
+   MOBILE RESPONSIVENESS (Media Queries)
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  /* Navigation */
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-tabs {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--charcoal);
+    height: auto;
+    padding: 20px;
+    box-shadow: var(--shadow-deep);
+    border-top: 1px solid var(--gray-mid);
+    z-index: 1001;
+  }
+
+  .nav-tab {
+    width: 100%;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 4px solid transparent;
+  }
+
+  .nav-tab.active {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+    border-left-color: var(--red);
+  }
+
+  /* Heroes - Centered for mobile */
+  .tab-header {
+    padding: 50px 0;
+    text-align: center;
+    border-left: none;
+    border-top: 6px solid var(--red);
+  }
+
+  .tab-header--blue {
+    border-top-color: var(--blue);
+  }
+
+  .tab-header--yellow {
+    border-top-color: var(--amber);
+  }
+
+  .tab-header--charcoal {
+    border-top-color: var(--gray-mid);
+  }
+
+  .tab-header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tab-title {
+    font-size: 32px;
+  }
+
+  .tab-subtitle {
+    font-size: 15px;
+    margin: 0 auto;
+  }
+
+  /* Certification Path */
+  .cert-path-track {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cert-path-connector {
+    width: 3px;
+    height: 32px;
+    margin-top: 0;
+  }
+
+  /* Virtual Lab Layout - Stacking */
+  .lab-workspace {
+    display: block !important;
+  }
+
+  .multimeter-sidebar {
+    width: 100% !important;
+    max-width: none;
+    order: 2;
+    margin-top: 32px;
+  }
+
+  .lab-main-area {
+    order: 1;
+    width: 100%;
+  }
+
+  .circuit-panel-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .circuit-selector {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+
+  .circuit-selector>div {
+    width: 100%;
+  }
+
+  .circuit-selector select {
+    width: 100% !important;
+  }
+
+  /* Grids & Cards */
+  .quick-start-grid,
+  .progress-grid,
+  .reference-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .user-info-panel .form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .user-info-panel .form-group--action {
+    width: 100%;
+  }
+
+  .user-info-panel .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .hero-title,
+  .tab-title {
+    font-size: 28px;
+  }
+
+  .tab-header {
+    padding: 32px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
 }

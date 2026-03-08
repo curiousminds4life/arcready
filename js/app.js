@@ -29,8 +29,24 @@
   ArcReady.showTab = showTab;
 
   tabButtons.forEach(function (btn) {
-    btn.addEventListener('click', function () { showTab(btn.getAttribute('data-tab')); });
+    btn.addEventListener('click', function () {
+      showTab(btn.getAttribute('data-tab'));
+      // Close mobile menu on selection
+      var navInner = document.querySelector('.nav-inner');
+      if (navInner) navInner.classList.remove('nav-active');
+    });
   });
+
+  /* ============================================================
+     MOBILE NAV TOGGLE
+     ============================================================ */
+  var navToggle = document.getElementById('nav-toggle');
+  var navInner = document.querySelector('.nav-inner');
+  if (navToggle && navInner) {
+    navToggle.addEventListener('click', function () {
+      navInner.classList.toggle('nav-active');
+    });
+  }
 
   /* ============================================================
      DATA-ACTION BUTTONS
@@ -44,6 +60,10 @@
     if (action === 'goto-lab') showTab('lab');
     if (action === 'goto-reference') showTab('reference');
     if (action === 'goto-progress') showTab('progress');
+
+    // Close mobile menu if open
+    var navInner = document.querySelector('.nav-inner');
+    if (navInner) navInner.classList.remove('nav-active');
   });
 
   /* ============================================================
