@@ -64,10 +64,6 @@
     var circSelect = $id('circuit-select');
     if (circSelect) {
       circSelect.addEventListener('change', function () {
-        var titleEl = $id('circuit-title');
-        if (titleEl && ArcReady.CircuitData[this.value]) {
-          titleEl.textContent = ArcReady.CircuitData[this.value].title;
-        }
         loadCircuit(this.value);
       });
     }
@@ -82,6 +78,13 @@
     if (voltSwitch) {
       voltSwitch.addEventListener('change', function () {
         state.voltageSwitch = this.value;
+
+        // Update title to match voltage
+        var titleEl = $id('circuit-title');
+        if (titleEl && state.circuit === 'circuit-a') {
+          titleEl.textContent = 'Circuit A - ' + this.value + ' 3-Phase Motor Control';
+        }
+
         if (state.circuit !== 'circuit-a') {
           voltContainer.style.display = 'none';
           var localMotorSw = $id('motor-switch');
@@ -188,6 +191,17 @@
       var svg = wrap.querySelector('svg');
       if (svg) { svg.style.width = '100%'; svg.style.maxWidth = '920px'; svg.style.height = 'auto'; }
       attachTestPointListeners(wrap);
+    }
+
+    // Update Title
+    var titleEl = $id('circuit-title');
+    if (titleEl) {
+      if (id === 'circuit-a') {
+        var v = $id('voltage-switch').value || '480V';
+        titleEl.textContent = 'Circuit A - ' + v + ' 3-Phase Motor Control';
+      } else if (ArcReady.CircuitData[id]) {
+        titleEl.textContent = ArcReady.CircuitData[id].title;
+      }
     }
 
     // Populate fault buttons
