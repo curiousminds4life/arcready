@@ -3791,11 +3791,11 @@ ul {
 }
 
 .std-btn.active--workplace {
-  border-color: var(--green);
-  background: var(--green);
+  background: linear-gradient(135deg, #2E7D32, #1B5E20);
+  border-color: #1B5E20;
   color: #fff;
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(46, 125, 50, 0.3)
+  box-shadow: 0 8px 16px rgba(46, 125, 50, 0.4)
 }
 
 .std-btn.active--workplace strong,
@@ -3804,11 +3804,11 @@ ul {
 }
 
 .std-btn.active--nfpa {
-  border-color: var(--blue);
-  background: var(--blue);
+  background: linear-gradient(135deg, #1565C0, #0D47A1);
+  border-color: #0D47A1;
   color: #fff;
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(21, 101, 192, 0.3)
+  box-shadow: 0 8px 16px rgba(21, 101, 192, 0.4)
 }
 
 .std-btn.active--nfpa strong,
@@ -3861,12 +3861,12 @@ ul {
 }
 
 .std-badge.workplace {
-  background: linear-gradient(135deg, #F57C00, #E65100);
+  background: linear-gradient(135deg, #2E7D32, #1B5E20);
   color: #fff;
 }
 
 .std-badge.nfpa {
-  background: linear-gradient(135deg, #D32F2F, #B71C1C);
+  background: linear-gradient(135deg, #1565C0, #0D47A1);
   color: #fff;
 }
 
