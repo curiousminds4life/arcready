@@ -24,7 +24,7 @@
       "D": "Insulation failure in a motor winding"
     },
     "answer": "B",
-    "explanation": "Arc flash occurs when electrical current passes through the air (ionized plasma) between conductors or from a conductor to ground, releasing enormous amounts of energy in the form of heat, light, pressure, and sound.",
+    "explanation": "Arc flash occurs when electrical current passes through the air (ionized plasma) between conductors or from a conductor to ground, releasing enormous amounts of energy as heat, light, pressure, and sound.",
     "standard": "both"
   },
   {
@@ -49,5 +49,341 @@
     },
     "answer_nfpa": "B",
     "explanation_nfpa": "Per NFPA 70E Art.130, work on energized electrical equipment is PROHIBITED when incident energy exceeds 40 cal/cm². Equipment must be de-energized before work can proceed."
+  },
+  {
+    "id": "S004",
+    "topic": "Arc Flash Fundamentals",
+    "question": "Which of the following is NOT a hazard released during an arc flash event?",
+    "options": {
+      "A": "Intense heat and infrared radiation",
+      "B": "Pressure blast wave",
+      "C": "Radioactive particles",
+      "D": "Molten metal droplets and shrapnel"
+    },
+    "answer": "C",
+    "explanation": "Arc flash releases heat (thermal energy), intense light, a pressure wave (blast), and molten metal droplets. Radioactive particles are not produced by an arc flash event.",
+    "standard": "both"
+  },
+  {
+    "id": "S005",
+    "topic": "Arc Flash Fundamentals",
+    "question": "The working distance used for arc flash calculations is measured from:",
+    "options": {
+      "A": "The worker's torso to the arc source",
+      "B": "The worker's feet to the floor",
+      "C": "The panel door to the arc source",
+      "D": "The arc source to the nearest grounded conductor"
+    },
+    "answer": "A",
+    "explanation": "The working distance is measured from the potential arc source to the worker's torso (chest), which determines the incident energy the worker may receive.",
+    "standard": "both"
+  },
+  {
+    "id": "S006",
+    "topic": "Approach Boundaries",
+    "question": "Which approach boundary requires a qualified person to wear arc-rated PPE?",
+    "options": {
+      "A": "Flash protection boundary",
+      "B": "Limited approach boundary",
+      "C": "Restricted approach boundary",
+      "D": "Prohibited approach boundary"
+    },
+    "answer": "A",
+    "explanation": "The arc flash boundary (flash protection boundary) is the distance at which the incident energy equals 1.2 cal/cm², requiring arc-rated PPE for anyone inside this boundary.",
+    "standard": "both"
+  },
+  {
+    "id": "S007",
+    "topic": "Approach Boundaries",
+    "question": "An unqualified person may not cross which boundary without escorting by a qualified person?",
+    "options": {
+      "A": "Arc flash boundary",
+      "B": "Limited approach boundary",
+      "C": "Restricted approach boundary",
+      "D": "Prohibited approach boundary"
+    },
+    "answer": "B",
+    "explanation": "The limited approach boundary is the closest unqualified persons may approach energized equipment. Beyond it, they must be continuously escorted by a qualified person.",
+    "standard": "both"
+  },
+  {
+    "id": "S008",
+    "topic": "Approach Boundaries",
+    "question": "The restricted approach boundary is associated with which primary hazard?",
+    "options": {
+      "A": "Arc flash and burn injuries",
+      "B": "Electrical shock from inadvertent contact",
+      "C": "Blast pressure waves",
+      "D": "Ultraviolet radiation exposure"
+    },
+    "answer": "B",
+    "explanation": "The restricted approach boundary is the shock protection boundary. Inside this distance, there is increased danger of electrical shock from inadvertent contact with energized conductors and circuit parts.",
+    "standard": "both"
+  },
+  {
+    "id": "S009",
+    "topic": "Arc Flash Label Reading",
+    "question": "What information MUST appear on an NFPA 70E-compliant arc flash label?",
+    "options": {
+      "A": "The equipment manufacturer's serial number and date of manufacture",
+      "B": "Available incident energy or PPE category, working distance, and arc flash boundary",
+      "C": "The name of the electrical engineer who performed the study",
+      "D": "The utility company's voltage rating and service entrance size"
+    },
+    "answer": "B",
+    "explanation": "A compliant arc flash label must include the available incident energy (or PPE category), working distance, arc flash boundary, and the minimum PPE required.",
+    "standard": "both"
+  },
+  {
+    "id": "S010",
+    "topic": "Arc Flash Label Reading",
+    "question": "An arc flash label shows 8.5 cal/cm² at 18 inches working distance. What minimum PPE category does this require?",
+    "options": {
+      "A": "Category 1 (4 cal/cm² minimum arc rating)",
+      "B": "Category 2 (8 cal/cm² minimum arc rating)",
+      "C": "Category 3 (25 cal/cm² minimum arc rating)",
+      "D": "No PPE required below 10 cal/cm²"
+    },
+    "answer": "C",
+    "explanation": "An incident energy of 8.5 cal/cm² exceeds the Category 2 threshold of 8 cal/cm², so Category 3 PPE (minimum 25 cal/cm² arc rating) is required.",
+    "standard": "both"
+  },
+  {
+    "id": "S011",
+    "topic": "PPE & HRC Categories",
+    "question": "What is the minimum arc rating for Category 2 PPE?",
+    "options": {
+      "A": "4 cal/cm²",
+      "B": "8 cal/cm²",
+      "C": "25 cal/cm²",
+      "D": "40 cal/cm²"
+    },
+    "answer": "B",
+    "explanation": "Category 2 PPE requires a minimum arc rating of 8 cal/cm² and is required when incident energy is between 4 and 8 cal/cm².",
+    "standard": "both"
+  },
+  {
+    "id": "S012",
+    "topic": "PPE & HRC Categories",
+    "question": "Which type of gloves must be worn when working within the restricted approach boundary of energized electrical conductors?",
+    "options": {
+      "A": "Leather work gloves",
+      "B": "Chemical-resistant rubber gloves",
+      "C": "Voltage-rated rubber insulating gloves tested to the appropriate class",
+      "D": "Anti-static gloves rated for ESD protection"
+    },
+    "answer": "C",
+    "explanation": "Voltage-rated (rubber insulating) gloves are required when working within the restricted approach boundary. They must be tested and rated for the voltage class of the equipment.",
+    "standard": "both"
+  },
+  {
+    "id": "S013",
+    "topic": "PPE & HRC Categories",
+    "question": "Arc-rated clothing must comply with which ASTM standard?",
+    "options": {
+      "A": "ASTM D120",
+      "B": "ASTM F1506",
+      "C": "ASTM E119",
+      "D": "ASTM A36"
+    },
+    "answer": "B",
+    "explanation": "Arc-rated clothing must comply with ASTM F1506, which specifies flammability requirements for textile materials used for worker clothing exposed to momentary electric arc and related thermal hazards.",
+    "standard": "both"
+  },
+  {
+    "id": "S014",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "What does the 'T' in LOTOTO stand for?",
+    "options": {
+      "A": "Transfer",
+      "B": "Tryout",
+      "C": "Test",
+      "D": "Terminate"
+    },
+    "answer": "B",
+    "explanation": "LOTOTO stands for Lockout/Tagout/Tryout. The Tryout step verifies isolation is complete by attempting to start the equipment using normal controls to confirm zero energy state.",
+    "standard": "both"
+  },
+  {
+    "id": "S015",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "What is the FIRST step in the LOTOTO procedure?",
+    "options": {
+      "A": "Apply lockout devices",
+      "B": "Shut down the equipment",
+      "C": "Notify affected employees",
+      "D": "Identify all energy sources"
+    },
+    "answer": "D",
+    "explanation": "The first step is to identify ALL energy sources — electrical, hydraulic, pneumatic, thermal, gravitational, and stored/residual energy. You cannot safely de-energize what you haven't first identified.",
+    "standard": "both"
+  },
+  {
+    "id": "S016",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "Per Workplace Safety Standards, what color must lockout locks be?",
+    "options": {
+      "A": "Yellow",
+      "B": "Orange",
+      "C": "Red",
+      "D": "Blue"
+    },
+    "answer": "C",
+    "explanation": "Per Workplace Safety Standards, lockout locks must be RED (Master Lock or American Lock only). Each associate uses their own personal lock — locks must never be shared.",
+    "standard": "workplace"
+  },
+  {
+    "id": "S017",
+    "topic": "Lockout/Tagout (LOTOTO)",
+    "question": "During a complex LOTOTO where multiple workers are involved, each worker must:",
+    "options": {
+      "A": "Share one common lock on the group lockout hasp",
+      "B": "Apply their own personal lock to the energy isolation point or group lockout hasp",
+      "C": "Wait for the lead worker to apply a single common lock",
+      "D": "Verbally notify the authorized worker that they are working on the equipment"
+    },
+    "answer": "B",
+    "explanation": "In a group LOTOTO, each individual worker applies their own personal lock to the group lockout hasp. No worker may begin work until their personal lock is applied.",
+    "standard": "both"
+  },
+  {
+    "id": "S018",
+    "topic": "Energized Work Permits",
+    "question": "When is an Energized Work Permit (EWP) required?",
+    "options": {
+      "A": "Any time work is performed near electrical equipment",
+      "B": "When de-energizing is not feasible and work must be performed on or near energized exposed parts",
+      "C": "Only when working on voltages above 480V",
+      "D": "Whenever a qualified person enters the limited approach boundary"
+    },
+    "answer": "B",
+    "explanation": "An Energized Work Permit is required when it is infeasible to de-energize equipment and work must be performed on or near exposed energized electrical conductors.",
+    "standard": "both"
+  },
+  {
+    "id": "S019",
+    "topic": "Energized Work Permits",
+    "question": "Who must APPROVE an Energized Work Permit before work begins?",
+    "options": {
+      "A": "The worker performing the task",
+      "B": "Any available licensed electrician on site",
+      "C": "A qualified management representative and a safety representative",
+      "D": "The equipment manufacturer's representative"
+    },
+    "answer": "C",
+    "explanation": "An EWP must be reviewed and approved by authorized management AND safety representatives before work begins. This dual approval ensures proper justification and hazard controls are in place.",
+    "standard": "both"
+  },
+  {
+    "id": "S020",
+    "topic": "Qualified Person Rules",
+    "question": "Which of the following BEST describes a 'Qualified Person' per electrical safety standards?",
+    "options": {
+      "A": "Any employee who holds a journeyman electrician license",
+      "B": "A person who is familiar with the construction and operation of equipment and the hazards involved",
+      "C": "Any employee who has completed basic electrical safety awareness training",
+      "D": "A person with at least 5 years of field electrical experience"
+    },
+    "answer": "B",
+    "explanation": "A Qualified Person is one who has received training and demonstrated skills and knowledge in the operation and construction of electrical equipment, understands the hazards involved, and knows the safe work practices required.",
+    "standard": "both"
+  },
+  {
+    "id": "S021",
+    "topic": "Qualified Person Rules",
+    "question": "A Qualified Person working within the arc flash boundary must have which of the following?",
+    "options": {
+      "A": "A written energized work permit and arc-rated PPE appropriate for the incident energy",
+      "B": "Only a hard hat and safety glasses",
+      "C": "A safety observer who is also qualified",
+      "D": "Permission from the equipment owner to proceed"
+    },
+    "answer": "A",
+    "explanation": "Within the arc flash boundary, a qualified person must have arc-rated PPE appropriate for the incident energy level AND a valid Energized Work Permit authorizing the energized work.",
+    "standard": "both"
+  },
+  {
+    "id": "S022",
+    "topic": "PPE Inspection & Testing",
+    "question": "How often must rubber insulating gloves be electrically tested per Workplace Safety Standards?",
+    "options": {
+      "A": "Every 6 months",
+      "B": "Once a year",
+      "C": "Every 6 months maximum, or after any incident that may have caused damage",
+      "D": "Only before first use and after visible damage"
+    },
+    "answer": "C",
+    "explanation": "Rubber insulating gloves must be electrically tested every 6 months or within 6 months prior to use (per ASTM D120). They must also be re-tested after any event that may have compromised their integrity.",
+    "standard": "both"
+  },
+  {
+    "id": "S023",
+    "topic": "PPE Inspection & Testing",
+    "question": "Before each use, rubber insulating gloves should be:",
+    "options": {
+      "A": "Submerged in water to check for air bubbles indicating holes",
+      "B": "Visually inspected and air-inflated to check for leaks or damage",
+      "C": "Tested using a multimeter set to the resistance function",
+      "D": "Sprayed with an insulating spray to refresh the protective coating"
+    },
+    "answer": "B",
+    "explanation": "Before each use, rubber insulating gloves must be visually inspected for cuts, tears, or ozone damage AND air-inflated (rolled toward the fingers) to check for pinholes or leaks.",
+    "standard": "both"
+  },
+  {
+    "id": "S024",
+    "topic": "PPE Purchasing Standards",
+    "question": "What does an arc rating (ATPV or EBT) on PPE indicate?",
+    "options": {
+      "A": "The voltage the garment can safely withstand",
+      "B": "The incident energy at which the wearer has a 50% probability of just curable burn injury",
+      "C": "The number of washes the garment can withstand before losing protection",
+      "D": "The total weight of all PPE in the ensemble"
+    },
+    "answer": "B",
+    "explanation": "The Arc Thermal Performance Value (ATPV) is the incident energy (cal/cm²) at which there is a 50% probability that the material will break open OR the wearer receives a second-degree burn. EBT is the incident energy at which the material breaks open, whichever is lower.",
+    "standard": "both"
+  },
+  {
+    "id": "S025",
+    "topic": "Safety Scenarios",
+    "question": "You arrive at a panel to take voltage readings. The arc flash label shows 12 cal/cm². What PPE category must you wear?",
+    "options": {
+      "A": "Category 1 — arc-rated shirt and pants (4 cal/cm²)",
+      "B": "Category 2 — arc-rated coverall and balaclava (8 cal/cm²)",
+      "C": "Category 3 — arc flash suit (25 cal/cm²)",
+      "D": "No PPE required — voltage readings are low risk"
+    },
+    "answer": "C",
+    "explanation": "12 cal/cm² exceeds Category 2 (8 cal/cm²). Category 3 PPE (minimum 25 cal/cm² arc rating) is required. This includes an arc flash suit, arc-rated gloves, and Class E hard hat.",
+    "standard": "both"
+  },
+  {
+    "id": "S026",
+    "topic": "Safety Scenarios",
+    "question": "A co-worker asks you to remove their LOTO lock because they had to leave early. What should you do?",
+    "options": {
+      "A": "Remove the lock since you know the work is done",
+      "B": "Contact the supervisor — the lock owner must remove their own lock or a formal procedure must be followed",
+      "C": "Remove the lock and re-energize the equipment immediately",
+      "D": "Tag out in place of the missing lock and proceed"
+    },
+    "answer": "B",
+    "explanation": "No person may remove another person's lock. If the lock owner has left, a formal 'abandoned lock' procedure must be followed — typically requiring supervisor authorization, verification the equipment is safe, and documentation.",
+    "standard": "both"
+  },
+  {
+    "id": "S027",
+    "topic": "Safety Scenarios",
+    "question": "Before performing any measurement inside an energized panel with exposed conductors, you should FIRST:",
+    "options": {
+      "A": "Verify the test instrument is rated for the voltage and category of the circuit",
+      "B": "Set the multimeter to the highest voltage range available",
+      "C": "Visually confirm the circuit breaker position is ON",
+      "D": "Remove the front panel cover to get better access"
+    },
+    "answer": "A",
+    "explanation": "Before any electrical measurement, verify that the test instrument has the correct CAT rating for the circuit and is rated for the maximum voltage present. Using an under-rated instrument can result in catastrophic failure.",
+    "standard": "both"
   }
 ]

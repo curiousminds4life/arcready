@@ -24,5 +24,213 @@
     },
     "answer": "B",
     "explanation": "I = E/R = 120V / 12Ω = 10A. Dividing voltage by resistance gives current in amperes."
+  },
+  {
+    "id": "T003",
+    "topic": "Ohm's Law & Power",
+    "question": "A 240V circuit draws 20A of current. What is the power consumed?",
+    "options": {
+      "A": "12 W",
+      "B": "260 W",
+      "C": "4,800 W",
+      "D": "220 W"
+    },
+    "answer": "C",
+    "explanation": "P = E × I = 240V × 20A = 4,800W (4.8kW). Power is the product of voltage and current."
+  },
+  {
+    "id": "T004",
+    "topic": "Ohm's Law & Power",
+    "question": "What happens to current in a circuit if resistance is doubled while voltage stays the same?",
+    "options": {
+      "A": "Current doubles",
+      "B": "Current is halved",
+      "C": "Current remains the same",
+      "D": "Current increases by four times"
+    },
+    "answer": "B",
+    "explanation": "From Ohm's Law, I = E/R. If R doubles and E remains constant, I = E/(2R) = half the original current. Current and resistance are inversely proportional."
+  },
+  {
+    "id": "T005",
+    "topic": "Series & Parallel Circuits",
+    "question": "In a series circuit with three resistors (R1=10Ω, R2=20Ω, R3=30Ω), what is the total resistance?",
+    "options": {
+      "A": "10Ω",
+      "B": "5.45Ω",
+      "C": "60Ω",
+      "D": "6,000Ω"
+    },
+    "answer": "C",
+    "explanation": "In a series circuit, total resistance Rt = R1 + R2 + R3 = 10 + 20 + 30 = 60Ω. All resistances simply add together in series."
+  },
+  {
+    "id": "T006",
+    "topic": "Series & Parallel Circuits",
+    "question": "In a parallel circuit, what remains the same across all branches?",
+    "options": {
+      "A": "Current",
+      "B": "Resistance",
+      "C": "Voltage",
+      "D": "Power"
+    },
+    "answer": "C",
+    "explanation": "In a parallel circuit, the voltage across each branch is identical and equal to the source voltage. Current divides among branches, and total current is the sum of branch currents."
+  },
+  {
+    "id": "T007",
+    "topic": "Series & Parallel Circuits",
+    "question": "Two 10Ω resistors are connected in parallel. What is the equivalent resistance?",
+    "options": {
+      "A": "20Ω",
+      "B": "10Ω",
+      "C": "5Ω",
+      "D": "0.2Ω"
+    },
+    "answer": "C",
+    "explanation": "For two equal resistors in parallel: Rt = R/2 = 10/2 = 5Ω. Using the full formula: 1/Rt = 1/10 + 1/10 = 2/10, so Rt = 5Ω."
+  },
+  {
+    "id": "T008",
+    "topic": "Series & Parallel Circuits",
+    "question": "Kirchhoff's Voltage Law (KVL) states that:",
+    "options": {
+      "A": "Current entering a node equals current leaving that node",
+      "B": "The sum of all voltages around any closed loop in a circuit equals zero",
+      "C": "Total power in a circuit equals total resistance times total current",
+      "D": "Voltage drops increase as resistance decreases"
+    },
+    "answer": "B",
+    "explanation": "Kirchhoff's Voltage Law states that the algebraic sum of all voltage rises and drops around any closed loop equals zero. This means the source voltage equals the sum of all voltage drops."
+  },
+  {
+    "id": "T009",
+    "topic": "AC Theory",
+    "question": "What is the RMS value of an AC sine wave with a peak voltage of 169.7V?",
+    "options": {
+      "A": "169.7V",
+      "B": "240V",
+      "C": "120V",
+      "D": "84.85V"
+    },
+    "answer": "C",
+    "explanation": "Vrms = Vpeak / √2 = 169.7 / 1.414 ≈ 120V. RMS is the effective value — the DC equivalent that produces the same heating effect."
+  },
+  {
+    "id": "T010",
+    "topic": "AC Theory",
+    "question": "In the United States, what is the standard frequency of AC power?",
+    "options": {
+      "A": "50 Hz",
+      "B": "60 Hz",
+      "C": "120 Hz",
+      "D": "400 Hz"
+    },
+    "answer": "B",
+    "explanation": "The United States uses 60 Hz (60 cycles per second) for AC power distribution. Most of Europe and other regions use 50 Hz."
+  },
+  {
+    "id": "T011",
+    "topic": "AC Theory",
+    "question": "Inductive reactance (XL) in an AC circuit:",
+    "options": {
+      "A": "Decreases as frequency increases",
+      "B": "Increases as frequency increases",
+      "C": "Is not affected by frequency",
+      "D": "Is equal to the resistance in the circuit"
+    },
+    "answer": "B",
+    "explanation": "Inductive reactance XL = 2πfL. As frequency (f) increases, XL increases proportionally. At DC (f=0), an inductor has zero reactance and acts as a short circuit."
+  },
+  {
+    "id": "T012",
+    "topic": "Transformers",
+    "question": "A step-down transformer has a turns ratio of 10:1. If the primary voltage is 480V, what is the secondary voltage?",
+    "options": {
+      "A": "4,800V",
+      "B": "480V",
+      "C": "48V",
+      "D": "24V"
+    },
+    "answer": "C",
+    "explanation": "V1/V2 = N1/N2 → 480/V2 = 10/1 → V2 = 48V. The 10:1 ratio means the secondary has 1/10th the voltage of the primary."
+  },
+  {
+    "id": "T013",
+    "topic": "Transformers",
+    "question": "In an ideal transformer, if the secondary voltage is stepped down, what happens to secondary current compared to primary current?",
+    "options": {
+      "A": "Secondary current is also stepped down",
+      "B": "Secondary current is stepped up",
+      "C": "Current remains the same on both sides",
+      "D": "Secondary current goes to zero"
+    },
+    "answer": "B",
+    "explanation": "An ideal transformer conserves power (P = V × I), so if voltage steps down by a ratio, current steps up by the same ratio. I2/I1 = N1/N2 = V1/V2."
+  },
+  {
+    "id": "T014",
+    "topic": "3-Phase Systems",
+    "question": "In a 3-phase Wye (Y) connected system, what is the relationship between line voltage and phase voltage?",
+    "options": {
+      "A": "Line voltage equals phase voltage",
+      "B": "Line voltage equals phase voltage divided by √3",
+      "C": "Line voltage equals phase voltage multiplied by √3 (≈1.732)",
+      "D": "Line voltage equals phase voltage multiplied by 3"
+    },
+    "answer": "C",
+    "explanation": "In a Wye system: Vline = Vphase × √3 ≈ 1.732 × Vphase. For example, a 208V Wye system has a phase voltage of 208/1.732 ≈ 120V."
+  },
+  {
+    "id": "T015",
+    "topic": "3-Phase Systems",
+    "question": "In a 3-phase Delta system, what is the relationship between line voltage and phase voltage?",
+    "options": {
+      "A": "Line voltage equals phase voltage",
+      "B": "Line voltage = phase voltage × √3",
+      "C": "Line voltage = phase voltage / 3",
+      "D": "Line voltage = phase voltage / √3"
+    },
+    "answer": "A",
+    "explanation": "In a Delta system, the line voltage equals the phase voltage because each winding is connected directly between two line conductors. There is no neutral conductor in a Delta configuration."
+  },
+  {
+    "id": "T016",
+    "topic": "3-Phase Systems",
+    "question": "A 480V 3-phase Wye system supplies power to a motor. What is the phase-to-neutral voltage?",
+    "options": {
+      "A": "480V",
+      "B": "240V",
+      "C": "277V",
+      "D": "120V"
+    },
+    "answer": "C",
+    "explanation": "In a Wye system: Vphase = Vline / √3 = 480 / 1.732 ≈ 277V. This is why 480V panelboards have 277V single-pole breakers for lighting circuits."
+  },
+  {
+    "id": "T017",
+    "topic": "Motors & Controls",
+    "question": "What is the purpose of an overload relay in a motor control circuit?",
+    "options": {
+      "A": "To protect against short circuits and ground faults",
+      "B": "To protect the motor from sustained overcurrent that causes overheating",
+      "C": "To limit the motor's starting current surge",
+      "D": "To control the motor speed automatically"
+    },
+    "answer": "B",
+    "explanation": "Overload relays protect motors from sustained overcurrent (overloads) that cause excessive heat buildup in the motor windings. They do not protect against short circuits — that is the function of fuses or circuit breakers."
+  },
+  {
+    "id": "T018",
+    "topic": "Motors & Controls",
+    "question": "A motor nameplate shows 'FLA = 15A'. What does FLA mean?",
+    "options": {
+      "A": "Free-Load Amps — current running with no load attached",
+      "B": "Full Load Amps — the current drawn at rated voltage and full rated horsepower",
+      "C": "Fault Line Amps — the maximum short circuit current",
+      "D": "Fixed Load Amps — the current at a fixed speed setting"
+    },
+    "answer": "B",
+    "explanation": "FLA (Full Load Amps) is the nameplate current rating of the motor at its rated voltage and rated horsepower (full mechanical load). This is the basis for sizing overload protection and conductors."
   }
 ]
