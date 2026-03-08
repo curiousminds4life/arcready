@@ -4075,15 +4075,16 @@ ul {
   outline: none;
   box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.3);
 }
+
 /* ============================================================
    GLOBAL QUICK START NAVIGATION
    ============================================================ */
 .global-quick-start {
-  margin-top: 60px;
-  padding-top: 40px;
+  margin-top: 24px;
+  padding-top: 24px;
   padding-bottom: 40px;
-  border-top: 2px solid var(--gray-mid);
-  background: transparent;
+  border-top: 1px solid var(--gray-mid);
+  opacity: 0.95;
 }
 
 .quick-start-grid {
@@ -4111,10 +4112,21 @@ ul {
   border-color: var(--gray-mid);
 }
 
-.home-card[data-action="goto-safety"] { border-left: 5px solid var(--red); }
-.home-card[data-action="goto-theory"] { border-left: 5px solid var(--blue); }
-.home-card[data-action="goto-lab"]    { border-left: 5px solid var(--amber); }
-.home-card[data-action="goto-reference"] { border-left: 5px solid var(--charcoal); }
+.home-card[data-action="goto-safety"] {
+  border-left: 5px solid var(--red);
+}
+
+.home-card[data-action="goto-theory"] {
+  border-left: 5px solid var(--blue);
+}
+
+.home-card[data-action="goto-lab"] {
+  border-left: 5px solid var(--amber);
+}
+
+.home-card[data-action="goto-reference"] {
+  border-left: 5px solid var(--charcoal);
+}
 
 .home-card-icon {
   font-size: 2.5rem;
