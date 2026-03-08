@@ -3834,6 +3834,16 @@ ul {
   min-height: 1em
 }
 
+.std-toggle-hint {
+  font-size: 0.65rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  margin-bottom: 6px;
+  display: block;
+}
+
 .std-badge {
   display: inline-block;
   padding: 4px 12px;
