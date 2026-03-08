@@ -912,10 +912,7 @@
   function checkTheoryGate() {
     var certified = localStorage.getItem('arcready_safety_certified') === 'true';
     var lockOverlay = el('theory-lock-overlay');
-    var certifyStart = el('theory-certify-start-screen');
     if (lockOverlay) lockOverlay.style.display = certified ? 'none' : '';  // hide overlay when certified
-    // BUG 6 FIX: was inverted -- certify start screen should show when certified, hide when NOT
-    if (certifyStart) certifyStart.style.display = certified ? '' : 'none';
   }
 
   /* ================================================================
