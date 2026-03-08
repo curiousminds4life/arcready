@@ -3,50 +3,183 @@
     "id": "nfpa",
     "label": "NFPA 70E 2024",
     "short_label": "NFPA 70E",
-    "description": "Uses the National Fire Protection Association NFPA 70E Standard for Electrical Safety in the Workplace (2024 edition). Terminology reflects the current national consensus standard used by OSHA and industry.",
-    "badge_color": "#CC0000",
+    "description": "National consensus standard for electrical safety in the workplace. Focuses on Arc Flash PPE Categories and formal safety boundaries.",
     "ppe_term": "Arc Flash PPE Category",
-    "ppe_term_full": "Arc Flash PPE Category (NFPA 70E)",
+    "ppe_term_full": "Arc Flash PPE Category (NFPA)",
     "ppe_categories": [
       {
         "level": "Category 1",
-        "energy": "\u2265 1.2 \u2013 \u2264 12 cal/cm\u00b2",
-        "description": "Arc-rated clothing (min. 4 cal/cm\u00b2 rating), face shield, heavy-duty leather gloves",
-        "source": "NFPA 70E Table 130.7(C)(15)(c)"
+        "energy": "1.2 - 4 cal/cm²",
+        "description": "Arc-rated shirt & pants/coverall, face shield, leather gloves, hard hat",
+        "source": "Table 130.7(C)(15)(c)"
+      },
+      {
+        "level": "Category 2",
+        "energy": "4 - 8 cal/cm²",
+        "description": "Arc-rated shirt & pants, arc flash suit, balaclava, rubber gloves, hard hat",
+        "source": "Table 130.7(C)(15)(c)"
+      },
+      {
+        "level": "Category 3",
+        "energy": "8 - 25 cal/cm²",
+        "description": "Full arc flash suit, multi-layer system, Class E hard hat",
+        "source": "Table 130.7(C)(15)(c)"
+      },
+      {
+        "level": "Category 4",
+        "energy": "25 - 40 cal/cm²",
+        "description": "Heaviest arc flash suit, voltage-rated gloves, maximum protection",
+        "source": "Table 130.7(C)(15)(c)"
+      },
+      {
+        "level": "PROHIBITED",
+        "energy": "> 40 cal/cm²",
+        "description": "De-energize before work. Work prohibited at this level.",
+        "source": "Article 130",
+        "prohibited": true
       }
     ],
     "boundaries": [
       {
         "name": "Limited Approach Boundary",
-        "definition": "Approach limit within which a shock hazard exists. Unqualified persons may not cross without continuous escort by a qualified person.",
-        "source": "NFPA 70E 130.4 / Table 130.4(D)(a)"
+        "definition": "Approach limit for unqualified persons. Escort required.",
+        "source": "Table 130.4(D)"
+      },
+      {
+        "name": "Restricted Approach Boundary",
+        "definition": "Approach limit for qualified persons using PPE.",
+        "source": "Table 130.4(D)"
+      },
+      {
+        "name": "Arc Flash Boundary",
+        "definition": "Distance where incident energy is 1.2 cal/cm².",
+        "source": "Article 130"
       }
     ],
-    "boundary_count": 3
+    "loto_name": "Lockout/Tagout",
+    "loto_full_name": "Control of Hazardous Energy (NFPA 70E)",
+    "loto_source": "Article 120",
+    "loto_steps": [
+      {
+        "step": 1,
+        "title": "Preparation",
+        "detail": "Identify all energy sources and shut down equipment."
+      },
+      {
+        "step": 2,
+        "title": "Isolation",
+        "detail": "Physically isolate the equipment from all energy sources."
+      },
+      {
+        "step": 3,
+        "title": "LOTO Application",
+        "detail": "Apply individualized locks and tags to each disconnecting means."
+      },
+      {
+        "step": 4,
+        "title": "Verification",
+        "detail": "Verify zero energy state through testing (Tryout)."
+      }
+    ],
+    "qualified_person_term": "Qualified Person",
+    "qualified_person_def": "One who has demonstrated skills and knowledge related to the construction and operation of electrical equipment and installations and has received safety training to identify the hazards and reduce the associated risks.",
+    "qualified_person_source": "NFPA 70E Article 100",
+    "label_source": "NFPA 70E 130.5",
+    "permit_source": "NFPA 70E Annex J",
+    "glove_test_source": "ASTM D120",
+    "glove_test_interval": "Every 6 months (in-service)",
+    "arc_flash_review_source": "NFPA 70E 130.5(G)",
+    "arc_flash_review": "Every 5 years"
   },
   "workplace": {
     "id": "workplace",
     "label": "Workplace Standards",
     "short_label": "WPS",
-    "description": "Uses enhanced workplace safety procedures including facility-specific LOTO protocols, hazardous energy control, and PPE requirements aligned with industrial facility standards.",
-    "badge_color": "#F57C00",
+    "description": "Facility-specific safety procedures including LOTOTO protocols and enhanced HECP (Hazardous Energy Control Program) requirements.",
     "ppe_term": "HRC",
     "ppe_term_full": "Hazard Risk Category (HRC)",
     "ppe_categories": [
       {
+        "level": "HRC 0",
+        "energy": "< 1.2 cal/cm²",
+        "description": "Non-melting clothing, safety glasses, hearing protection",
+        "source": "WPS Safety Manual"
+      },
+      {
         "level": "HRC 1",
-        "energy": "1.2 \u2013 4 cal/cm\u00b2",
+        "energy": "1.2 - 4 cal/cm²",
         "description": "Arc-rated shirt and pants or coverall",
-        "source": "Workplace Safety Standards"
+        "source": "WPS Safety Manual"
+      },
+      {
+        "level": "HRC 2",
+        "energy": "4 - 8 cal/cm²",
+        "description": "Arc-rated shirt and pants, face shield, rubber gloves",
+        "source": "WPS Safety Manual"
+      },
+      {
+        "level": "HRC 3",
+        "energy": "8 - 25 cal/cm²",
+        "description": "Full arc flash suit and hood",
+        "source": "WPS Safety Manual"
+      },
+      {
+        "level": "HRC 4",
+        "energy": "25 - 40 cal/cm²",
+        "description": "Maximum flash suit protection",
+        "source": "WPS Safety Manual"
       }
     ],
     "boundaries": [
       {
-        "name": "Limited Approach Boundary",
-        "definition": "Closest unqualified persons may approach without escort from a qualified person.",
-        "source": "Workplace Safety Standards"
+        "name": "Limited approach",
+        "definition": "Escort needed for non-qualified personnel.",
+        "source": "WPS HECP"
+      },
+      {
+        "name": "Restricted approach",
+        "definition": "Qualified personnel with specific task PPE.",
+        "source": "WPS HECP"
+      },
+      {
+        "name": "Flash boundary",
+        "definition": "Boundary for arc rated protection.",
+        "source": "WPS HECP"
       }
     ],
-    "boundary_count": 4
+    "loto_name": "LOTOTO",
+    "loto_full_name": "Lockout, Tagout, Tryout (LOTOTO) Program",
+    "loto_source": "Facility Safety Standards",
+    "loto_steps": [
+      {
+        "step": 1,
+        "title": "Notify & Prepare",
+        "detail": "Inform all associates and identify sources."
+      },
+      {
+        "step": 2,
+        "title": "Isolate & Lock",
+        "detail": "Apply RED Master Lock and laminated tag."
+      },
+      {
+        "step": 3,
+        "title": "Release Stored Energy",
+        "detail": "Ground, bleed, or block any residual energy."
+      },
+      {
+        "step": 4,
+        "title": "TRYOUT",
+        "detail": "Always verify isolation using start controls."
+      }
+    ],
+    "qualified_person_term": "Qualified Associate",
+    "qualified_person_def": "An associate who has been trained for the task and has demonstrated the ability to safely work on the specific machine or equipment per the HECP certification.",
+    "qualified_person_source": "WPS HECP Policy",
+    "label_source": "WPS 08.22",
+    "permit_source": "WPS Form 442",
+    "glove_test_source": "WPS Tool Crib Policy",
+    "glove_test_interval": "Every 6 months",
+    "arc_flash_review_source": "WPS Site Engineering",
+    "arc_flash_review": "Annual Review"
   }
 }
