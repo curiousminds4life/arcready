@@ -70,26 +70,8 @@
     var cached = getCached(cacheKey);
     if (cached) { callback(cached, null); return; }
 
-    var url, headers;
-
-    if (cfg.dev_mode && cfg.dev_openrouter_key) {
-      // Direct OpenRouter call (localhost dev only)
-      url = 'https://openrouter.ai/api/v1/chat/completions';
-      headers = {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + cfg.dev_openrouter_key,
-        'HTTP-Referer': 'https://arcready.net',
-        'X-Title': 'ArcReady Training'
-      };
-    } else if (!cfg.dev_mode) {
-      // Production: route through PHP proxy
-      url = cfg.proxy_url || 'ai-proxy.php';
-      headers = { 'Content-Type': 'application/json' };
-    } else {
-      // dev_mode true but no key set -- silently skip
-      console.error('[ArcReady AI] dev_mode=true but no key set in ai-config.json'); callback(null, 'no_key');
-      return;
-    }
+    var url = cfg.proxy_url || 'ai-proxy.php';
+    var headers = { 'Content-Type': 'application/json' };
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url, true);
