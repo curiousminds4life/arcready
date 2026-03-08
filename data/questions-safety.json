@@ -131,7 +131,7 @@
       "D": "The utility company's voltage rating and service entrance size"
     },
     "answer": "B",
-    "explanation": "A compliant arc flash label must include the available incident energy (or PPE category), working distance, arc flash boundary, and the minimum PPE required.",
+    "explanation": "A compliant arc flash label must include the available incident energy (or PPE category), working distance, arc flash boundary, and the minimum PPE required. This information is critical for worker safety.",
     "standard": "both"
   },
   {
@@ -159,7 +159,7 @@
       "D": "40 cal/cm²"
     },
     "answer": "B",
-    "explanation": "Category 2 PPE requires a minimum arc rating of 8 cal/cm² and is required when incident energy is between 4 and 8 cal/cm².",
+    "explanation": "Category 2 PPE requires a minimum arc rating of 8 cal/cm² and is required when incident energy is between 4 and 8 cal/cm². It includes arc-rated clothing, face shield, and hard hat.",
     "standard": "both"
   },
   {
@@ -173,7 +173,7 @@
       "D": "Anti-static gloves rated for ESD protection"
     },
     "answer": "C",
-    "explanation": "Voltage-rated (rubber insulating) gloves are required when working within the restricted approach boundary. They must be tested and rated for the voltage class of the equipment.",
+    "explanation": "Voltage-rated (rubber insulating) gloves are required when working within the restricted approach boundary. They must be tested and rated for the voltage class of the equipment being worked on.",
     "standard": "both"
   },
   {
@@ -187,7 +187,7 @@
       "D": "ASTM A36"
     },
     "answer": "B",
-    "explanation": "Arc-rated clothing must comply with ASTM F1506, which specifies flammability requirements for textile materials used for worker clothing exposed to momentary electric arc and related thermal hazards.",
+    "explanation": "Arc-rated clothing must comply with ASTM F1506, which specifies the flammability requirements for textile materials used for worker clothing exposed to momentary electric arc and related thermal hazards.",
     "standard": "both"
   },
   {
@@ -201,7 +201,7 @@
       "D": "Terminate"
     },
     "answer": "B",
-    "explanation": "LOTOTO stands for Lockout/Tagout/Tryout. The Tryout step verifies isolation is complete by attempting to start the equipment using normal controls to confirm zero energy state.",
+    "explanation": "LOTOTO stands for Lockout/Tagout/Tryout. The Tryout step verifies that isolation is complete by attempting to start the equipment using normal controls to confirm zero energy state.",
     "standard": "both"
   },
   {
@@ -243,7 +243,7 @@
       "D": "Verbally notify the authorized worker that they are working on the equipment"
     },
     "answer": "B",
-    "explanation": "In a group LOTOTO, each individual worker applies their own personal lock to the group lockout hasp. No worker may begin work until their personal lock is applied.",
+    "explanation": "In a group LOTOTO, each individual worker applies their own personal lock to the group lockout hasp. No worker may begin work until their personal lock is applied and no worker may remove anyone else's lock.",
     "standard": "both"
   },
   {
@@ -257,7 +257,7 @@
       "D": "Whenever a qualified person enters the limited approach boundary"
     },
     "answer": "B",
-    "explanation": "An Energized Work Permit is required when it is infeasible to de-energize equipment and work must be performed on or near exposed energized electrical conductors.",
+    "explanation": "An Energized Work Permit is required when it is infeasible to de-energize equipment and work must be performed on or near exposed energized electrical conductors. It documents the justification and safety controls.",
     "standard": "both"
   },
   {
@@ -327,7 +327,7 @@
       "D": "Sprayed with an insulating spray to refresh the protective coating"
     },
     "answer": "B",
-    "explanation": "Before each use, rubber insulating gloves must be visually inspected for cuts, tears, or ozone damage AND air-inflated (rolled toward the fingers) to check for pinholes or leaks.",
+    "explanation": "Before each use, rubber insulating gloves must be visually inspected for cuts, tears, or ozone damage AND air-inflated (rolled toward the fingers) to check for pinholes or leaks that could compromise their insulating properties.",
     "standard": "both"
   },
   {
@@ -369,7 +369,7 @@
       "D": "Tag out in place of the missing lock and proceed"
     },
     "answer": "B",
-    "explanation": "No person may remove another person's lock. If the lock owner has left, a formal 'abandoned lock' procedure must be followed — typically requiring supervisor authorization, verification the equipment is safe, and documentation.",
+    "explanation": "No person may remove another person's lock. If the lock owner has left, a formal 'abandoned lock' procedure must be followed — typically requiring supervisor authorization, verification the equipment is safe, and documentation of the circumstances.",
     "standard": "both"
   },
   {
@@ -383,7 +383,7 @@
       "D": "Remove the front panel cover to get better access"
     },
     "answer": "A",
-    "explanation": "Before any electrical measurement, verify that the test instrument has the correct CAT rating for the circuit and is rated for the maximum voltage present. Using an under-rated instrument can result in catastrophic failure.",
+    "explanation": "Before any electrical measurement, verify that the test instrument has the correct CAT rating (Category Rating) for the circuit being tested and is rated for the maximum voltage present. Using an under-rated instrument can result in catastrophic failure.",
     "standard": "both"
   }
 ]

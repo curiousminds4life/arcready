@@ -779,17 +779,23 @@
     if (!pass || mode === 'practice') {
       var missed = [];
       questions.forEach(function (q, idx) {
-        if (answers[idx] !== q.answer) missed.push({ q: q, chosen: answers[idx] });
+        // BUG E FIX: use dual-standard correct answer helper
+        var correctAns = window._getCorrectAnswer ? window._getCorrectAnswer(q) : q.answer;
+        if (answers[idx] !== correctAns) missed.push({ q: q, chosen: answers[idx], correctAns: correctAns });
       });
       if (missed.length > 0) {
         missedHTML = '<div class="results-missed"><h4>Missed Questions (' + missed.length + ')</h4>';
         missed.forEach(function (m, n) {
           var chosen = m.chosen || 'Not answered';
+          // BUG E FIX: use dual-standard options helper
+          var opts = window._getQuestionOptions ? window._getQuestionOptions(m.q) : (m.q.options || {});
+          var expl = window._getExplanation ? window._getExplanation(m.q) : (m.q.explanation || '');
+          var qText = window._getQuestionText ? window._getQuestionText(m.q) : (m.q.question || '');
           missedHTML += '<div class="missed-item">' +
-            '<div class="missed-q"><strong>' + (n + 1) + '.</strong> ' + escHtml(m.q.question) + '</div>' +
-            '<div class="missed-your">Your answer: <span class="answer-wrong">' + escHtml(chosen !== 'Not answered' ? chosen + ': ' + (m.q.options[chosen] || '') : 'Not answered') + '</span></div>' +
-            '<div class="missed-correct">Correct: <span class="answer-right">' + m.q.answer + ': ' + escHtml(m.q.options[m.q.answer]) + '</span></div>' +
-            '<div class="missed-exp">' + escHtml(m.q.explanation) + '</div></div>';
+            '<div class="missed-q"><strong>' + (n + 1) + '.</strong> ' + escHtml(qText) + '</div>' +
+            '<div class="missed-your">Your answer: <span class="answer-wrong">' + escHtml(chosen !== 'Not answered' ? chosen + ': ' + (opts[chosen] || '') : 'Not answered') + '</span></div>' +
+            '<div class="missed-correct">Correct: <span class="answer-right">' + m.correctAns + ': ' + escHtml(opts[m.correctAns] || '') + '</span></div>' +
+            '<div class="missed-exp">' + escHtml(expl) + '</div></div>';
         });
         missedHTML += '</div>';
       }

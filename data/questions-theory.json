@@ -106,7 +106,7 @@
   {
     "id": "T009",
     "topic": "AC Theory",
-    "question": "What is the RMS value of an AC sine wave with a peak voltage of 169.7V?",
+    "question": "What is the RMS (root mean square) value of an AC sine wave with a peak voltage of 169.7V?",
     "options": {
       "A": "169.7V",
       "B": "240V",
@@ -114,7 +114,7 @@
       "D": "84.85V"
     },
     "answer": "C",
-    "explanation": "Vrms = Vpeak / √2 = 169.7 / 1.414 ≈ 120V. RMS is the effective value — the DC equivalent that produces the same heating effect."
+    "explanation": "Vrms = Vpeak / √2 = 169.7 / 1.414 ≈ 120V. RMS is the effective value — the DC equivalent that produces the same heating effect. Standard 120V AC has a peak of ~169.7V."
   },
   {
     "id": "T010",

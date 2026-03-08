@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/ai.css">
 </head>
+
 <body>
     <nav class="top-nav">
         <div class="nav-inner">
@@ -39,301 +41,338 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- Safety Tab -->
-            
-        <section id="tab-safety" class="tab-section">
-            <div class="tab-header tab-header--red">
-                <h1 class="tab-title">Safety Section</h1>
-                <p class="tab-subtitle">NFPA 70E compliant electrical safety training.</p>
-            </div>
-            <!-- Bug C FIX: changed id= to class= to fix duplicate ID issue -->
-            <div class="standards-selector-container" style="margin-bottom: 20px;"></div>
-            
-            <!-- Standard Selection -->
-            <div class="standard-panel" style="margin-bottom: 20px; padding: 15px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px;">
-                <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                    <span style="font-size: 1.2rem; margin-right: 10px;">📋</span>
-                    <h3 style="margin: 0; font-size: 1.1rem;">STUDY STANDARD</h3>
+
+            <section id="tab-safety" class="tab-section">
+                <div class="tab-header tab-header--red">
+                    <h1 class="tab-title">Safety Section</h1>
+                    <p class="tab-subtitle">NFPA 70E compliant electrical safety training.</p>
                 </div>
-                <p style="margin: 0 0 15px 0; color: #555;">Choose which standard to study and certify under.</p>
-                <div style="display: flex; gap: 15px; margin-bottom: 15px;">
-                    <div class="standard-card standard-card--active" data-standard="workplace" style="flex: 1; padding: 15px; border: 2px solid #CC0000; border-radius: 6px; cursor: pointer; background: #fdfdfd;">
-                        <h4 style="margin: 0 0 5px 0; color: #CC0000;">Workplace Standards</h4>
-                        <p style="margin: 0; font-size: 0.9rem; color: #666;">Facility Safety Procedures</p>
+                <!-- Bug C FIX: changed id= to class= to fix duplicate ID issue -->
+                <div class="standards-selector-container" style="margin-bottom: 20px;"></div>
+
+                <!-- Mode Toggles (Tabs inside Section) -->
+                <div class="mode-toggles" id="safety-mode-toggle"
+                    style="margin-bottom: 20px; display: flex; gap: 10px;">
+                    <button class="mode-btn mode-btn--active btn btn-primary" data-section="safety"
+                        data-mode="study">Study Mode</button>
+                    <button class="mode-btn btn btn-secondary" data-section="safety" data-mode="practice">Practice
+                        Exam</button>
+                    <button class="mode-btn btn btn-secondary" data-section="safety" data-mode="certify">Certification
+                        Exam</button>
+                </div>
+
+                <!-- Checkpoint UI (Used for Safety Certify) -->
+                <div id="safety-checkpoint-bar" class="checkpoint-bar" style="margin-bottom: 20px;"></div>
+
+                <!-- Study Panel -->
+                <div id="safety-study" class="mode-content mode-content--active">
+                    <div id="safety-study-start-screen" class="start-screen" style="margin-bottom: 20px;">
+                        <select id="safety-study-topic" class="form-input"
+                            style="width: auto; margin-right: 10px; display: inline-block;">
+                            <option value="all">All Topics</option>
+                        </select>
+                        <button id="safety-study-start" class="btn btn-primary">Start Study Mode</button>
                     </div>
-                    <div class="standard-card" data-standard="nfpa" style="flex: 1; padding: 15px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer; background: #eaeaea;">
-                        <h4 style="margin: 0 0 5px 0; color: #333;">NFPA 70E 2024</h4>
-                        <p style="margin: 0; font-size: 0.9rem; color: #666;">National Standard</p>
+                    <div id="safety-study-area" style="display:none;">
+
+                        <!-- Study Mode -->
+                        <div id="safety-study-exam" class="exam-panel" style="margin-top: 20px;">
+                            <div class="exam-header"
+                                style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <div id="safety-study-counter" class="exam-counter font-bold text-charcoal"></div>
+                                <div id="safety-study-timer" class="exam-timer font-mono text-red"></div>
+                                <!-- Bug B FIX: removed stale onclick - delegated listener in test-engine.js handles this -->
+                                <button id="safety-study-flag" class="btn btn-outline flag-btn"
+                                    style="display:none">&#x1F6A9; Flag</button>
+                            </div>
+                            <div class="progress-bar" style="margin-bottom: 20px;">
+                                <div id="safety-study-progress" class="progress-fill" style="width:0%"></div>
+                            </div>
+                            <div id="safety-study-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
+                            <h3 id="safety-study-question" class="question-text" style="margin-bottom: 15px;"></h3>
+                            <div id="safety-study-img-wrap" style="display:none;" class="question-image"><img
+                                    id="safety-study-img" src="" alt="Context" style="max-width:100%; height:auto;" />
+                            </div>
+                            <div id="safety-study-options" class="options-container"
+                                style="display: flex; flex-direction: column; gap: 10px;"></div>
+                            <div id="safety-study-explanation" class="explanation-box"
+                                style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;">
+                            </div>
+
+                            <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
+                                <button id="safety-study-prev" class="btn btn-secondary" style="display:none">&#x2190;
+                                    Prev</button>
+                                <button id="safety-study-next" class="btn btn-primary">Next &#x2192;</button>
+                                <button id="safety-study-submit" class="btn btn-danger" style="display:none">Submit
+                                    Exam</button>
+                            </div>
+                        </div>
+                        <div id="safety-study-results" style="display:none;" class="results-panel"
+                            style="margin-top: 20px;"></div>
+
                     </div>
                 </div>
-                <div class="standard-desc" style="padding-left: 10px; border-left: 3px solid #CC0000; font-size: 0.95rem; color: #444;">
-                    Uses enhanced workplace safety procedures including facility-specific LOTO protocols, hazardous energy control, and PPE requirements aligned with industrial facility standards.
+
+                <!-- Practice Panel -->
+                <div id="safety-practice" class="mode-content">
+                    <div id="safety-practice-start-screen" class="start-screen" style="margin-bottom: 20px;">
+                        <button id="safety-practice-begin" class="btn btn-secondary">Start Practice Exam</button>
+                    </div>
+
+                    <!-- Practice Mode -->
+                    <!-- Bug D FIX: merged two style attributes into one -->
+                    <div id="safety-practice-exam" style="display:none; margin-top: 20px;" class="exam-panel">
+                        <div class="exam-header"
+                            style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <div id="safety-practice-counter" class="exam-counter font-bold text-charcoal"></div>
+                            <div id="safety-practice-timer" class="exam-timer font-mono text-red"></div>
+                            <button id="safety-practice-flag" class="btn btn-outline flag-btn"
+                                style="display:inline-block">&#x1F6A9; Flag</button>
+                        </div>
+                        <div class="progress-bar" style="margin-bottom: 20px;">
+                            <div id="safety-practice-progress" class="progress-fill" style="width:0%"></div>
+                        </div>
+                        <div id="safety-practice-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
+                        <h3 id="safety-practice-question" class="question-text" style="margin-bottom: 15px;"></h3>
+                        <div id="safety-practice-img-wrap" style="display:none;" class="question-image"><img
+                                id="safety-practice-img" src="" alt="Context" style="max-width:100%; height:auto;" />
+                        </div>
+                        <div id="safety-practice-options" class="options-container"
+                            style="display: flex; flex-direction: column; gap: 10px;"></div>
+                        <div id="safety-practice-explanation" class="explanation-box"
+                            style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;">
+                        </div>
+
+                        <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <button id="safety-practice-prev" class="btn btn-secondary"
+                                style="display:inline-block">&#x2190; Prev</button>
+                            <button id="safety-practice-next" class="btn btn-primary">Next &#x2192;</button>
+                            <button id="safety-practice-submit" class="btn btn-danger"
+                                style="display:inline-block">Submit Exam</button>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
 
-            <!-- Mode Toggles (Tabs inside Section) -->
-            <div class="mode-toggles" id="safety-mode-toggle" style="margin-bottom: 20px; display: flex; gap: 10px;">
-                <button class="mode-btn mode-btn--active btn btn-primary" data-section="safety" data-mode="study">Study Mode</button>
-                <button class="mode-btn btn btn-secondary" data-section="safety" data-mode="practice">Practice Exam</button>
-                <button class="mode-btn btn btn-secondary" data-section="safety" data-mode="certify">Certification Exam</button>
-            </div>
+                <!-- Certify Panel -->
+                <div id="safety-certify" class="mode-content">
+                    <div id="safety-certify-start-screen" class="start-screen" style="margin-bottom: 20px;">
+                        <button id="safety-certify-begin" class="btn btn-danger">Start Certification Exam</button>
+                    </div>
 
-            <!-- Checkpoint UI (Used for Safety Certify) -->
-            <div id="safety-checkpoint-bar" class="checkpoint-bar" style="margin-bottom: 20px;"></div>
+                    <!-- Certify Mode -->
+                    <div id="safety-certify-exam" style="display:none; margin-top: 20px;" class="exam-panel">
+                        <div class="exam-header"
+                            style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <div id="safety-certify-counter" class="exam-counter font-bold text-charcoal"></div>
+                            <div id="safety-certify-timer" class="exam-timer font-mono text-red"></div>
+                            <button id="safety-certify-flag" class="btn btn-outline flag-btn"
+                                style="display:inline-block">&#x1F6A9; Flag</button>
+                        </div>
+                        <div class="progress-bar" style="margin-bottom: 20px;">
+                            <div id="safety-certify-progress" class="progress-fill" style="width:0%"></div>
+                        </div>
+                        <div id="safety-certify-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
+                        <h3 id="safety-certify-question" class="question-text" style="margin-bottom: 15px;"></h3>
+                        <div id="safety-certify-img-wrap" style="display:none;" class="question-image"><img
+                                id="safety-certify-img" src="" alt="Context" style="max-width:100%; height:auto;" />
+                        </div>
+                        <div id="safety-certify-options" class="options-container"
+                            style="display: flex; flex-direction: column; gap: 10px;"></div>
+                        <div id="safety-certify-explanation" class="explanation-box"
+                            style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;">
+                        </div>
 
-            <!-- Study Panel -->
-            <div id="safety-study" class="mode-content mode-content--active">
-                <div id="safety-study-start-screen" class="start-screen" style="margin-bottom: 20px;">
-                    <select id="safety-study-topic" class="form-input" style="width: auto; margin-right: 10px; display: inline-block;">
-                        <option value="all">All Topics</option>
-                    </select>
-                    <button id="safety-study-start" class="btn btn-primary">Start Study Mode</button>
+                        <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <button id="safety-certify-prev" class="btn btn-secondary" style="display:none">&#x2190;
+                                Prev</button>
+                            <button id="safety-certify-next" class="btn btn-primary">Next &#x2192;</button>
+                            <button id="safety-certify-submit" class="btn btn-danger"
+                                style="display:inline-block">Submit
+                                Exam</button>
+                        </div>
+                    </div>
+                    <div id="safety-certify-results" style="display:none; margin-top: 20px;" class="results-panel">
+                    </div>
+
                 </div>
-                <div id="safety-study-area" style="display:none;">
-                    
-        <!-- Study Mode -->
-        <div id="safety-study-exam"  class="exam-panel" style="margin-top: 20px;">
-            <div class="exam-header" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                <div id="safety-study-counter" class="exam-counter font-bold text-charcoal"></div>
-                <div id="safety-study-timer" class="exam-timer font-mono text-red"></div>
-                <!-- Bug B FIX: removed stale onclick - delegated listener in test-engine.js handles this -->
-                <button id="safety-study-flag" class="btn btn-outline flag-btn" style="display:none">&#x1F6A9; Flag</button>
-            </div>
-            <div class="progress-bar" style="margin-bottom: 20px;"><div id="safety-study-progress" class="progress-fill" style="width:0%"></div></div>
-            <div id="safety-study-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
-            <h3 id="safety-study-question" class="question-text" style="margin-bottom: 15px;"></h3>
-            <div id="safety-study-img-wrap" style="display:none;" class="question-image"><img id="safety-study-img" src="" alt="Context" style="max-width:100%; height:auto;"/></div>
-            <div id="safety-study-options" class="options-container" style="display: flex; flex-direction: column; gap: 10px;"></div>
-            <div id="safety-study-explanation" class="explanation-box" style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;"></div>
-            
-            <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
-                <button id="safety-study-prev" class="btn btn-secondary" style="display:none">&#x2190; Prev</button>
-                <button id="safety-study-next" class="btn btn-primary">Next &#x2192;</button>
-                <button id="safety-study-submit" class="btn btn-danger" style="display:none">Submit Exam</button>
-            </div>
-        </div>
-        <div id="safety-study-results" style="display:none;" class="results-panel" style="margin-top: 20px;"></div>
-    
-                </div>
-            </div>
 
-            <!-- Practice Panel -->
-            <div id="safety-practice" class="mode-content">
-                <div id="safety-practice-start-screen" class="start-screen" style="margin-bottom: 20px;">
-                    <button id="safety-practice-begin" class="btn btn-secondary">Start Practice Exam</button>
+                <div id="safety-results" style="display:none;" class="results-panel">
+                    <h2 id="safety-results-title"></h2>
+                    <div id="safety-results-score"></div>
+                    <div id="safety-results-details"></div>
+                    <button class="btn btn-primary" onclick="window.location.reload()">Return to Dashboard</button>
                 </div>
-                
-        <!-- Practice Mode -->
-        <!-- Bug D FIX: merged two style attributes into one -->
-        <div id="safety-practice-exam" style="display:none; margin-top: 20px;" class="exam-panel">
-            <div class="exam-header" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                <div id="safety-practice-counter" class="exam-counter font-bold text-charcoal"></div>
-                <div id="safety-practice-timer" class="exam-timer font-mono text-red"></div>
-                <button id="safety-practice-flag" class="btn btn-outline flag-btn" style="display:inline-block">&#x1F6A9; Flag</button>
-            </div>
-            <div class="progress-bar" style="margin-bottom: 20px;"><div id="safety-practice-progress" class="progress-fill" style="width:0%"></div></div>
-            <div id="safety-practice-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
-            <h3 id="safety-practice-question" class="question-text" style="margin-bottom: 15px;"></h3>
-            <div id="safety-practice-img-wrap" style="display:none;" class="question-image"><img id="safety-practice-img" src="" alt="Context" style="max-width:100%; height:auto;"/></div>
-            <div id="safety-practice-options" class="options-container" style="display: flex; flex-direction: column; gap: 10px;"></div>
-            <div id="safety-practice-explanation" class="explanation-box" style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;"></div>
-            
-            <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
-                <button id="safety-practice-prev" class="btn btn-secondary" style="display:inline-block">&#x2190; Prev</button>
-                <button id="safety-practice-next" class="btn btn-primary">Next &#x2192;</button>
-                <button id="safety-practice-submit" class="btn btn-danger" style="display:inline-block">Submit Exam</button>
-            </div>
-        </div>
-        <div id="safety-practice-results" style="display:none; margin-top: 20px;" class="results-panel"></div>
-    
-            </div>
+            </section>
 
-            <!-- Certify Panel -->
-            <div id="safety-certify" class="mode-content">
-                <div id="safety-certify-start-screen" class="start-screen" style="margin-bottom: 20px;">
-                    <button id="safety-certify-begin" class="btn btn-danger">Start Certification Exam</button>
-                </div>
-                
-        <!-- Certify Mode -->
-        <div id="safety-certify-exam" style="display:none; margin-top: 20px;" class="exam-panel">
-            <div class="exam-header" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                <div id="safety-certify-counter" class="exam-counter font-bold text-charcoal"></div>
-                <div id="safety-certify-timer" class="exam-timer font-mono text-red"></div>
-                <button id="safety-certify-flag" class="btn btn-outline flag-btn" style="display:inline-block">&#x1F6A9; Flag</button>
-            </div>
-            <div class="progress-bar" style="margin-bottom: 20px;"><div id="safety-certify-progress" class="progress-fill" style="width:0%"></div></div>
-            <div id="safety-certify-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
-            <h3 id="safety-certify-question" class="question-text" style="margin-bottom: 15px;"></h3>
-            <div id="safety-certify-img-wrap" style="display:none;" class="question-image"><img id="safety-certify-img" src="" alt="Context" style="max-width:100%; height:auto;"/></div>
-            <div id="safety-certify-options" class="options-container" style="display: flex; flex-direction: column; gap: 10px;"></div>
-            <div id="safety-certify-explanation" class="explanation-box" style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;"></div>
-            
-            <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
-                <button id="safety-certify-prev" class="btn btn-secondary" style="display:none">&#x2190; Prev</button>
-                <button id="safety-certify-next" class="btn btn-primary">Next &#x2192;</button>
-                <button id="safety-certify-submit" class="btn btn-danger" style="display:inline-block">Submit Exam</button>
-            </div>
-        </div>
-        <div id="safety-certify-results" style="display:none; margin-top: 20px;" class="results-panel"></div>
-    
-            </div>
 
-            <div id="safety-results" style="display:none;" class="results-panel">
-                <h2 id="safety-results-title"></h2>
-                <div id="safety-results-score"></div>
-                <div id="safety-results-details"></div>
-                <button class="btn btn-primary" onclick="window.location.reload()">Return to Dashboard</button>
-            </div>
-        </section>
-    
-            
             <!-- Theory Tab -->
-            
-        <section id="tab-theory" class="tab-section">
-            <div class="tab-header tab-header--blue">
-                <h1 class="tab-title">Theory Section</h1>
-                <p class="tab-subtitle">Electrical theory and circuit fundamentals.</p>
-            </div>
-            <!-- Bug C FIX: changed id= to class= to fix duplicate ID issue -->
-            <div class="standards-selector-container" style="margin-bottom: 20px;"></div>
-            
-            <!-- Standard Selection -->
-            <div class="standard-panel" style="margin-bottom: 20px; padding: 15px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px;">
-                <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                    <span style="font-size: 1.2rem; margin-right: 10px;">📋</span>
-                    <h3 style="margin: 0; font-size: 1.1rem;">STUDY STANDARD</h3>
+
+            <section id="tab-theory" class="tab-section">
+                <div class="tab-header tab-header--blue">
+                    <h1 class="tab-title">Theory Section</h1>
+                    <p class="tab-subtitle">Electrical theory and circuit fundamentals.</p>
                 </div>
-                <p style="margin: 0 0 15px 0; color: #555;">Choose which standard to study and certify under.</p>
-                <div style="display: flex; gap: 15px; margin-bottom: 15px;">
-                    <div class="standard-card standard-card--active" data-standard="workplace" style="flex: 1; padding: 15px; border: 2px solid #CC0000; border-radius: 6px; cursor: pointer; background: #fdfdfd;">
-                        <h4 style="margin: 0 0 5px 0; color: #CC0000;">Workplace Standards</h4>
-                        <p style="margin: 0; font-size: 0.9rem; color: #666;">Facility Safety Procedures</p>
+                <!-- Bug C FIX: changed id= to class= to fix duplicate ID issue -->
+                <div class="standards-selector-container" style="margin-bottom: 20px;"></div>
+
+                <!-- Mode Toggles (Tabs inside Section) -->
+                <div class="mode-toggles" id="theory-mode-toggle"
+                    style="margin-bottom: 20px; display: flex; gap: 10px;">
+                    <button class="mode-btn mode-btn--active btn btn-primary" data-section="theory"
+                        data-mode="study">Study Mode</button>
+                    <button class="mode-btn btn btn-secondary" data-section="theory" data-mode="practice">Practice
+                        Exam</button>
+                    <button class="mode-btn btn btn-secondary" data-section="theory" data-mode="certify">Certification
+                        Exam</button>
+                </div>
+
+                <!-- Checkpoint UI (Used for Safety Certify) -->
+                <div id="theory-checkpoint-bar" class="checkpoint-bar" style="margin-bottom: 20px;"></div>
+
+                <!-- Study Panel -->
+                <div id="theory-study" class="mode-content mode-content--active">
+                    <div id="theory-study-start-screen" class="start-screen" style="margin-bottom: 20px;">
+                        <select id="theory-study-topic" class="form-input"
+                            style="width: auto; margin-right: 10px; display: inline-block;">
+                            <option value="all">All Topics</option>
+                        </select>
+                        <button id="theory-study-start" class="btn btn-primary">Start Study Mode</button>
                     </div>
-                    <div class="standard-card" data-standard="nfpa" style="flex: 1; padding: 15px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer; background: #eaeaea;">
-                        <h4 style="margin: 0 0 5px 0; color: #333;">NFPA 70E 2024</h4>
-                        <p style="margin: 0; font-size: 0.9rem; color: #666;">National Standard</p>
+                    <div id="theory-study-area" style="display:none;">
+
+                        <!-- Study Mode -->
+                        <div id="theory-study-exam" class="exam-panel" style="margin-top: 20px;">
+                            <div class="exam-header"
+                                style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <div id="theory-study-counter" class="exam-counter font-bold text-charcoal"></div>
+                                <div id="theory-study-timer" class="exam-timer font-mono text-red"></div>
+                                <button id="theory-study-flag" class="btn btn-outline flag-btn"
+                                    style="display:none">&#x1F6A9; Flag</button>
+                            </div>
+                            <div class="progress-bar" style="margin-bottom: 20px;">
+                                <div id="theory-study-progress" class="progress-fill" style="width:0%"></div>
+                            </div>
+                            <div id="theory-study-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
+                            <h3 id="theory-study-question" class="question-text" style="margin-bottom: 15px;"></h3>
+                            <div id="theory-study-img-wrap" style="display:none;" class="question-image"><img
+                                    id="theory-study-img" src="" alt="Context" style="max-width:100%; height:auto;" />
+                            </div>
+                            <div id="theory-study-options" class="options-container"
+                                style="display: flex; flex-direction: column; gap: 10px;"></div>
+                            <div id="theory-study-explanation" class="explanation-box"
+                                style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;">
+                            </div>
+
+                            <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
+                                <button id="theory-study-prev" class="btn btn-secondary" style="display:none">&#x2190;
+                                    Prev</button>
+                                <button id="theory-study-next" class="btn btn-primary">Next &#x2192;</button>
+                                <button id="theory-study-submit" class="btn btn-danger" style="display:none">Submit
+                                    Exam</button>
+                            </div>
+                        </div>
+                        <div id="theory-study-results" style="display:none; margin-top: 20px;" class="results-panel">
+                        </div>
+
                     </div>
                 </div>
-                <div class="standard-desc" style="padding-left: 10px; border-left: 3px solid #CC0000; font-size: 0.95rem; color: #444;">
-                    Uses enhanced workplace safety procedures including facility-specific LOTO protocols, hazardous energy control, and PPE requirements aligned with industrial facility standards.
+
+                <!-- Practice Panel -->
+                <div id="theory-practice" class="mode-content">
+                    <div id="theory-practice-start-screen" class="start-screen" style="margin-bottom: 20px;">
+                        <button id="theory-practice-begin" class="btn btn-secondary">Start Practice Exam</button>
+                    </div>
+
+                    <!-- Practice Mode -->
+                    <div id="theory-practice-exam" style="display:none; margin-top: 20px;" class="exam-panel">
+                        <div class="exam-header"
+                            style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <div id="theory-practice-counter" class="exam-counter font-bold text-charcoal"></div>
+                            <div id="theory-practice-timer" class="exam-timer font-mono text-red"></div>
+                            <button id="theory-practice-flag" class="btn btn-outline flag-btn"
+                                style="display:inline-block">&#x1F6A9; Flag</button>
+                        </div>
+                        <div class="progress-bar" style="margin-bottom: 20px;">
+                            <div id="theory-practice-progress" class="progress-fill" style="width:0%"></div>
+                        </div>
+                        <div id="theory-practice-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
+                        <h3 id="theory-practice-question" class="question-text" style="margin-bottom: 15px;"></h3>
+                        <div id="theory-practice-img-wrap" style="display:none;" class="question-image"><img
+                                id="theory-practice-img" src="" alt="Context" style="max-width:100%; height:auto;" />
+                        </div>
+                        <div id="theory-practice-options" class="options-container"
+                            style="display: flex; flex-direction: column; gap: 10px;"></div>
+                        <div id="theory-practice-explanation" class="explanation-box"
+                            style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;">
+                        </div>
+
+                        <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <button id="theory-practice-prev" class="btn btn-secondary"
+                                style="display:inline-block">&#x2190; Prev</button>
+                            <button id="theory-practice-next" class="btn btn-primary">Next &#x2192;</button>
+                            <button id="theory-practice-submit" class="btn btn-danger"
+                                style="display:inline-block">Submit Exam</button>
+                        </div>
+                    </div>
+                    <div id="theory-practice-results" style="display:none; margin-top: 20px;" class="results-panel">
+                    </div>
+
                 </div>
-            </div>
 
-            <!-- Mode Toggles (Tabs inside Section) -->
-            <div class="mode-toggles" id="theory-mode-toggle" style="margin-bottom: 20px; display: flex; gap: 10px;">
-                <button class="mode-btn mode-btn--active btn btn-primary" data-section="theory" data-mode="study">Study Mode</button>
-                <button class="mode-btn btn btn-secondary" data-section="theory" data-mode="practice">Practice Exam</button>
-                <button class="mode-btn btn btn-secondary" data-section="theory" data-mode="certify">Certification Exam</button>
-            </div>
+                <!-- Certify Panel -->
+                <div id="theory-certify" class="mode-content">
+                    <div id="theory-certify-start-screen" class="start-screen" style="margin-bottom: 20px;">
+                        <button id="theory-certify-begin" class="btn btn-danger">Start Certification Exam</button>
+                    </div>
 
-            <!-- Checkpoint UI (Used for Safety Certify) -->
-            <div id="theory-checkpoint-bar" class="checkpoint-bar" style="margin-bottom: 20px;"></div>
+                    <!-- Certify Mode -->
+                    <div id="theory-certify-exam" style="display:none; margin-top: 20px;" class="exam-panel">
+                        <div class="exam-header"
+                            style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <div id="theory-certify-counter" class="exam-counter font-bold text-charcoal"></div>
+                            <div id="theory-certify-timer" class="exam-timer font-mono text-red"></div>
+                            <button id="theory-certify-flag" class="btn btn-outline flag-btn"
+                                style="display:inline-block">&#x1F6A9; Flag</button>
+                        </div>
+                        <div class="progress-bar" style="margin-bottom: 20px;">
+                            <div id="theory-certify-progress" class="progress-fill" style="width:0%"></div>
+                        </div>
+                        <div id="theory-certify-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
+                        <h3 id="theory-certify-question" class="question-text" style="margin-bottom: 15px;"></h3>
+                        <div id="theory-certify-img-wrap" style="display:none;" class="question-image"><img
+                                id="theory-certify-img" src="" alt="Context" style="max-width:100%; height:auto;" />
+                        </div>
+                        <div id="theory-certify-options" class="options-container"
+                            style="display: flex; flex-direction: column; gap: 10px;"></div>
+                        <div id="theory-certify-explanation" class="explanation-box"
+                            style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;">
+                        </div>
 
-            <!-- Study Panel -->
-            <div id="theory-study" class="mode-content mode-content--active">
-                <div id="theory-study-start-screen" class="start-screen" style="margin-bottom: 20px;">
-                    <select id="theory-study-topic" class="form-input" style="width: auto; margin-right: 10px; display: inline-block;">
-                        <option value="all">All Topics</option>
-                    </select>
-                    <button id="theory-study-start" class="btn btn-primary">Start Study Mode</button>
+                        <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
+                            <button id="theory-certify-prev" class="btn btn-secondary" style="display:none">&#x2190;
+                                Prev</button>
+                            <button id="theory-certify-next" class="btn btn-primary">Next &#x2192;</button>
+                            <button id="theory-certify-submit" class="btn btn-danger"
+                                style="display:inline-block">Submit Exam</button>
+                        </div>
+                    </div>
+                    <div id="theory-certify-results" style="display:none; margin-top: 20px;" class="results-panel">
+                    </div>
+
                 </div>
-                <div id="theory-study-area" style="display:none;">
-                    
-        <!-- Study Mode -->
-        <div id="theory-study-exam"  class="exam-panel" style="margin-top: 20px;">
-            <div class="exam-header" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                <div id="theory-study-counter" class="exam-counter font-bold text-charcoal"></div>
-                <div id="theory-study-timer" class="exam-timer font-mono text-red"></div>
-                <button id="theory-study-flag" class="btn btn-outline flag-btn" style="display:none">&#x1F6A9; Flag</button>
-            </div>
-            <div class="progress-bar" style="margin-bottom: 20px;"><div id="theory-study-progress" class="progress-fill" style="width:0%"></div></div>
-            <div id="theory-study-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
-            <h3 id="theory-study-question" class="question-text" style="margin-bottom: 15px;"></h3>
-            <div id="theory-study-img-wrap" style="display:none;" class="question-image"><img id="theory-study-img" src="" alt="Context" style="max-width:100%; height:auto;"/></div>
-            <div id="theory-study-options" class="options-container" style="display: flex; flex-direction: column; gap: 10px;"></div>
-            <div id="theory-study-explanation" class="explanation-box" style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;"></div>
-            
-            <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
-                <button id="theory-study-prev" class="btn btn-secondary" style="display:none">&#x2190; Prev</button>
-                <button id="theory-study-next" class="btn btn-primary">Next &#x2192;</button>
-                <button id="theory-study-submit" class="btn btn-danger" style="display:none">Submit Exam</button>
-            </div>
-        </div>
-        <div id="theory-study-results" style="display:none; margin-top: 20px;" class="results-panel"></div>
-    
-                </div>
-            </div>
 
-            <!-- Practice Panel -->
-            <div id="theory-practice" class="mode-content">
-                <div id="theory-practice-start-screen" class="start-screen" style="margin-bottom: 20px;">
-                    <button id="theory-practice-begin" class="btn btn-secondary">Start Practice Exam</button>
+                <div id="theory-results" style="display:none;" class="results-panel">
+                    <h2 id="theory-results-title"></h2>
+                    <div id="theory-results-score"></div>
+                    <div id="theory-results-details"></div>
+                    <button class="btn btn-primary" onclick="window.location.reload()">Return to Dashboard</button>
                 </div>
-                
-        <!-- Practice Mode -->
-        <div id="theory-practice-exam" style="display:none; margin-top: 20px;" class="exam-panel">
-            <div class="exam-header" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                <div id="theory-practice-counter" class="exam-counter font-bold text-charcoal"></div>
-                <div id="theory-practice-timer" class="exam-timer font-mono text-red"></div>
-                <button id="theory-practice-flag" class="btn btn-outline flag-btn" style="display:inline-block">&#x1F6A9; Flag</button>
-            </div>
-            <div class="progress-bar" style="margin-bottom: 20px;"><div id="theory-practice-progress" class="progress-fill" style="width:0%"></div></div>
-            <div id="theory-practice-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
-            <h3 id="theory-practice-question" class="question-text" style="margin-bottom: 15px;"></h3>
-            <div id="theory-practice-img-wrap" style="display:none;" class="question-image"><img id="theory-practice-img" src="" alt="Context" style="max-width:100%; height:auto;"/></div>
-            <div id="theory-practice-options" class="options-container" style="display: flex; flex-direction: column; gap: 10px;"></div>
-            <div id="theory-practice-explanation" class="explanation-box" style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;"></div>
-            
-            <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
-                <button id="theory-practice-prev" class="btn btn-secondary" style="display:inline-block">&#x2190; Prev</button>
-                <button id="theory-practice-next" class="btn btn-primary">Next &#x2192;</button>
-                <button id="theory-practice-submit" class="btn btn-danger" style="display:inline-block">Submit Exam</button>
-            </div>
-        </div>
-        <div id="theory-practice-results" style="display:none; margin-top: 20px;" class="results-panel"></div>
-    
-            </div>
+            </section>
 
-            <!-- Certify Panel -->
-            <div id="theory-certify" class="mode-content">
-                <div id="theory-certify-start-screen" class="start-screen" style="margin-bottom: 20px;">
-                    <button id="theory-certify-begin" class="btn btn-danger">Start Certification Exam</button>
-                </div>
-                
-        <!-- Certify Mode -->
-        <div id="theory-certify-exam" style="display:none; margin-top: 20px;" class="exam-panel">
-            <div class="exam-header" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                <div id="theory-certify-counter" class="exam-counter font-bold text-charcoal"></div>
-                <div id="theory-certify-timer" class="exam-timer font-mono text-red"></div>
-                <button id="theory-certify-flag" class="btn btn-outline flag-btn" style="display:inline-block">&#x1F6A9; Flag</button>
-            </div>
-            <div class="progress-bar" style="margin-bottom: 20px;"><div id="theory-certify-progress" class="progress-fill" style="width:0%"></div></div>
-            <div id="theory-certify-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
-            <h3 id="theory-certify-question" class="question-text" style="margin-bottom: 15px;"></h3>
-            <div id="theory-certify-img-wrap" style="display:none;" class="question-image"><img id="theory-certify-img" src="" alt="Context" style="max-width:100%; height:auto;"/></div>
-            <div id="theory-certify-options" class="options-container" style="display: flex; flex-direction: column; gap: 10px;"></div>
-            <div id="theory-certify-explanation" class="explanation-box" style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;"></div>
-            
-            <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
-                <button id="theory-certify-prev" class="btn btn-secondary" style="display:none">&#x2190; Prev</button>
-                <button id="theory-certify-next" class="btn btn-primary">Next &#x2192;</button>
-                <button id="theory-certify-submit" class="btn btn-danger" style="display:inline-block">Submit Exam</button>
-            </div>
-        </div>
-        <div id="theory-certify-results" style="display:none; margin-top: 20px;" class="results-panel"></div>
-    
-            </div>
 
-            <div id="theory-results" style="display:none;" class="results-panel">
-                <h2 id="theory-results-title"></h2>
-                <div id="theory-results-score"></div>
-                <div id="theory-results-details"></div>
-                <button class="btn btn-primary" onclick="window.location.reload()">Return to Dashboard</button>
-            </div>
-        </section>
-    
-            
             <!-- Lab Tab -->
             <section id="tab-lab" class="tab-section">
                 <div class="tab-header tab-header--yellow">
@@ -347,9 +386,11 @@
                         <option value="circuit-b">Circuit B - 120VAC Parallel</option>
                     </select>
                 </div>
-                
+
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                    <h2 id="circuit-title" class="section-title" style="margin: 0; border: none; padding: 0;">Circuit A - 480V 3-Phase Motor Control</h2>
+                    <h2 id="circuit-title" class="section-title" style="margin: 0; border: none; padding: 0;">Circuit A
+                        -
+                        480V 3-Phase Motor Control</h2>
                     <span id="current-fault-badge" class="result-badge result-badge--pass">Normal Operation</span>
                 </div>
 
@@ -359,8 +400,11 @@
                             <div class="circuit-panel-title">Schematic</div>
                             <div class="mode-controls">
                                 <div class="lab-mode-toggle">
-                                    <button id="btn-mode-guided" class="lab-mode-btn lab-mode-btn--active" data-lab-mode="guided">Guided Mode</button>
-                                    <button id="btn-mode-challenge" class="lab-mode-btn" data-lab-mode="challenge">Challenge Mode</button>
+                                    <button id="btn-mode-guided" class="lab-mode-btn lab-mode-btn--active"
+                                        data-lab-mode="guided">Guided Mode</button>
+                                    <button id="btn-mode-challenge" class="lab-mode-btn"
+                                        data-lab-mode="challenge">Challenge
+                                        Mode</button>
                                 </div>
                             </div>
                         </div>
@@ -369,10 +413,15 @@
                         </div>
                         <div class="probe-instructions">
                             <div class="probe-status">
-                                <div class="probe-indicator"><span class="probe-dot probe-dot--red"></span> RED PROBE</div>
-                                <div class="probe-indicator"><span class="probe-dot probe-dot--black"></span> BLACK PROBE</div>
+                                <div class="probe-indicator"><span class="probe-dot probe-dot--red"></span> RED PROBE
+                                </div>
+                                <div class="probe-indicator"><span class="probe-dot probe-dot--black"></span> BLACK
+                                    PROBE
+                                </div>
                             </div>
-                            <p class="probe-hint" id="lab-instruction-text">Select a circuit to begin. Click test points to place probes.</p>
+                            <p class="probe-hint" id="lab-instruction-text">Select a circuit to begin. Click test points
+                                to
+                                place probes.</p>
                         </div>
                     </div>
 
@@ -405,11 +454,13 @@
                         <div id="challenge-panel" class="fault-panel" style="display: none;">
                             <div class="fault-panel-title">Challenge Tasks</div>
                             <div class="challenge-stats" style="margin-bottom: 12px; font-size: 13px;">
-                                <span id="challenge-probes-left" class="text-blue font-mono font-bold">8 probes left</span>
+                                <span id="challenge-probes-left" class="text-blue font-mono font-bold">8 probes
+                                    left</span>
                                 <span style="margin: 0 5px; color: #ccc;">|</span>
                                 <span id="challenge-score" class="text-charcoal font-bold">Score: 0</span>
                             </div>
-                            <select id="challenge-fault-select" class="form-input" style="width: 100%; margin-bottom: 12px; font-size: 12px; padding: 6px;">
+                            <select id="challenge-fault-select" class="form-input"
+                                style="width: 100%; margin-bottom: 12px; font-size: 12px; padding: 6px;">
                                 <option value="">-- Diagnosis --</option>
                                 <option value="f1-blown">F1 Blown</option>
                                 <option value="f2-blown">F2 Blown</option>
@@ -417,99 +468,120 @@
                                 <option value="ms-open">Motor Starter Open</option>
                                 <option value="ol-tripped">Overload Tripped</option>
                             </select>
-                            <button id="challenge-submit" class="btn btn-primary" style="width: 100%;">Submit Diagnosis</button>
+                            <button id="challenge-submit" class="btn btn-primary" style="width: 100%;">Submit
+                                Diagnosis</button>
                             <div id="challenge-result" style="margin-top: 10px; font-size: 13px;"></div>
-                            <button id="challenge-restart" class="btn btn-outline" style="display: none; width: 100%; margin-top: 10px;">Restart Challenge</button>
+                            <button id="challenge-restart" class="btn btn-outline"
+                                style="display: none; width: 100%; margin-top: 10px;">Restart Challenge</button>
                         </div>
-                        
-                        <div class="reading-history-panel" style="margin-top: 20px; background: white; border: 1px solid #ddd; border-radius: 6px; padding: 15px;">
-                            <h3 style="margin-top: 0; font-size: 14px; color: #333; margin-bottom: 10px;">Reading History</h3>
-                            <button id="clear-history" class="btn btn-outline" style="margin-bottom: 10px; font-size: 11px; padding: 4px 8px;">Clear History</button>
-                            <div id="reading-history" class="reading-history" style="max-height: 200px; overflow-y: auto; font-size: 12px;"></div>
+
+                        <div class="reading-history-panel"
+                            style="margin-top: 20px; background: white; border: 1px solid #ddd; border-radius: 6px; padding: 15px;">
+                            <h3 style="margin-top: 0; font-size: 14px; color: #333; margin-bottom: 10px;">Reading
+                                History
+                            </h3>
+                            <button id="clear-history" class="btn btn-outline"
+                                style="margin-bottom: 10px; font-size: 11px; padding: 4px 8px;">Clear History</button>
+                            <div id="reading-history" class="reading-history"
+                                style="max-height: 200px; overflow-y: auto; font-size: 12px;"></div>
                         </div>
                     </div>
                 </div>
             </section>
-            
+
             <!-- Reference Tab -->
-            
-        <section id="tab-reference" class="tab-section">
-            <div class="tab-header tab-header--charcoal">
-                <h1 class="tab-title">Reference Material</h1>
-                <p class="tab-subtitle">Electrical formulas, symbols, and quick reference materials.</p>
-            </div>
-            <div class="reference-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
-                <div class="reference-card ref-open-btn" data-ref="symbols" tabindex="0" style="padding: 20px; border: 1px solid #ccc; border-radius: 8px; cursor: pointer;">
-                    <h3 style="margin-top: 0;">Symbols Glossary</h3>
-                    <p>Electrical &amp; schematic symbols</p>
-                </div>
-                <div class="reference-card ref-open-btn" data-ref="ohms" tabindex="0" style="padding: 20px; border: 1px solid #ccc; border-radius: 8px; cursor: pointer;">
-                    <h3 style="margin-top: 0;">Ohm's Law Calculator</h3>
-                    <p>Calculate V, I, R, P</p>
-                </div>
-                <div class="reference-card ref-open-btn" data-ref="standards" tabindex="0" style="padding: 20px; border: 1px solid #ccc; border-radius: 8px; cursor: pointer;">
-                    <h3 style="margin-top: 0;">Standards Details</h3>
-                    <p>NFPA / Workplace rules</p>
-                </div>
-            </div>
-            <div id="ref-content-panel" style="display:none; margin-top: 30px; padding: 20px; border: 1px solid #ddd; border-top: 4px solid #333; border-radius: 8px;" class="ref-panel">
-                <button id="ref-close-btn" class="btn btn-secondary" style="float: right;">Close</button>
-                <h3 id="ref-content-title" style="margin-top: 0;"></h3>
-                <div id="ref-content-body"></div>
-            </div>
-        </section>
 
-            
+            <section id="tab-reference" class="tab-section">
+                <div class="tab-header tab-header--charcoal">
+                    <h1 class="tab-title">Reference Material</h1>
+                    <p class="tab-subtitle">Electrical formulas, symbols, and quick reference materials.</p>
+                </div>
+                <div class="reference-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div class="reference-card ref-open-btn" data-ref="symbols" tabindex="0"
+                        style="padding: 20px; border: 1px solid #ccc; border-radius: 8px; cursor: pointer;">
+                        <h3 style="margin-top: 0;">Symbols Glossary</h3>
+                        <p>Electrical &amp; schematic symbols</p>
+                    </div>
+                    <div class="reference-card ref-open-btn" data-ref="ohms" tabindex="0"
+                        style="padding: 20px; border: 1px solid #ccc; border-radius: 8px; cursor: pointer;">
+                        <h3 style="margin-top: 0;">Ohm's Law Calculator</h3>
+                        <p>Calculate V, I, R, P</p>
+                    </div>
+                    <div class="reference-card ref-open-btn" data-ref="standards" tabindex="0"
+                        style="padding: 20px; border: 1px solid #ccc; border-radius: 8px; cursor: pointer;">
+                        <h3 style="margin-top: 0;">Standards Details</h3>
+                        <p>NFPA / Workplace rules</p>
+                    </div>
+                </div>
+                <div id="ref-content-panel"
+                    style="display:none; margin-top: 30px; padding: 20px; border: 1px solid #ddd; border-top: 4px solid #333; border-radius: 8px;"
+                    class="ref-panel">
+                    <button id="ref-close-btn" class="btn btn-secondary" style="float: right;">Close</button>
+                    <h3 id="ref-content-title" style="margin-top: 0;"></h3>
+                    <div id="ref-content-body"></div>
+                </div>
+            </section>
+
+
             <!-- Progress Tab -->
-            
-        <section id="tab-progress" class="tab-section">
-            <div class="tab-header tab-header--charcoal">
-                <h1 class="tab-title">My Progress</h1>
-                <p class="tab-subtitle">Track your learning journey and certification status.</p>
-            </div>
-            
-            <div class="progress-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
-                <div id="progress-safety-card" class="progress-cert-card" style="padding: 20px; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-                    <h3 style="margin-top: 0; color: #cc0000;">Safety Certification</h3>
-                    <div id="progress-safety-status" class="pcc-status" style="font-weight: bold; margin-bottom: 10px;">Not Started</div>
-                    <div style="font-size: 14px;">Best Score: <span id="progress-safety-best">--</span></div>
-                    <div style="font-size: 14px;">Attempts: <span id="progress-safety-attempts">0</span></div>
-                </div>
-                <div id="progress-theory-card" class="progress-cert-card" style="padding: 20px; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-                    <h3 style="margin-top: 0; color: #0056b3;">Theory Certification</h3>
-                    <div id="progress-theory-status" class="pcc-status" style="font-weight: bold; margin-bottom: 10px;">Locked</div>
-                    <div style="font-size: 14px;">Best Score: <span id="progress-theory-best">--</span></div>
-                    <div style="font-size: 14px;">Attempts: <span id="progress-theory-attempts">0</span></div>
-                </div>
-            </div>
-            
-            <div class="history-section" style="margin-top: 40px;">
-                <h3 style="border-bottom: 2px solid #ccc; padding-bottom: 5px;">Exam History</h3>
-                <table class="data-table" style="width: 100%; border-collapse: collapse; margin-top: 15px; text-align: left; font-size: 14px;">
-                    <thead>
-                        <tr style="background: #f5f5f5;">
-                            <th style="padding: 10px; border-bottom: 1px solid #ddd;">Date</th>
-                            <th style="padding: 10px; border-bottom: 1px solid #ddd;">Section</th>
-                            <th style="padding: 10px; border-bottom: 1px solid #ddd;">Type</th>
-                            <th style="padding: 10px; border-bottom: 1px solid #ddd;">Score</th>
-                            <th style="padding: 10px; border-bottom: 1px solid #ddd;">Result</th>
-                        </tr>
-                    </thead>
-                    <tbody id="exam-history-tbody"></tbody>
-                </table>
-            </div>
 
-            <div class="weak-areas-section" style="margin-top: 40px;">
-                <h3 style="border-bottom: 2px solid #ccc; padding-bottom: 5px;">Weak Areas (Below 80%)</h3>
-                <div id="weak-areas-list" style="margin-top: 15px;"></div>
-            </div>
-            
-            <!-- Removed Coach section since no coach JS is provided or working properly -->
-        </section>
+            <section id="tab-progress" class="tab-section">
+                <div class="tab-header tab-header--charcoal">
+                    <h1 class="tab-title">My Progress</h1>
+                    <p class="tab-subtitle">Track your learning journey and certification status.</p>
+                </div>
+
+                <div class="progress-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div id="progress-safety-card" class="progress-cert-card"
+                        style="padding: 20px; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                        <h3 style="margin-top: 0; color: #cc0000;">Safety Certification</h3>
+                        <div id="progress-safety-status" class="pcc-status"
+                            style="font-weight: bold; margin-bottom: 10px;">
+                            Not Started</div>
+                        <div style="font-size: 14px;">Best Score: <span id="progress-safety-best">--</span></div>
+                        <div style="font-size: 14px;">Attempts: <span id="progress-safety-attempts">0</span></div>
+                    </div>
+                    <div id="progress-theory-card" class="progress-cert-card"
+                        style="padding: 20px; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                        <h3 style="margin-top: 0; color: #0056b3;">Theory Certification</h3>
+                        <div id="progress-theory-status" class="pcc-status"
+                            style="font-weight: bold; margin-bottom: 10px;">
+                            Locked</div>
+                        <div style="font-size: 14px;">Best Score: <span id="progress-theory-best">--</span></div>
+                        <div style="font-size: 14px;">Attempts: <span id="progress-theory-attempts">0</span></div>
+                    </div>
+                </div>
+
+                <div class="history-section" style="margin-top: 40px;">
+                    <h3 style="border-bottom: 2px solid #ccc; padding-bottom: 5px;">Exam History</h3>
+                    <table class="data-table"
+                        style="width: 100%; border-collapse: collapse; margin-top: 15px; text-align: left; font-size: 14px;">
+                        <thead>
+                            <tr style="background: #f5f5f5;">
+                                <th style="padding: 10px; border-bottom: 1px solid #ddd;">Date</th>
+                                <th style="padding: 10px; border-bottom: 1px solid #ddd;">Section</th>
+                                <th style="padding: 10px; border-bottom: 1px solid #ddd;">Type</th>
+                                <th style="padding: 10px; border-bottom: 1px solid #ddd;">Score</th>
+                                <th style="padding: 10px; border-bottom: 1px solid #ddd;">Result</th>
+                            </tr>
+                        </thead>
+                        <tbody id="exam-history-tbody"></tbody>
+                    </table>
+                </div>
+
+                <div class="weak-areas-section" style="margin-top: 40px;">
+                    <h3 style="border-bottom: 2px solid #ccc; padding-bottom: 5px;">Weak Areas (Below 80%)</h3>
+                    <div id="weak-areas-list" style="margin-top: 15px;"></div>
+                </div>
+
+                <!-- Removed Coach section since no coach JS is provided or working properly -->
+            </section>
 
         </div>
     </main>
-    
+
     <!-- Scripts (MUST load in correct order) -->
     <script src="js/standards.js"></script>
     <script src="js/svg-circuits.js"></script>
@@ -535,4 +607,5 @@
     </div>
 
 </body>
+
 </html>
