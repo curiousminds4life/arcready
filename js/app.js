@@ -41,6 +41,18 @@
     var action = btn.getAttribute('data-action');
     if (action === 'goto-safety') showTab('safety');
     if (action === 'goto-theory') showTab('theory');
+    if (action === 'goto-lab') showTab('lab');
+    if (action === 'goto-reference') showTab('reference');
+    if (action === 'goto-progress') showTab('progress');
+  });
+
+  // Home-card clicks (cards use data-action OR onclick)
+  document.addEventListener('click', function (e) {
+    var card = e.target.closest('.home-card[data-action]');
+    if (!card) return;
+    var action = card.getAttribute('data-action');
+    if (action === 'goto-safety') showTab('safety');
+    if (action === 'goto-theory') showTab('theory');
   });
 
   /* ============================================================
@@ -222,7 +234,6 @@
         '<li>Tags must be laminated and show name + date</li>' +
         '<li>Authorized Associates require Machine Safety Awareness training every 2 years</li>' +
         '</ul></div>' +
-        // BUG 9 FIX: replace corrupted \u὚8 bytes with correct printer emoji \uD83D\uDDA8\uFE0F
         '<button class="btn btn-outline-red" onclick="window.print()">\uD83D\uDDA8\uFE0F Print Checklist</button>' +
         '</div>'
     },
@@ -262,17 +273,32 @@
         '<li>Delta: V\u2097\u1d62\u2099\u2091 = V\u209a\u02b0\u2090\u209b\u2091</li>' +
         '<li>Example: 208V Wye \u2192 phase voltage = 208/1.732 \u2248 120V</li></ul>' +
         '</div>' +
-        // BUG 9 FIX: replace corrupted \u὚8 bytes with correct printer emoji \uD83D\uDDA8\uFE0F
         '<button class="btn btn-outline-red" onclick="window.print()">\uD83D\uDDA8\uFE0F Print Formula Sheet</button>' +
         '</div>'
-    }
-    ,
+    },
 
     symbols: {
       title: 'Electrical Symbol Glossary',
       body: function () {
         return '<div id="ref-symbol-glossary-body" style="min-height:200px;"><div style="color:#999;font-style:italic;padding:24px;">Loading symbols...</div></div>';
       }
+    },
+
+    standards: {
+      title: 'Standards Overview \u2014 Workplace vs. NFPA 70E',
+      body: '<div class="ref-table-wrap">' +
+        '<p>The two standards used in ArcReady differ in scope and terminology.</p>' +
+        '<table class="ref-table"><thead><tr><th>Topic</th><th>Workplace Standards</th><th>NFPA 70E 2024</th></tr></thead><tbody>' +
+        '<tr><td><strong>PPE Term</strong></td><td>Hazard Risk Category (HRC)</td><td>Arc Flash PPE Category</td></tr>' +
+        '<tr><td><strong>Pass Threshold</strong></td><td>100% (Safety); 85% (Theory)</td><td>100% (Safety); 85% (Theory)</td></tr>' +
+        '<tr><td><strong>LOTO Name</strong></td><td>LOTOTO (Lockout/Tagout/Tryout)</td><td>LOTO (Lockout/Tagout)</td></tr>' +
+        '<tr><td><strong>Energized Work Limit</strong></td><td>&gt; 40 cal/cm&sup2; prohibited</td><td>&gt; 40 cal/cm&sup2; prohibited (Art. 130)</td></tr>' +
+        '<tr><td><strong>Glove Test Interval</strong></td><td>Every 6 months (ASTM D120)</td><td>Every 6 months (ASTM D120)</td></tr>' +
+        '<tr><td><strong>Qualified Person</strong></td><td>Trained &amp; demonstrated competency per HECP</td><td>NFPA 70E Art. 100 definition</td></tr>' +
+        '<tr><td><strong>Arc Flash Boundary</strong></td><td>Point where incident energy = 1.2 cal/cm&sup2;</td><td>Same \u2014 per IEEE 1584 study or PPE table</td></tr>' +
+        '</tbody></table>' +
+        '<p class="ref-note">Use the standard selector on the Safety/Theory tabs to switch your study mode.</p>' +
+        '</div>'
     }
   };
 
@@ -281,6 +307,89 @@
      ============================================================ */
   // Show home tab by default (already handled by CSS active class in HTML)
   // Progress bar will be updated by TestEngine after banks load
+
+  /* ============================================================
+     HOME DASHBOARD CERT STATUS UPDATE
+     ============================================================ */
+  function updateHomeDashboard() {
+    var safetyCert = localStorage.getItem('arcready_safety_certified') === 'true';
+    var theoryCert = localStorage.getItem('arcready_theory_certified') === 'true';
+    var safetyHist = [];
+    var theoryHist = [];
+    try { safetyHist = JSON.parse(localStorage.getItem('arcready_safety_history') || '[]'); } catch (e) { }
+    try { theoryHist = JSON.parse(localStorage.getItem('arcready_theory_history') || '[]'); } catch (e) { }
+
+    // Safety badge
+    var sb = document.getElementById('safety-cert-badge');
+    var sn = document.getElementById('cert-step-num-1');
+    if (sb) {
+      if (safetyCert) {
+        sb.textContent = 'CERTIFIED \u2713'; sb.style.background = '#2E7D32'; sb.style.color = '#fff';
+        if (sn) sn.style.background = '#2E7D32';
+      } else if (safetyHist.length > 0) {
+        sb.textContent = 'In Progress'; sb.style.background = '#e6a800'; sb.style.color = '#fff';
+      } else {
+        sb.textContent = 'Not Started'; sb.style.background = '#f5f5f5'; sb.style.color = '#666';
+      }
+    }
+
+    // Theory badge
+    var tb = document.getElementById('theory-cert-badge');
+    var tn = document.getElementById('cert-step-num-2');
+    var tl = document.getElementById('theory-home-lock');
+    var ti = document.getElementById('theory-card-icon');
+    var conn1 = document.getElementById('connector-1');
+    if (tb) {
+      if (theoryCert) {
+        tb.textContent = 'CERTIFIED \u2713'; tb.style.background = '#2E7D32'; tb.style.color = '#fff';
+        if (tn) tn.style.background = '#2E7D32';
+        if (tl) tl.style.display = 'none';
+        if (ti) ti.textContent = '\u2713';
+        if (conn1) conn1.style.background = '#2E7D32';
+      } else if (!safetyCert) {
+        tb.textContent = 'Locked'; tb.style.background = '#f5f5f5'; tb.style.color = '#999';
+        if (tl) tl.style.display = '';
+      } else if (theoryHist.length > 0) {
+        tb.textContent = 'In Progress'; tb.style.background = '#e6a800'; tb.style.color = '#fff';
+        if (tl) tl.style.display = 'none';
+        if (ti) ti.textContent = '\uD83D\uDCD6';
+      } else {
+        tb.textContent = 'Available'; tb.style.background = '#0056b3'; tb.style.color = '#fff';
+        if (tl) tl.style.display = 'none';
+        if (ti) ti.textContent = '\uD83D\uDCD6';
+        if (conn1) conn1.style.background = '#CC0000';
+      }
+    }
+
+    // Complete badge
+    var cb = document.getElementById('complete-cert-badge');
+    var cn = document.getElementById('cert-step-num-3');
+    var conn2 = document.getElementById('connector-2');
+    if (cb) {
+      if (theoryCert) {
+        cb.textContent = 'COMPLETE! \uD83C\uDF89'; cb.style.background = '#2E7D32'; cb.style.color = '#fff';
+        if (cn) cn.style.background = '#2E7D32';
+        if (conn2) conn2.style.background = '#2E7D32';
+      } else if (safetyCert) {
+        cb.textContent = 'Almost There'; cb.style.background = '#e6a800'; cb.style.color = '#fff';
+        if (conn2) conn2.style.background = '#e6a800';
+      } else {
+        cb.textContent = 'Pending'; cb.style.background = '#f5f5f5'; cb.style.color = '#666';
+      }
+    }
+  }
+
+  ArcReady.updateHomeDashboard = updateHomeDashboard;
+  updateHomeDashboard();
+
+  // Also update when cert status changes (fired by test-engine after exam results saved)
+  document.addEventListener('certificationUpdated', updateHomeDashboard);
+  // Also update when switching to home tab
+  var origShowTab = ArcReady.showTab;
+  ArcReady.showTab = function (tabName) {
+    origShowTab(tabName);
+    if (tabName === 'home') updateHomeDashboard();
+  };
 
 }());
 
