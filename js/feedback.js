@@ -6,7 +6,7 @@
 
     // -- CONFIGURATION ----------------------------------------------------------
     // Replace this with your Google Apps Script Web App URL
-    var GOOGLE_SHEETS_URL = '';
+    var GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxBGevl-eUASJW_kj84DOmf5IgvVUSYSwr5kTW_OwwrfIDS2-1ZxIUksl2DEcYZPMSB4Q/exec';
 
     // -- DOM ELEMENTS -----------------------------------------------------------
     var toggleBtn = null;
