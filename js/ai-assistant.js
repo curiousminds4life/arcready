@@ -11,7 +11,7 @@
   /* ── Config & State ─────────────────────────────────────────── */
   var cfg = null;            // loaded from data/ai-config.json
   var chatHistory = [];      // [{role,content}] for study chat
-  var chatTurns   = 0;
+  var chatTurns = 0;
   var labHintsUsed = 0;
   var labHintPenalty = 0;   // cumulative score penalty
 
@@ -38,7 +38,7 @@
   function setCached(key, val, ttlMs) {
     try {
       sessionStorage.setItem(key, JSON.stringify({ val: val, exp: Date.now() + (ttlMs || 3600000) }));
-    } catch (e) {/* quota — ignore */}
+    } catch (e) {/* quota — ignore */ }
   }
 
   /* ── Active standard helper ─────────────────────────────────── */
@@ -51,9 +51,9 @@
   function callAI(feature, messages, callback) {
     if (!cfg || !cfg.enabled) { callback(null, 'AI not configured'); return; }
 
-    var model      = (cfg.models      || {})[feature] || 'meta-llama/llama-3.1-8b-instruct:free';
-    var maxTokens  = (cfg.limits      || {})['max_tokens_' + feature] || 150;
-    var sysPr      = (cfg.system_prompts || {})[feature] || '';
+    var model = (cfg.models || {})[feature] || 'meta-llama/llama-3.1-8b-instruct:free';
+    var maxTokens = (cfg.limits || {})['max_tokens_' + feature] || 150;
+    var sysPr = (cfg.system_prompts || {})[feature] || '';
 
     // Build full messages array with system prompt
     var fullMessages = [];
@@ -61,13 +61,13 @@
     fullMessages = fullMessages.concat(messages);
 
     var body = JSON.stringify({
-      model:       model,
-      max_tokens:  maxTokens,
-      messages:    fullMessages
+      model: model,
+      max_tokens: maxTokens,
+      messages: fullMessages
     });
 
     var cacheKey = hashStr(body);
-    var cached   = getCached(cacheKey);
+    var cached = getCached(cacheKey);
     if (cached) { callback(cached, null); return; }
 
     var url, headers;
@@ -76,14 +76,14 @@
       // Direct OpenRouter call (localhost dev only)
       url = 'https://openrouter.ai/api/v1/chat/completions';
       headers = {
-        'Content-Type':  'application/json',
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + cfg.dev_openrouter_key,
-        'HTTP-Referer':  'https://arcready.net',
-        'X-Title':       'ArcReady Training'
+        'HTTP-Referer': 'https://arcready.net',
+        'X-Title': 'ArcReady Training'
       };
     } else if (!cfg.dev_mode) {
       // Production: route through PHP proxy
-      url     = cfg.proxy_url || 'ai-proxy.php';
+      url = cfg.proxy_url || 'ai-proxy.php';
       headers = { 'Content-Type': 'application/json' };
     } else {
       // dev_mode true but no key set — silently skip
@@ -93,7 +93,7 @@
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url, true);
-    Object.keys(headers).forEach(function(k) { xhr.setRequestHeader(k, headers[k]); });
+    Object.keys(headers).forEach(function (k) { xhr.setRequestHeader(k, headers[k]); });
     xhr.timeout = 20000;
 
     xhr.onload = function () {
@@ -106,13 +106,13 @@
           setCached(cacheKey, text);
           callback(text, null);
         } else {
-          console.error('[ArcReady AI] Empty response. Status:', xhr.status, 'Data:', JSON.stringify(data).substring(0,200)); callback(null, 'empty_response');
+          console.error('[ArcReady AI] Empty response. Status:', xhr.status, 'Data:', JSON.stringify(data).substring(0, 200)); callback(null, 'empty_response');
         }
       } catch (e) {
-        console.error('[ArcReady AI] Parse error. Status:', xhr.status, 'Response:', xhr.responseText.substring(0,200)); callback(null, 'parse_error');
+        console.error('[ArcReady AI] Parse error. Status:', xhr.status, 'Response:', xhr.responseText.substring(0, 200)); callback(null, 'parse_error');
       }
     };
-    xhr.onerror   = function () { console.error('[ArcReady AI] Network error calling', url); callback(null, 'network_error'); };
+    xhr.onerror = function () { console.error('[ArcReady AI] Network error calling', url); callback(null, 'network_error'); };
     xhr.ontimeout = function () { console.error('[ArcReady AI] Request timed out calling', url); callback(null, 'timeout'); };
     console.log('[ArcReady AI] Calling', url, 'model:', model); xhr.send(body);
   }
@@ -134,8 +134,8 @@
     wrapper.className = 'ai-explain-wrapper';
 
     var btn = document.createElement('button');
-    btn.className   = 'btn-explain-ai';
-    btn.innerHTML   = '&#x1F916; Explain This';
+    btn.className = 'btn-explain-ai';
+    btn.innerHTML = '&#x1F916; Explain This';
     btn.setAttribute('aria-label', 'Get AI explanation for this answer');
 
     var panel = document.createElement('div');
@@ -153,28 +153,30 @@
         return;
       }
 
-      btn.disabled  = true;
+      btn.disabled = true;
       btn.innerHTML = '&#x1F916; <span class="ai-loading-dots"><span></span><span></span><span></span></span>';
       panel.style.display = 'block';
       panel.innerHTML = '<div class="ai-explain-header"><span class="ai-badge">AI</span> Loading explanation&hellip;</div>';
 
       var std = getStandardCtx();
       var prompt = 'Question: ' + questionText + '\n' +
-                   'Student answered: ' + userAnswer + '\n' +
-                   'Correct answer: ' + correctAnswer + '\n' +
-                   'Context: ' + std + '\n' +
-                   'Explain why the correct answer is right in 2-3 sentences.';
+        'Student answered: ' + userAnswer + '\n' +
+        'Correct answer: ' + correctAnswer + '\n' +
+        'Context: ' + std + '\n' +
+        'Explain why the correct answer is right in 2-3 sentences.';
 
       callAI('explain', [{ role: 'user', content: prompt }], function (text, err) {
-        btn.disabled  = false;
+        btn.disabled = false;
         btn.innerHTML = '&#x1F916; Hide Explanation';
         if (text) {
           panel.innerHTML =
             '<div class="ai-explain-header"><span class="ai-badge">AI</span> Instructor Explanation</div>' +
             '<p>' + escHtml(text) + '</p>';
         } else {
-          panel.style.display = 'none';
-          btn.innerHTML = '&#x1F916; Explain This';
+          // Instead of hiding it, show an error message so the user knows why it failed
+          panel.innerHTML =
+            '<div class="ai-explain-header"><span class="ai-badge">AI Error</span></div>' +
+            '<p>We encountered an issue generating the explanation. Please check your config API keys.</p>';
         }
       });
     });
@@ -185,12 +187,12 @@
      Chat bubble UI management
      ================================================================ */
   function initChat() {
-    var bubble  = document.getElementById('ai-chat-bubble');
-    var toggle  = document.getElementById('ai-chat-toggle');
-    var input   = document.getElementById('ai-chat-input');
+    var bubble = document.getElementById('ai-chat-bubble');
+    var toggle = document.getElementById('ai-chat-toggle');
+    var input = document.getElementById('ai-chat-input');
     var sendBtn = document.getElementById('ai-chat-send');
-    var msgs    = document.getElementById('ai-chat-messages');
-    var limitB  = document.getElementById('ai-chat-limit-banner');
+    var msgs = document.getElementById('ai-chat-messages');
+    var limitB = document.getElementById('ai-chat-limit-banner');
 
     if (!bubble || !toggle) return;
 
@@ -240,8 +242,8 @@
       var messages = [{ role: 'user', content: contextMsg + text }];
       // Include recent history (last 6 turns)
       if (chatHistory.length > 1) {
-        messages = chatHistory.slice(-6).map(function(m) {
-          return { role: m.role, content: m.role === 'user' && m === chatHistory[chatHistory.length-1] ? contextMsg + m.content : m.content };
+        messages = chatHistory.slice(-6).map(function (m) {
+          return { role: m.role, content: m.role === 'user' && m === chatHistory[chatHistory.length - 1] ? contextMsg + m.content : m.content };
         });
       }
 
@@ -267,7 +269,7 @@
     function addUserMsg(text) {
       if (!msgs) return;
       var d = document.createElement('div');
-      d.className   = 'ai-msg ai-msg--user';
+      d.className = 'ai-msg ai-msg--user';
       d.textContent = text;
       msgs.appendChild(d);
       msgs.scrollTop = msgs.scrollHeight;
@@ -288,7 +290,7 @@
       if (!limitB) return;
       limitB.style.display = 'block';
       limitB.innerHTML = '&#x1F4DA; You\'ve reached the chat limit for this session. Use the <strong>Study Mode</strong> tabs for in-depth content, or refresh to reset.';
-      if (input)   input.disabled   = true;
+      if (input) input.disabled = true;
       if (sendBtn) sendBtn.disabled = true;
     }
   }
@@ -298,11 +300,11 @@
      Called from lab.js when challenge mode starts
      ================================================================ */
   function initLabHint() {
-    var hintBtn   = document.getElementById('ai-hint-btn');
+    var hintBtn = document.getElementById('ai-hint-btn');
     var hintPanel = document.getElementById('ai-hint-panel');
     if (!hintBtn || !hintPanel) return;
 
-    labHintsUsed  = 0;
+    labHintsUsed = 0;
     labHintPenalty = 0;
     updateHintBtn();
 
@@ -320,7 +322,7 @@
 
       var readings = labState.readings || [];
       var readingsText = readings.length > 0
-        ? readings.map(function(r) { return 'TP' + r.a + '-TP' + r.b + ': ' + r.v; }).join(', ')
+        ? readings.map(function (r) { return 'TP' + r.a + '-TP' + r.b + ': ' + r.v; }).join(', ')
         : 'No measurements taken yet';
 
       var prompt = 'Circuit: ' + (labState.circuit || 'unknown') +
@@ -367,8 +369,8 @@
   function runWeakAreaCoach(topicScores, section) {
     var coachSection = document.getElementById('ai-coach-section');
     var coachLoading = document.getElementById('ai-coach-loading');
-    var coachCard    = document.getElementById('ai-coach-card');
-    var coachRegen   = document.getElementById('ai-coach-regenerate');
+    var coachCard = document.getElementById('ai-coach-card');
+    var coachRegen = document.getElementById('ai-coach-regenerate');
     if (!coachSection) return;
 
     // Build weak topic summary
@@ -376,7 +378,7 @@
     if (topics.length === 0) return;
 
     var lines = topics.map(function (t) {
-      var d   = topicScores[t];
+      var d = topicScores[t];
       var pct = d.total > 0 ? Math.round((d.correct / d.total) * 100) : 0;
       return t + ': ' + d.correct + '/' + d.total + ' (' + pct + '%)';
     });
@@ -392,9 +394,9 @@
       'Write a personalized 3-5 point study plan focusing on the weakest areas. Use bullet points. Be specific and actionable.';
 
     coachSection.style.display = 'block';
-    if (coachLoading) coachLoading.style.display  = 'flex';
-    if (coachCard)    coachCard.style.display      = 'none';
-    if (coachRegen)   coachRegen.style.display     = 'none';
+    if (coachLoading) coachLoading.style.display = 'flex';
+    if (coachCard) coachCard.style.display = 'none';
+    if (coachRegen) coachRegen.style.display = 'none';
 
     callAI('coach', [{ role: 'user', content: prompt }], function (text, err) {
       if (coachLoading) coachLoading.style.display = 'none';
@@ -468,13 +470,13 @@
 
   /* ── Public API ─────────────────────────────────────────────── */
   ArcReady.AI = {
-    init:            init,
-    explainAnswer:   explainAnswer,
-    initLabHint:     initLabHint,
+    init: init,
+    explainAnswer: explainAnswer,
+    initLabHint: initLabHint,
     runWeakAreaCoach: runWeakAreaCoach,
     // Exposed for lab.js to reset hint state when new challenge starts
-    resetLabHints:   function () {
-      labHintsUsed   = 0;
+    resetLabHints: function () {
+      labHintsUsed = 0;
       labHintPenalty = 0;
       window.ArcReady._hintPenalty = 0;
       var hp = document.getElementById('ai-hint-panel');

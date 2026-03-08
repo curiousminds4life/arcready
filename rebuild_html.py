@@ -3,12 +3,11 @@ import re
 base_html = """<!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/arcready/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArcReady - Electrical Safety Training</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/ai.css">
+    <link rel="stylesheet" href="css/main.css?v=1.6">
+    <link rel="stylesheet" href="css/ai.css?v=1.1">
 </head>
 <body>
     <nav class="top-nav">
@@ -37,6 +36,37 @@ base_html = """<!DOCTYPE html>
                         <div class="hero-text">
                             <h1 class="hero-title">Welcome to ArcReady</h1>
                             <p class="hero-subtitle">Your electrical safety training platform.</p>
+                        </div>
+                        <div class="hero-badge">
+                            <div class="cert-badge">
+                                <div class="cert-badge-icon">⚡</div>
+                                <div class="cert-badge-label">ARCREADY<br>CERTIFIED</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dashboard Section -->
+                <div class="quick-links-dashboard">
+                    <div class="quick-links-grid">
+                        <div class="quick-link-card" onclick="window.ArcReady.showTab('safety')">
+                            <div class="ql-icon">🛡️</div>
+                            <h3>Safety Training</h3>
+                            <p>NFPA 70E &amp; Workplace Standards</p>
+                        </div>
+                        <div class="quick-link-card" onclick="window.ArcReady.showTab('theory')">
+                            <div class="ql-icon">📖</div>
+                            <h3>Theory &amp; Fundamentals</h3>
+                            <p>Electrical circuit concepts</p>
+                        </div>
+                        <div class="quick-link-card" onclick="window.ArcReady.showTab('lab')">
+                            <div class="ql-icon">🧪</div>
+                            <h3>Virtual Lab</h3>
+                            <p>Interactive fault diagnosis</p>
+                        </div>
+                        <div class="quick-link-card" onclick="window.ArcReady.showTab('progress')">
+                            <div class="ql-icon">📈</div>
+                            <h3>My Progress</h3>
+                            <p>Track your certification status</p>
                         </div>
                     </div>
                 </div>

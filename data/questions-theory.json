@@ -518,7 +518,7 @@
     },
     "answer": "C",
     "explanation": "I = I1 + I2 is an expression of Kirchhoff's Current Law (KCL), which states that total current entering a node equals the sum of currents leaving it. In Circuit B's parallel configuration, total line current equals the sum of branch currents.",
-    "image": "img/AC_Circuit.png"
+    "svgId": "circuit-b"
   },
   {
     "id": "T041",
@@ -766,7 +766,7 @@
     },
     "answer": "C",
     "explanation": "V2 = V1 / ratio = 480 / ~9 ≈ ~53V. However, Circuit A shows a ~9:1 XFMR with a 24V secondary, suggesting the primary is from the 208V secondary of the main transformer: 208/~9 ≈ 24V.",
-    "image": "img/3phasecircuit.png"
+    "svgId": "circuit-a"
   },
   {
     "id": "T060",
@@ -871,7 +871,7 @@
     },
     "answer": "B",
     "explanation": "Turns ratio = V1/V2 = 480/120 = 4:1. This is a step-down transformer — the primary has 4 times more turns than the secondary, reducing voltage from 480V to 120V.",
-    "image": "img/3phasecircuit.png"
+    "svgId": "circuit-a"
   },
   {
     "id": "T068",
@@ -950,7 +950,7 @@
     },
     "answer": "C",
     "explanation": "In Circuit A, a transformer steps 480V 3-phase down to 208V 3-phase. The 208V is then available as 3-phase supply (and 120V single-phase from the 4:1 transformer secondary) for the motor control circuit.",
-    "image": "img/3phasecircuit.png"
+    "svgId": "circuit-a"
   },
   {
     "id": "T074",
@@ -1029,7 +1029,7 @@
     },
     "answer": "B",
     "explanation": "Each phase of a 3-phase circuit carries current independently. A fault on any single phase must be interrupted on that phase. Three individual fuses protect each conductor independently, ensuring any single-phase fault is cleared without necessarily affecting the other phases.",
-    "image": "img/3phasecircuit.png"
+    "svgId": "circuit-a"
   },
   {
     "id": "T080",
@@ -1056,7 +1056,7 @@
     },
     "answer": "B",
     "explanation": "F1, F2, and F3 are fuses in Circuit A protecting each of the three phase conductors supplying the motor. They provide overcurrent protection and open when fault current exceeds their rating.",
-    "image": "img/3phasecircuit.png"
+    "svgId": "circuit-a"
   },
   {
     "id": "T082",
@@ -1070,7 +1070,7 @@
     },
     "answer": "B",
     "explanation": "MS is the Motor Starter — a heavy-duty contactor whose main contacts connect the 3-phase power to the motor. It is controlled by a coil in the control circuit and includes overload relay protection.",
-    "image": "img/3phasecircuit.png"
+    "svgId": "circuit-a"
   },
   {
     "id": "T083",
@@ -1084,7 +1084,7 @@
     },
     "answer": "B",
     "explanation": "OL represents Overload Relays — thermal or electronic devices that monitor motor current. If motor current exceeds the set threshold for sufficient time, the OL trips, opening the control circuit and de-energizing the motor starter to protect the motor windings.",
-    "image": "img/3phasecircuit.png"
+    "svgId": "circuit-a"
   },
   {
     "id": "T084",
@@ -1098,7 +1098,7 @@
     },
     "answer": "B",
     "explanation": "In Circuit B, each switch (A, B, C, D) is in series with its respective parallel branch. Opening a switch interrupts only that branch's current path, while other parallel branches continue operating normally.",
-    "image": "img/AC_Circuit.png"
+    "svgId": "circuit-b"
   },
   {
     "id": "T085",
@@ -1151,7 +1151,7 @@
     },
     "answer": "C",
     "explanation": "Test points 1-10 in Circuit A are on the power side of the motor control circuit, covering the 3-phase supply lines, fuse positions, motor starter main contacts, overload relay elements, and motor connection points. Test points 11-13 are on the transformer secondaries.",
-    "image": "img/3phasecircuit.png"
+    "svgId": "circuit-a"
   },
   {
     "id": "T089",
@@ -1178,7 +1178,7 @@
     },
     "answer": "C",
     "explanation": "A wattmeter measures real electrical power (P = V × I × cos φ). It has both voltage and current sensing elements. In Circuit B, it monitors the actual power consumed by the parallel circuit loads.",
-    "image": "img/AC_Circuit.png"
+    "svgId": "circuit-b"
   },
   {
     "id": "T091",
@@ -1192,7 +1192,7 @@
     },
     "answer": "C",
     "explanation": "Per the Practice Schematic fault table, normal operating voltage between test points 1 and 2 is 208V (line-to-line voltage of the 3-phase supply feeding the circuit).",
-    "image": "img/PracticeSchematic.jpg"
+    "svgId": "circuit-practice"
   },
   {
     "id": "T092",
@@ -1206,7 +1206,7 @@
     },
     "answer": "C",
     "explanation": "Under normal operation, test points 2 and 5 are at the same potential — both on the same conductor or equipotential node. Voltage across two points on the same conductor is 0V, indicating no fault and normal current flow through that path.",
-    "image": "img/PracticeSchematic.jpg"
+    "svgId": "circuit-practice"
   },
   {
     "id": "T093",
@@ -1220,7 +1220,7 @@
     },
     "answer": "D",
     "explanation": "Test points 1 and 10: point 10 is the ground/neutral reference of the 120V control circuit. Point 1 is the hot side. Under normal operation this reads 120V, confirming the control transformer is operating correctly.",
-    "image": "img/PracticeSchematic.jpg"
+    "svgId": "circuit-practice"
   },
   {
     "id": "T094",
@@ -1234,7 +1234,7 @@
     },
     "answer": "C",
     "explanation": "When F1 is blown, the open fuse creates a voltage divider effect. Current back-feeds through other circuit paths, causing an elevated (208V range) voltage to appear at test point 4 relative to point 10 — a telltale sign of a blown phase fuse.",
-    "image": "img/PracticeSchematic.jpg"
+    "svgId": "circuit-practice"
   },
   {
     "id": "T095",
@@ -1248,7 +1248,7 @@
     },
     "answer": "D",
     "explanation": "When F3 is blown, the circuit path between test points 4 and 6 is interrupted. With no current path through F3, both points are effectively at the same potential through the load, or the open circuit removes the voltage difference — reading 0V.",
-    "image": "img/PracticeSchematic.jpg"
+    "svgId": "circuit-practice"
   },
   {
     "id": "T096",
@@ -1262,7 +1262,7 @@
     },
     "answer": "C",
     "explanation": "The 24V transformer is powered from a different phase than the one protected by F2. When F2 blows, the 24V supply circuit remains intact, so test points 11-12 still read 24V. This helps isolate which fuse has blown.",
-    "image": "img/PracticeSchematic.jpg"
+    "svgId": "circuit-practice"
   },
   {
     "id": "T097",
@@ -1302,7 +1302,7 @@
     },
     "answer": "C",
     "explanation": "With intact fuses but a de-energized MS coil, the control circuit is interrupted. The most common cause is a tripped overload relay — its normally-closed contact opens when it trips, breaking the control circuit and preventing the starter from energizing.",
-    "image": "img/3phasecircuit.png"
+    "svgId": "circuit-a"
   },
   {
     "id": "T100",
@@ -1485,7 +1485,7 @@
     },
     "answer": "B",
     "explanation": "Overload relay sequence: The OL thermal/electronic element trips → its normally-closed (NC) contact in the control circuit opens → the MS (motor starter) coil loses power → the MS main power contacts open → the motor is disconnected from the 3-phase supply. The overload relay does not directly interrupt power current.",
-    "image": "img/3phasecircuit.png"
+    "svgId": "circuit-a"
   },
   {
     "id": "T114",
@@ -1564,7 +1564,7 @@
     },
     "answer": "B",
     "explanation": "Voltage is dropped across open circuit elements. With F2 blown (open), test point 2 is at full line voltage and test point 5 is at a different potential (through the load path). The full supply voltage appears across the blown fuse — a key diagnostic reading confirming which fuse has failed.",
-    "image": "img/3phasecircuit.png"
+    "svgId": "circuit-a"
   },
   {
     "id": "T120",

@@ -25,8 +25,8 @@
      ================================================================ */
   function loadBanks() {
     return Promise.all([
-      fetch('data/questions-safety.json').then(function (r) { if (!r.ok) throw new Error('Safety bank'); return r.json(); }),
-      fetch('data/questions-theory.json').then(function (r) { if (!r.ok) throw new Error('Theory bank'); return r.json(); })
+      fetch('data/questions-safety.json?v=1.1').then(function (r) { if (!r.ok) throw new Error('Safety bank'); return r.json(); }),
+      fetch('data/questions-theory.json?v=1.1').then(function (r) { if (!r.ok) throw new Error('Theory bank'); return r.json(); })
     ]).then(function (results) {
       banks.safety = results[0];
       banks.theory = results[1];
@@ -42,6 +42,29 @@
     updateHomeProgressBar();
     TE.Progress.render();
     checkTheoryGate();
+    populateTopicDropdowns();
+  }
+
+  function populateTopicDropdowns() {
+    ['safety', 'theory'].forEach(function (section) {
+      if (!banks[section] || banks[section].length === 0) return;
+      var dropdown = el(section + '-study-topic');
+      if (!dropdown) return;
+
+      // Extract specific topics (using Set pattern suitable for ES5 if needed, or simple map)
+      var topicSet = {};
+      banks[section].forEach(function (q) {
+        if (q.topic) topicSet[q.topic] = true;
+      });
+
+      var uniqueTopics = Object.keys(topicSet).sort();
+      var html = '<option value="all">All Topics</option>';
+      uniqueTopics.forEach(function (topic) {
+        html += '<option value="' + escHtml(topic) + '">' + escHtml(topic) + '</option>';
+      });
+
+      dropdown.innerHTML = html;
+    });
   }
 
   /* ================================================================
@@ -90,6 +113,76 @@
   }
 
   function key(section, mode) { return section + '-' + mode; }
+
+  /* ================================================================
+     MEDIA HELPER
+     ================================================================ */
+  function renderMediaContent(q, i) {
+    var wrap = el(i.imgWrap);
+    if (!wrap) return;
+
+    if (q.svgId && window.ArcReady && window.ArcReady.SVGCircuits && window.ArcReady.SVGCircuits[q.svgId]) {
+      wrap.style.display = '';
+      wrap.style.height = 'auto';
+      wrap.style.maxHeight = 'none';
+      wrap.style.overflow = 'hidden';
+
+      var rawSvg = window.ArcReady.SVGCircuits[q.svgId].svg;
+
+      // Dynamically highlight test points mentioned in the question or options
+      var textToScan = q.question || '';
+      if (q.options) {
+        Object.values(q.options).forEach(function (optText) {
+          textToScan += ' ' + optText;
+        });
+      }
+
+      // Match occurrences of "TPX"
+      var tpRegex = /TP(\d+)/gi;
+      var match;
+      var tpsToActivate = [];
+      while ((match = tpRegex.exec(textToScan)) !== null) {
+        tpsToActivate.push(match[1]);
+      }
+
+      // Match occurrences of conversational "test point X" or "test points X and Y"
+      var conversationalRegex = /test point[s]?\s+(\d+)(?:\s+(?:and|or|to|-)\s+(\d+))?/gi;
+      while ((match = conversationalRegex.exec(textToScan)) !== null) {
+        if (match[1]) tpsToActivate.push(match[1]);
+        if (match[2]) tpsToActivate.push(match[2]);
+      }
+
+      // Inject the active class directly into the raw SVG string
+      tpsToActivate.forEach(function (tpId) {
+        var targetString = 'data-tp="' + tpId + '"';
+        var replacementString = 'class="test-point tp-active" data-tp="' + tpId + '"';
+        // First, strip the existing class attribute for this specific TP to avoid duplicates
+        var stripRegex = new RegExp('class="test-point"\\s+data-tp="' + tpId + '"', 'g');
+        rawSvg = rawSvg.replace(stripRegex, targetString);
+
+        // Then add the new combined class
+        rawSvg = rawSvg.replace(targetString, replacementString);
+      });
+
+      wrap.innerHTML = rawSvg;
+
+      // Ensure inline SVGs conform to container constraints
+      var svgEl = wrap.querySelector('svg');
+      if (svgEl) {
+        svgEl.style.maxWidth = '100%';
+        svgEl.style.maxHeight = '550px';
+        svgEl.style.height = 'auto';
+        svgEl.style.width = 'auto';
+        svgEl.style.borderRadius = '8px';
+      }
+    } else if (q.image) {
+      wrap.style.display = '';
+      wrap.innerHTML = '<img id="' + i.img + '" src="' + q.image + '" alt="Context" style="max-width:100%; height:auto;" />';
+    } else {
+      wrap.style.display = 'none';
+      wrap.innerHTML = '';
+    }
+  }
 
   /* ================================================================
      IDs HELPERS
@@ -159,13 +252,8 @@
     setText(i.topicBadge, q.topic);
     setText(i.question, q.question);
 
-    // Image
-    if (q.image) {
-      el(i.imgWrap).style.display = '';
-      el(i.img).src = q.image;
-    } else {
-      el(i.imgWrap).style.display = 'none';
-    }
+    // Image / SVG
+    renderMediaContent(q, i);
 
     // Options
     var optHTML = '';
@@ -362,8 +450,7 @@
     setText(i.topicBadge, cp.topic);
     setText(i.question, q.question);
 
-    if (q.image) { el(i.imgWrap).style.display = ''; el(i.img).src = q.image; }
-    else { el(i.imgWrap).style.display = 'none'; }
+    renderMediaContent(q, i);
 
     var optHTML = '';
     ['A', 'B', 'C', 'D'].forEach(function (letter) {
@@ -499,8 +586,7 @@
     setText(i.topicBadge, q.topic);
     setText(i.question, q.question);
 
-    if (q.image) { el(i.imgWrap).style.display = ''; el(i.img).src = q.image; }
-    else { el(i.imgWrap).style.display = 'none'; }
+    renderMediaContent(q, i);
 
     var selected = sess.answers[idx];
     var flagged = sess.flags[idx];

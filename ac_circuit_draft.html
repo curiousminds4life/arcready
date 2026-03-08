@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background: #eee;
+            padding: 20px;
+        }
+
+        .svg-container {
+            background: white;
+            border: 1px solid #ccc;
+            max-width: 900px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="svg-container">
+        <!-- Will paste SVG here -->
+        <svg viewBox="0 0 900 350" xmlns="http://www.w3.org/2000/svg"
+            style="background:#fff;display:block;font-family:Arial,sans-serif">
+            <!-- DEFINITIONS for reusable shapes -->
+            <defs>
+                <!-- Test Point -->
+                <circle id="tp" cx="0" cy="0" r="4" fill="#1A1A1A" />
+                <!-- Hollow Terminal -->
+                <circle id="term" cx="0" cy="0" r="4" fill="#fff" stroke="#1A1A1A" stroke-width="2" />
+                <!-- Push Button NO -->
+                <g id="pb-no">
+                    <line x1="-15" y1="-8" x2="15" y2="-8" stroke="#1A1A1A" stroke-width="2" />
+                    <line x1="0" y1="-8" x2="0" y2="-18" stroke="#1A1A1A" stroke-width="2" />
+                    <use href="#term" x="-15" y="0" />
+                    <use href="#term" x="15" y="0" />
+                </g>
+                <!-- Push Button NC -->
+                <g id="pb-nc">
+                    <line x1="-15" y1="8" x2="15" y2="8" stroke="#1A1A1A" stroke-width="2" />
+                    <line x1="0" y1="8" x2="0" y2="-2" stroke="#1A1A1A" stroke-width="2" />
+                    <use href="#term" x="-15" y="0" />
+                    <use href="#term" x="15" y="0" />
+                </g>
+                <!-- Contact NO -->
+                <g id="contact-no">
+                    <line x1="-8" y1="-15" x2="-8" y2="15" stroke="#1A1A1A" stroke-width="2" />
+                    <line x1="8" y1="-15" x2="8" y2="15" stroke="#1A1A1A" stroke-width="2" />
+                </g>
+                <!-- AC Source -->
+                <g id="ac-source">
+                    <circle cx="0" cy="0" r="25" fill="#fff" stroke="#1A1A1A" stroke-width="2" />
+                    <path d="M-12,0 Q-6,-10 0,0 Q6,10 12,0" fill="none" stroke="#1A1A1A" stroke-width="2" />
+                </g>
+                <!-- Lamp -->
+                <g id="lamp">
+                    <circle cx="0" cy="0" r="16" fill="#fff" stroke="#1A1A1A" stroke-width="2" />
+                    <!-- W shape inside -->
+                    <path d="M-8,-6 L-4,6 L0,-2 L4,6 L8,-6" fill="none" stroke="#1A1A1A" stroke-width="2" />
+                    <!-- Rays -->
+                    <line x1="-20" y1="-20" x2="-14" y2="-14" stroke="#1A1A1A" stroke-width="2" />
+                    <line x1="20" y1="-20" x2="14" y2="-14" stroke="#1A1A1A" stroke-width="2" />
+                    <line x1="-20" y1="20" x2="-14" y2="14" stroke="#1A1A1A" stroke-width="2" />
+                    <line x1="20" y1="20" x2="14" y2="14" stroke="#1A1A1A" stroke-width="2" />
+                </g>
+                <!-- Coil -->
+                <g id="coil">
+                    <circle cx="0" cy="0" r="18" fill="#fff" stroke="#1A1A1A" stroke-width="2" />
+                </g>
+
+                <!-- Breaker / Overload (Component A) -->
+                <g id="comp-a">
+                    <path d="M-20,0 A20,20 0 0,1 20,0" fill="none" stroke="#1A1A1A" stroke-width="2" />
+                    <use href="#term" x="-20" y="0" />
+                    <use href="#term" x="20" y="0" />
+                </g>
+                <!-- Red Arrow Right -->
+                <g id="arrow-right">
+                    <line x1="-15" y1="0" x2="15" y2="0" stroke="#CC0000" stroke-width="2" />
+                    <polygon points="10,-4 18,0 10,4" fill="#CC0000" />
+                </g>
+                <!-- Red Arrow Down -->
+                <g id="arrow-down">
+                    <line x1="0" y1="-15" x2="0" y2="15" stroke="#CC0000" stroke-width="2" />
+                    <polygon points="-4,10 0,18 4,10" fill="#CC0000" />
+                </g>
+            </defs>
+
+            <!-- Base Canvas -->
+            <rect width="900" height="350" fill="#fff" />
+
+            <!-- Title -->
+            <text x="250" y="240" font-size="24" font-family="Arial" fill="#1A1A1A">CIRCUIT B</text>
+
+            <!-- Source -->
+            <use href="#ac-source" x="60" y="140" />
+            <text x="80" y="200" font-size="16" fill="#CC0000" font-family="Arial">120 VAC</text>
+
+            <!-- Top wire from source to 1 -->
+            <line x1="60" y1="115" x2="60" y2="60" stroke="#1A1A1A" stroke-width="2" />
+            <line x1="60" y1="60" x2="130" y2="60" stroke="#1A1A1A" stroke-width="2" />
+
+            <!-- Point 1 -->
+            <use href="#tp" x="130" y="60" />
+            <text x="125" y="50" font-size="16" font-family="Arial" fill="#1A1A1A">1</text>
+
+            <!-- Component A -->
+            <line x1="130" y1="60" x2="150" y2="60" stroke="#1A1A1A" stroke-width="2" />
+            <use href="#comp-a" x="170" y="60" />
+            <text x="165" y="80" font-size="16" font-family="Arial" fill="#1A1A1A">A</text>
+
+            <!-- Point 2 -->
+            <line x1="190" y1="60" x2="250" y2="60" stroke="#1A1A1A" stroke-width="2" />
+            <use href="#tp" x="250" y="60" />
+            <text x="245" y="50" font-size="16" font-family="Arial" fill="#1A1A1A">2</text>
+
+            <!-- Component B (NO PB) branch -->
+            <line x1="250" y1="60" x2="330" y2="60" stroke="#1A1A1A" stroke-width="2" />
+            <use href="#pb-no" x="345" y="60" />
+            <text x="340" y="80" font-size="16" font-family="Arial" fill="#1A1A1A">B</text>
+
+            <line x1="360" y1="60" x2="520" y2="60" stroke="#1A1A1A" stroke-width="2" />
+
+            <!-- Point 4 -->
+            <use href="#tp" x="520" y="60" />
+            <text x="515" y="50" font-size="16" font-family="Arial" fill="#1A1A1A">4</text>
+
+            <!-- Component D & C branch -->
+            <!-- Down from 2 -->
+            <line x1="250" y1="60" x2="250" y2="150" stroke="#1A1A1A" stroke-width="2" />
+            <line x1="250" y1="150" x2="330" y2="150" stroke="#1A1A1A" stroke-width="2" />
+
+            <use href="#pb-nc" x="345" y="150" />
+            <text x="340" y="135" font-size="16" font-family="Arial" fill="#1A1A1A">D</text>
+
+            <line x1="360" y1="150" x2="410" y2="150" stroke="#1A1A1A" stroke-width="2" />
+
+            <!-- Point 3 -->
+            <use href="#tp" x="410" y="150" />
+            <text x="405" y="140" font-size="16" font-family="Arial" fill="#1A1A1A">3</text>
+
+            <!-- Component C (NO contact) -->
+            <line x1="410" y1="150" x2="450" y2="150" stroke="#1A1A1A" stroke-width="2" />
+            <use href="#contact-no" x="458" y="150" />
+            <text x="453" y="135" font-size="16" font-family="Arial" fill="#1A1A1A">C</text>
+
+            <!-- Up to 4 -->
+            <line x1="466" y1="150" x2="520" y2="150" stroke="#1A1A1A" stroke-width="2" />
+            <line x1="520" y1="150" x2="520" y2="60" stroke="#1A1A1A" stroke-width="2" />
+
+            <!-- Top wire from 4 to 5 -->
+            <line x1="520" y1="60" x2="600" y2="60" stroke="#1A1A1A" stroke-width="2" />
+
+            <!-- Point 5 -->
+            <use href="#tp" x="600" y="60" />
+            <text x="595" y="50" font-size="16" font-family="Arial" fill="#1A1A1A">5</text>
+
+            <!-- Top wire from 5 to G branch -->
+            <line x1="600" y1="60" x2="720" y2="60" stroke="#1A1A1A" stroke-width="2" />
+
+            <!-- Branch MS -->
+            <line x1="600" y1="60" x2="600" y2="150" stroke="#1A1A1A" stroke-width="2" />
+            <text x="608" y="150" font-size="14" font-family="Arial" fill="#1A1A1A">E</text>
+            <line x1="600" y1="150" x2="600" y2="200" stroke="#1A1A1A" stroke-width="2" />
+            <use href="#coil" x="600" y="218" />
+            <text x="590" y="223" font-size="14" font-family="Arial" fill="#1A1A1A">MS</text>
+            <line x1="600" y1="236" x2="600" y2="300" stroke="#1A1A1A" stroke-width="2" />
+
+            <!-- Link MS to C -->
+            <line x1="582" y1="218" x2="458" y2="218" stroke="#1A1A1A" stroke-width="1.5" stroke-dasharray="6,4" />
+            <line x1="458" y1="218" x2="458" y2="165" stroke="#1A1A1A" stroke-width="1.5" stroke-dasharray="6,4" />
+
+            <!-- Link MS to F -->
+            <line x1="618" y1="218" x2="680" y2="218" stroke="#1A1A1A" stroke-width="1.5" stroke-dasharray="6,4" />
+            <line x1="680" y1="218" x2="680" y2="120" stroke="#1A1A1A" stroke-width="1.5" stroke-dasharray="6,4" />
+            <line x1="680" y1="120" x2="720" y2="120" stroke="#1A1A1A" stroke-width="1.5" stroke-dasharray="6,4" />
+
+            <!-- Branch G -->
+            <line x1="720" y1="60" x2="720" y2="105" stroke="#1A1A1A" stroke-width="2" />
+
+            <!-- Component F (NO contact) -->
+            <use href="#contact-no" x="720" y="120" />
+            <text x="735" y="125" font-size="16" font-family="Arial" fill="#1A1A1A">F</text>
+
+            <line x1="720" y1="135" x2="720" y2="184" stroke="#1A1A1A" stroke-width="2" />
+            <use href="#lamp" x="720" y="200" />
+            <text x="745" y="205" font-size="16" font-family="Arial" fill="#1A1A1A">G</text>
+            <line x1="720" y1="216" x2="720" y2="300" stroke="#1A1A1A" stroke-width="2" />
+
+            <!-- Bottom return wire -->
+            <line x1="60" y1="165" x2="60" y2="300" stroke="#1A1A1A" stroke-width="2" />
+            <line x1="60" y1="300" x2="720" y2="300" stroke="#1A1A1A" stroke-width="2" />
+
+            <!-- Point 6 -->
+            <use href="#tp" x="600" y="300" />
+            <text x="610" y="315" font-size="16" font-family="Arial" fill="#1A1A1A">6</text>
+
+            <!-- Point 7 -->
+            <use href="#tp" x="250" y="300" />
+            <text x="250" y="320" font-size="16" font-family="Arial" fill="#1A1A1A">7</text>
+
+            <!-- Current Annotations (Red) -->
+            <use href="#arrow-right" x="550" y="80" />
+            <text x="545" y="100" font-size="18" fill="#CC0000" font-family="Arial">I</text>
+
+            <use href="#arrow-down" x="630" y="100" />
+            <text x="615" y="115" font-size="18" fill="#CC0000" font-family="Arial">I<tspan dy="5" font-size="12">1
+                </tspan></text>
+
+            <use href="#arrow-down" x="680" y="70" />
+            <text x="665" y="85" font-size="18" fill="#CC0000" font-family="Arial">I<tspan dy="5" font-size="12">2
+                </tspan></text>
+
+            <text x="780" y="85" font-size="24" fill="#CC0000" font-family="Arial">I = I<tspan dy="5" font-size="16">1
+                </tspan>
+                <tspan dy="-5"> + I</tspan>
+                <tspan dy="5" font-size="16">2</tspan>
+            </text>
+
+        </svg>
+    </div>
+</body>
+
+</html>
