@@ -285,7 +285,8 @@
     },
 
     standards: {
-      title: 'Standards Overview \u2014 Workplace vs. NFPA 70E',
+      title: 'Standards Overview — Workplace vs. NFPA 70E',
+
       body: '<div class="ref-table-wrap">' +
         '<p>The two standards used in ArcReady differ in scope and terminology.</p>' +
         '<table class="ref-table"><thead><tr><th>Topic</th><th>Workplace Standards</th><th>NFPA 70E 2024</th></tr></thead><tbody>' +
@@ -295,7 +296,8 @@
         '<tr><td><strong>Energized Work Limit</strong></td><td>&gt; 40 cal/cm&sup2; prohibited</td><td>&gt; 40 cal/cm&sup2; prohibited (Art. 130)</td></tr>' +
         '<tr><td><strong>Glove Test Interval</strong></td><td>Every 6 months (ASTM D120)</td><td>Every 6 months (ASTM D120)</td></tr>' +
         '<tr><td><strong>Qualified Person</strong></td><td>Trained &amp; demonstrated competency per HECP</td><td>NFPA 70E Art. 100 definition</td></tr>' +
-        '<tr><td><strong>Arc Flash Boundary</strong></td><td>Point where incident energy = 1.2 cal/cm&sup2;</td><td>Same \u2014 per IEEE 1584 study or PPE table</td></tr>' +
+        '<tr><td><strong>Arc Flash Boundary</strong></td><td>Point where incident energy = 1.2 cal/cm&sup2;</td><td>Same — per IEEE 1584 study or PPE table</td></tr>' +
+
         '</tbody></table>' +
         '<p class="ref-note">Use the standard selector on the Safety/Theory tabs to switch your study mode.</p>' +
         '</div>'
@@ -324,7 +326,8 @@
     var sn = document.getElementById('cert-step-num-1');
     if (sb) {
       if (safetyCert) {
-        sb.textContent = 'CERTIFIED \u2713'; sb.style.background = '#2E7D32'; sb.style.color = '#fff';
+        sb.textContent = 'CERTIFIED ✓'; sb.style.background = '#2E7D32'; sb.style.color = '#fff';
+
         if (sn) sn.style.background = '#2E7D32';
       } else if (safetyHist.length > 0) {
         sb.textContent = 'In Progress'; sb.style.background = '#e6a800'; sb.style.color = '#fff';
@@ -341,10 +344,11 @@
     var conn1 = document.getElementById('connector-1');
     if (tb) {
       if (theoryCert) {
-        tb.textContent = 'CERTIFIED \u2713'; tb.style.background = '#2E7D32'; tb.style.color = '#fff';
+        tb.textContent = 'CERTIFIED ✓'; tb.style.background = '#2E7D32'; tb.style.color = '#fff';
         if (tn) tn.style.background = '#2E7D32';
         if (tl) tl.style.display = 'none';
-        if (ti) ti.textContent = '\u2713';
+        if (ti) ti.textContent = '✓';
+
         if (conn1) conn1.style.background = '#2E7D32';
       } else if (!safetyCert) {
         tb.textContent = 'Locked'; tb.style.background = '#f5f5f5'; tb.style.color = '#999';
@@ -352,11 +356,12 @@
       } else if (theoryHist.length > 0) {
         tb.textContent = 'In Progress'; tb.style.background = '#e6a800'; tb.style.color = '#fff';
         if (tl) tl.style.display = 'none';
-        if (ti) ti.textContent = '\uD83D\uDCD6';
+        if (ti) ti.textContent = '📖';
       } else {
         tb.textContent = 'Available'; tb.style.background = '#0056b3'; tb.style.color = '#fff';
         if (tl) tl.style.display = 'none';
-        if (ti) ti.textContent = '\uD83D\uDCD6';
+        if (ti) ti.textContent = '📖';
+
         if (conn1) conn1.style.background = '#CC0000';
       }
     }
@@ -367,7 +372,8 @@
     var conn2 = document.getElementById('connector-2');
     if (cb) {
       if (theoryCert) {
-        cb.textContent = 'COMPLETE! \uD83C\uDF89'; cb.style.background = '#2E7D32'; cb.style.color = '#fff';
+        cb.textContent = 'COMPLETE! 🎉'; cb.style.background = '#2E7D32'; cb.style.color = '#fff';
+
         if (cn) cn.style.background = '#2E7D32';
         if (conn2) conn2.style.background = '#2E7D32';
       } else if (safetyCert) {

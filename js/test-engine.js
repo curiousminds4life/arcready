@@ -843,6 +843,11 @@
     var bestKey = 'arcready_' + section + '_best';
     var curBest = parseInt(localStorage.getItem(bestKey) || '0', 10);
     if (pct > curBest) localStorage.setItem(bestKey, String(pct));
+
+    // Notify Home dashboard
+    updateHomeProgressBar();
+    document.dispatchEvent(new CustomEvent('certificationUpdated'));
+
   }
 
   /* ================================================================
