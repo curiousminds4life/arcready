@@ -80,6 +80,11 @@
 
     xhr.onload = function () {
       try {
+        if (xhr.status >= 400) {
+          console.error('[ArcReady AI] HTTP Error:', xhr.status, xhr.responseText);
+          callback(null, 'HTTP ' + xhr.status + ': ' + (xhr.status === 401 ? 'Invalid API Key' : 'Proxy Error'));
+          return;
+        }
         var data = JSON.parse(xhr.responseText);
         var text = data.choices && data.choices[0] && data.choices[0].message
           ? data.choices[0].message.content.trim()
@@ -88,15 +93,17 @@
           setCached(cacheKey, text);
           callback(text, null);
         } else {
-          console.error('[ArcReady AI] Empty response. Status:', xhr.status, 'Data:', JSON.stringify(data).substring(0, 200)); callback(null, 'empty_response');
+          console.error('[ArcReady AI] Empty response.', xhr.status, xhr.responseText);
+          callback(null, 'Service returned empty response');
         }
       } catch (e) {
-        console.error('[ArcReady AI] Parse error. Status:', xhr.status, 'Response:', xhr.responseText.substring(0, 200)); callback(null, 'parse_error');
+        console.error('[ArcReady AI] Parse error.', xhr.status, xhr.responseText);
+        callback(null, 'Error parsing AI response');
       }
     };
-    xhr.onerror = function () { console.error('[ArcReady AI] Network error calling', url); callback(null, 'network_error'); };
-    xhr.ontimeout = function () { console.error('[ArcReady AI] Request timed out calling', url); callback(null, 'timeout'); };
-    console.log('[ArcReady AI] Calling', url, 'model:', model); xhr.send(body);
+    xhr.onerror = function () { callback(null, 'Network connection failed'); };
+    xhr.ontimeout = function () { callback(null, 'Request timed out'); };
+    xhr.send(body);
   }
 
   /* ================================================================
@@ -241,7 +248,7 @@
           }
         } else {
           chatHistory.pop();
-          addBotMsg('Sorry, I couldn\'t reach the AI service. Please try again. If this persists, use the Study Mode tabs instead.');
+          addBotMsg('Sorry, I couldn\'t reach the AI service: <strong>' + (err || 'Connection Issue') + '</strong>. Please ensure your <code>OPENROUTER_KEY</code> is set correctly in Hostinger and <code>ai-config.json</code> is deployed.');
         }
         if (msgs) msgs.scrollTop = msgs.scrollHeight;
       });
