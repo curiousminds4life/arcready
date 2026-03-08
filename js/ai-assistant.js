@@ -44,7 +44,7 @@
   /* -- Active standard helper ----------------------------------- */
   function getStandardCtx() {
     var id = localStorage.getItem('arcready_standard') || 'workplace';
-    return id === 'nfpa' ? 'NFPA 70E 2024 national standard' : 'Workplace / SGOP safety standards';
+    return id === 'nfpa' ? 'NFPA 70E 2024 national standard' : 'Workplace / Solid Green safety standards';
   }
 
   /* -- Core API call -------------------------------------------- */

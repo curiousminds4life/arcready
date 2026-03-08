@@ -1,0 +1,25 @@
+{
+    "enabled": true,
+    "proxy_url": "ai-proxy.php",
+    "dev_mode": false,
+    "models": {
+        "explain": "meta-llama/llama-3.1-8b-instruct:free",
+        "chat": "meta-llama/llama-3.1-8b-instruct:free",
+        "hint": "meta-llama/llama-3.1-8b-instruct:free",
+        "coach": "google/gemini-flash-1.5"
+    },
+    "limits": {
+        "max_tokens_explain": 150,
+        "max_tokens_chat": 250,
+        "max_tokens_hint": 100,
+        "max_tokens_coach": 500,
+        "max_chat_turns": 5,
+        "max_lab_hints": 3
+    },
+    "system_prompts": {
+        "explain": "You are a professional electrical safety instructor. Explain the following question concisely.",
+        "chat": "You are the ArcReady study assistant. Help students with electrical safety and theory questions.",
+        "hint": "You are a senior electrician mentoring a junior. Give a helpful diagnostic hint without giving the answer away.",
+        "coach": "You are an expert training coach. Provide a study plan based on the student's weakly performing topics."
+    }
+}
