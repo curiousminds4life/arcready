@@ -13,31 +13,6 @@
         "energy": "\u2265 1.2 \u2013 \u2264 12 cal/cm\u00b2",
         "description": "Arc-rated clothing (min. 4 cal/cm\u00b2 rating), face shield, heavy-duty leather gloves",
         "source": "NFPA 70E Table 130.7(C)(15)(c)"
-      },
-      {
-        "level": "Category 2",
-        "energy": "\u2265 1.2 \u2013 \u2264 12 cal/cm\u00b2",
-        "description": "Arc-rated clothing (min. 8 cal/cm\u00b2 rating), arc-rated face shield or arc flash suit hood",
-        "source": "NFPA 70E Table 130.7(C)(15)(c)"
-      },
-      {
-        "level": "Category 3",
-        "energy": "\u2265 1.2 \u2013 \u2264 40 cal/cm\u00b2",
-        "description": "Arc-rated clothing system (min. 25 cal/cm\u00b2 rating), arc flash suit hood",
-        "source": "NFPA 70E Table 130.7(C)(15)(c)"
-      },
-      {
-        "level": "Category 4",
-        "energy": "\u2265 1.2 \u2013 \u2264 40 cal/cm\u00b2",
-        "description": "Arc-rated clothing system (min. 40 cal/cm\u00b2 rating), arc flash suit hood",
-        "source": "NFPA 70E Table 130.7(C)(15)(c)"
-      },
-      {
-        "level": "Exceeds Category 4",
-        "energy": "> 40 cal/cm\u00b2",
-        "description": "Arc Flash PPE Category method cannot be used \u2014 incident energy analysis required. Work above available PPE arc rating is prohibited.",
-        "source": "NFPA 70E 130.7(C)(15)(a)",
-        "prohibited": true
       }
     ],
     "boundaries": [
@@ -45,92 +20,9 @@
         "name": "Limited Approach Boundary",
         "definition": "Approach limit within which a shock hazard exists. Unqualified persons may not cross without continuous escort by a qualified person.",
         "source": "NFPA 70E 130.4 / Table 130.4(D)(a)"
-      },
-      {
-        "name": "Restricted Approach Boundary",
-        "definition": "Increased likelihood of electric shock due to arc-over combined with inadvertent movement. Qualified persons only, with energized electrical work permit and appropriate PPE.",
-        "source": "NFPA 70E 130.4 / Table 130.4(D)(a)"
-      },
-      {
-        "name": "Arc Flash Boundary",
-        "definition": "Distance at which incident energy equals 1.2 cal/cm\u00b2 (5 J/cm\u00b2) \u2014 onset of a second-degree burn on unprotected skin. All body parts inside this boundary must be protected.",
-        "source": "NFPA 70E 130.5(E)"
       }
     ],
-    "boundary_count": 3,
-    "boundary_note": "Note: The 'Prohibited Approach Boundary' was removed from NFPA 70E in 2012. The current standard uses three boundaries only.",
-    "loto_name": "LOTO",
-    "loto_full_name": "Lockout / Tagout (LOTO)",
-    "loto_source": "NFPA 70E Article 120, Sections 120.4 and 120.5",
-    "loto_steps": [
-      {
-        "step": 1,
-        "title": "Identify All Energy Sources",
-        "detail": "Determine all possible sources of electrical supply using applicable up-to-date drawings, diagrams, and identification tags. (NFPA 70E 120.5)"
-      },
-      {
-        "step": 2,
-        "title": "Interrupt the Load & Open Disconnecting Devices",
-        "detail": "After properly interrupting load current, open the disconnecting device(s) for each source. Where possible, visually verify all blades are fully open. (NFPA 70E 120.5)"
-      },
-      {
-        "step": 3,
-        "title": "Release Stored Electrical Energy",
-        "detail": "Discharge capacitors, de-energize all stored electrical energy sources. (NFPA 70E 120.5)"
-      },
-      {
-        "step": 4,
-        "title": "Release or Block Stored Mechanical Energy",
-        "detail": "Block elevated parts, release spring tension, bleed pneumatic and hydraulic lines. (NFPA 70E 120.5)"
-      },
-      {
-        "step": 5,
-        "title": "Apply Lockout/Tagout Devices",
-        "detail": "Apply lockout/tagout devices in accordance with a documented and established procedure. (NFPA 70E 120.4)"
-      },
-      {
-        "step": 6,
-        "title": "Verify De-energization",
-        "detail": "Use an adequately rated portable test instrument to test each phase conductor or circuit part \u2014 phase-to-phase AND phase-to-ground. Verify test instrument operation before and after each test. (NFPA 70E 120.5)"
-      },
-      {
-        "step": 7,
-        "title": "Perform Work",
-        "detail": "Electrically safe work condition established. Work may proceed. Retest if job location is left unattended. (NFPA 70E 120.5)"
-      }
-    ],
-    "complex_loto_model": {
-      "name": "Simple vs. Complex Lockout",
-      "description": "NFPA 70E distinguishes between Simple and Complex lockout/tagout situations.",
-      "levels": [
-        {
-          "level": "Simple Lockout",
-          "description": "One qualified person de-energizes one set of conductors or circuit parts from a single energy source \u2014 no written plan required"
-        },
-        {
-          "level": "Complex Lockout",
-          "description": "Multiple energy sources, multiple crews, multiple crafts, multiple locations, complex switching sequences, or job spans more than one work period \u2014 written plan of execution required"
-        }
-      ]
-    },
-    "qualified_person_term": "Qualified Person",
-    "qualified_person_def": "One who has the skills and knowledge related to the construction and operation of electrical equipment and installations, and has received safety training to recognize and avoid the hazards involved.",
-    "qualified_person_source": "NFPA 70E Article 100 / 110.2",
-    "lock_spec": "Lockout devices shall be substantial enough to prevent removal without excessive force. Tagout devices shall warn against energizing equipment.",
-    "lock_source": "NFPA 70E 120.4",
-    "glove_test_interval": "Every 6 months per Table 130.7(C)(7)",
-    "glove_test_source": "NFPA 70E Table 130.7(C)(7)",
-    "arc_flash_review": "At intervals not to exceed 5 years",
-    "arc_flash_review_source": "NFPA 70E 130.5(G)",
-    "hierarchy_source": "NFPA 70E 110.1(H)",
-    "permit_source": "NFPA 70E 130.2(B)",
-    "label_source": "NFPA 70E 130.5(H)",
-    "conductive_apparel_source": "NFPA 70E 130.6(D)",
-    "synthetic_fabric_source": "NFPA 70E 130.7(C)(3)",
-    "training_interval": "At intervals not to exceed 3 years",
-    "training_source": "NFPA 70E 110.2(D)",
-    "annual_review_source": "NFPA 70E 110.1",
-    "two_methods_note": "PPE selection uses either: (1) Incident Energy Analysis Method (130.5(G)) OR (2) Arc Flash PPE Category Method (130.7(C)(15)). Both methods shall NOT be used on the same piece of equipment."
+    "boundary_count": 3
   },
   "workplace": {
     "id": "workplace",
@@ -142,41 +34,10 @@
     "ppe_term_full": "Hazard Risk Category (HRC)",
     "ppe_categories": [
       {
-        "level": "HRC 0",
-        "energy": "< 1.2 cal/cm\u00b2",
-        "description": "Non-incendive clothing permitted",
-        "source": "Workplace Safety Standards"
-      },
-      {
         "level": "HRC 1",
         "energy": "1.2 \u2013 4 cal/cm\u00b2",
         "description": "Arc-rated shirt and pants or coverall",
         "source": "Workplace Safety Standards"
-      },
-      {
-        "level": "HRC 2",
-        "energy": "4 \u2013 8 cal/cm\u00b2",
-        "description": "Arc-rated shirt and pants, arc-rated coverall, face shield",
-        "source": "Workplace Safety Standards"
-      },
-      {
-        "level": "HRC 3",
-        "energy": "8 \u2013 25 cal/cm\u00b2",
-        "description": "Arc-rated jacket, pants, hood, gloves",
-        "source": "Workplace Safety Standards"
-      },
-      {
-        "level": "HRC 4",
-        "energy": "25 \u2013 40 cal/cm\u00b2",
-        "description": "Full arc flash suit, maximum protection",
-        "source": "Workplace Safety Standards"
-      },
-      {
-        "level": "PROHIBITED",
-        "energy": "> 40 cal/cm\u00b2",
-        "description": "Energized work strictly prohibited \u2014 equipment must be de-energized",
-        "source": "Workplace Safety Standards",
-        "prohibited": true
       }
     ],
     "boundaries": [
@@ -184,108 +45,8 @@
         "name": "Limited Approach Boundary",
         "definition": "Closest unqualified persons may approach without escort from a qualified person.",
         "source": "Workplace Safety Standards"
-      },
-      {
-        "name": "Restricted Approach Boundary",
-        "definition": "Qualified persons only. Treated same as direct contact with energized conductor.",
-        "source": "Workplace Safety Standards"
-      },
-      {
-        "name": "Prohibited Approach Boundary",
-        "definition": "Extremely close proximity \u2014 same protection required as direct contact. Energized work permit required.",
-        "source": "Workplace Safety Standards"
-      },
-      {
-        "name": "Arc Flash Protection Boundary",
-        "definition": "Distance at which incident energy equals 1.2 cal/cm\u00b2 \u2014 onset of second-degree burn. Arc-rated PPE required inside this boundary.",
-        "source": "Workplace Safety Standards"
       }
     ],
-    "boundary_count": 4,
-    "loto_name": "LOTOTO",
-    "loto_full_name": "Lockout / Tagout / Tryout (LOTOTO)",
-    "loto_source": "Workplace Safety Standards",
-    "loto_steps": [
-      {
-        "step": 1,
-        "title": "Identify All Energy Sources",
-        "detail": "Identify all electrical, mechanical, pneumatic, hydraulic, chemical, and thermal energy sources using applicable drawings and HECPs."
-      },
-      {
-        "step": 2,
-        "title": "Notify Affected Employees",
-        "detail": "Notify all affected employees that equipment is being taken out of service and the reason for the lockout."
-      },
-      {
-        "step": 3,
-        "title": "Shut Down Equipment",
-        "detail": "Shut down equipment using the normal stopping procedure."
-      },
-      {
-        "step": 4,
-        "title": "Isolate All Energy Sources",
-        "detail": "Open all disconnecting devices for each energy source. Visually verify all blades are fully open where possible."
-      },
-      {
-        "step": 5,
-        "title": "Apply Lockout/Tagout Devices",
-        "detail": "Apply red lockout locks (Master Lock or American Lock only). One key per associate \u2014 never shared. Apply laminated tags with name and date."
-      },
-      {
-        "step": 6,
-        "title": "Release or Restrain Stored Energy",
-        "detail": "Bleed down pneumatic lines, block mechanical parts, discharge capacitors, release spring tension, and neutralize all stored energy."
-      },
-      {
-        "step": 7,
-        "title": "Verify Isolation (Tryout)",
-        "detail": "Attempt to start equipment using normal start controls to verify it cannot be re-energized. Test with an adequately rated test instrument phase-to-phase and phase-to-ground."
-      },
-      {
-        "step": 8,
-        "title": "Perform Work",
-        "detail": "Work may now proceed. Maintain locks throughout. Do not remove another person's lock."
-      }
-    ],
-    "complex_loto_model": {
-      "name": "Facility Service Model",
-      "description": "Four service levels define the extent of LOTOTO required based on maintenance complexity.",
-      "levels": [
-        {
-          "level": "Level 1",
-          "description": "Basic operations with Category 3 interlocks \u2014 no LOTOTO required"
-        },
-        {
-          "level": "Level 2",
-          "description": "Minor adjustments \u2014 limited LOTOTO"
-        },
-        {
-          "level": "Level 3",
-          "description": "Moderate maintenance \u2014 partial LOTOTO"
-        },
-        {
-          "level": "Level 4",
-          "description": "Full HECP Section D compliance \u2014 comprehensive maintenance"
-        }
-      ]
-    },
-    "qualified_person_term": "Authorized Electrical Associate",
-    "qualified_person_def": "An associate approved by the Electrical Board to perform electrical power distribution work. Must complete required training and be listed on the departmental authorization list.",
-    "qualified_person_source": "Workplace Safety Standards",
-    "lock_spec": "Approved safety lockout locks \u2014 RED color required. One key per associate, never shared.",
-    "lock_source": "Workplace Safety Standards",
-    "glove_test_interval": "Every 6 months by ASTM-certified vendor",
-    "glove_test_source": "Workplace Safety Standards",
-    "arc_flash_review": "Every 5 years minimum",
-    "arc_flash_review_source": "Workplace Safety Standards",
-    "hierarchy_source": "Workplace Safety Standards",
-    "permit_source": "Workplace Safety Standards",
-    "label_source": "Workplace Safety Standards",
-    "conductive_apparel_source": "Workplace Safety Standards",
-    "synthetic_fabric_source": "Workplace Safety Standards",
-    "training_interval": "Every 2 years",
-    "training_source": "Workplace Safety Standards",
-    "annual_review_source": "Workplace Safety Standards",
-    "qualified_person_definition": "An employee trained and authorized to perform electrical work under workplace safety standards, including arc flash hazard analysis and LOTO procedures."
+    "boundary_count": 4
   }
 }
