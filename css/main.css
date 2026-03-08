@@ -220,36 +220,41 @@ ul {
    TAB HEADERS
    ============================================================ */
 .tab-header {
-  padding: 36px 32px 32px;
+  background: var(--charcoal);
+  color: var(--white);
+  padding: 64px 0;
   margin-bottom: 32px;
-  border-bottom: 1px solid var(--gray-mid);
-  background: var(--white);
 }
 
 .tab-header--red {
-  border-left: 6px solid var(--red);
+  border-left: 8px solid var(--red);
 }
 
 .tab-header--blue {
-  border-left: 6px solid var(--blue);
+  border-left: 8px solid var(--blue);
 }
 
-.tab-header--dark {
-  border-left: 6px solid var(--charcoal);
+.tab-header--yellow {
+  border-left: 8px solid var(--amber);
+}
+
+.tab-header--charcoal {
+  border-left: 8px solid var(--gray-mid);
 }
 
 .tab-title {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--charcoal);
-  margin-bottom: 6px;
-  letter-spacing: -0.5px;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
 }
 
 .tab-subtitle {
-  font-size: 15px;
-  color: var(--gray-text);
-  font-weight: 400;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 520px;
+  line-height: 1.65;
 }
 
 /* ============================================================
