@@ -3836,25 +3836,38 @@ ul {
 
 .std-badge {
   display: inline-block;
-  padding: 3px 10px;
-  border-radius: 12px;
-  font-size: .7rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: .75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .05em;
-  margin-left: 10px;
   vertical-align: middle;
-  transition: background .3s, color .3s
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.std-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.1);
+}
+
+.std-badge:active {
+  transform: translateY(0);
 }
 
 .std-badge.workplace {
-  background: #F57C00;
-  color: #fff
+  background: linear-gradient(135deg, #F57C00, #E65100);
+  color: #fff;
 }
 
 .std-badge.nfpa {
-  background: #CC0000;
-  color: #fff
+  background: linear-gradient(135deg, #D32F2F, #B71C1C);
+  color: #fff;
 }
 
 #ppe-categories-table table,

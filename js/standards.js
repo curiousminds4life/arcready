@@ -203,10 +203,25 @@
   window.ArcReady.renderQualifiedPerson = renderQualifiedPerson;
   window.ArcReady.renderCitations = renderCitations;
 
+  function initBadgeToggle() {
+    var badge = document.getElementById('std-badge');
+    if (!badge) return;
+    badge.title = 'Click to switch between Workplace and NFPA standards';
+    badge.addEventListener('click', function () {
+      var current = getStandardId();
+      setStandard(current === 'workplace' ? 'nfpa' : 'workplace');
+    });
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { loadProfiles(); updateBadge(); });
+    document.addEventListener('DOMContentLoaded', function () {
+      loadProfiles();
+      updateBadge();
+      initBadgeToggle();
+    });
   } else {
     loadProfiles();
     updateBadge();
+    initBadgeToggle();
   }
 }());
