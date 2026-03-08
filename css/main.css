@@ -260,74 +260,12 @@ ul {
 /* ============================================================
    HOME — HERO
    ============================================================ */
-.hero {
-  background: var(--charcoal);
-  color: var(--white);
-  padding: 64px 0;
-}
-
-.hero-inner {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 48px;
-}
-
 .hero-text {
   flex: 1;
 }
 
-.hero-title {
-  font-size: 42px;
-  font-weight: 800;
-  line-height: 1.15;
-  margin-bottom: 16px;
-  letter-spacing: -1px;
-}
-
 .text-red {
   color: var(--red);
-}
-
-.hero-subtitle {
-  font-size: 17px;
-  color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 32px;
-  max-width: 520px;
-  line-height: 1.65;
-}
-
-.hero-badge {
-  flex-shrink: 0;
-}
-
-.cert-badge {
-  width: 140px;
-  height: 140px;
-  border: 3px solid var(--red);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: rgba(204, 0, 0, 0.1);
-}
-
-.cert-badge-icon {
-  font-size: 36px;
-  line-height: 1;
-}
-
-.cert-badge-label {
-  font-size: 11px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.85);
 }
 
 /* ============================================================
