@@ -161,7 +161,8 @@
     var p = getStandard();
     if (!p) return;
     var map = {
-      'ppe_source': p.category_source || '',
+      // BUG 7 FIX: was 'category_source' which doesn't exist; correct key is 'label_source'
+      'ppe_source': p.label_source || '',
       'loto_source': p.loto_source || '',
       'hierarchy_source': p.hierarchy_source || '',
       'permit_source': p.permit_source || '',

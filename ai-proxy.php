@@ -6,7 +6,14 @@
  */
 
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
+// BUG 11 FIX: restrict CORS to specific origin instead of wildcard '*'
+$allowed_origins = ['https://arcready.net', 'http://localhost', 'http://127.0.0.1'];
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+if (in_array($origin, $allowed_origins)) {
+    header('Access-Control-Allow-Origin: ' . $origin);
+} else {
+    header('Access-Control-Allow-Origin: https://arcready.net');
+}
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 

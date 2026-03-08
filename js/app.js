@@ -222,7 +222,7 @@
         '<li>Tags must be laminated and show name + date</li>' +
         '<li>Authorized Associates require Machine Safety Awareness training every 2 years</li>' +
         '</ul></div>' +
-        '<button class="btn btn-outline-red" onclick="window.print()">὚8 Print Checklist</button>' +
+        '<button class="btn btn-outline-red" onclick="window.print()">\uD83D\uDDA8\uFE0F Print Checklist</button>' +
         '</div>'
     },
 
@@ -261,7 +261,7 @@
         '<li>Delta: Vₗᵢₙₑ = Vₚₕₐₛₑ</li>' +
         '<li>Example: 208V Wye → phase voltage = 208/1.732 ≈ 120V</li></ul>' +
         '</div>' +
-        '<button class="btn btn-outline-red" onclick="window.print()">὚8 Print Formula Sheet</button>' +
+        '<button class="btn btn-outline-red" onclick="window.print()">\uD83D\uDDA8\uFE0F Print Formula Sheet</button>' +
         '</div>'
     }
     ,

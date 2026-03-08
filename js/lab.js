@@ -2,64 +2,67 @@
  * Two-probe multimeter state machine + SVG circuit injection
  * Depends on: svg-circuits.js (ArcReady.SVGCircuits, ArcReady.CircuitData)
  */
-(function(){
+(function () {
   'use strict';
   var ArcReady = window.ArcReady = window.ArcReady || {};
 
+  // BUG 2 FIX: hoist these to module scope so loadCircuit() can reference them
+  var voltSwitch = null;
+  var motorSw = null;
   // ── State ──────────────────────────────────────────────────────────────────
   var state = {
-    circuit:    null,   // current circuit id
-    fault:      'normal',
-    probeRed:   null,   // TP number (int)
+    circuit: null,   // current circuit id
+    fault: 'normal',
+    probeRed: null,   // TP number (int)
     probeBlack: null,
-    probeStep:  0,      // 0=none,1=red placed,2=both placed
-    mode:       'guided',  // 'guided'|'challenge'
+    probeStep: 0,      // 0=none,1=red placed,2=both placed
+    mode: 'guided',  // 'guided'|'challenge'
     challenge: {
-      active:    false,
-      fault:     null,
-      probes:    0,
+      active: false,
+      fault: null,
+      probes: 0,
       maxProbes: 8,
-      score:     0
+      score: 0
     },
-    readings:   []      // history [{red,black,value}]
+    readings: []      // history [{red,black,value}]
   };
 
   // ── Guided hints per fault per circuit ────────────────────────────────────
   var HINTS = {
     'circuit-a': {
-      normal:      'System normal. All three phases present throughout. Transformer secondary reads 120V and 24V.',
-      'f1-blown':  'F1 fuse is blown. L1 phase is lost. Check TP1–TP4: expect 277V before fuse, 0V after. Motor cannot start.',
-      'f2-blown':  'F2 fuse is blown. L2 phase is lost. Check TP2–TP5: expect voltage before fuse, 0V after fuse.',
-      'f3-blown':  'F3 fuse is blown. L3 phase is lost. Check TP3–TP6: expect voltage before fuse, 0V after fuse.',
-      'ms-open':   'Motor Starter (MS) contacts are open. Voltage present through fuses but 0V after MS contacts (TP7–TP10).',
-      'ol-tripped':'Overload relay tripped. Voltage present through MS contacts but 0V at motor terminals. OL heaters show continuity path broken.'
+      normal: 'System normal. All three phases present throughout. Transformer secondary reads 120V and 24V.',
+      'f1-blown': 'F1 fuse is blown. L1 phase is lost. Check TP1–TP4: expect 277V before fuse, 0V after. Motor cannot start.',
+      'f2-blown': 'F2 fuse is blown. L2 phase is lost. Check TP2–TP5: expect voltage before fuse, 0V after fuse.',
+      'f3-blown': 'F3 fuse is blown. L3 phase is lost. Check TP3–TP6: expect voltage before fuse, 0V after fuse.',
+      'ms-open': 'Motor Starter (MS) contacts are open. Voltage present through fuses but 0V after MS contacts (TP7–TP10).',
+      'ol-tripped': 'Overload relay tripped. Voltage present through MS contacts but 0V at motor terminals. OL heaters show continuity path broken.'
     },
     'circuit-b': {
-      normal:      'All branches energized. Each test point should read 120V to neutral (TP7).',
+      normal: 'All branches energized. Each test point should read 120V to neutral (TP7).',
       'sw-a-open': 'Switch A is open. TP2 will read 0V to neutral while all other branches remain 120V.',
       'sw-b-open': 'Switch B is open. TP3 will read 0V to neutral.',
       'sw-c-open': 'Switch C is open. TP5 will read 0V to neutral (capacitor branch).',
       'sw-d-open': 'Switch D is open. TP6 will read 0V to neutral (MS coil de-energized).'
     },
     'circuit-practice': {
-      normal:      'System normal. 208V across any two phases, 120V phase-to-neutral, 24V transformer secondary.',
-      'f1-blown':  'F1 blown: TP4 reads 0V to neutral. TP4–TP5 reads reduced (backfeed ~120V). Motor cannot run.',
-      'f2-blown':  'F2 blown: TP5 reads 0V to neutral. L2 phase lost at that point.',
-      'f3-blown':  'F3 blown: TP6 reads 0V to neutral. L3 phase lost.',
-      'ms-open':   'MS contacts open. Full voltage across fuse outputs but 0V downstream of MS (TP7–TP10).',
-      'ol-tripped':'Overload tripped. Voltage through MS contacts but motor terminals isolated. Check TP8–TP10 vs TP7–TP10.'
+      normal: 'System normal. 208V across any two phases, 120V phase-to-neutral, 24V transformer secondary.',
+      'f1-blown': 'F1 blown: TP4 reads 0V to neutral. TP4–TP5 reads reduced (backfeed ~120V). Motor cannot run.',
+      'f2-blown': 'F2 blown: TP5 reads 0V to neutral. L2 phase lost at that point.',
+      'f3-blown': 'F3 blown: TP6 reads 0V to neutral. L3 phase lost.',
+      'ms-open': 'MS contacts open. Full voltage across fuse outputs but 0V downstream of MS (TP7–TP10).',
+      'ol-tripped': 'Overload tripped. Voltage through MS contacts but motor terminals isolated. Check TP8–TP10 vs TP7–TP10.'
     }
   };
 
   // ── DOM refs ───────────────────────────────────────────────────────────────
-  function $id(id){ return document.getElementById(id); }
+  function $id(id) { return document.getElementById(id); }
 
   // ── Init ───────────────────────────────────────────────────────────────────
-  ArcReady.initLab = function() {
+  ArcReady.initLab = function () {
     // Circuit selector
     var circSelect = $id('circuit-select');
     if (circSelect) {
-      circSelect.addEventListener('change', function(){
+      circSelect.addEventListener('change', function () {
         var titleEl = $id('circuit-title');
         if (titleEl && ArcReady.CircuitData[this.value]) {
           titleEl.textContent = ArcReady.CircuitData[this.value].title;
@@ -72,12 +75,12 @@
       loadCircuit(circSelect.value);
     }
 
-    
-    // --- Voltage Switch (Circuit A only) ---
-    var voltSwitch = $id('voltage-switch');
+
+    // BUG 2 FIX: assign to module-scope vars so loadCircuit() can reach them
+    voltSwitch = $id('voltage-switch');
     var voltContainer = $id('voltage-switch-container');
     if (voltSwitch) {
-      voltSwitch.addEventListener('change', function() {
+      voltSwitch.addEventListener('change', function () {
         state.voltageSwitch = this.value;
         if (state.circuit !== 'circuit-a') {
           voltContainer.style.display = 'none';
@@ -97,11 +100,11 @@
       });
     }
 
-    // --- Motor Switch (Circuit A only) ---
-    var motorSw = $id('motor-switch');
+    // BUG 2 FIX: assign to module-scope var
+    motorSw = $id('motor-switch');
     var motorContainer = $id('motor-switch-container');
     if (motorSw) {
-      motorSw.addEventListener('change', function() {
+      motorSw.addEventListener('change', function () {
         state.motorSwitch = this.value;
         if (state.circuit !== 'circuit-a') {
           motorContainer.style.display = 'none';
@@ -120,26 +123,26 @@
     }
 
 
-  // Fault buttons (delegated on fault-controls container)
+    // Fault buttons (delegated on fault-controls container)
     var fc = $id('fault-controls');
     if (fc) {
-      fc.addEventListener('click', function(e){
+      fc.addEventListener('click', function (e) {
         var btn = e.target.closest('[data-fault]');
         if (!btn || state.challenge.active) return;
         setFault(btn.dataset.fault, true); // Keep probes on fault change
-        fc.querySelectorAll('[data-fault]').forEach(function(b){ b.classList.toggle('active', b===btn); });
+        fc.querySelectorAll('[data-fault]').forEach(function (b) { b.classList.toggle('active', b === btn); });
       });
     }
 
     // Mode buttons (id-based + data-lab-mode fallback)
-    var btnGuided    = $id('btn-mode-guided');
+    var btnGuided = $id('btn-mode-guided');
     var btnChallenge = $id('btn-mode-challenge');
-    if (btnGuided)    btnGuided.addEventListener('click',    function(){ setMode('guided'); });
-    if (btnChallenge) btnChallenge.addEventListener('click', function(){ setMode('challenge'); });
+    if (btnGuided) btnGuided.addEventListener('click', function () { setMode('guided'); });
+    if (btnChallenge) btnChallenge.addEventListener('click', function () { setMode('challenge'); });
     // Also wire data-lab-mode buttons
-    document.querySelectorAll('[data-lab-mode]').forEach(function(btn){
+    document.querySelectorAll('[data-lab-mode]').forEach(function (btn) {
       if (btn.id) return; // already handled by id
-      btn.addEventListener('click', function(){ setMode(btn.dataset.labMode); });
+      btn.addEventListener('click', function () { setMode(btn.dataset.labMode); });
     });
 
     // Challenge submit
@@ -152,18 +155,18 @@
 
     // Clear history
     var clrH = $id('clear-history');
-    if (clrH) clrH.addEventListener('click', function(){ state.readings=[]; renderHistory(); });
+    if (clrH) clrH.addEventListener('click', function () { state.readings = []; renderHistory(); });
   };
 
   // ── Load circuit ───────────────────────────────────────────────────────────
   function loadCircuit(id) {
     if (!ArcReady.SVGCircuits || !ArcReady.SVGCircuits[id]) return;
     state.circuit = id;
-    state.fault   = 'normal';
+    state.fault = 'normal';
     resetProbes();
     state.readings = [];
 
-    
+
     // --- Show/hide switches based on circuit ---
     var voltC = $id('voltage-switch-container');
     var motorC = $id('motor-switch-container');
@@ -183,7 +186,7 @@
     if (wrap) {
       wrap.innerHTML = ArcReady.SVGCircuits[id].svg;
       var svg = wrap.querySelector('svg');
-      if (svg) { svg.style.width='100%'; svg.style.maxWidth='920px'; svg.style.height='auto'; }
+      if (svg) { svg.style.width = '100%'; svg.style.maxWidth = '920px'; svg.style.height = 'auto'; }
       attachTestPointListeners(wrap);
     }
 
@@ -192,7 +195,7 @@
     setFault('normal');
     renderHistory();
 
-    if (state.mode==='challenge') startChallenge();
+    if (state.mode === 'challenge') startChallenge();
 
     setInstruction('Circuit loaded. Click a test point to place the <span style="color:#CC0000;font-weight:bold">RED</span> probe.');
   }
@@ -201,31 +204,31 @@
   function renderFaultButtons(id) {
     var fc = $id('fault-controls');
     if (!fc) return;
-    var faults = (ArcReady.CircuitData[id]||{}).faults || [];
-    fc.innerHTML = faults.map(function(f){
-      return '<button class="fault-btn'+(f.id==='normal'?' active':'')+'" data-fault="'+f.id+'">'+f.label+'</button>';
+    var faults = (ArcReady.CircuitData[id] || {}).faults || [];
+    fc.innerHTML = faults.map(function (f) {
+      return '<button class="fault-btn' + (f.id === 'normal' ? ' active' : '') + '" data-fault="' + f.id + '">' + f.label + '</button>';
     }).join('');
   }
 
   // ── Test point listeners ───────────────────────────────────────────────────
   function attachTestPointListeners(container) {
     var tps = container.querySelectorAll('.test-point');
-    tps.forEach(function(el){
+    tps.forEach(function (el) {
       el.style.cursor = 'crosshair';
-      el.addEventListener('click', function(e){
+      el.addEventListener('click', function (e) {
         e.stopPropagation();
         handleProbeClick(parseInt(el.dataset.tp, 10), el);
       });
-      el.addEventListener('mouseenter', function(){
+      el.addEventListener('mouseenter', function () {
         if (!el.classList.contains('probe-red') && !el.classList.contains('probe-black')) {
           var origR = el.getAttribute('r');
           el.dataset.origR = origR;
-          el.setAttribute('r', String(parseInt(origR||10)+3));
+          el.setAttribute('r', String(parseInt(origR || 10) + 3));
           el.style.filter = 'brightness(1.25)';
-          showTooltip(el, 'TP'+el.dataset.tp);
+          showTooltip(el, 'TP' + el.dataset.tp);
         }
       });
-      el.addEventListener('mouseleave', function(){
+      el.addEventListener('mouseleave', function () {
         if (el.dataset.origR) el.setAttribute('r', el.dataset.origR);
         el.style.filter = '';
         hideTooltip();
@@ -240,15 +243,15 @@
 
     if (state.probeStep === 0) {
       // Place red probe
-      state.probeRed  = tpNum;
+      state.probeRed = tpNum;
       state.probeBlack = null;
-      state.probeStep  = 1;
+      state.probeStep = 1;
       clearProbeHighlights(container);
       el.classList.add('probe-red');
       el.setAttribute('fill', '#CC0000');
       el.setAttribute('stroke', '#900000');
       updateProbeDisplay();
-      setInstruction('RED probe on <strong>TP'+tpNum+'</strong>. Now click a second test point for the <strong>BLACK</strong> probe.');
+      setInstruction('RED probe on <strong>TP' + tpNum + '</strong>. Now click a second test point for the <strong>BLACK</strong> probe.');
 
     } else if (state.probeStep === 1) {
       if (tpNum === state.probeRed) {
@@ -259,7 +262,7 @@
       }
       // Place black probe
       state.probeBlack = tpNum;
-      state.probeStep  = 2;
+      state.probeStep = 2;
       el.classList.add('probe-black');
       el.setAttribute('fill', '#222');
       el.setAttribute('stroke', '#000');
@@ -271,11 +274,11 @@
       updateProbeDisplay();
       var reading = getReading(state.fault, state.probeRed, state.probeBlack);
       displayReading(reading);
-      state.readings.unshift({red: state.probeRed, black: state.probeBlack, value: reading, fault: state.fault});
+      state.readings.unshift({ red: state.probeRed, black: state.probeBlack, value: reading, fault: state.fault });
       renderHistory();
-      var hint = (HINTS[state.circuit]||{})[state.fault] || '';
-      setInstruction('<strong>Reading: '+reading+'</strong> (TP'+state.probeRed+' to TP'+state.probeBlack+'). '
-        + (state.mode==='guided' && hint ? '<br><span style="color:#555;font-size:12px;">'+hint+'</span>' : '')
+      var hint = (HINTS[state.circuit] || {})[state.fault] || '';
+      setInstruction('<strong>Reading: ' + reading + '</strong> (TP' + state.probeRed + ' to TP' + state.probeBlack + '). '
+        + (state.mode === 'guided' && hint ? '<br><span style="color:#555;font-size:12px;">' + hint + '</span>' : '')
         + '<br><em style="font-size:11px;color:#888;">Click any test point to start a new measurement.</em>');
 
     } else {
@@ -286,9 +289,9 @@
   }
 
   function resetProbes() {
-    state.probeRed   = null;
+    state.probeRed = null;
     state.probeBlack = null;
-    state.probeStep  = 0;
+    state.probeStep = 0;
     var container = $id('circuit-svg-container');
     if (container) clearProbeHighlights(container);
     updateProbeDisplay();
@@ -296,11 +299,11 @@
   }
 
   function clearProbeHighlights(container) {
-    container.querySelectorAll('.test-point').forEach(function(el){
-      el.classList.remove('probe-red','probe-black');
-      el.setAttribute('fill','#FFD700');
-      el.setAttribute('stroke','#333');
-      el.setAttribute('stroke-width','2');
+    container.querySelectorAll('.test-point').forEach(function (el) {
+      el.classList.remove('probe-red', 'probe-black');
+      el.setAttribute('fill', '#FFD700');
+      el.setAttribute('stroke', '#333');
+      el.setAttribute('stroke-width', '2');
     });
   }
 
@@ -308,14 +311,14 @@
   function getReading(fault, a, b) {
     var data = ArcReady.CircuitData[state.circuit];
     if (!data) return '???.?V AC';
-    var tbl  = data.readings[fault] || data.readings['normal'] || {};
-    var k1   = 'TP'+a+'-TP'+b;
-    var k2   = 'TP'+b+'-TP'+a;
+    var tbl = data.readings[fault] || data.readings['normal'] || {};
+    var k1 = 'TP' + a + '-TP' + b;
+    var k2 = 'TP' + b + '-TP' + a;
     return tbl[k1] || tbl[k2] || '0.0V AC';
   }
 
   // ── Display ────────────────────────────────────────────────────────────────
-  
+
   // ── Pulse animation for voltage updates ──────────────────────────────────
   function triggerPulseAnimation() {
     var disp = $id('multimeter-reading');
@@ -323,34 +326,34 @@
       disp.classList.remove('voltage-update-pulse');
       void disp.offsetWidth;
       disp.classList.add('voltage-update-pulse');
-      setTimeout(function() {
+      setTimeout(function () {
         disp.classList.remove('voltage-update-pulse');
       }, 300);
     }
   }
 
-function displayReading(val) {
+  function displayReading(val) {
     var disp = $id('multimeter-reading');
     var unit = $id('multimeter-unit');
     if (disp) {
       // Parse value for dramatic display
       var num = parseFloat(val) || 0;
-      var ustr = val.replace(/[0-9.\s]/g,'').trim() || 'V AC';
+      var ustr = val.replace(/[0-9.\s]/g, '').trim() || 'V AC';
       disp.textContent = num.toFixed(1);
       if (unit) unit.textContent = ustr;
       // Color coding
-      if (num === 0)       disp.style.color = '#888';
-      else if (num < 30)   disp.style.color = '#2E7D32';
-      else if (num < 240)  disp.style.color = '#00FF41';
-      else                 disp.style.color = '#FF6B00';
+      if (num === 0) disp.style.color = '#888';
+      else if (num < 30) disp.style.color = '#2E7D32';
+      else if (num < 240) disp.style.color = '#00FF41';
+      else disp.style.color = '#FF6B00';
     }
   }
 
   function updateProbeDisplay() {
     var r = $id('probe-red-value');
     var b = $id('probe-black-value');
-    if (r) r.textContent = state.probeRed   ? 'TP'+state.probeRed   : '\u2014';
-    if (b) b.textContent = state.probeBlack ? 'TP'+state.probeBlack : '\u2014';
+    if (r) r.textContent = state.probeRed ? 'TP' + state.probeRed : '\u2014';
+    if (b) b.textContent = state.probeBlack ? 'TP' + state.probeBlack : '\u2014';
   }
 
   function setInstruction(html) {
@@ -358,28 +361,30 @@ function displayReading(val) {
     if (el) el.innerHTML = html;
   }
 
-  function setFault(faultId, keepProbes=true) {
+  // BUG 10 FIX: convert ES6 default parameter to ES5-compatible pattern
+  function setFault(faultId, keepProbes) {
+    if (keepProbes === undefined) keepProbes = true;
     state.fault = faultId;
     if (!keepProbes) resetProbes();
     // Update active button
     var fc = $id('fault-controls');
-    if (fc) fc.querySelectorAll('[data-fault]').forEach(function(b){
+    if (fc) fc.querySelectorAll('[data-fault]').forEach(function (b) {
       b.classList.toggle('active', b.dataset.fault === faultId);
     });
     var faultLabel = getFaultLabel(faultId);
-    var isNormal   = faultId === 'normal';
+    var isNormal = faultId === 'normal';
     var faultBadge = $id('current-fault-badge');
     if (faultBadge) {
-      faultBadge.textContent = isNormal ? 'Normal Operation' : '\u26a0\ufe0f FAULT: '+faultLabel;
+      faultBadge.textContent = isNormal ? 'Normal Operation' : '\u26a0\ufe0f FAULT: ' + faultLabel;
       faultBadge.style.color = isNormal ? '#2E7D32' : '#CC0000';
     }
-    setInstruction('Fault set to <strong>'+faultLabel+'</strong>. Click a test point to begin probing.');
+    setInstruction('Fault set to <strong>' + faultLabel + '</strong>. Click a test point to begin probing.');
   }
 
   function getFaultLabel(id) {
     var data = ArcReady.CircuitData[state.circuit];
     if (!data) return id;
-    var f = (data.faults||[]).find(function(x){ return x.id===id; });
+    var f = (data.faults || []).find(function (x) { return x.id === id; });
     return f ? f.label : id;
   }
 
@@ -391,13 +396,13 @@ function displayReading(val) {
       hist.innerHTML = '<div style="color:#999;font-style:italic;font-size:12px;padding:8px;">No measurements yet</div>';
       return;
     }
-    hist.innerHTML = state.readings.slice(0,20).map(function(r,i){
-      var col = parseFloat(r.value)===0 ? '#888' : (parseFloat(r.value)<240 ? '#2E7D32' : '#FF6B00');
+    hist.innerHTML = state.readings.slice(0, 20).map(function (r, i) {
+      var col = parseFloat(r.value) === 0 ? '#888' : (parseFloat(r.value) < 240 ? '#2E7D32' : '#FF6B00');
       return '<div style="display:flex;justify-content:space-between;align-items:center;padding:4px 8px;'
-        +(i%2===0?'background:#F9F9F9;':'')+'border-radius:3px;font-size:12px;">'
-        +'<span style="color:#555;">TP'+r.red+'\u2192TP'+r.black+'</span>'
-        +'<span style="font-family:monospace;font-weight:bold;color:'+col+';">'+r.value+'</span>'
-        +'</div>';
+        + (i % 2 === 0 ? 'background:#F9F9F9;' : '') + 'border-radius:3px;font-size:12px;">'
+        + '<span style="color:#555;">TP' + r.red + '\u2192TP' + r.black + '</span>'
+        + '<span style="font-family:monospace;font-weight:bold;color:' + col + ';">' + r.value + '</span>'
+        + '</div>';
     }).join('');
   }
 
@@ -408,15 +413,15 @@ function displayReading(val) {
     var cd = $id('challenge-panel');
     var btnG = $id('btn-mode-guided');
     var btnC = $id('btn-mode-challenge');
-    if (btnG) { btnG.classList.toggle('active', m==='guided'); btnG.classList.toggle('lab-mode-btn--active', m==='guided'); }
-    if (btnC) { btnC.classList.toggle('active', m==='challenge'); btnC.classList.toggle('lab-mode-btn--active', m==='challenge'); }
-    if (m==='challenge') {
-      if (fc) fc.style.opacity='0.3';
-      if (cd) cd.style.display='block';
+    if (btnG) { btnG.classList.toggle('active', m === 'guided'); btnG.classList.toggle('lab-mode-btn--active', m === 'guided'); }
+    if (btnC) { btnC.classList.toggle('active', m === 'challenge'); btnC.classList.toggle('lab-mode-btn--active', m === 'challenge'); }
+    if (m === 'challenge') {
+      if (fc) fc.style.opacity = '0.3';
+      if (cd) cd.style.display = 'block';
       startChallenge();
     } else {
-      if (fc) fc.style.opacity='1';
-      if (cd) cd.style.display='none';
+      if (fc) fc.style.opacity = '1';
+      if (cd) cd.style.display = 'none';
       state.challenge.active = false;
       var faultSelect = $id('challenge-fault-select');
       // restore normal
@@ -427,14 +432,14 @@ function displayReading(val) {
   function startChallenge() {
     var data = ArcReady.CircuitData[state.circuit];
     if (!data) return;
-    var faults = data.faults.filter(function(f){ return f.id!=='normal'; });
-    var picked = faults[Math.floor(Math.random()*faults.length)];
+    var faults = data.faults.filter(function (f) { return f.id !== 'normal'; });
+    var picked = faults[Math.floor(Math.random() * faults.length)];
     state.challenge = {
-      active:    true,
-      fault:     picked.id,
-      probes:    0,
+      active: true,
+      fault: picked.id,
+      probes: 0,
       maxProbes: 8,
-      score:     0
+      score: 0
     };
     state.fault = picked.id;
     resetProbes();
@@ -444,18 +449,18 @@ function displayReading(val) {
     var sel = $id('challenge-fault-select');
     if (sel) {
       sel.innerHTML = '<option value="">-- Select your diagnosis --</option>'
-        + data.faults.map(function(f){
-            return '<option value="'+f.id+'">'+f.label+'</option>';
-          }).join('');
+        + data.faults.map(function (f) {
+          return '<option value="' + f.id + '">' + f.label + '</option>';
+        }).join('');
     }
     var badge = $id('challenge-probes-left');
     if (badge) badge.textContent = state.challenge.maxProbes;
-    setInstruction('<strong>\ud83d\udd34 Challenge Mode Active!</strong> A random fault has been injected. Use your multimeter to diagnose the problem. You have <strong>'+state.challenge.maxProbes+'</strong> probe touches. Then submit your diagnosis.');
+    setInstruction('<strong>\ud83d\udd34 Challenge Mode Active!</strong> A random fault has been injected. Use your multimeter to diagnose the problem. You have <strong>' + state.challenge.maxProbes + '</strong> probe touches. Then submit your diagnosis.');
     // Hide fault badge
     var fb = $id('current-fault-badge');
-    if (fb) { fb.textContent = '\u2753 Unknown Fault'; fb.style.color='#F57C00'; }
+    if (fb) { fb.textContent = '\u2753 Unknown Fault'; fb.style.color = '#F57C00'; }
     // AI: inject hint UI into challenge panel and reset hint state
-    (function() {
+    (function () {
       var cp = document.getElementById('challenge-panel');
       if (!cp) return;
       var ob = document.getElementById('ai-hint-btn');
@@ -487,30 +492,30 @@ function displayReading(val) {
     var res = $id('challenge-result');
     if (!sel || !res) return;
     var guess = sel.value;
-    if (!guess) { res.innerHTML='<span style="color:#F57C00;">Please select a diagnosis first.</span>'; return; }
+    if (!guess) { res.innerHTML = '<span style="color:#F57C00;">Please select a diagnosis first.</span>'; return; }
     var correct = guess === state.challenge.fault;
     var probesUsed = state.challenge.probes;
     var maxP = state.challenge.maxProbes;
-    var score = correct ? Math.max(0, Math.round(100 - (probesUsed/maxP)*60)) : 0;
+    var score = correct ? Math.max(0, Math.round(100 - (probesUsed / maxP) * 60)) : 0;
     res.innerHTML = correct
-      ? '<span style="color:#2E7D32;font-weight:bold;">\u2713 CORRECT! '+getFaultLabel(state.challenge.fault)+' identified. Score: '+score+'/100 ('+probesUsed+' probes used)</span>'
-      : '<span style="color:#CC0000;font-weight:bold;">\u2717 Incorrect. The fault was: '+getFaultLabel(state.challenge.fault)+'</span>';
+      ? '<span style="color:#2E7D32;font-weight:bold;">\u2713 CORRECT! ' + getFaultLabel(state.challenge.fault) + ' identified. Score: ' + score + '/100 (' + probesUsed + ' probes used)</span>'
+      : '<span style="color:#CC0000;font-weight:bold;">\u2717 Incorrect. The fault was: ' + getFaultLabel(state.challenge.fault) + '</span>';
     // Save score
     try {
-      var hist = JSON.parse(localStorage.getItem('arcready_lab_scores')||'[]');
-      hist.unshift({circuit:state.circuit,fault:state.challenge.fault,guess:guess,correct:correct,score:score,date:new Date().toISOString()});
-      localStorage.setItem('arcready_lab_scores', JSON.stringify(hist.slice(0,50)));
-    } catch(e){}
+      var hist = JSON.parse(localStorage.getItem('arcready_lab_scores') || '[]');
+      hist.unshift({ circuit: state.circuit, fault: state.challenge.fault, guess: guess, correct: correct, score: score, date: new Date().toISOString() });
+      localStorage.setItem('arcready_lab_scores', JSON.stringify(hist.slice(0, 50)));
+    } catch (e) { }
     // Reveal fault
     var fb = $id('current-fault-badge');
-    if (fb) { fb.textContent = 'Fault was: '+getFaultLabel(state.challenge.fault); fb.style.color='#CC0000'; }
+    if (fb) { fb.textContent = 'Fault was: ' + getFaultLabel(state.challenge.fault); fb.style.color = '#CC0000'; }
     state.challenge.active = false;
     var fc = $id('fault-controls');
-    if (fc) fc.style.opacity='1';
+    if (fc) fc.style.opacity = '1';
     // Offer restart
-    setTimeout(function(){
+    setTimeout(function () {
       var restart = $id('challenge-restart');
-      if (restart) restart.style.display='inline-block';
+      if (restart) restart.style.display = 'inline-block';
     }, 400);
   }
 
@@ -523,18 +528,18 @@ function displayReading(val) {
     _tt.textContent = text;
     document.body.appendChild(_tt);
     var r = el.getBoundingClientRect();
-    _tt.style.left = (r.left + r.width/2 - _tt.offsetWidth/2) + 'px';
-    _tt.style.top  = (r.top - 28) + 'px';
+    _tt.style.left = (r.left + r.width / 2 - _tt.offsetWidth / 2) + 'px';
+    _tt.style.top = (r.top - 28) + 'px';
   }
-  function hideTooltip() { if (_tt) { _tt.remove(); _tt=null; } }
+  function hideTooltip() { if (_tt) { _tt.remove(); _tt = null; } }
 
   // ── Expose lab state for AI hint system ───────────────────────────────────────────
-  ArcReady._labState = function() {
+  ArcReady._labState = function () {
     return {
-      circuit:  state.circuit,
-      fault:    state.fault,
-      mode:     state.mode,
-      probes:   state.challenge ? state.challenge.probes : 0,
+      circuit: state.circuit,
+      fault: state.fault,
+      mode: state.mode,
+      probes: state.challenge ? state.challenge.probes : 0,
       readings: state.readings || []
     };
   };
@@ -545,7 +550,7 @@ function displayReading(val) {
     else document.addEventListener('DOMContentLoaded', fn);
   }
 
-  domReady(function(){
+  domReady(function () {
     // Only init if lab tab elements exist
     if ($id('circuit-select') || $id('circuit-svg-container')) {
       ArcReady.initLab();
@@ -553,10 +558,10 @@ function displayReading(val) {
     // Challenge restart button
     var restart = $id('challenge-restart');
     if (restart) {
-      restart.addEventListener('click', function(){
-        this.style.display='none';
+      restart.addEventListener('click', function () {
+        this.style.display = 'none';
         var res = $id('challenge-result');
-        if (res) res.innerHTML='';
+        if (res) res.innerHTML = '';
         startChallenge();
       });
     }

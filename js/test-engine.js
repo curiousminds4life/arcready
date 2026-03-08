@@ -250,7 +250,10 @@
     sess.studyAnswered = false;
     setText(i.counter, 'Question ' + (idx + 1) + ' of ' + pool.length);
     setText(i.topicBadge, q.topic);
-    setText(i.question, q.question);
+    // BUG 1 FIX: use dual-standard helpers so NFPA mode shows correct text
+    var qText = window._getQuestionText ? window._getQuestionText(q) : q.question;
+    var qOpts = window._getQuestionOptions ? window._getQuestionOptions(q) : (q.options || {});
+    setText(i.question, qText);
 
     // Image / SVG
     renderMediaContent(q, i);
@@ -261,7 +264,7 @@
       optHTML += '<div class="answer-option" data-option="' + letter + '" ' +
         'data-section="' + section + '" data-mode="study">' +
         '<span class="answer-letter">' + letter + '</span>' +
-        '<span class="answer-text">' + escHtml(q.options[letter]) + '</span></div>';
+        '<span class="answer-text">' + escHtml(qOpts[letter] || '') + '</span></div>';
     });
     setHTML(i.options, optHTML);
 
@@ -280,7 +283,11 @@
     var pool = sess.studyPool;
     var idx = sess.studyIdx % pool.length;
     var q = pool[idx];
-    var correct = (chosen === q.answer);
+    // BUG 1 FIX: resolve correct answer and explanation via dual-standard helpers
+    var correctAnswer = window._getCorrectAnswer ? window._getCorrectAnswer(q) : q.answer;
+    var qOpts = window._getQuestionOptions ? window._getQuestionOptions(q) : (q.options || {});
+    var qExpl = window._getExplanation ? window._getExplanation(q) : q.explanation;
+    var correct = (chosen === correctAnswer);
     var i = ids(section, 'study');
 
     // Highlight options
@@ -289,7 +296,7 @@
       var letter = opt.getAttribute('data-option');
       opt.classList.remove('selected', 'correct', 'incorrect');
       if (letter === chosen && !correct) opt.classList.add('incorrect');
-      if (letter === q.answer) opt.classList.add('correct');
+      if (letter === correctAnswer) opt.classList.add('correct');
       if (letter === chosen && correct) opt.classList.add('correct');
       opt.style.pointerEvents = 'none';
     });
@@ -301,14 +308,14 @@
       expEl.innerHTML =
         '<div class="explanation-inner ' + (correct ? 'explanation--correct' : 'explanation--incorrect') + '">' +
         '<strong>' + (correct ? '&#x2705; Correct!' : '&#x274C; Incorrect') + '</strong>' +
-        (correct ? '' : ' The correct answer is <strong>' + q.answer + ': ' + escHtml(q.options[q.answer]) + '</strong>') +
-        '<p>' + escHtml(q.explanation) + '</p></div>';
+        (correct ? '' : ' The correct answer is <strong>' + correctAnswer + ': ' + escHtml(qOpts[correctAnswer] || '') + '</strong>') +
+        '<p>' + escHtml(qExpl) + '</p></div>';
       // AI: explain button for wrong answers
       if (!correct && window.ArcReady && ArcReady.AI) {
         ArcReady.AI.explainAnswer(
-          q.question,
-          q.answer + ': ' + (q.options[q.answer] || ''),
-          chosen + ': ' + (q.options[chosen] || chosen),
+          window._getQuestionText ? window._getQuestionText(q) : q.question,
+          correctAnswer + ': ' + (qOpts[correctAnswer] || ''),
+          chosen + ': ' + (qOpts[chosen] || chosen),
           i.explanation
         );
       }
@@ -448,7 +455,10 @@
       '  —  ' + cp.topic);
 
     setText(i.topicBadge, cp.topic);
-    setText(i.question, q.question);
+    // BUG 1 FIX: use dual-standard helpers for certify-checkpoint render
+    var qText = window._getQuestionText ? window._getQuestionText(q) : q.question;
+    var qOpts = window._getQuestionOptions ? window._getQuestionOptions(q) : (q.options || {});
+    setText(i.question, qText);
 
     renderMediaContent(q, i);
 
@@ -457,7 +467,7 @@
       optHTML += '<div class="answer-option" data-option="' + letter + '" ' +
         'data-section="' + section + '" data-mode="certify-cp">' +
         '<span class="answer-letter">' + letter + '</span>' +
-        '<span class="answer-text">' + escHtml(q.options[letter]) + '</span></div>';
+        '<span class="answer-text">' + escHtml(qOpts[letter] || '') + '</span></div>';
     });
     setHTML(i.options, optHTML);
 
@@ -485,7 +495,11 @@
     var cp = sess.checkpoints[sess.cpCurrent];
     var item = cp.items[sess.cpQIdx];
     var q = item.q;
-    var correct = (chosen === q.answer);
+    // BUG 1 FIX: use dual-standard helpers
+    var correctAnswer = window._getCorrectAnswer ? window._getCorrectAnswer(q) : q.answer;
+    var qOpts = window._getQuestionOptions ? window._getQuestionOptions(q) : (q.options || {});
+    var qExpl = window._getExplanation ? window._getExplanation(q) : q.explanation;
+    var correct = (chosen === correctAnswer);
     var i = ids(section, 'certify');
 
     cp.attempts++;
@@ -501,7 +515,7 @@
       var letter = opt.getAttribute('data-option');
       opt.classList.remove('selected', 'correct', 'incorrect');
       if (letter === chosen && !correct) opt.classList.add('incorrect');
-      if (letter === q.answer) opt.classList.add('correct');
+      if (letter === correctAnswer) opt.classList.add('correct');
       if (letter === chosen && correct) opt.classList.add('correct');
       opt.style.pointerEvents = 'none';
     });
@@ -511,24 +525,24 @@
       expEl.style.display = 'block';
       if (correct) {
         expEl.innerHTML = '<div class="explanation-inner explanation--correct"><strong>&#x2705; Correct!</strong>' +
-          '<p>' + escHtml(q.explanation) + '</p></div>';
+          '<p>' + escHtml(qExpl) + '</p></div>';
       } else {
         expEl.innerHTML = '<div class="explanation-inner explanation--incorrect"><strong>&#x274C; Incorrect.</strong>' +
-          ' Correct answer: <strong>' + chosen + ' &#x2192; ' + q.answer + ': ' + escHtml(q.options[q.answer]) + '</strong>' +
-          '<p>' + escHtml(q.explanation) + '</p>' +
+          ' Correct answer: <strong>' + chosen + ' &#x2192; ' + correctAnswer + ': ' + escHtml(qOpts[correctAnswer] || '') + '</strong>' +
+          '<p>' + escHtml(qExpl) + '</p>' +
           '<p class="retry-notice">&#x26A0; Review the explanation above, then select the correct answer to continue.</p></div>';
         // AI: explain button for wrong answers
         if (window.ArcReady && ArcReady.AI) {
           ArcReady.AI.explainAnswer(
-            q.question,
-            q.answer + ': ' + (q.options[q.answer] || ''),
-            chosen + ': ' + (q.options[chosen] || chosen),
+            window._getQuestionText ? window._getQuestionText(q) : q.question,
+            correctAnswer + ': ' + (qOpts[correctAnswer] || ''),
+            chosen + ': ' + (qOpts[chosen] || chosen),
             i.explanation
           );
         }
-        // Re-enable options so they can retry with only correct option
+        // Re-enable the correct option only so they can retry
         optEls.forEach(function (opt) {
-          if (opt.getAttribute('data-option') === q.answer) {
+          if (opt.getAttribute('data-option') === correctAnswer) {
             opt.style.pointerEvents = '';
           }
         });
@@ -542,6 +556,10 @@
         sess.cpCurrent + 1 < sess.checkpoints.length ? 'Next Topic Block \u2192' : 'Submit Exam';
       nextBtn.disabled = false;
       nextBtn.classList.add('btn-ready');
+    }
+    // Sync correctAnswer-based retry option check
+    if (!correct && expEl) {
+      // Already handled above — cpNeedsRetry flags the re-enable
     }
   }
 
@@ -584,7 +602,10 @@
 
     setText(i.counter, 'Question ' + (idx + 1) + ' of ' + total);
     setText(i.topicBadge, q.topic);
-    setText(i.question, q.question);
+    // BUG 1 FIX: use dual-standard helpers for practice/certify render
+    var qText = window._getQuestionText ? window._getQuestionText(q) : q.question;
+    var qOpts = window._getQuestionOptions ? window._getQuestionOptions(q) : (q.options || {});
+    setText(i.question, qText);
 
     renderMediaContent(q, i);
 
@@ -596,7 +617,7 @@
       optHTML += '<div class="answer-option' + sel + '" data-option="' + letter + '" ' +
         'data-section="' + section + '" data-mode="' + mode + '">' +
         '<span class="answer-letter">' + letter + '</span>' +
-        '<span class="answer-text">' + escHtml(q.options[letter]) + '</span></div>';
+        '<span class="answer-text">' + escHtml(qOpts[letter] || '') + '</span></div>';
     });
     setHTML(i.options, optHTML);
 
@@ -636,6 +657,11 @@
         showToast('Time is up! Submitting exam.', 'error');
         if (mode === 'practice') { submitPractice(section); }
         else if (mode === 'certify' && section !== 'safety') { submitCertify(section); }
+        // BUG 3 FIX: safety certify uses checkpoint mode — also needs to submit on timeout
+        else if (mode === 'certify' && section === 'safety') {
+          hide(section + '-certify-exam');
+          scoreAndShowResults(section, 'certify');
+        }
         return;
       }
       updateTimerDisplay(timerEl, remaining);
@@ -684,7 +710,9 @@
       if (!topicMap[q.topic]) topicMap[q.topic] = { correct: 0, total: 0, wrong: [] };
       topicMap[q.topic].total++;
       var chosen = answers[idx];
-      if (chosen === q.answer) {
+      // BUG 1 FIX: use dual-standard correct answer
+      var correctAnswer = window._getCorrectAnswer ? window._getCorrectAnswer(q) : q.answer;
+      if (chosen === correctAnswer) {
         correct++;
         topicMap[q.topic].correct++;
       } else {
@@ -693,8 +721,9 @@
     });
 
     var pct = Math.round((correct / total) * 100);
-    var pass = section === 'safety' ? (correct === total) : (correct >= 51);
-    var passThresh = section === 'safety' ? 60 : 51;
+    // BUG 12 FIX: pass threshold is dynamic based on actual drawn question count, not hardcoded 60
+    var passThresh = section === 'safety' ? total : Math.ceil(total * 0.85);
+    var pass = section === 'safety' ? (correct === total) : (correct >= passThresh);
 
     // Save attempt if certify
     if (mode === 'certify') {
@@ -884,7 +913,8 @@
     var certified = localStorage.getItem('arcready_safety_certified') === 'true';
     var lockOverlay = el('theory-lock-overlay');
     var certifyStart = el('theory-certify-start-screen');
-    if (lockOverlay) lockOverlay.style.display = certified ? 'none' : '';
+    if (lockOverlay) lockOverlay.style.display = certified ? 'none' : '';  // hide overlay when certified ✓
+    // BUG 6 FIX: was inverted — certify start screen should show when certified, hide when NOT
     if (certifyStart) certifyStart.style.display = certified ? '' : 'none';
   }
 
@@ -1058,13 +1088,6 @@
     var s = _std();
     return all.filter(function (q) { if (!q.standard || q.standard === 'both') return true; return q.standard === s; });
   };
-  // Extend TestEngine prototype if available
-  if (typeof TestEngine !== 'undefined') {
-    TestEngine.prototype._getStandardId = _std;
-    TestEngine.prototype._getQuestionText = window._getQuestionText;
-    TestEngine.prototype._getQuestionOptions = window._getQuestionOptions;
-    TestEngine.prototype._getCorrectAnswer = window._getCorrectAnswer;
-    TestEngine.prototype._getExplanation = window._getExplanation;
-    TestEngine.prototype._filterQuestionsByStandard = window._filterQuestionsByStandard;
-  }
+  // BUG 1 FIX: TestEngine is a plain object, not a class — prototype extension was wrong.
+  // The helpers are exposed on window and called directly inside the render functions above.
 })();

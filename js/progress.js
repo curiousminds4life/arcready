@@ -20,37 +20,37 @@
 
     /* --- Safety Cert Card --- */
     var ssEl = el('progress-safety-status');
-    var sc   = el('progress-safety-card');
+    var sc = el('progress-safety-card');
     if (ssEl) {
       if (safetyCert) {
         ssEl.textContent = 'CERTIFIED';
-        ssEl.className   = 'pcc-status pcc-status--pass';
+        ssEl.className = 'pcc-status pcc-status--pass';
       } else if (safetyHist.length > 0) {
         ssEl.textContent = 'Not Passed';
-        ssEl.className   = 'pcc-status pcc-status--fail';
+        ssEl.className = 'pcc-status pcc-status--fail';
       } else {
         ssEl.textContent = 'Not Started';
-        ssEl.className   = 'pcc-status pcc-status--none';
+        ssEl.className = 'pcc-status pcc-status--none';
       }
     }
     if (sc) sc.classList.toggle('progress-cert-card--certified', safetyCert);
 
     /* --- Theory Cert Card --- */
     var tsEl = el('progress-theory-status');
-    var tc   = el('progress-theory-card');
+    var tc = el('progress-theory-card');
     if (tsEl) {
       if (theoryCert) {
         tsEl.textContent = 'CERTIFIED';
-        tsEl.className   = 'pcc-status pcc-status--pass';
+        tsEl.className = 'pcc-status pcc-status--pass';
       } else if (!safetyCert) {
         tsEl.textContent = 'Locked';
-        tsEl.className   = 'pcc-status pcc-status--none';
+        tsEl.className = 'pcc-status pcc-status--none';
       } else if (theoryHist.length > 0) {
         tsEl.textContent = 'Not Passed';
-        tsEl.className   = 'pcc-status pcc-status--fail';
+        tsEl.className = 'pcc-status pcc-status--fail';
       } else {
         tsEl.textContent = 'Not Started';
-        tsEl.className   = 'pcc-status pcc-status--none';
+        tsEl.className = 'pcc-status pcc-status--none';
       }
     }
     if (tc) tc.classList.toggle('progress-cert-card--certified', theoryCert);
@@ -77,21 +77,21 @@
     if (!tbody) return;
 
     var all = [];
-    safetyHist.forEach(function(a) {
+    safetyHist.forEach(function (a) {
       all.push({ date: a.date, section: 'Safety', score: a.score, total: a.total, pct: a.pct, passed: a.passed });
     });
-    theoryHist.forEach(function(a) {
+    theoryHist.forEach(function (a) {
       all.push({ date: a.date, section: 'Theory', score: a.score, total: a.total, pct: a.pct, passed: a.passed });
     });
-    all.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
+    all.sort(function (a, b) { return new Date(b.date) - new Date(a.date); });
 
     if (all.length === 0) {
       tbody.innerHTML = '<tr><td colspan="5" class="empty-state">No certification exams taken yet.</td></tr>';
       return;
     }
 
-    tbody.innerHTML = all.map(function(a) {
-      var d  = new Date(a.date);
+    tbody.innerHTML = all.map(function (a) {
+      var d = new Date(a.date);
       var ds = d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       var passCell = a.passed
         ? '<span class="result-pass">PASS</span>'
@@ -112,23 +112,23 @@
 
     var topicAccum = {};
     var allHist = safetyHist.concat(theoryHist);
-    allHist.forEach(function(attempt) {
+    allHist.forEach(function (attempt) {
       if (!attempt.topicBreakdown) return;
-      Object.keys(attempt.topicBreakdown).forEach(function(topic) {
+      Object.keys(attempt.topicBreakdown).forEach(function (topic) {
         var t = attempt.topicBreakdown[topic];
         if (!topicAccum[topic]) topicAccum[topic] = { correct: 0, total: 0 };
         topicAccum[topic].correct += t.correct;
-        topicAccum[topic].total   += t.total;
+        topicAccum[topic].total += t.total;
       });
     });
 
     var topics = Object.keys(topicAccum);
-    var weakTopics = topics.filter(function(t) {
+    var weakTopics = topics.filter(function (t) {
       var d = topicAccum[t];
       return d.total > 0 && (d.correct / d.total) < 0.80;
-    }).sort(function(a, b) {
+    }).sort(function (a, b) {
       return (topicAccum[a].correct / topicAccum[a].total) -
-             (topicAccum[b].correct / topicAccum[b].total);
+        (topicAccum[b].correct / topicAccum[b].total);
     });
 
     if (topics.length === 0) {
@@ -140,8 +140,8 @@
       return;
     }
 
-    weakEl.innerHTML = weakTopics.map(function(topic) {
-      var d   = topicAccum[topic];
+    weakEl.innerHTML = weakTopics.map(function (topic) {
+      var d = topicAccum[topic];
       var pct = Math.round((d.correct / d.total) * 100);
       var cls = pct < 60 ? 'weak-pct--danger' : 'weak-pct--warn';
       return '<div class="weak-topic-row">' +
@@ -155,14 +155,15 @@
 
     // AI: run weak area coach
     if (window.ArcReady && ArcReady.AI && ArcReady.AI.runWeakAreaCoach) {
-      var allHist = getHistory('safety').concat(getHistory('theory'));
+      // BUG 8 FIX: don't re-declare allHist (shadowed the outer variable). Use a new name.
+      var allHistForCoach = getHistory('safety').concat(getHistory('theory'));
       var combined = {};
-      allHist.forEach(function(a) {
+      allHistForCoach.forEach(function (a) {
         if (!a.topicBreakdown) return;
-        Object.keys(a.topicBreakdown).forEach(function(t) {
+        Object.keys(a.topicBreakdown).forEach(function (t) {
           if (!combined[t]) combined[t] = { correct: 0, total: 0 };
           combined[t].correct += a.topicBreakdown[t].correct;
-          combined[t].total   += a.topicBreakdown[t].total;
+          combined[t].total += a.topicBreakdown[t].total;
         });
       });
       if (Object.keys(combined).length > 0) {
@@ -177,7 +178,7 @@
   }
 
   function escHtml(s) {
-    return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
   ArcReady.Progress = { render: render };

@@ -322,7 +322,8 @@
 
       var readings = labState.readings || [];
       var readingsText = readings.length > 0
-        ? readings.map(function (r) { return 'TP' + r.a + '-TP' + r.b + ': ' + r.v; }).join(', ')
+        // BUG 4 FIX: lab.js stores readings as {red, black, value} not {a, b, v}
+        ? readings.map(function (r) { return 'TP' + r.red + '-TP' + r.black + ': ' + r.value; }).join(', ')
         : 'No measurements taken yet';
 
       var prompt = 'Circuit: ' + (labState.circuit || 'unknown') +
