@@ -107,52 +107,6 @@
                     </div>
                 </div>
 
-                <!-- Quick Start Cards -->
-                <div class="quick-start" style="margin: 30px 0;">
-                    <h2 style="font-size: 1.25rem; color: #1A1A1A; margin-bottom: 20px;">Quick Start</h2>
-                    <div
-                        style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px;">
-                        <div class="home-card" data-action="goto-safety"
-                            style="padding:20px; border:1px solid #eee; border-radius:10px; cursor:pointer; border-left:4px solid #CC0000; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.06);">
-                            <div style="font-size:2rem;">🛡️</div>
-                            <h3 style="margin:10px 0 6px; font-size:1rem;">Safety Training</h3>
-                            <p style="margin:0; font-size:0.88rem; color:#666;">Arc flash, PPE, LOTOTO, approach
-                                boundaries</p>
-                        </div>
-                        <div class="home-card" data-action="goto-theory"
-                            style="padding:20px; border:1px solid #eee; border-radius:10px; cursor:pointer; border-left:4px solid #0056b3; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.06);">
-                            <div style="font-size:2rem;">📖</div>
-                            <h3 style="margin:10px 0 6px; font-size:1rem;">Theory Study</h3>
-                            <p style="margin:0; font-size:0.88rem; color:#666;">Ohm's Law, AC theory, 3-phase, motors
-                            </p>
-                        </div>
-                        <div class="home-card" onclick="window.ArcReady.showTab('lab')"
-                            style="padding:20px; border:1px solid #eee; border-radius:10px; cursor:pointer; border-left:4px solid #e6a800; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.06);">
-                            <div style="font-size:2rem; width: 48px; height: 48px; margin: 0 auto;"><svg
-                                    viewBox="0 0 512 512" width="48" height="48">
-                                    <rect x="120" y="50" width="272" height="380" rx="40" fill="#FFD54F" />
-                                    <rect x="160" y="100" width="192" height="100" rx="10" fill="#263238" />
-                                    <circle cx="256" cy="300" r="70" fill="#FFA000" />
-                                    <path d="M256 240 L256 300 L300 300" stroke="#E65100" stroke-width="12" fill="none"
-                                        stroke-linecap="round" />
-                                    <path d="M180 430 Q180 500 256 500 Q332 500 332 430" stroke="#4FC3F7"
-                                        stroke-width="15" fill="none" />
-                                    <rect x="317" y="340" width="30" height="80" rx="5" fill="#E53935" />
-                                    <rect x="360" y="470" width="25" height="40" rx="3" fill="#E53935" />
-                                </svg></div>
-                            <h3 style="margin:10px 0 6px; font-size:1rem;">Virtual Lab</h3>
-                            <p style="margin:0; font-size:0.88rem; color:#666;">Interactive fault diagnosis simulator
-                            </p>
-                        </div>
-                        <div class="home-card" onclick="window.ArcReady.showTab('reference')"
-                            style="padding:20px; border:1px solid #eee; border-radius:10px; cursor:pointer; border-left:4px solid #333; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.06);">
-                            <div style="font-size:2rem;">📚</div>
-                            <h3 style="margin:10px 0 6px; font-size:1rem;">Reference</h3>
-                            <p style="margin:0; font-size:0.88rem; color:#666;">Formulas, symbols, PPE tables, LOTOTO
-                                steps</p>
-                        </div>
-                    </div>
-                </div>
             </section>
 
             <!-- Safety Tab -->
@@ -752,10 +706,47 @@
                     <h3 style="border-bottom: 2px solid #ccc; padding-bottom: 5px;">Weak Areas (Below 80%)</h3>
                     <div id="weak-areas-list" style="margin-top: 15px;"></div>
                 </div>
-
                 <!-- Removed Coach section since no coach JS is provided or working properly -->
             </section>
 
+            <!-- Global Quick Start Navigation -->
+            <div class="global-quick-start">
+                <div class="container">
+                    <h2 class="section-title" style="margin-bottom: 24px;">Quick Launch</h2>
+                    <div class="quick-start-grid">
+                        <div class="home-card" data-action="goto-safety">
+                            <div class="home-card-icon">🛡️</div>
+                            <h3 class="home-card-title">Safety Training</h3>
+                            <p class="home-card-desc">Arc flash, PPE, LOTO, approach boundaries</p>
+                        </div>
+                        <div class="home-card" data-action="goto-theory">
+                            <div class="home-card-icon">📖</div>
+                            <h3 class="home-card-title">Theory Study</h3>
+                            <p class="home-card-desc">Ohm's Law, AC theory, 3-phase, motors</p>
+                        </div>
+                        <div class="home-card" data-action="goto-lab">
+                            <svg viewBox="0 0 512 512">
+                                <rect x="120" y="50" width="272" height="380" rx="40" fill="#FFD54F" />
+                                <rect x="160" y="100" width="192" height="100" rx="10" fill="#263238" />
+                                <circle cx="256" cy="300" r="70" fill="#FFA000" />
+                                <path d="M256 240 L256 300 L300 300" stroke="#E65100" stroke-width="12" fill="none"
+                                    stroke-linecap="round" />
+                                <path d="M180 430 Q180 500 256 500 Q332 500 332 430" stroke="#4FC3F7" stroke-width="15"
+                                    fill="none" />
+                                <rect x="317" y="340" width="30" height="80" rx="5" fill="#E53935" />
+                                <rect x="360" y="470" width="25" height="40" rx="3" fill="#E53935" />
+                            </svg>
+                            <h3 class="home-card-title">Virtual Lab</h3>
+                            <p class="home-card-desc">Interactive fault diagnosis simulator</p>
+                        </div>
+                        <div class="home-card" data-action="goto-reference">
+                            <div class="home-card-icon">📚</div>
+                            <h3 class="home-card-title">Reference</h3>
+                            <p class="home-card-desc">Formulas, symbols, PPE tables, LOTO steps</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 

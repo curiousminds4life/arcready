@@ -46,15 +46,6 @@
     if (action === 'goto-progress') showTab('progress');
   });
 
-  // Home-card clicks (cards use data-action OR onclick)
-  document.addEventListener('click', function (e) {
-    var card = e.target.closest('.home-card[data-action]');
-    if (!card) return;
-    var action = card.getAttribute('data-action');
-    if (action === 'goto-safety') showTab('safety');
-    if (action === 'goto-theory') showTab('theory');
-  });
-
   /* ============================================================
      MODE TOGGLE BUTTONS (Study / Practice / Certify)
      ============================================================ */

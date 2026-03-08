@@ -4075,3 +4075,67 @@ ul {
   outline: none;
   box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.3);
 }
+/* ============================================================
+   GLOBAL QUICK START NAVIGATION
+   ============================================================ */
+.global-quick-start {
+  margin-top: 60px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-top: 2px solid var(--gray-mid);
+  background: transparent;
+}
+
+.quick-start-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.home-card {
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid var(--gray-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.home-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-deep);
+  border-color: var(--gray-mid);
+}
+
+.home-card[data-action="goto-safety"] { border-left: 5px solid var(--red); }
+.home-card[data-action="goto-theory"] { border-left: 5px solid var(--blue); }
+.home-card[data-action="goto-lab"]    { border-left: 5px solid var(--amber); }
+.home-card[data-action="goto-reference"] { border-left: 5px solid var(--charcoal); }
+
+.home-card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.home-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+}
+
+.home-card-desc {
+  font-size: 0.9rem;
+  color: var(--gray-text);
+  line-height: 1.4;
+}
+
+.home-card svg {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+}
