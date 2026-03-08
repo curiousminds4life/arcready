@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/arcready/">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArcReady - Electrical Safety Training</title>
@@ -47,7 +47,8 @@
                 <h1 class="tab-title">Safety Section</h1>
                 <p class="tab-subtitle">NFPA 70E compliant electrical safety training.</p>
             </div>
-            <div id="standards-selector-container" style="margin-bottom: 20px;"></div>
+            <!-- Bug C FIX: changed id= to class= to fix duplicate ID issue -->
+            <div class="standards-selector-container" style="margin-bottom: 20px;"></div>
             
             <!-- Standard Selection -->
             <div class="standard-panel" style="margin-bottom: 20px; padding: 15px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px;">
@@ -96,7 +97,8 @@
             <div class="exam-header" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                 <div id="safety-study-counter" class="exam-counter font-bold text-charcoal"></div>
                 <div id="safety-study-timer" class="exam-timer font-mono text-red"></div>
-                <button id="safety-study-flag" class="btn btn-outline flag-btn" onclick="window.ArcReady.TestEngine.toggleFlag('safety','study')" style="display:none">&#x1F6A9; Flag</button>
+                <!-- Bug B FIX: removed stale onclick - delegated listener in test-engine.js handles this -->
+                <button id="safety-study-flag" class="btn btn-outline flag-btn" style="display:none">&#x1F6A9; Flag</button>
             </div>
             <div class="progress-bar" style="margin-bottom: 20px;"><div id="safety-study-progress" class="progress-fill" style="width:0%"></div></div>
             <div id="safety-study-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
@@ -106,9 +108,9 @@
             <div id="safety-study-explanation" class="explanation-box" style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;"></div>
             
             <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
-                <button id="safety-study-prev" class="btn btn-secondary" style="display:none" onclick="window.ArcReady.TestEngine.prevQuestion('safety','study')">&#x2190; Prev</button>
-                <button id="safety-study-next" class="btn btn-primary" onclick="window.ArcReady.TestEngine.nextQuestion('safety','study')">Next &#x2192;</button>
-                <button id="safety-study-submit" class="btn btn-danger" style="display:none" onclick="window.ArcReady.TestEngine.submitExam('safety','study')">Submit Exam</button>
+                <button id="safety-study-prev" class="btn btn-secondary" style="display:none">&#x2190; Prev</button>
+                <button id="safety-study-next" class="btn btn-primary">Next &#x2192;</button>
+                <button id="safety-study-submit" class="btn btn-danger" style="display:none">Submit Exam</button>
             </div>
         </div>
         <div id="safety-study-results" style="display:none;" class="results-panel" style="margin-top: 20px;"></div>
@@ -123,11 +125,12 @@
                 </div>
                 
         <!-- Practice Mode -->
-        <div id="safety-practice-exam" style="display:none;" class="exam-panel" style="margin-top: 20px;">
+        <!-- Bug D FIX: merged two style attributes into one -->
+        <div id="safety-practice-exam" style="display:none; margin-top: 20px;" class="exam-panel">
             <div class="exam-header" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                 <div id="safety-practice-counter" class="exam-counter font-bold text-charcoal"></div>
                 <div id="safety-practice-timer" class="exam-timer font-mono text-red"></div>
-                <button id="safety-practice-flag" class="btn btn-outline flag-btn" onclick="window.ArcReady.TestEngine.toggleFlag('safety','practice')" style="display:inline-block">&#x1F6A9; Flag</button>
+                <button id="safety-practice-flag" class="btn btn-outline flag-btn" style="display:inline-block">&#x1F6A9; Flag</button>
             </div>
             <div class="progress-bar" style="margin-bottom: 20px;"><div id="safety-practice-progress" class="progress-fill" style="width:0%"></div></div>
             <div id="safety-practice-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
@@ -137,12 +140,12 @@
             <div id="safety-practice-explanation" class="explanation-box" style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;"></div>
             
             <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
-                <button id="safety-practice-prev" class="btn btn-secondary" style="display:inline-block" onclick="window.ArcReady.TestEngine.prevQuestion('safety','practice')">&#x2190; Prev</button>
-                <button id="safety-practice-next" class="btn btn-primary" onclick="window.ArcReady.TestEngine.nextQuestion('safety','practice')">Next &#x2192;</button>
-                <button id="safety-practice-submit" class="btn btn-danger" style="display:inline-block" onclick="window.ArcReady.TestEngine.submitExam('safety','practice')">Submit Exam</button>
+                <button id="safety-practice-prev" class="btn btn-secondary" style="display:inline-block">&#x2190; Prev</button>
+                <button id="safety-practice-next" class="btn btn-primary">Next &#x2192;</button>
+                <button id="safety-practice-submit" class="btn btn-danger" style="display:inline-block">Submit Exam</button>
             </div>
         </div>
-        <div id="safety-practice-results" style="display:none;" class="results-panel" style="margin-top: 20px;"></div>
+        <div id="safety-practice-results" style="display:none; margin-top: 20px;" class="results-panel"></div>
     
             </div>
 
@@ -153,11 +156,11 @@
                 </div>
                 
         <!-- Certify Mode -->
-        <div id="safety-certify-exam" style="display:none;" class="exam-panel" style="margin-top: 20px;">
+        <div id="safety-certify-exam" style="display:none; margin-top: 20px;" class="exam-panel">
             <div class="exam-header" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                 <div id="safety-certify-counter" class="exam-counter font-bold text-charcoal"></div>
                 <div id="safety-certify-timer" class="exam-timer font-mono text-red"></div>
-                <button id="safety-certify-flag" class="btn btn-outline flag-btn" onclick="window.ArcReady.TestEngine.toggleFlag('safety','certify')" style="display:inline-block">&#x1F6A9; Flag</button>
+                <button id="safety-certify-flag" class="btn btn-outline flag-btn" style="display:inline-block">&#x1F6A9; Flag</button>
             </div>
             <div class="progress-bar" style="margin-bottom: 20px;"><div id="safety-certify-progress" class="progress-fill" style="width:0%"></div></div>
             <div id="safety-certify-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
@@ -167,12 +170,12 @@
             <div id="safety-certify-explanation" class="explanation-box" style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;"></div>
             
             <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
-                <button id="safety-certify-prev" class="btn btn-secondary" style="display:none" onclick="window.ArcReady.TestEngine.prevQuestion('safety','certify')">&#x2190; Prev</button>
-                <button id="safety-certify-next" class="btn btn-primary" onclick="window.ArcReady.TestEngine.nextQuestion('safety','certify')">Next &#x2192;</button>
-                <button id="safety-certify-submit" class="btn btn-danger" style="display:inline-block" onclick="window.ArcReady.TestEngine.submitExam('safety','certify')">Submit Exam</button>
+                <button id="safety-certify-prev" class="btn btn-secondary" style="display:none">&#x2190; Prev</button>
+                <button id="safety-certify-next" class="btn btn-primary">Next &#x2192;</button>
+                <button id="safety-certify-submit" class="btn btn-danger" style="display:inline-block">Submit Exam</button>
             </div>
         </div>
-        <div id="safety-certify-results" style="display:none;" class="results-panel" style="margin-top: 20px;"></div>
+        <div id="safety-certify-results" style="display:none; margin-top: 20px;" class="results-panel"></div>
     
             </div>
 
@@ -192,7 +195,8 @@
                 <h1 class="tab-title">Theory Section</h1>
                 <p class="tab-subtitle">Electrical theory and circuit fundamentals.</p>
             </div>
-            <div id="standards-selector-container" style="margin-bottom: 20px;"></div>
+            <!-- Bug C FIX: changed id= to class= to fix duplicate ID issue -->
+            <div class="standards-selector-container" style="margin-bottom: 20px;"></div>
             
             <!-- Standard Selection -->
             <div class="standard-panel" style="margin-bottom: 20px; padding: 15px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px;">
@@ -241,7 +245,7 @@
             <div class="exam-header" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                 <div id="theory-study-counter" class="exam-counter font-bold text-charcoal"></div>
                 <div id="theory-study-timer" class="exam-timer font-mono text-red"></div>
-                <button id="theory-study-flag" class="btn btn-outline flag-btn" onclick="window.ArcReady.TestEngine.toggleFlag('theory','study')" style="display:none">&#x1F6A9; Flag</button>
+                <button id="theory-study-flag" class="btn btn-outline flag-btn" style="display:none">&#x1F6A9; Flag</button>
             </div>
             <div class="progress-bar" style="margin-bottom: 20px;"><div id="theory-study-progress" class="progress-fill" style="width:0%"></div></div>
             <div id="theory-study-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
@@ -251,12 +255,12 @@
             <div id="theory-study-explanation" class="explanation-box" style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;"></div>
             
             <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
-                <button id="theory-study-prev" class="btn btn-secondary" style="display:none" onclick="window.ArcReady.TestEngine.prevQuestion('theory','study')">&#x2190; Prev</button>
-                <button id="theory-study-next" class="btn btn-primary" onclick="window.ArcReady.TestEngine.nextQuestion('theory','study')">Next &#x2192;</button>
-                <button id="theory-study-submit" class="btn btn-danger" style="display:none" onclick="window.ArcReady.TestEngine.submitExam('theory','study')">Submit Exam</button>
+                <button id="theory-study-prev" class="btn btn-secondary" style="display:none">&#x2190; Prev</button>
+                <button id="theory-study-next" class="btn btn-primary">Next &#x2192;</button>
+                <button id="theory-study-submit" class="btn btn-danger" style="display:none">Submit Exam</button>
             </div>
         </div>
-        <div id="theory-study-results" style="display:none;" class="results-panel" style="margin-top: 20px;"></div>
+        <div id="theory-study-results" style="display:none; margin-top: 20px;" class="results-panel"></div>
     
                 </div>
             </div>
@@ -268,11 +272,11 @@
                 </div>
                 
         <!-- Practice Mode -->
-        <div id="theory-practice-exam" style="display:none;" class="exam-panel" style="margin-top: 20px;">
+        <div id="theory-practice-exam" style="display:none; margin-top: 20px;" class="exam-panel">
             <div class="exam-header" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                 <div id="theory-practice-counter" class="exam-counter font-bold text-charcoal"></div>
                 <div id="theory-practice-timer" class="exam-timer font-mono text-red"></div>
-                <button id="theory-practice-flag" class="btn btn-outline flag-btn" onclick="window.ArcReady.TestEngine.toggleFlag('theory','practice')" style="display:inline-block">&#x1F6A9; Flag</button>
+                <button id="theory-practice-flag" class="btn btn-outline flag-btn" style="display:inline-block">&#x1F6A9; Flag</button>
             </div>
             <div class="progress-bar" style="margin-bottom: 20px;"><div id="theory-practice-progress" class="progress-fill" style="width:0%"></div></div>
             <div id="theory-practice-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
@@ -282,12 +286,12 @@
             <div id="theory-practice-explanation" class="explanation-box" style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;"></div>
             
             <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
-                <button id="theory-practice-prev" class="btn btn-secondary" style="display:inline-block" onclick="window.ArcReady.TestEngine.prevQuestion('theory','practice')">&#x2190; Prev</button>
-                <button id="theory-practice-next" class="btn btn-primary" onclick="window.ArcReady.TestEngine.nextQuestion('theory','practice')">Next &#x2192;</button>
-                <button id="theory-practice-submit" class="btn btn-danger" style="display:inline-block" onclick="window.ArcReady.TestEngine.submitExam('theory','practice')">Submit Exam</button>
+                <button id="theory-practice-prev" class="btn btn-secondary" style="display:inline-block">&#x2190; Prev</button>
+                <button id="theory-practice-next" class="btn btn-primary">Next &#x2192;</button>
+                <button id="theory-practice-submit" class="btn btn-danger" style="display:inline-block">Submit Exam</button>
             </div>
         </div>
-        <div id="theory-practice-results" style="display:none;" class="results-panel" style="margin-top: 20px;"></div>
+        <div id="theory-practice-results" style="display:none; margin-top: 20px;" class="results-panel"></div>
     
             </div>
 
@@ -298,11 +302,11 @@
                 </div>
                 
         <!-- Certify Mode -->
-        <div id="theory-certify-exam" style="display:none;" class="exam-panel" style="margin-top: 20px;">
+        <div id="theory-certify-exam" style="display:none; margin-top: 20px;" class="exam-panel">
             <div class="exam-header" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                 <div id="theory-certify-counter" class="exam-counter font-bold text-charcoal"></div>
                 <div id="theory-certify-timer" class="exam-timer font-mono text-red"></div>
-                <button id="theory-certify-flag" class="btn btn-outline flag-btn" onclick="window.ArcReady.TestEngine.toggleFlag('theory','certify')" style="display:inline-block">&#x1F6A9; Flag</button>
+                <button id="theory-certify-flag" class="btn btn-outline flag-btn" style="display:inline-block">&#x1F6A9; Flag</button>
             </div>
             <div class="progress-bar" style="margin-bottom: 20px;"><div id="theory-certify-progress" class="progress-fill" style="width:0%"></div></div>
             <div id="theory-certify-topic-badge" class="topic-badge" style="margin-bottom: 15px;"></div>
@@ -312,12 +316,12 @@
             <div id="theory-certify-explanation" class="explanation-box" style="display:none; margin-top: 15px; padding: 15px; background: #eef8ff; border-left: 4px solid #0056b3;"></div>
             
             <div class="exam-actions" style="margin-top: 20px; display: flex; gap: 10px;">
-                <button id="theory-certify-prev" class="btn btn-secondary" style="display:none" onclick="window.ArcReady.TestEngine.prevQuestion('theory','certify')">&#x2190; Prev</button>
-                <button id="theory-certify-next" class="btn btn-primary" onclick="window.ArcReady.TestEngine.nextQuestion('theory','certify')">Next &#x2192;</button>
-                <button id="theory-certify-submit" class="btn btn-danger" style="display:inline-block" onclick="window.ArcReady.TestEngine.submitExam('theory','certify')">Submit Exam</button>
+                <button id="theory-certify-prev" class="btn btn-secondary" style="display:none">&#x2190; Prev</button>
+                <button id="theory-certify-next" class="btn btn-primary">Next &#x2192;</button>
+                <button id="theory-certify-submit" class="btn btn-danger" style="display:inline-block">Submit Exam</button>
             </div>
         </div>
-        <div id="theory-certify-results" style="display:none;" class="results-panel" style="margin-top: 20px;"></div>
+        <div id="theory-certify-results" style="display:none; margin-top: 20px;" class="results-panel"></div>
     
             </div>
 
@@ -437,7 +441,7 @@
             <div class="reference-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
                 <div class="reference-card ref-open-btn" data-ref="symbols" tabindex="0" style="padding: 20px; border: 1px solid #ccc; border-radius: 8px; cursor: pointer;">
                     <h3 style="margin-top: 0;">Symbols Glossary</h3>
-                    <p>Electrical & schematic symbols</p>
+                    <p>Electrical &amp; schematic symbols</p>
                 </div>
                 <div class="reference-card ref-open-btn" data-ref="ohms" tabindex="0" style="padding: 20px; border: 1px solid #ccc; border-radius: 8px; cursor: pointer;">
                     <h3 style="margin-top: 0;">Ohm's Law Calculator</h3>
