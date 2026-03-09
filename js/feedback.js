@@ -176,6 +176,8 @@
         return {
             type: document.getElementById('fb-type').value,
             message: document.getElementById('fb-message').value,
+            name: document.getElementById('fb-name').value,
+            email: document.getElementById('fb-email').value,
             tab: context.tab,
             standard: context.standard,
             userName: context.userName,
