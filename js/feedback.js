@@ -159,6 +159,7 @@
         submitBtn.textContent = 'Sending...';
 
         var data = collectData();
+        console.log('Sending Feedback Data:', data);
 
         fetch(GOOGLE_SHEETS_URL, {
             method: 'POST',
