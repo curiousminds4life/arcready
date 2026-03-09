@@ -370,8 +370,6 @@
         [7, 10], [8, 10], [9, 10], // Post-MS vs GND
         [11, 12], [13, 12] // Control
       ];
-    } else if (state.circuit === 'circuit-b') {
-      pairs = [[1, 7], [2, 7], [3, 7], [4, 7], [5, 7], [6, 7]];
     } else if (state.circuit === 'circuit-practice') {
       pairs = [
         [1, 2], [1, 3], [2, 3],
@@ -380,7 +378,7 @@
         [7, 10], [8, 10], [9, 10],
         [11, 12]
       ];
-    } else if (state.circuit === 'circuit-d') {
+    } else {
       pairs = [[1, 7], [2, 7], [3, 7], [4, 7], [5, 7], [6, 7]];
     }
 
@@ -401,13 +399,7 @@
 
     html += '</tbody></table>';
     container.innerHTML = html;
-    var modeText = 'Default';
-    if (state.circuit === 'circuit-a') modeText = state.voltageSwitch || '480V';
-    else if (state.circuit === 'circuit-b') modeText = '120VAC';
-    else if (state.circuit === 'circuit-practice') modeText = '208VAC';
-    else if (state.circuit === 'circuit-d') modeText = '24VDC';
-
-    if (status) status.textContent = 'Mode: ' + modeText;
+    if (status) status.textContent = 'Mode: ' + (state.voltageSwitch || 'Default');
   }
 
   // -- Pulse animation for voltage updates ------------------------------------
