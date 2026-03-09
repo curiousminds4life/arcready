@@ -269,9 +269,13 @@ ul {
 
 .hero-standards {
   position: absolute;
-  top: -42px;
+  top: 0;
   left: 0;
   z-index: 5;
+}
+
+#tab-home .hero-text {
+  padding-top: 52px;
 }
 
 .tab-header--red {
