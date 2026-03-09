@@ -264,6 +264,14 @@ ul {
   color: var(--white);
   padding: 64px 0;
   margin-bottom: 32px;
+  position: relative;
+}
+
+.hero-standards {
+  position: absolute;
+  top: -42px;
+  left: 0;
+  z-index: 5;
 }
 
 .tab-header--red {
