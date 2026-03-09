@@ -232,5 +232,109 @@
     },
     "answer": "B",
     "explanation": "FLA (Full Load Amps) is the nameplate current rating of the motor at its rated voltage and rated horsepower (full mechanical load). This is the basis for sizing overload protection and conductors."
+  },
+  {
+    "id": "T019",
+    "topic": "Fault Diagnosis",
+    "question": "You measure 480V across the line side of a fuse, but 0V across the load side to ground. What does this indicate?",
+    "options": {
+      "A": "The circuit is operating normally",
+      "B": "The fuse is blown (open circuit)",
+      "C": "The load is pulling too much current",
+      "D": "The ground wire is disconnected"
+    },
+    "answer": "B",
+    "explanation": "If voltage is present before the fuse (line side) but not after it (load side), the fuse has blown, creating an open circuit that prevents current flow."
+  },
+  {
+    "id": "T020",
+    "topic": "Fault Diagnosis",
+    "question": "When troubleshooting a 3-phase motor that won't start, you find 480V between L1-L2 and L1-L3, but 0V between L2-L3. What is the most likely problem?",
+    "options": {
+      "A": "Loss of L1 phase",
+      "B": "Loss of L2 phase",
+      "C": "Loss of L3 phase",
+      "D": "All phases are present"
+    },
+    "answer": "B",
+    "explanation": "Since L1-L2 and L1-L3 are good, but L2-L3 is 0V, it implies that both L2 and L3 are at the same potential. In a loss-of-phase scenario, if L2 is lost, L2-L3 will be 0V because L3 is providing backfeed through the motor windings to the L2 side, making them equal."
+  },
+  {
+    "id": "T021",
+    "topic": "Fault Diagnosis",
+    "question": "An overload relay trips immediately every time a motor is started. What is the FIRST thing you should check?",
+    "options": {
+      "A": "The color of the motor paint",
+      "B": "The motor for a mechanical bind or shorted windings",
+      "C": "The ambient temperature of the room",
+      "D": "The length of the control wires"
+    },
+    "answer": "B",
+    "explanation": "Immediate tripping usually indicates a significant overcurrent condition caused by a mechanical jam (locked rotor) or an electrical short in the motor windings."
+  },
+  {
+    "id": "T022",
+    "topic": "Fault Diagnosis",
+    "question": "Which multimeter setting is used to check if a wire has a break (is 'open') when the power is OFF?",
+    "options": {
+      "A": "AC Voltage",
+      "B": "DC Voltage",
+      "C": "Continuity or Ohms",
+      "D": "Amperage"
+    },
+    "answer": "C",
+    "explanation": "Continuity (or Resistance/Ohms) is used to verify a continuous path for current. An 'open' wire will show 'OL' (Infinite resistance), while a good wire will show very low resistance."
+  },
+  {
+    "id": "T023",
+    "topic": "Fault Diagnosis",
+    "question": "A control transformer has 480V on the primary but 0V on the secondary. The secondary fuse is good. What is the likely fault?",
+    "options": {
+      "A": "The transformer is too efficient",
+      "B": "The transformer primary or secondary winding is open",
+      "C": "The load is too small",
+      "D": "The primary voltage is too high"
+    },
+    "answer": "B",
+    "explanation": "If voltage enters the primary but no voltage is induced on the secondary (and the fuse is good), the internal windings of the transformer are likely failed/open."
+  },
+  {
+    "id": "T024",
+    "topic": "Fault Diagnosis",
+    "question": "What is 'backfeed' in a troubleshooting scenario?",
+    "options": {
+      "A": "Current flowing from a load back to the source",
+      "B": "Voltage appearing on a de-energized conductor through a connected load from another phase",
+      "C": "A type of electrical grounding system",
+      "D": "The exhaust from a cooling fan"
+    },
+    "answer": "B",
+    "explanation": "Backfeed occurs when a lost phase appears to have voltage because it is connected to a live phase through a load (like a motor winding or transformer). This can lead to misleading 'phantom' voltage readings."
+  },
+  {
+    "id": "T025",
+    "topic": "Fault Diagnosis",
+    "question": "A motor starter coil is energized (showing 24V), but the motor does not start. You find 480V at the top of the contacts but 0V at the bottom. What is the fault?",
+    "options": {
+      "A": "The motor is burned out",
+      "B": "The starter contacts are failed (open)",
+      "C": "The overload relay is tripped",
+      "D": "The fuse is blown"
+    },
+    "answer": "B",
+    "explanation": "If the coil is energized (pulling the contactor in) and voltage is present at the input (top) but not the output (bottom) of the contacts, the contacts themselves have failed to close the circuit."
+  },
+  {
+    "id": "T026",
+    "topic": "Fault Diagnosis",
+    "question": "In a 'Short Circuit' fault, the resistance of the circuit:",
+    "options": {
+      "A": "Becomes infinite",
+      "B": "Drops to near zero, causing high current",
+      "C": "Stays the same",
+      "D": "Increases slightly"
+    },
+    "answer": "B",
+    "explanation": "A short circuit provides a 'short' path for current with very low resistance. According to Ohm's Law (I=E/R), as resistance drops toward zero, current increases dramatically, usually blowing a fuse or tripping a breaker."
   }
 ]
