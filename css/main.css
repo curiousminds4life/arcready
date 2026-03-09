@@ -300,6 +300,53 @@ ul {
 /* ============================================================
    HOME — HERO
    ============================================================ */
+.tab-header .container {
+  position: relative;
+}
+
+.hero-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+}
+
+.cert-badge {
+  width: 140px;
+  height: 140px;
+  border: 4px solid var(--white);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(204, 0, 0, 0.25);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+.cert-badge-icon {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.cert-badge-label {
+  font-size: 11px;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+@media (max-width: 1024px) {
+  .hero-badge {
+    display: none;
+  }
+}
+
 .hero-text {
   flex: 1;
 }
