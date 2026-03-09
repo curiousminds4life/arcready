@@ -52,6 +52,13 @@
       'f3-blown': 'F3 blown: TP6 reads 0V to neutral. L3 phase lost.',
       'ms-open': 'MS contacts open. Full voltage across fuse outputs but 0V downstream of MS (TP7-TP10).',
       'ol-tripped': 'Overload tripped. Voltage through MS contacts but motor terminals isolated. Check TP8-TP10 vs TP7-TP10.'
+    },
+    'circuit-d': {
+      normal: 'System normal. 24VDC across TP1-TP7. Sensors S1 and S2 are open; CR1 and PL1 are de-energized.',
+      'ps-fail': 'Power Supply failure. 0V at output (TP1). Check input power or PSU fuse.',
+      's1-stuck': 'Sensor 1 stuck closed. CR1 and PL1 are energized even without detection. Terminal TP2 reads 24V.',
+      's2-open': 'Sensor 2 circuit open. Even if S2 detects, TP3 remains 0V. Check wiring or sensor contacts.',
+      'lamp-blown': "Indicator Lamp PL1 is blown. CR1 contact (TP5-TP6) closes 24V correctly, but lamp doesn't light."
     }
   };
 
@@ -64,10 +71,6 @@
     var circSelect = $id('circuit-select');
     if (circSelect) {
       circSelect.addEventListener('change', function () {
-        var titleEl = $id('circuit-title');
-        if (titleEl && ArcReady.CircuitData[this.value]) {
-          titleEl.textContent = ArcReady.CircuitData[this.value].title;
-        }
         loadCircuit(this.value);
       });
     }
@@ -82,6 +85,13 @@
     if (voltSwitch) {
       voltSwitch.addEventListener('change', function () {
         state.voltageSwitch = this.value;
+
+        // Update title to match voltage
+        var titleEl = $id('circuit-title');
+        if (titleEl && state.circuit === 'circuit-a') {
+          titleEl.textContent = 'Circuit A - ' + this.value + ' 3-Phase Motor Control';
+        }
+
         if (state.circuit !== 'circuit-a') {
           voltContainer.style.display = 'none';
           var localMotorSw = $id('motor-switch');
@@ -97,6 +107,7 @@
           displayReading(reading);
           triggerPulseAnimation();
         }
+        renderTruthTable();
       });
     }
 
@@ -119,6 +130,7 @@
           displayReading(reading);
           triggerPulseAnimation();
         }
+        renderTruthTable();
       });
     }
 
@@ -188,10 +200,22 @@
       attachTestPointListeners(wrap);
     }
 
+    // Update Title
+    var titleEl = $id('circuit-title');
+    if (titleEl) {
+      if (id === 'circuit-a') {
+        var v = $id('voltage-switch').value || '480V';
+        titleEl.textContent = 'Circuit A - ' + v + ' 3-Phase Motor Control';
+      } else if (ArcReady.CircuitData[id]) {
+        titleEl.textContent = ArcReady.CircuitData[id].title;
+      }
+    }
+
     // Populate fault buttons
     renderFaultButtons(id);
     setFault('normal');
     renderHistory();
+    renderTruthTable();
 
     if (state.mode === 'challenge') startChallenge();
 
@@ -308,11 +332,82 @@
   // -- Voltage lookup ---------------------------------------------------------
   function getReading(fault, a, b) {
     var data = ArcReady.CircuitData[state.circuit];
-    if (!data) return '???.?V AC';
+    if (!data) return '0.0V AC';
     var tbl = data.readings[fault] || data.readings['normal'] || {};
     var k1 = 'TP' + a + '-TP' + b;
     var k2 = 'TP' + b + '-TP' + a;
-    return tbl[k1] || tbl[k2] || '0.0V AC';
+    var raw = tbl[k1] || tbl[k2] || '0.0V AC';
+
+    // Circuit A Voltage Scaling
+    if (state.circuit === 'circuit-a' && state.voltageSwitch === '208V') {
+      var val = parseFloat(raw);
+      if (val === 480) return '208.0V AC';
+      if (val === 277) return '120.0V AC';
+      if (val === 120) return '120.0V AC'; // control tap 1
+      if (val === 24) return '24.0V AC';  // control tap 2
+      // Scale others by ratio (208/480 approx 0.433)
+      return (val * 0.4333).toFixed(1) + 'V AC';
+    }
+    return raw;
+  }
+
+  // -- Truth Table Rendering --------------------------------------------------
+  function renderTruthTable() {
+    var container = $id('truth-table-container');
+    var status = $id('truth-table-status');
+    if (!container) return;
+
+    var data = ArcReady.CircuitData[state.circuit];
+    if (!data) return;
+
+    // Use a subset of important TPs for the reference table to keep it readable
+    var pairs = [];
+    if (state.circuit === 'circuit-a') {
+      pairs = [
+        [1, 2], [1, 3], [2, 3], // Mains
+        [4, 10], [5, 10], [6, 10], // Pre-MS vs GND
+        [4, 5], [4, 6], [5, 6], // Ph-Ph pre-MS
+        [7, 10], [8, 10], [9, 10], // Post-MS vs GND
+        [11, 12], [13, 12] // Control
+      ];
+    } else if (state.circuit === 'circuit-b') {
+      pairs = [[1, 7], [2, 7], [3, 7], [4, 7], [5, 7], [6, 7]];
+    } else if (state.circuit === 'circuit-practice') {
+      pairs = [
+        [1, 2], [1, 3], [2, 3],
+        [4, 10], [5, 10], [6, 10],
+        [4, 5], [5, 6],
+        [7, 10], [8, 10], [9, 10],
+        [11, 12]
+      ];
+    } else if (state.circuit === 'circuit-d') {
+      pairs = [[1, 7], [2, 7], [3, 7], [4, 7], [5, 7], [6, 7]];
+    }
+
+    var html = '<table style="width:100%; border-collapse: collapse; font-size: 12px; font-family: monospace;">'
+      + '<thead style="background:#f0f0f0;">'
+      + '<tr><th style="padding:6px; border:1px solid #eee; text-align:left;">Test Points</th>'
+      + '<th style="padding:6px; border:1px solid #eee; text-align:right;">Expected Value</th></tr></thead><tbody>';
+
+    pairs.forEach(function (p) {
+      var val = getReading(state.fault, p[0], p[1]);
+      var isZero = parseFloat(val) === 0;
+      var style = isZero ? 'color:#888;' : 'font-weight:bold; color:#0056b3;';
+      html += '<tr>'
+        + '<td style="padding:6px; border:1px solid #eee; color:#555;">TP' + p[0] + ' \u2192 TP' + p[1] + '</td>'
+        + '<td style="padding:6px; border:1px solid #eee; text-align:right; ' + style + '">' + val + '</td>'
+        + '</tr>';
+    });
+
+    html += '</tbody></table>';
+    container.innerHTML = html;
+    var modeText = 'Default';
+    if (state.circuit === 'circuit-a') modeText = state.voltageSwitch || '480V';
+    else if (state.circuit === 'circuit-b') modeText = '120VAC';
+    else if (state.circuit === 'circuit-practice') modeText = '208VAC';
+    else if (state.circuit === 'circuit-d') modeText = '24VDC';
+
+    if (status) status.textContent = 'Mode: ' + modeText;
   }
 
   // -- Pulse animation for voltage updates ------------------------------------
@@ -371,6 +466,7 @@
       faultBadge.textContent = isNormal ? 'Normal Operation' : '\u26a0\ufe0f FAULT: ' + faultLabel;
       faultBadge.style.color = isNormal ? '#2E7D32' : '#CC0000';
     }
+    renderTruthTable();
     setInstruction('Fault set to <strong>' + faultLabel + '</strong>. Click a test point to begin probing.');
   }
 

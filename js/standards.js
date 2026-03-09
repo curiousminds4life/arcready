@@ -80,8 +80,9 @@
     var badge = document.getElementById('std-badge');
     if (!badge) return;
     var aid = getStandardId();
+    var text = aid === 'nfpa' ? 'NFPA 70E 2024' : 'Workplace Standards';
     badge.className = 'std-badge ' + (aid === 'nfpa' ? 'nfpa' : 'workplace');
-    badge.textContent = aid === 'nfpa' ? 'NFPA 70E 2024' : 'Workplace Standards';
+    badge.innerHTML = '<span>' + text + '</span><span style="display:inline-flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.2); border-radius:50%; width:18px; height:18px; margin-left:8px; font-size:10px;">⇄</span>';
   }
 
   function updateSelectorButtons() {
@@ -203,10 +204,25 @@
   window.ArcReady.renderQualifiedPerson = renderQualifiedPerson;
   window.ArcReady.renderCitations = renderCitations;
 
+  function initBadgeToggle() {
+    var badge = document.getElementById('std-badge');
+    if (!badge) return;
+    badge.title = 'Click to switch between Workplace and NFPA standards';
+    badge.addEventListener('click', function () {
+      var current = getStandardId();
+      setStandard(current === 'workplace' ? 'nfpa' : 'workplace');
+    });
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { loadProfiles(); updateBadge(); });
+    document.addEventListener('DOMContentLoaded', function () {
+      loadProfiles();
+      updateBadge();
+      initBadgeToggle();
+    });
   } else {
     loadProfiles();
     updateBadge();
+    initBadgeToggle();
   }
 }());

@@ -13,7 +13,7 @@
   var tabButtons = document.querySelectorAll('.nav-tab');
   var tabSections = document.querySelectorAll('.tab-section');
 
-  function showTab(tabName) {
+  function showTab(tabName, skipHash) {
     tabButtons.forEach(function (btn) {
       var active = btn.getAttribute('data-tab') === tabName;
       btn.classList.toggle('active', active);
@@ -23,14 +23,52 @@
       sec.classList.toggle('active', sec.id === 'tab-' + tabName);
     });
     window.scrollTo(0, 0);
+    if (!skipHash) {
+      window.location.hash = tabName;
+    }
+
+    // Move Quick Launch into the active tab section
+    var quickLaunch = document.querySelector('.global-quick-start');
+    var activeSection = document.getElementById('tab-' + tabName);
+    if (quickLaunch && activeSection) {
+      activeSection.appendChild(quickLaunch);
+    }
+
+    // Update Page Title
+    var tabTitles = {
+      'home': 'Home',
+      'safety': 'Safety Training',
+      'theory': 'Theory Study',
+      'lab': 'Virtual Lab',
+      'reference': 'Reference',
+      'progress': 'My Progress'
+    };
+    document.title = 'ArcReady — ' + (tabTitles[tabName] || 'Electrical Safety');
+
     if (tabName === 'progress' && ArcReady.Progress) ArcReady.Progress.render();
   }
 
   ArcReady.showTab = showTab;
 
   tabButtons.forEach(function (btn) {
-    btn.addEventListener('click', function () { showTab(btn.getAttribute('data-tab')); });
+    btn.addEventListener('click', function () {
+      showTab(btn.getAttribute('data-tab'));
+      // Close mobile menu on selection
+      var navInner = document.querySelector('.nav-inner');
+      if (navInner) navInner.classList.remove('nav-active');
+    });
   });
+
+  /* ============================================================
+     MOBILE NAV TOGGLE
+     ============================================================ */
+  var navToggle = document.getElementById('nav-toggle');
+  var navInner = document.querySelector('.nav-inner');
+  if (navToggle && navInner) {
+    navToggle.addEventListener('click', function () {
+      navInner.classList.toggle('nav-active');
+    });
+  }
 
   /* ============================================================
      DATA-ACTION BUTTONS
@@ -44,15 +82,10 @@
     if (action === 'goto-lab') showTab('lab');
     if (action === 'goto-reference') showTab('reference');
     if (action === 'goto-progress') showTab('progress');
-  });
 
-  // Home-card clicks (cards use data-action OR onclick)
-  document.addEventListener('click', function (e) {
-    var card = e.target.closest('.home-card[data-action]');
-    if (!card) return;
-    var action = card.getAttribute('data-action');
-    if (action === 'goto-safety') showTab('safety');
-    if (action === 'goto-theory') showTab('theory');
+    // Close mobile menu if open
+    var navInner = document.querySelector('.nav-inner');
+    if (navInner) navInner.classList.remove('nav-active');
   });
 
   /* ============================================================
@@ -126,6 +159,10 @@
     bodyEl.innerHTML = typeof ref.body === 'function' ? ref.body() : ref.body;
     panel.style.display = 'block';
     panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Hook: render standards-based content
+    if (ArcReady.renderAll) {
+      ArcReady.renderAll();
+    }
     // Hook: render symbol glossary if needed
     if (key === 'symbols' && ArcReady.renderSymbolGlossary) {
       var symContainer = document.getElementById('ref-symbol-glossary-body');
@@ -187,55 +224,18 @@
 
 
     boundaries: {
-      title: 'NFPA 70E Approach Boundaries',
-      body: '<div class="ref-table-wrap"><p>Approach boundaries define how close unqualified and qualified persons may approach energized equipment.</p>' +
-        '<table class="ref-table"><thead><tr><th>Boundary</th><th>Who It Applies To</th><th>Rule</th></tr></thead><tbody>' +
-        '<tr><td><strong>Limited</strong></td><td>Qualified persons only beyond this point</td><td>Unqualified persons must be escorted by a qualified person</td></tr>' +
-        '<tr><td><strong>Restricted</strong></td><td>Qualified persons with PPE</td><td>Increased risk of shock; PPE required, deliberate movement only</td></tr>' +
-        '<tr><td><strong>Prohibited (Shock)</strong></td><td>Qualified persons \u2014 inadvertent contact possible</td><td>Direct contact or contact with conductive object prohibited without insulation</td></tr>' +
-        '<tr><td><strong>Arc Flash Protection</strong></td><td>Anyone working on or near energized equipment</td><td>Must wear arc-rated PPE rated for the incident energy at this distance</td></tr>' +
-        '</tbody></table>' +
-        '<p class="ref-note">Exact distances depend on system voltage. Always consult the equipment arc flash label and NFPA 70E Table 130.4(D).</p></div>'
+      title: 'Approach Boundaries',
+      body: '<div id="approach-boundaries-table" class="ref-table-wrap"><p class="ref-note">Loading boundary data...</p></div>'
     },
 
     hrc: {
-      title: 'HRC / Arc Flash PPE Categories',
-      body: '<div class="ref-table-wrap">' +
-        '<table class="ref-table"><thead><tr><th>Category</th><th>Incident Energy</th><th>Minimum Arc Rating</th><th>Required PPE</th></tr></thead><tbody>' +
-        '<tr class="hrc-0"><td><strong>Category 0</strong></td><td>&lt; 1.2 cal/cm\u00b2</td><td>N/A</td><td>Non-melting, flammable clothing; safety glasses; hearing protection</td></tr>' +
-        '<tr class="hrc-1"><td><strong>Category 1</strong></td><td>1.2 \u2013 4 cal/cm\u00b2</td><td>4 cal/cm\u00b2</td><td>Arc-rated shirt &amp; pants or coverall; face shield; leather gloves; hard hat</td></tr>' +
-        '<tr class="hrc-2"><td><strong>Category 2</strong></td><td>4 \u2013 8 cal/cm\u00b2</td><td>8 cal/cm\u00b2</td><td>Arc-rated shirt &amp; pants; arc flash suit; balaclava; rubber insulating gloves; hard hat</td></tr>' +
-        '<tr class="hrc-3"><td><strong>Category 3</strong></td><td>8 \u2013 25 cal/cm\u00b2</td><td>25 cal/cm\u00b2</td><td>Arc flash suit (full body); arc-rated gloves; leather protectors; hard hat Class E</td></tr>' +
-        '<tr class="hrc-4"><td><strong>Category 4</strong></td><td>25 \u2013 40 cal/cm\u00b2</td><td>40 cal/cm\u00b2</td><td>Heaviest arc flash suit; multi-layer system; Class E hard hat; voltage-rated gloves</td></tr>' +
-        '<tr class="hrc-prohibited"><td><strong>PROHIBITED</strong></td><td>&gt; 40 cal/cm\u00b2</td><td>\u2014</td><td>De-energize before work. Energized work PROHIBITED at this level.</td></tr>' +
-        '</tbody></table>' +
-        '<p class="ref-note">Source: Workplace Safety Standards. All arc-rated clothing must comply with ASTM F-1506. Rubber gloves tested per ASTM D120.</p></div>'
+      title: 'PPE Categories',
+      body: '<div id="ppe-categories-table" class="ref-table-wrap"><p class="ref-note">Loading PPE data...</p></div>'
     },
 
     loto: {
-      title: 'LOTOTO \u2014 8-Step Lockout/Tagout/Tryout Procedure',
-      body: '<div class="loto-steps">' +
-        '<p>Source: Workplace Safety Standards Hazardous Energy Control Program (HECP)</p>' +
-        '<ol class="loto-list">' +
-        '<li><strong>Identify all energy sources</strong> \u2014 electrical, hydraulic, pneumatic, thermal, gravitational, stored/residual</li>' +
-        '<li><strong>Notify affected employees</strong> \u2014 inform all personnel in the area that equipment will be shut down</li>' +
-        '<li><strong>Shut down equipment</strong> \u2014 use normal stopping procedure; bring to complete stop</li>' +
-        '<li><strong>Isolate all energy sources</strong> \u2014 open disconnects, close valves, block gravity-fed parts</li>' +
-        '<li><strong>Apply lockout/tagout devices</strong> \u2014 RED Master Lock or American Lock only; one key per associate; laminated tag with name &amp; date</li>' +
-        '<li><strong>Release or restrain stored energy</strong> \u2014 bleed pressure, discharge capacitors, block suspended parts, ground conductors</li>' +
-        '<li><strong>Verify isolation (Tryout)</strong> \u2014 attempt to start equipment using normal start controls to confirm zero energy state</li>' +
-        '<li><strong>Perform the work</strong> \u2014 only now is it safe to work on the equipment</li>' +
-        '</ol>' +
-        '<div class="loto-notes">' +
-        '<h4>Key Rules</h4>' +
-        '<ul>' +
-        '<li>All locks must be RED (Master Lock or American Lock only)</li>' +
-        '<li>Each associate uses their own lock \u2014 never share keys</li>' +
-        '<li>Tags must be laminated and show name + date</li>' +
-        '<li>Authorized Associates require Machine Safety Awareness training every 2 years</li>' +
-        '</ul></div>' +
-        '<button class="btn btn-outline-red" onclick="window.print()">\uD83D\uDDA8\uFE0F Print Checklist</button>' +
-        '</div>'
+      title: 'LOTO Procedure',
+      body: '<div id="loto-steps-container" class="loto-steps"><p class="ref-note">Loading LOTO data...</p></div>'
     },
 
     formulas: {
@@ -396,6 +396,20 @@
     origShowTab(tabName);
     if (tabName === 'home') updateHomeDashboard();
   };
+
+  // Handle Deep-Linking and Navigation
+  function handleHash() {
+    var hash = window.location.hash.substring(1);
+    var validTabs = ['home', 'safety', 'theory', 'lab', 'reference', 'progress'];
+    if (validTabs.indexOf(hash) >= 0) {
+      showTab(hash, true);
+    } else if (!hash) {
+      showTab('home', true);
+    }
+  }
+
+  window.addEventListener('hashchange', handleHash);
+  handleHash(); // Run on load
 
 }());
 
