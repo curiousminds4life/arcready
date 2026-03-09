@@ -158,6 +158,7 @@
                 <!-- Study Panel -->
                 <div id="safety-study" class="mode-content mode-content--active">
                     <div id="safety-study-start-screen" class="start-screen" style="margin-bottom: 20px;">
+                        <label for="safety-study-topic" class="sr-only">Select Safety Topic</label>
                         <select id="safety-study-topic" class="form-input"
                             style="width: auto; margin-right: 10px; display: inline-block;">
                             <option value="all">All Topics</option>
@@ -334,6 +335,7 @@
                 <!-- Study Panel -->
                 <div id="theory-study" class="mode-content mode-content--active">
                     <div id="theory-study-start-screen" class="start-screen" style="margin-bottom: 20px;">
+                        <label for="theory-study-topic" class="sr-only">Select Theory Topic</label>
                         <select id="theory-study-topic" class="form-input"
                             style="width: auto; margin-right: 10px; display: inline-block;">
                             <option value="all">All Topics</option>
@@ -498,7 +500,8 @@
                 <div class="circuit-selector"
                     style="display: flex; flex-wrap: wrap; gap: 15px; align-items: flex-end; margin-bottom: 15px;">
                     <div>
-                        <label style="display:block; font-size:0.85rem; font-weight:bold; margin-bottom:4px;">Select
+                        <label for="circuit-select"
+                            style="display:block; font-size:0.85rem; font-weight:bold; margin-bottom:4px;">Select
                             Circuit</label>
                         <select id="circuit-select" class="form-input" style="width: auto;">
                             <option value="circuit-a">Circuit A - 3-Phase Motor Control</option>
@@ -507,7 +510,8 @@
                     </div>
                     <!-- Voltage Switch (Circuit A only) -->
                     <div id="voltage-switch-container" style="display:none;">
-                        <label style="display:block; font-size:0.85rem; font-weight:bold; margin-bottom:4px;">Input
+                        <label for="voltage-switch"
+                            style="display:block; font-size:0.85rem; font-weight:bold; margin-bottom:4px;">Input
                             Voltage</label>
                         <select id="voltage-switch" class="form-input" style="width: auto;">
                             <option value="480V">480V</option>
@@ -516,7 +520,8 @@
                     </div>
                     <!-- Motor Switch (Circuit A only) -->
                     <div id="motor-switch-container" style="display:none;">
-                        <label style="display:block; font-size:0.85rem; font-weight:bold; margin-bottom:4px;">Motor
+                        <label for="motor-switch"
+                            style="display:block; font-size:0.85rem; font-weight:bold; margin-bottom:4px;">Motor
                             Start</label>
                         <select id="motor-switch" class="form-input" style="width: auto;">
                             <option value="closed">Closed (Running)</option>
@@ -836,7 +841,7 @@
             <div id="ai-chat-messages" class="ai-chat-messages"></div>
             <div id="ai-chat-limit-banner" class="ai-limit-banner" style="display:none;"></div>
             <div id="ai-chat-input-row" class="ai-chat-input-row">
-                <input type="text" id="ai-chat-input" placeholder="Ask a question..." />
+                <input type="text" id="ai-chat-input" placeholder="Ask a question..." aria-label="Chat Message" />
                 <button id="ai-chat-send" class="btn btn-primary">Send</button>
             </div>
         </div>
