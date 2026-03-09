@@ -52,6 +52,13 @@
       'f3-blown': 'F3 blown: TP6 reads 0V to neutral. L3 phase lost.',
       'ms-open': 'MS contacts open. Full voltage across fuse outputs but 0V downstream of MS (TP7-TP10).',
       'ol-tripped': 'Overload tripped. Voltage through MS contacts but motor terminals isolated. Check TP8-TP10 vs TP7-TP10.'
+    },
+    'circuit-d': {
+      normal: 'System normal. 24VDC across TP1-TP7. Sensors S1 and S2 are open; CR1 and PL1 are de-energized.',
+      'ps-fail': 'Power Supply failure. 0V at output (TP1). Check input power or PSU fuse.',
+      's1-stuck': 'Sensor 1 stuck closed. CR1 and PL1 are energized even without detection. Terminal TP2 reads 24V.',
+      's2-open': 'Sensor 2 circuit open. Even if S2 detects, TP3 remains 0V. Check wiring or sensor contacts.',
+      'lamp-blown': "Indicator Lamp PL1 is blown. CR1 contact (TP5-TP6) closes 24V correctly, but lamp doesn't light."
     }
   };
 
@@ -363,6 +370,8 @@
         [7, 10], [8, 10], [9, 10], // Post-MS vs GND
         [11, 12], [13, 12] // Control
       ];
+    } else if (state.circuit === 'circuit-b') {
+      pairs = [[1, 7], [2, 7], [3, 7], [4, 7], [5, 7], [6, 7]];
     } else if (state.circuit === 'circuit-practice') {
       pairs = [
         [1, 2], [1, 3], [2, 3],
@@ -371,7 +380,7 @@
         [7, 10], [8, 10], [9, 10],
         [11, 12]
       ];
-    } else {
+    } else if (state.circuit === 'circuit-d') {
       pairs = [[1, 7], [2, 7], [3, 7], [4, 7], [5, 7], [6, 7]];
     }
 
@@ -392,7 +401,13 @@
 
     html += '</tbody></table>';
     container.innerHTML = html;
-    if (status) status.textContent = 'Mode: ' + (state.voltageSwitch || 'Default');
+    var modeText = 'Default';
+    if (state.circuit === 'circuit-a') modeText = state.voltageSwitch || '480V';
+    else if (state.circuit === 'circuit-b') modeText = '120VAC';
+    else if (state.circuit === 'circuit-practice') modeText = '208VAC';
+    else if (state.circuit === 'circuit-d') modeText = '24VDC';
+
+    if (status) status.textContent = 'Mode: ' + modeText;
   }
 
   // -- Pulse animation for voltage updates ------------------------------------
