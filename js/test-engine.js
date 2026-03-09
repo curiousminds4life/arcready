@@ -1,6 +1,6 @@
 
 /**
- * ArcReady — test-engine.js
+ * ArcReady -- test-engine.js
  * Complete exam engine: Study, Practice, and Certify modes
  * Supports Fisher-Yates shuffle, 45-min countdown timer,
  * checkpoint model for Safety certify, topic scoring, localStorage persistence
@@ -51,7 +51,6 @@
       var dropdown = el(section + '-study-topic');
       if (!dropdown) return;
 
-      // Extract specific topics (using Set pattern suitable for ES5 if needed, or simple map)
       var topicSet = {};
       banks[section].forEach(function (q) {
         if (q.topic) topicSet[q.topic] = true;
@@ -156,17 +155,13 @@
       tpsToActivate.forEach(function (tpId) {
         var targetString = 'data-tp="' + tpId + '"';
         var replacementString = 'class="test-point tp-active" data-tp="' + tpId + '"';
-        // First, strip the existing class attribute for this specific TP to avoid duplicates
         var stripRegex = new RegExp('class="test-point"\\s+data-tp="' + tpId + '"', 'g');
         rawSvg = rawSvg.replace(stripRegex, targetString);
-
-        // Then add the new combined class
         rawSvg = rawSvg.replace(targetString, replacementString);
       });
 
       wrap.innerHTML = rawSvg;
 
-      // Ensure inline SVGs conform to container constraints
       var svgEl = wrap.querySelector('svg');
       if (svgEl) {
         svgEl.style.maxWidth = '100%';
@@ -452,7 +447,7 @@
     var totalAll = sess.questions.length;
     setText(i.counter, 'Q ' + totalQ + ' of ' + totalAll +
       '  |  Block ' + (sess.cpCurrent + 1) + ' of ' + sess.checkpoints.length +
-      '  —  ' + cp.topic);
+      '  \u2014  ' + cp.topic);
 
     setText(i.topicBadge, cp.topic);
     // BUG 1 FIX: use dual-standard helpers for certify-checkpoint render
@@ -504,7 +499,6 @@
 
     cp.attempts++;
     if (correct) cp.correct++;
-    // Record answer on original question index
     if (!sess.answers[item.origIdx]) {
       sess.answers[item.origIdx] = chosen; // first attempt
     }
@@ -557,10 +551,6 @@
       nextBtn.disabled = false;
       nextBtn.classList.add('btn-ready');
     }
-    // Sync correctAnswer-based retry option check
-    if (!correct && expEl) {
-      // Already handled above — cpNeedsRetry flags the re-enable
-    }
   }
 
   function advanceCertifyCheckpoint(section) {
@@ -581,7 +571,7 @@
         renderCertifyCheckpointQuestion(section);
         showToast('Block complete! Moving to: ' + sess.checkpoints[sess.cpCurrent].topic, 'info');
       } else {
-        // All checkpoints done — submit
+        // All checkpoints done -- submit
         stopTimer(section, 'certify');
         renderCheckpointBar(section);
         scoreAndShowResults(section, 'certify');
@@ -635,7 +625,6 @@
     var sess = sessions[key(section, mode)];
     if (!sess) return;
     sess.answers[sess.current] = chosen;
-    // Re-render to show selection
     renderExamQuestion(section, mode, sess.current);
   }
 
@@ -657,7 +646,7 @@
         showToast('Time is up! Submitting exam.', 'error');
         if (mode === 'practice') { submitPractice(section); }
         else if (mode === 'certify' && section !== 'safety') { submitCertify(section); }
-        // BUG 3 FIX: safety certify uses checkpoint mode — also needs to submit on timeout
+        // BUG 3 FIX: safety certify uses checkpoint mode -- also needs to submit on timeout
         else if (mode === 'certify' && section === 'safety') {
           hide(section + '-certify-exam');
           scoreAndShowResults(section, 'certify');
@@ -790,17 +779,23 @@
     if (!pass || mode === 'practice') {
       var missed = [];
       questions.forEach(function (q, idx) {
-        if (answers[idx] !== q.answer) missed.push({ q: q, chosen: answers[idx] });
+        // BUG E FIX: use dual-standard correct answer helper
+        var correctAns = window._getCorrectAnswer ? window._getCorrectAnswer(q) : q.answer;
+        if (answers[idx] !== correctAns) missed.push({ q: q, chosen: answers[idx], correctAns: correctAns });
       });
       if (missed.length > 0) {
         missedHTML = '<div class="results-missed"><h4>Missed Questions (' + missed.length + ')</h4>';
         missed.forEach(function (m, n) {
           var chosen = m.chosen || 'Not answered';
+          // BUG E FIX: use dual-standard options helper
+          var opts = window._getQuestionOptions ? window._getQuestionOptions(m.q) : (m.q.options || {});
+          var expl = window._getExplanation ? window._getExplanation(m.q) : (m.q.explanation || '');
+          var qText = window._getQuestionText ? window._getQuestionText(m.q) : (m.q.question || '');
           missedHTML += '<div class="missed-item">' +
-            '<div class="missed-q"><strong>' + (n + 1) + '.</strong> ' + escHtml(m.q.question) + '</div>' +
-            '<div class="missed-your">Your answer: <span class="answer-wrong">' + escHtml(chosen !== 'Not answered' ? chosen + ': ' + (m.q.options[chosen] || '') : 'Not answered') + '</span></div>' +
-            '<div class="missed-correct">Correct: <span class="answer-right">' + m.q.answer + ': ' + escHtml(m.q.options[m.q.answer]) + '</span></div>' +
-            '<div class="missed-exp">' + escHtml(m.q.explanation) + '</div></div>';
+            '<div class="missed-q"><strong>' + (n + 1) + '.</strong> ' + escHtml(qText) + '</div>' +
+            '<div class="missed-your">Your answer: <span class="answer-wrong">' + escHtml(chosen !== 'Not answered' ? chosen + ': ' + (opts[chosen] || '') : 'Not answered') + '</span></div>' +
+            '<div class="missed-correct">Correct: <span class="answer-right">' + m.correctAns + ': ' + escHtml(opts[m.correctAns] || '') + '</span></div>' +
+            '<div class="missed-exp">' + escHtml(expl) + '</div></div>';
         });
         missedHTML += '</div>';
       }
@@ -819,7 +814,7 @@
       missedHTML +
       '<div class="results-actions">' +
       '<button class="btn btn-secondary" id="results-retake-' + section + '-' + mode + '">&#x1F504; Retake Exam</button>' +
-      (mode === 'certify' && pass ? '<button class="btn btn-primary" onclick="window.ArcReady.showTab(\"progress\")">View Progress &#x1F4CA;</button>' : '') +
+      (mode === 'certify' && pass ? '<button class="btn btn-primary" onclick="window.ArcReady.showTab(\'progress\')">View Progress &#x1F4CA;</button>' : '') +
       '</div></div>';
   }
 
@@ -848,6 +843,11 @@
     var bestKey = 'arcready_' + section + '_best';
     var curBest = parseInt(localStorage.getItem(bestKey) || '0', 10);
     if (pct > curBest) localStorage.setItem(bestKey, String(pct));
+
+    // Notify Home dashboard
+    updateHomeProgressBar();
+    document.dispatchEvent(new CustomEvent('certificationUpdated'));
+
   }
 
   /* ================================================================
@@ -912,10 +912,7 @@
   function checkTheoryGate() {
     var certified = localStorage.getItem('arcready_safety_certified') === 'true';
     var lockOverlay = el('theory-lock-overlay');
-    var certifyStart = el('theory-certify-start-screen');
-    if (lockOverlay) lockOverlay.style.display = certified ? 'none' : '';  // hide overlay when certified ✓
-    // BUG 6 FIX: was inverted — certify start screen should show when certified, hide when NOT
-    if (certifyStart) certifyStart.style.display = certified ? '' : 'none';
+    if (lockOverlay) lockOverlay.style.display = certified ? 'none' : '';  // hide overlay when certified
   }
 
   /* ================================================================
@@ -940,7 +937,7 @@
   }
 
   /* ================================================================
-     EVENT WIRING — answer clicks (delegated)
+     EVENT WIRING -- answer clicks (delegated)
      ================================================================ */
   document.addEventListener('click', function (e) {
     var opt = e.target.closest('.answer-option');
@@ -955,7 +952,6 @@
     } else if (mode === 'certify-cp') {
       var sess = sessions[key(section, 'certify')];
       if (sess && sess.cpNeedsRetry) {
-        // Only the correct answer option is re-enabled in retry mode
         advanceCertifyCheckpoint(section);
       } else if (sess && !sess.cpNeedsRetry) {
         handleCertifyCheckpointAnswer(section, chosen);
@@ -1076,7 +1072,7 @@
 
 }());
 
-// ── Dual-standard helpers (standards.js integration) ──────────
+// -- Dual-standard helpers (standards.js integration) ------------------
 (function () {
   function _std() { return (window.ArcReady && window.ArcReady.getStandardId) ? window.ArcReady.getStandardId() : (localStorage.getItem('arcready_standard') || 'workplace'); }
   window._getStandardId = _std;
@@ -1088,6 +1084,6 @@
     var s = _std();
     return all.filter(function (q) { if (!q.standard || q.standard === 'both') return true; return q.standard === s; });
   };
-  // BUG 1 FIX: TestEngine is a plain object, not a class — prototype extension was wrong.
+  // BUG 1 FIX: TestEngine is a plain object, not a class -- prototype extension was wrong.
   // The helpers are exposed on window and called directly inside the render functions above.
 })();

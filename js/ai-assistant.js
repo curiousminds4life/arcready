@@ -8,14 +8,14 @@
 
   window.ArcReady = window.ArcReady || {};
 
-  /* ── Config & State ─────────────────────────────────────────── */
+  /* -- Config & State ------------------------------------------ */
   var cfg = null;            // loaded from data/ai-config.json
   var chatHistory = [];      // [{role,content}] for study chat
   var chatTurns = 0;
   var labHintsUsed = 0;
   var labHintPenalty = 0;   // cumulative score penalty
 
-  /* ── Utility: simple hash for cache key ────────────────────── */
+  /* -- Utility: simple hash for cache key ----------------------- */
   function hashStr(s) {
     var h = 0;
     for (var i = 0; i < s.length; i++) {
@@ -24,7 +24,7 @@
     return 'ai_' + Math.abs(h).toString(36);
   }
 
-  /* ── Session-storage cache ──────────────────────────────────── */
+  /* -- Session-storage cache ------------------------------------ */
   function getCached(key) {
     try {
       var raw = sessionStorage.getItem(key);
@@ -38,16 +38,16 @@
   function setCached(key, val, ttlMs) {
     try {
       sessionStorage.setItem(key, JSON.stringify({ val: val, exp: Date.now() + (ttlMs || 3600000) }));
-    } catch (e) {/* quota — ignore */ }
+    } catch (e) {/* quota -- ignore */ }
   }
 
-  /* ── Active standard helper ─────────────────────────────────── */
+  /* -- Active standard helper ----------------------------------- */
   function getStandardCtx() {
     var id = localStorage.getItem('arcready_standard') || 'workplace';
-    return id === 'nfpa' ? 'NFPA 70E 2024 national standard' : 'Workplace / SGOP safety standards';
+    return id === 'nfpa' ? 'NFPA 70E 2024 national standard' : 'Workplace / Solid Green safety standards';
   }
 
-  /* ── Core API call ──────────────────────────────────────────── */
+  /* -- Core API call -------------------------------------------- */
   function callAI(feature, messages, callback) {
     if (!cfg || !cfg.enabled) { callback(null, 'AI not configured'); return; }
 
@@ -70,26 +70,8 @@
     var cached = getCached(cacheKey);
     if (cached) { callback(cached, null); return; }
 
-    var url, headers;
-
-    if (cfg.dev_mode && cfg.dev_openrouter_key) {
-      // Direct OpenRouter call (localhost dev only)
-      url = 'https://openrouter.ai/api/v1/chat/completions';
-      headers = {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + cfg.dev_openrouter_key,
-        'HTTP-Referer': 'https://arcready.net',
-        'X-Title': 'ArcReady Training'
-      };
-    } else if (!cfg.dev_mode) {
-      // Production: route through PHP proxy
-      url = cfg.proxy_url || 'ai-proxy.php';
-      headers = { 'Content-Type': 'application/json' };
-    } else {
-      // dev_mode true but no key set — silently skip
-      console.error('[ArcReady AI] dev_mode=true but no key set in ai-config.json'); callback(null, 'no_key');
-      return;
-    }
+    var url = cfg.proxy_url || 'ai-proxy.php';
+    var headers = { 'Content-Type': 'application/json' };
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url, true);
@@ -98,6 +80,11 @@
 
     xhr.onload = function () {
       try {
+        if (xhr.status >= 400) {
+          console.error('[ArcReady AI] HTTP Error:', xhr.status, xhr.responseText);
+          callback(null, 'HTTP ' + xhr.status + ': ' + (xhr.status === 401 ? 'Invalid API Key' : 'Proxy Error'));
+          return;
+        }
         var data = JSON.parse(xhr.responseText);
         var text = data.choices && data.choices[0] && data.choices[0].message
           ? data.choices[0].message.content.trim()
@@ -106,15 +93,17 @@
           setCached(cacheKey, text);
           callback(text, null);
         } else {
-          console.error('[ArcReady AI] Empty response. Status:', xhr.status, 'Data:', JSON.stringify(data).substring(0, 200)); callback(null, 'empty_response');
+          console.error('[ArcReady AI] Empty response.', xhr.status, xhr.responseText);
+          callback(null, 'Service returned empty response');
         }
       } catch (e) {
-        console.error('[ArcReady AI] Parse error. Status:', xhr.status, 'Response:', xhr.responseText.substring(0, 200)); callback(null, 'parse_error');
+        console.error('[ArcReady AI] Parse error.', xhr.status, xhr.responseText);
+        callback(null, 'Error parsing AI response');
       }
     };
-    xhr.onerror = function () { console.error('[ArcReady AI] Network error calling', url); callback(null, 'network_error'); };
-    xhr.ontimeout = function () { console.error('[ArcReady AI] Request timed out calling', url); callback(null, 'timeout'); };
-    console.log('[ArcReady AI] Calling', url, 'model:', model); xhr.send(body);
+    xhr.onerror = function () { callback(null, 'Network connection failed'); };
+    xhr.ontimeout = function () { callback(null, 'Request timed out'); };
+    xhr.send(body);
   }
 
   /* ================================================================
@@ -173,7 +162,6 @@
             '<div class="ai-explain-header"><span class="ai-badge">AI</span> Instructor Explanation</div>' +
             '<p>' + escHtml(text) + '</p>';
         } else {
-          // Instead of hiding it, show an error message so the user knows why it failed
           panel.innerHTML =
             '<div class="ai-explain-header"><span class="ai-badge">AI Error</span></div>' +
             '<p>We encountered an issue generating the explanation. Please check your config API keys.</p>';
@@ -260,7 +248,7 @@
           }
         } else {
           chatHistory.pop();
-          addBotMsg('Sorry, I couldn\'t reach the AI service. Please try again. If this persists, use the Study Mode tabs instead.');
+          addBotMsg('Sorry, I couldn\'t reach the AI service: <strong>' + (err || 'Connection Issue') + '</strong>. Please ensure your <code>OPENROUTER_KEY</code> is set correctly in Hostinger and <code>ai-config.json</code> is deployed.');
         }
         if (msgs) msgs.scrollTop = msgs.scrollHeight;
       });
@@ -406,7 +394,6 @@
         return;
       }
       if (coachCard) {
-        // Convert markdown-ish bullets to HTML list
         var html = formatCoachText(text);
         coachCard.innerHTML = html;
         coachCard.style.display = 'block';
@@ -419,7 +406,6 @@
   }
 
   function formatCoachText(text) {
-    // Convert bullet lines (-, *, •) to <li>, wrap in <ul>
     var lines = text.split('\n').map(function (l) { return l.trim(); }).filter(Boolean);
     var items = [];
     var intro = '';
@@ -438,7 +424,7 @@
     return out;
   }
 
-  /* ── HTML escape ────────────────────────────────────────────── */
+  /* -- HTML escape ---------------------------------------------- */
   function escHtml(s) {
     return String(s || '')
       .replace(/&/g, '&amp;')
@@ -449,7 +435,7 @@
   }
 
   /* ================================================================
-     INIT — loads config, wires up chat bubble
+     INIT -- loads config, wires up chat bubble
      ================================================================ */
   function init() {
     var xhr = new XMLHttpRequest();
@@ -469,7 +455,7 @@
     xhr.send();
   }
 
-  /* ── Public API ─────────────────────────────────────────────── */
+  /* -- Public API ----------------------------------------------- */
   ArcReady.AI = {
     init: init,
     explainAnswer: explainAnswer,

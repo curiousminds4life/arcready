@@ -1,4 +1,4 @@
-/* lab.js — ArcReady Virtual Troubleshooting Lab
+/* lab.js -- ArcReady Virtual Troubleshooting Lab
  * Two-probe multimeter state machine + SVG circuit injection
  * Depends on: svg-circuits.js (ArcReady.SVGCircuits, ArcReady.CircuitData)
  */
@@ -9,7 +9,8 @@
   // BUG 2 FIX: hoist these to module scope so loadCircuit() can reference them
   var voltSwitch = null;
   var motorSw = null;
-  // ── State ──────────────────────────────────────────────────────────────────
+
+  // -- State -------------------------------------------------------------------
   var state = {
     circuit: null,   // current circuit id
     fault: 'normal',
@@ -27,14 +28,14 @@
     readings: []      // history [{red,black,value}]
   };
 
-  // ── Guided hints per fault per circuit ────────────────────────────────────
+  // -- Guided hints per fault per circuit -------------------------------------
   var HINTS = {
     'circuit-a': {
       normal: 'System normal. All three phases present throughout. Transformer secondary reads 120V and 24V.',
-      'f1-blown': 'F1 fuse is blown. L1 phase is lost. Check TP1–TP4: expect 277V before fuse, 0V after. Motor cannot start.',
-      'f2-blown': 'F2 fuse is blown. L2 phase is lost. Check TP2–TP5: expect voltage before fuse, 0V after fuse.',
-      'f3-blown': 'F3 fuse is blown. L3 phase is lost. Check TP3–TP6: expect voltage before fuse, 0V after fuse.',
-      'ms-open': 'Motor Starter (MS) contacts are open. Voltage present through fuses but 0V after MS contacts (TP7–TP10).',
+      'f1-blown': 'F1 fuse is blown. L1 phase is lost. Check TP1-TP4: expect 277V before fuse, 0V after. Motor cannot start.',
+      'f2-blown': 'F2 fuse is blown. L2 phase is lost. Check TP2-TP5: expect voltage before fuse, 0V after fuse.',
+      'f3-blown': 'F3 fuse is blown. L3 phase is lost. Check TP3-TP6: expect voltage before fuse, 0V after fuse.',
+      'ms-open': 'Motor Starter (MS) contacts are open. Voltage present through fuses but 0V after MS contacts (TP7-TP10).',
       'ol-tripped': 'Overload relay tripped. Voltage present through MS contacts but 0V at motor terminals. OL heaters show continuity path broken.'
     },
     'circuit-b': {
@@ -46,27 +47,23 @@
     },
     'circuit-practice': {
       normal: 'System normal. 208V across any two phases, 120V phase-to-neutral, 24V transformer secondary.',
-      'f1-blown': 'F1 blown: TP4 reads 0V to neutral. TP4–TP5 reads reduced (backfeed ~120V). Motor cannot run.',
+      'f1-blown': 'F1 blown: TP4 reads 0V to neutral. TP4-TP5 reads reduced (backfeed ~120V). Motor cannot run.',
       'f2-blown': 'F2 blown: TP5 reads 0V to neutral. L2 phase lost at that point.',
       'f3-blown': 'F3 blown: TP6 reads 0V to neutral. L3 phase lost.',
-      'ms-open': 'MS contacts open. Full voltage across fuse outputs but 0V downstream of MS (TP7–TP10).',
-      'ol-tripped': 'Overload tripped. Voltage through MS contacts but motor terminals isolated. Check TP8–TP10 vs TP7–TP10.'
+      'ms-open': 'MS contacts open. Full voltage across fuse outputs but 0V downstream of MS (TP7-TP10).',
+      'ol-tripped': 'Overload tripped. Voltage through MS contacts but motor terminals isolated. Check TP8-TP10 vs TP7-TP10.'
     }
   };
 
-  // ── DOM refs ───────────────────────────────────────────────────────────────
+  // -- DOM refs ---------------------------------------------------------------
   function $id(id) { return document.getElementById(id); }
 
-  // ── Init ───────────────────────────────────────────────────────────────────
+  // -- Init -------------------------------------------------------------------
   ArcReady.initLab = function () {
     // Circuit selector
     var circSelect = $id('circuit-select');
     if (circSelect) {
       circSelect.addEventListener('change', function () {
-        var titleEl = $id('circuit-title');
-        if (titleEl && ArcReady.CircuitData[this.value]) {
-          titleEl.textContent = ArcReady.CircuitData[this.value].title;
-        }
         loadCircuit(this.value);
       });
     }
@@ -75,18 +72,24 @@
       loadCircuit(circSelect.value);
     }
 
-
     // BUG 2 FIX: assign to module-scope vars so loadCircuit() can reach them
     voltSwitch = $id('voltage-switch');
     var voltContainer = $id('voltage-switch-container');
     if (voltSwitch) {
       voltSwitch.addEventListener('change', function () {
         state.voltageSwitch = this.value;
+
+        // Update title to match voltage
+        var titleEl = $id('circuit-title');
+        if (titleEl && state.circuit === 'circuit-a') {
+          titleEl.textContent = 'Circuit A - ' + this.value + ' 3-Phase Motor Control';
+        }
+
         if (state.circuit !== 'circuit-a') {
           voltContainer.style.display = 'none';
-          var motorSw = $id('motor-switch');
+          var localMotorSw = $id('motor-switch');
           var motorC = $id('motor-switch-container');
-          if (motorSw) motorSw.value = 'closed';
+          if (localMotorSw) localMotorSw.value = 'closed';
           if (motorC) motorC.style.display = 'none';
         } else {
           voltContainer.style.display = 'flex';
@@ -97,6 +100,7 @@
           displayReading(reading);
           triggerPulseAnimation();
         }
+        renderTruthTable();
       });
     }
 
@@ -119,9 +123,9 @@
           displayReading(reading);
           triggerPulseAnimation();
         }
+        renderTruthTable();
       });
     }
-
 
     // Fault buttons (delegated on fault-controls container)
     var fc = $id('fault-controls');
@@ -158,7 +162,7 @@
     if (clrH) clrH.addEventListener('click', function () { state.readings = []; renderHistory(); });
   };
 
-  // ── Load circuit ───────────────────────────────────────────────────────────
+  // -- Load circuit -----------------------------------------------------------
   function loadCircuit(id) {
     if (!ArcReady.SVGCircuits || !ArcReady.SVGCircuits[id]) return;
     state.circuit = id;
@@ -166,8 +170,7 @@
     resetProbes();
     state.readings = [];
 
-
-    // --- Show/hide switches based on circuit ---
+    // Show/hide switches based on circuit
     var voltC = $id('voltage-switch-container');
     var motorC = $id('motor-switch-container');
     if (id === 'circuit-a') {
@@ -176,12 +179,12 @@
     } else {
       if (voltC) voltC.style.display = 'none';
       if (motorC) motorC.style.display = 'none';
+      // BUG 2 FIX: voltSwitch and motorSw are now accessible here (module scope)
       if (voltSwitch) voltSwitch.value = '480V';
       if (motorSw) motorSw.value = 'closed';
     }
 
     // Inject SVG
-
     var wrap = $id('circuit-svg-container');
     if (wrap) {
       wrap.innerHTML = ArcReady.SVGCircuits[id].svg;
@@ -190,17 +193,29 @@
       attachTestPointListeners(wrap);
     }
 
+    // Update Title
+    var titleEl = $id('circuit-title');
+    if (titleEl) {
+      if (id === 'circuit-a') {
+        var v = $id('voltage-switch').value || '480V';
+        titleEl.textContent = 'Circuit A - ' + v + ' 3-Phase Motor Control';
+      } else if (ArcReady.CircuitData[id]) {
+        titleEl.textContent = ArcReady.CircuitData[id].title;
+      }
+    }
+
     // Populate fault buttons
     renderFaultButtons(id);
     setFault('normal');
     renderHistory();
+    renderTruthTable();
 
     if (state.mode === 'challenge') startChallenge();
 
     setInstruction('Circuit loaded. Click a test point to place the <span style="color:#CC0000;font-weight:bold">RED</span> probe.');
   }
 
-  // ── Fault buttons ──────────────────────────────────────────────────────────
+  // -- Fault buttons ----------------------------------------------------------
   function renderFaultButtons(id) {
     var fc = $id('fault-controls');
     if (!fc) return;
@@ -210,7 +225,7 @@
     }).join('');
   }
 
-  // ── Test point listeners ───────────────────────────────────────────────────
+  // -- Test point listeners ---------------------------------------------------
   function attachTestPointListeners(container) {
     var tps = container.querySelectorAll('.test-point');
     tps.forEach(function (el) {
@@ -236,7 +251,7 @@
     });
   }
 
-  // ── Probe state machine ────────────────────────────────────────────────────
+  // -- Probe state machine ----------------------------------------------------
   function handleProbeClick(tpNum, el) {
     var container = $id('circuit-svg-container');
     if (!container) return;
@@ -255,9 +270,9 @@
 
     } else if (state.probeStep === 1) {
       if (tpNum === state.probeRed) {
-        // Same point — reset
+        // Same point -- reset
         resetProbes();
-        setInstruction('Same point selected — probes reset. Click a test point to place the <span style="color:#CC0000;font-weight:bold">RED</span> probe.');
+        setInstruction('Same point selected -- probes reset. Click a test point to place the <span style="color:#CC0000;font-weight:bold">RED</span> probe.');
         return;
       }
       // Place black probe
@@ -307,19 +322,80 @@
     });
   }
 
-  // ── Voltage lookup ─────────────────────────────────────────────────────────
+  // -- Voltage lookup ---------------------------------------------------------
   function getReading(fault, a, b) {
     var data = ArcReady.CircuitData[state.circuit];
-    if (!data) return '???.?V AC';
+    if (!data) return '0.0V AC';
     var tbl = data.readings[fault] || data.readings['normal'] || {};
     var k1 = 'TP' + a + '-TP' + b;
     var k2 = 'TP' + b + '-TP' + a;
-    return tbl[k1] || tbl[k2] || '0.0V AC';
+    var raw = tbl[k1] || tbl[k2] || '0.0V AC';
+
+    // Circuit A Voltage Scaling
+    if (state.circuit === 'circuit-a' && state.voltageSwitch === '208V') {
+      var val = parseFloat(raw);
+      if (val === 480) return '208.0V AC';
+      if (val === 277) return '120.0V AC';
+      if (val === 120) return '120.0V AC'; // control tap 1
+      if (val === 24) return '24.0V AC';  // control tap 2
+      // Scale others by ratio (208/480 approx 0.433)
+      return (val * 0.4333).toFixed(1) + 'V AC';
+    }
+    return raw;
   }
 
-  // ── Display ────────────────────────────────────────────────────────────────
+  // -- Truth Table Rendering --------------------------------------------------
+  function renderTruthTable() {
+    var container = $id('truth-table-container');
+    var status = $id('truth-table-status');
+    if (!container) return;
 
-  // ── Pulse animation for voltage updates ──────────────────────────────────
+    var data = ArcReady.CircuitData[state.circuit];
+    if (!data) return;
+
+    // Use a subset of important TPs for the reference table to keep it readable
+    var pairs = [];
+    if (state.circuit === 'circuit-a') {
+      pairs = [
+        [1, 2], [1, 3], [2, 3], // Mains
+        [4, 10], [5, 10], [6, 10], // Pre-MS vs GND
+        [4, 5], [4, 6], [5, 6], // Ph-Ph pre-MS
+        [7, 10], [8, 10], [9, 10], // Post-MS vs GND
+        [11, 12], [13, 12] // Control
+      ];
+    } else if (state.circuit === 'circuit-practice') {
+      pairs = [
+        [1, 2], [1, 3], [2, 3],
+        [4, 10], [5, 10], [6, 10],
+        [4, 5], [5, 6],
+        [7, 10], [8, 10], [9, 10],
+        [11, 12]
+      ];
+    } else {
+      pairs = [[1, 7], [2, 7], [3, 7], [4, 7], [5, 7], [6, 7]];
+    }
+
+    var html = '<table style="width:100%; border-collapse: collapse; font-size: 12px; font-family: monospace;">'
+      + '<thead style="background:#f0f0f0;">'
+      + '<tr><th style="padding:6px; border:1px solid #eee; text-align:left;">Test Points</th>'
+      + '<th style="padding:6px; border:1px solid #eee; text-align:right;">Expected Value</th></tr></thead><tbody>';
+
+    pairs.forEach(function (p) {
+      var val = getReading(state.fault, p[0], p[1]);
+      var isZero = parseFloat(val) === 0;
+      var style = isZero ? 'color:#888;' : 'font-weight:bold; color:#0056b3;';
+      html += '<tr>'
+        + '<td style="padding:6px; border:1px solid #eee; color:#555;">TP' + p[0] + ' \u2192 TP' + p[1] + '</td>'
+        + '<td style="padding:6px; border:1px solid #eee; text-align:right; ' + style + '">' + val + '</td>'
+        + '</tr>';
+    });
+
+    html += '</tbody></table>';
+    container.innerHTML = html;
+    if (status) status.textContent = 'Mode: ' + (state.voltageSwitch || 'Default');
+  }
+
+  // -- Pulse animation for voltage updates ------------------------------------
   function triggerPulseAnimation() {
     var disp = $id('multimeter-reading');
     if (disp) {
@@ -336,12 +412,10 @@
     var disp = $id('multimeter-reading');
     var unit = $id('multimeter-unit');
     if (disp) {
-      // Parse value for dramatic display
       var num = parseFloat(val) || 0;
       var ustr = val.replace(/[0-9.\s]/g, '').trim() || 'V AC';
       disp.textContent = num.toFixed(1);
       if (unit) unit.textContent = ustr;
-      // Color coding
       if (num === 0) disp.style.color = '#888';
       else if (num < 30) disp.style.color = '#2E7D32';
       else if (num < 240) disp.style.color = '#00FF41';
@@ -366,7 +440,6 @@
     if (keepProbes === undefined) keepProbes = true;
     state.fault = faultId;
     if (!keepProbes) resetProbes();
-    // Update active button
     var fc = $id('fault-controls');
     if (fc) fc.querySelectorAll('[data-fault]').forEach(function (b) {
       b.classList.toggle('active', b.dataset.fault === faultId);
@@ -378,6 +451,7 @@
       faultBadge.textContent = isNormal ? 'Normal Operation' : '\u26a0\ufe0f FAULT: ' + faultLabel;
       faultBadge.style.color = isNormal ? '#2E7D32' : '#CC0000';
     }
+    renderTruthTable();
     setInstruction('Fault set to <strong>' + faultLabel + '</strong>. Click a test point to begin probing.');
   }
 
@@ -388,7 +462,7 @@
     return f ? f.label : id;
   }
 
-  // ── History ────────────────────────────────────────────────────────────────
+  // -- History ----------------------------------------------------------------
   function renderHistory() {
     var hist = $id('reading-history');
     if (!hist) return;
@@ -406,7 +480,7 @@
     }).join('');
   }
 
-  // ── Challenge mode ─────────────────────────────────────────────────────────
+  // -- Challenge mode ---------------------------------------------------------
   function setMode(m) {
     state.mode = m;
     var fc = $id('fault-controls');
@@ -423,8 +497,6 @@
       if (fc) fc.style.opacity = '1';
       if (cd) cd.style.display = 'none';
       state.challenge.active = false;
-      var faultSelect = $id('challenge-fault-select');
-      // restore normal
       setFault('normal');
     }
   }
@@ -445,7 +517,6 @@
     resetProbes();
     state.readings = [];
     renderHistory();
-    // Populate diagnosis dropdown
     var sel = $id('challenge-fault-select');
     if (sel) {
       sel.innerHTML = '<option value="">-- Select your diagnosis --</option>'
@@ -455,11 +526,10 @@
     }
     var badge = $id('challenge-probes-left');
     if (badge) badge.textContent = state.challenge.maxProbes;
-    setInstruction('<strong>\ud83d\udd34 Challenge Mode Active!</strong> A random fault has been injected. Use your multimeter to diagnose the problem. You have <strong>' + state.challenge.maxProbes + '</strong> probe touches. Then submit your diagnosis.');
-    // Hide fault badge
+    setInstruction('<strong>\uD83D\uDD34 Challenge Mode Active!</strong> A random fault has been injected. Use your multimeter to diagnose the problem. You have <strong>' + state.challenge.maxProbes + '</strong> probe touches. Then submit your diagnosis.');
     var fb = $id('current-fault-badge');
     if (fb) { fb.textContent = '\u2753 Unknown Fault'; fb.style.color = '#F57C00'; }
-    // AI: inject hint UI into challenge panel and reset hint state
+    // AI: inject hint UI into challenge panel
     (function () {
       var cp = document.getElementById('challenge-panel');
       if (!cp) return;
@@ -471,6 +541,7 @@
       hintPanel.id = 'ai-hint-panel';
       var hintBtn = document.createElement('button');
       hintBtn.id = 'ai-hint-btn';
+      hintBtn.className = 'btn btn-secondary';
       hintBtn.innerHTML = '&#x1F916; Get Hint <span class="ai-hint-counter">(3 left, -10 pts each)</span>';
       var submitBtn = document.getElementById('challenge-submit');
       if (submitBtn) {
@@ -500,26 +571,23 @@
     res.innerHTML = correct
       ? '<span style="color:#2E7D32;font-weight:bold;">\u2713 CORRECT! ' + getFaultLabel(state.challenge.fault) + ' identified. Score: ' + score + '/100 (' + probesUsed + ' probes used)</span>'
       : '<span style="color:#CC0000;font-weight:bold;">\u2717 Incorrect. The fault was: ' + getFaultLabel(state.challenge.fault) + '</span>';
-    // Save score
     try {
       var hist = JSON.parse(localStorage.getItem('arcready_lab_scores') || '[]');
       hist.unshift({ circuit: state.circuit, fault: state.challenge.fault, guess: guess, correct: correct, score: score, date: new Date().toISOString() });
       localStorage.setItem('arcready_lab_scores', JSON.stringify(hist.slice(0, 50)));
     } catch (e) { }
-    // Reveal fault
     var fb = $id('current-fault-badge');
     if (fb) { fb.textContent = 'Fault was: ' + getFaultLabel(state.challenge.fault); fb.style.color = '#CC0000'; }
     state.challenge.active = false;
     var fc = $id('fault-controls');
     if (fc) fc.style.opacity = '1';
-    // Offer restart
     setTimeout(function () {
       var restart = $id('challenge-restart');
       if (restart) restart.style.display = 'inline-block';
     }, 400);
   }
 
-  // ── Tooltip ────────────────────────────────────────────────────────────────
+  // -- Tooltip ----------------------------------------------------------------
   var _tt = null;
   function showTooltip(el, text) {
     hideTooltip();
@@ -533,7 +601,7 @@
   }
   function hideTooltip() { if (_tt) { _tt.remove(); _tt = null; } }
 
-  // ── Expose lab state for AI hint system ───────────────────────────────────────────
+  // -- Expose lab state for AI hint system ------------------------------------
   ArcReady._labState = function () {
     return {
       circuit: state.circuit,
@@ -544,18 +612,16 @@
     };
   };
 
-  // ── Auto-init when DOM ready ───────────────────────────────────────────────
+  // -- Auto-init when DOM ready -----------------------------------------------
   function domReady(fn) {
     if (document.readyState !== 'loading') fn();
     else document.addEventListener('DOMContentLoaded', fn);
   }
 
   domReady(function () {
-    // Only init if lab tab elements exist
     if ($id('circuit-select') || $id('circuit-svg-container')) {
       ArcReady.initLab();
     }
-    // Challenge restart button
     var restart = $id('challenge-restart');
     if (restart) {
       restart.addEventListener('click', function () {

@@ -46,30 +46,28 @@
     var p = getStandard();
     var desc = p ? (p.description || '') : '';
     var aid = getStandardId();
-    var workplaceCls = 'standard-card standard-picker-card' + (aid === 'workplace' ? ' standard-card--active' : '');
-    var nfpaCls = 'standard-card standard-picker-card' + (aid === 'nfpa' ? ' standard-card--active' : '');
+    var workplaceCls = 'std-btn' + (aid === 'workplace' ? ' active--workplace' : '');
+    var nfpaCls = 'std-btn' + (aid === 'nfpa' ? ' active--nfpa' : '');
+
     var html = [
-      '<div class="standard-panel section-card">',
-      '<div class="section-card-header" style="margin-bottom: 15px;">',
-      '<span class="section-card-icon">📋</span>',
-      '<h3 class="section-card-title" style="margin: 0; font-size: 1.1rem;">STUDY STANDARD</h3>',
-      '</div>',
-      '<p class="section-card-desc" style="margin-bottom: 20px;">Choose which standard to study and certify under.</p>',
-      '<div style="display: flex; gap: 15px; margin-bottom: 20px;">',
+      '<div class="standards-selector">',
+      '<h3>STUDY STANDARD</h3>',
+      '<div class="standards-toggle">',
       '<div class="' + workplaceCls + '" data-std="workplace">',
-      '<h4 style="margin: 0 0 5px 0; color: inherit;">Workplace Standards</h4>',
-      '<p style="margin: 0; font-size: 0.9rem; color: var(--gray-text); opacity: 0.9;">Facility Safety Procedures</p>',
+      '<strong>Workplace Standards</strong>',
+      '<span>Facility Safety Procedures</span>',
       '</div>',
       '<div class="' + nfpaCls + '" data-std="nfpa">',
-      '<h4 style="margin: 0 0 5px 0; color: inherit;">NFPA 70E 2024</h4>',
-      '<p style="margin: 0; font-size: 0.9rem; color: var(--gray-text); opacity: 0.9;">National Standard</p>',
+      '<strong>NFPA 70E 2024</strong>',
+      '<span>National Standard</span>',
       '</div>',
       '</div>',
-      '<div class="standard-desc std-description" style="padding-left: 10px; border-left: 3px solid #CC0000; font-size: 0.95rem; color: #444;">',
+      '<div class="std-note std-description">',
       esc(desc),
       '</div>',
       '</div>'
     ].join('');
+
     containers.forEach(function (c) {
       c.innerHTML = html;
       c.querySelectorAll('[data-std]').forEach(function (btn) {
@@ -82,18 +80,21 @@
     var badge = document.getElementById('std-badge');
     if (!badge) return;
     var aid = getStandardId();
+    var text = aid === 'nfpa' ? 'NFPA 70E 2024' : 'Workplace Standards';
     badge.className = 'std-badge ' + (aid === 'nfpa' ? 'nfpa' : 'workplace');
-    badge.textContent = aid === 'nfpa' ? 'NFPA 70E 2024' : 'Workplace Standards';
+    badge.innerHTML = '<span>' + text + '</span><span style="display:inline-flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.2); border-radius:50%; width:18px; height:18px; margin-left:8px; font-size:10px;">⇄</span>';
   }
 
   function updateSelectorButtons() {
     var aid = getStandardId();
     document.querySelectorAll('[data-std="workplace"]').forEach(function (el) {
-      el.className = 'standard-card standard-picker-card' + (aid === 'workplace' ? ' standard-card--active' : '');
+      el.className = 'std-btn' + (aid === 'workplace' ? ' active--workplace' : '');
     });
     document.querySelectorAll('[data-std="nfpa"]').forEach(function (el) {
-      el.className = 'standard-card standard-picker-card' + (aid === 'nfpa' ? ' standard-card--active' : '');
+      el.className = 'std-btn' + (aid === 'nfpa' ? ' active--nfpa' : '');
     });
+
+
     var descText = '';
     var p = getStandard();
     if (p) descText = p.description || '';
@@ -203,10 +204,25 @@
   window.ArcReady.renderQualifiedPerson = renderQualifiedPerson;
   window.ArcReady.renderCitations = renderCitations;
 
+  function initBadgeToggle() {
+    var badge = document.getElementById('std-badge');
+    if (!badge) return;
+    badge.title = 'Click to switch between Workplace and NFPA standards';
+    badge.addEventListener('click', function () {
+      var current = getStandardId();
+      setStandard(current === 'workplace' ? 'nfpa' : 'workplace');
+    });
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { loadProfiles(); updateBadge(); });
+    document.addEventListener('DOMContentLoaded', function () {
+      loadProfiles();
+      updateBadge();
+      initBadgeToggle();
+    });
   } else {
     loadProfiles();
     updateBadge();
+    initBadgeToggle();
   }
 }());
