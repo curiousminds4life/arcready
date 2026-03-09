@@ -27,6 +27,13 @@
       window.location.hash = tabName;
     }
 
+    // Move Quick Launch into the active tab section
+    var quickLaunch = document.querySelector('.global-quick-start');
+    var activeSection = document.getElementById('tab-' + tabName);
+    if (quickLaunch && activeSection) {
+      activeSection.appendChild(quickLaunch);
+    }
+
     // Update Page Title
     var tabTitles = {
       'home': 'Home',
