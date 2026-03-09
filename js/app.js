@@ -13,7 +13,7 @@
   var tabButtons = document.querySelectorAll('.nav-tab');
   var tabSections = document.querySelectorAll('.tab-section');
 
-  function showTab(tabName) {
+  function showTab(tabName, skipHash) {
     tabButtons.forEach(function (btn) {
       var active = btn.getAttribute('data-tab') === tabName;
       btn.classList.toggle('active', active);
@@ -23,6 +23,21 @@
       sec.classList.toggle('active', sec.id === 'tab-' + tabName);
     });
     window.scrollTo(0, 0);
+    if (!skipHash) {
+      window.location.hash = tabName;
+    }
+
+    // Update Page Title
+    var tabTitles = {
+      'home': 'Home',
+      'safety': 'Safety Training',
+      'theory': 'Theory Study',
+      'lab': 'Virtual Lab',
+      'reference': 'Reference',
+      'progress': 'My Progress'
+    };
+    document.title = 'ArcReady — ' + (tabTitles[tabName] || 'Electrical Safety');
+
     if (tabName === 'progress' && ArcReady.Progress) ArcReady.Progress.render();
   }
 
@@ -374,6 +389,20 @@
     origShowTab(tabName);
     if (tabName === 'home') updateHomeDashboard();
   };
+
+  // Handle Deep-Linking and Navigation
+  function handleHash() {
+    var hash = window.location.hash.substring(1);
+    var validTabs = ['home', 'safety', 'theory', 'lab', 'reference', 'progress'];
+    if (validTabs.indexOf(hash) >= 0) {
+      showTab(hash, true);
+    } else if (!hash) {
+      showTab('home', true);
+    }
+  }
+
+  window.addEventListener('hashchange', handleHash);
+  handleHash(); // Run on load
 
 }());
 
