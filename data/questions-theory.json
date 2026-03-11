@@ -15,7 +15,7 @@
   {
     "id": "T002",
     "topic": "Ohm's Law & Power",
-    "question": "A circuit has a resistance of 12Ω and a voltage of 120V. What is the current?",
+    "question": "A circuit has a resistance of 12\u03a9 and a voltage of 120V. What is the current?",
     "options": {
       "A": "1,440 A",
       "B": "10 A",
@@ -23,7 +23,7 @@
       "D": "132 A"
     },
     "answer": "B",
-    "explanation": "I = E/R = 120V / 12Ω = 10A. Dividing voltage by resistance gives current in amperes."
+    "explanation": "I = E/R = 120V / 12\u03a9 = 10A. Dividing voltage by resistance gives current in amperes."
   },
   {
     "id": "T003",
@@ -36,12 +36,12 @@
       "D": "1,200 kW"
     },
     "answer": "C",
-    "explanation": "P = I × E = 5A × 240V = 1,200W (1.2 kW). Power equals current multiplied by voltage."
+    "explanation": "P = I \u00d7 E = 5A \u00d7 240V = 1,200W (1.2 kW). Power equals current multiplied by voltage."
   },
   {
     "id": "T004",
     "topic": "Ohm's Law & Power",
-    "question": "A 100Ω resistor carries 2A of current. What power does it dissipate?",
+    "question": "A 100\u03a9 resistor carries 2A of current. What power does it dissipate?",
     "options": {
       "A": "200 W",
       "B": "50 W",
@@ -49,12 +49,12 @@
       "D": "10,000 W"
     },
     "answer": "C",
-    "explanation": "P = I²R = (2A)² × 100Ω = 4 × 100 = 400W. The power formula P = I²R is used when voltage is unknown."
+    "explanation": "P = I\u00b2R = (2A)\u00b2 \u00d7 100\u03a9 = 4 \u00d7 100 = 400W. The power formula P = I\u00b2R is used when voltage is unknown."
   },
   {
     "id": "T005",
     "topic": "Ohm's Law & Power",
-    "question": "A 480V source is applied across a 960Ω resistor. What power is dissipated?",
+    "question": "A 480V source is applied across a 960\u03a9 resistor. What power is dissipated?",
     "options": {
       "A": "0.5 W",
       "B": "240 W",
@@ -62,7 +62,7 @@
       "D": "2 W"
     },
     "answer": "B",
-    "explanation": "P = E²/R = (480)² / 960 = 230,400 / 960 = 240W. The formula P = E²/R is used when current is unknown."
+    "explanation": "P = E\u00b2/R = (480)\u00b2 / 960 = 230,400 / 960 = 240W. The formula P = E\u00b2/R is used when current is unknown."
   },
   {
     "id": "T006",
@@ -75,7 +75,7 @@
       "D": "Current quadruples"
     },
     "answer": "C",
-    "explanation": "From I = E/R: if R doubles and E is constant, I = E/(2R) — current is halved. Resistance and current are inversely proportional at constant voltage."
+    "explanation": "From I = E/R: if R doubles and E is constant, I = E/(2R) \u2014 current is halved. Resistance and current are inversely proportional at constant voltage."
   },
   {
     "id": "T007",
@@ -95,31 +95,31 @@
     "topic": "Ohm's Law & Power",
     "question": "What is the resistance of a heating element that draws 10A from a 240V supply?",
     "options": {
-      "A": "2,400 Ω",
-      "B": "24 Ω",
-      "C": "0.042 Ω",
-      "D": "250 Ω"
+      "A": "2,400 \u03a9",
+      "B": "24 \u03a9",
+      "C": "0.042 \u03a9",
+      "D": "250 \u03a9"
     },
     "answer": "B",
-    "explanation": "R = E/I = 240V / 10A = 24Ω. Rearranging Ohm's Law to solve for resistance."
+    "explanation": "R = E/I = 240V / 10A = 24\u03a9. Rearranging Ohm's Law to solve for resistance."
   },
   {
     "id": "T009",
     "topic": "Ohm's Law & Power",
     "question": "Which formula correctly expresses power in terms of voltage and resistance only?",
     "options": {
-      "A": "P = I²R",
+      "A": "P = I\u00b2R",
       "B": "P = IE",
-      "C": "P = E²/R",
+      "C": "P = E\u00b2/R",
       "D": "P = E/R"
     },
     "answer": "C",
-    "explanation": "P = E²/R is derived by substituting I = E/R into P = IE, giving P = E × (E/R) = E²/R. This form is used when only voltage and resistance are known."
+    "explanation": "P = E\u00b2/R is derived by substituting I = E/R into P = IE, giving P = E \u00d7 (E/R) = E\u00b2/R. This form is used when only voltage and resistance are known."
   },
   {
     "id": "T010",
     "topic": "Ohm's Law & Power",
-    "question": "A circuit operates at 480V with 5Ω of resistance. What is the current?",
+    "question": "A circuit operates at 480V with 5\u03a9 of resistance. What is the current?",
     "options": {
       "A": "2,400 A",
       "B": "96 A",
@@ -127,7 +127,7 @@
       "D": "0.01 A"
     },
     "answer": "B",
-    "explanation": "I = E/R = 480V / 5Ω = 96A."
+    "explanation": "I = E/R = 480V / 5\u03a9 = 96A."
   },
   {
     "id": "T011",
@@ -140,12 +140,12 @@
       "D": "Stay the same"
     },
     "answer": "C",
-    "explanation": "P = I²R. If I triples to 3I, then P = (3I)²R = 9I²R — power increases by 9 times. Power varies with the SQUARE of current."
+    "explanation": "P = I\u00b2R. If I triples to 3I, then P = (3I)\u00b2R = 9I\u00b2R \u2014 power increases by 9 times. Power varies with the SQUARE of current."
   },
   {
     "id": "T012",
     "topic": "Ohm's Law & Power",
-    "question": "A resistor is marked 470Ω. A technician measures 4.7V across it. What current flows through it?",
+    "question": "A resistor is marked 470\u03a9. A technician measures 4.7V across it. What current flows through it?",
     "options": {
       "A": "100 mA",
       "B": "2,209 mA",
@@ -153,7 +153,7 @@
       "D": "0.1 mA"
     },
     "answer": "C",
-    "explanation": "I = E/R = 4.7V / 470Ω = 0.01A = 10mA."
+    "explanation": "I = E/R = 4.7V / 470\u03a9 = 0.01A = 10mA."
   },
   {
     "id": "T013",
@@ -162,16 +162,16 @@
     "options": {
       "A": "Volts (V)",
       "B": "Amperes (A)",
-      "C": "Ohms (Ω)",
+      "C": "Ohms (\u03a9)",
       "D": "Watts (W)"
     },
     "answer": "D",
-    "explanation": "Electrical power is measured in watts (W). 1 watt = 1 volt × 1 ampere. Kilowatts (kW) and megawatts (MW) are common multiples for larger systems."
+    "explanation": "Electrical power is measured in watts (W). 1 watt = 1 volt \u00d7 1 ampere. Kilowatts (kW) and megawatts (MW) are common multiples for larger systems."
   },
   {
     "id": "T014",
     "topic": "Ohm's Law & Power",
-    "question": "A 15Ω load is connected to 120V. How many watts does it consume?",
+    "question": "A 15\u03a9 load is connected to 120V. How many watts does it consume?",
     "options": {
       "A": "8 W",
       "B": "960 W",
@@ -179,7 +179,7 @@
       "D": "1,350 W"
     },
     "answer": "B",
-    "explanation": "P = E²/R = (120)² / 15 = 14,400 / 15 = 960W. Or: I = 120/15 = 8A, then P = IE = 8 × 120 = 960W."
+    "explanation": "P = E\u00b2/R = (120)\u00b2 / 15 = 14,400 / 15 = 960W. Or: I = 120/15 = 8A, then P = IE = 8 \u00d7 120 = 960W."
   },
   {
     "id": "T015",
@@ -197,7 +197,7 @@
   {
     "id": "T016",
     "topic": "Ohm's Law & Power",
-    "question": "What is the voltage drop across a 22Ω resistor carrying 3A?",
+    "question": "What is the voltage drop across a 22\u03a9 resistor carrying 3A?",
     "options": {
       "A": "7.33 V",
       "B": "66 V",
@@ -205,7 +205,7 @@
       "D": "0.136 V"
     },
     "answer": "B",
-    "explanation": "E = IR = 3A × 22Ω = 66V. This is the voltage drop (potential difference) across the resistor."
+    "explanation": "E = IR = 3A \u00d7 22\u03a9 = 66V. This is the voltage drop (potential difference) across the resistor."
   },
   {
     "id": "T017",
@@ -218,7 +218,7 @@
       "D": "0.667 kWh"
     },
     "answer": "C",
-    "explanation": "Energy = Power × Time = 2,000W × 3h = 6,000Wh = 6 kWh. Kilowatt-hours are the standard unit for electrical energy consumption."
+    "explanation": "Energy = Power \u00d7 Time = 2,000W \u00d7 3h = 6,000Wh = 6 kWh. Kilowatt-hours are the standard unit for electrical energy consumption."
   },
   {
     "id": "T018",
@@ -231,25 +231,25 @@
       "D": "Voltage equals resistance divided by current"
     },
     "answer": "B",
-    "explanation": "From I = E/R: current (I) is directly proportional to voltage (E) — more voltage, more current — and inversely proportional to resistance (R) — more resistance, less current. This is the fundamental relationship of Ohm's Law."
+    "explanation": "From I = E/R: current (I) is directly proportional to voltage (E) \u2014 more voltage, more current \u2014 and inversely proportional to resistance (R) \u2014 more resistance, less current. This is the fundamental relationship of Ohm's Law."
   },
   {
     "id": "T019",
     "topic": "Ohm's Law & Power",
     "question": "A technician needs to find the resistance of an unknown component. The supply voltage is 24V and the current measured is 80mA. What is the resistance?",
     "options": {
-      "A": "0.0033 Ω",
-      "B": "1,920 Ω",
-      "C": "300 Ω",
-      "D": "1.92 Ω"
+      "A": "0.0033 \u03a9",
+      "B": "1,920 \u03a9",
+      "C": "300 \u03a9",
+      "D": "1.92 \u03a9"
     },
     "answer": "C",
-    "explanation": "R = E/I = 24V / 0.08A = 300Ω. Convert 80mA to 0.08A first, then apply R = E/I."
+    "explanation": "R = E/I = 24V / 0.08A = 300\u03a9. Convert 80mA to 0.08A first, then apply R = E/I."
   },
   {
     "id": "T020",
     "topic": "Ohm's Law & Power",
-    "question": "A panel supplies 208V to a 4Ω resistive load. What is the power dissipated and what current flows?",
+    "question": "A panel supplies 208V to a 4\u03a9 resistive load. What is the power dissipated and what current flows?",
     "options": {
       "A": "P = 52W, I = 0.25A",
       "B": "P = 10,816W, I = 52A",
@@ -257,7 +257,7 @@
       "D": "P = 10,816W, I = 26A"
     },
     "answer": "B",
-    "explanation": "I = E/R = 208/4 = 52A. P = IE = 52 × 208 = 10,816W. Or P = E²/R = 208²/4 = 43,264/4 = 10,816W."
+    "explanation": "I = E/R = 208/4 = 52A. P = IE = 52 \u00d7 208 = 10,816W. Or P = E\u00b2/R = 208\u00b2/4 = 43,264/4 = 10,816W."
   },
   {
     "id": "T021",
@@ -275,20 +275,20 @@
   {
     "id": "T022",
     "topic": "Series Circuits",
-    "question": "Three resistors of 10Ω, 20Ω, and 30Ω are connected in series. What is the total resistance?",
+    "question": "Three resistors of 10\u03a9, 20\u03a9, and 30\u03a9 are connected in series. What is the total resistance?",
     "options": {
-      "A": "5.45 Ω",
-      "B": "600 Ω",
-      "C": "60 Ω",
-      "D": "20 Ω"
+      "A": "5.45 \u03a9",
+      "B": "600 \u03a9",
+      "C": "60 \u03a9",
+      "D": "20 \u03a9"
     },
     "answer": "C",
-    "explanation": "In series: Rt = R1 + R2 + R3 = 10 + 20 + 30 = 60Ω. Total resistance in a series circuit equals the sum of all individual resistances."
+    "explanation": "In series: Rt = R1 + R2 + R3 = 10 + 20 + 30 = 60\u03a9. Total resistance in a series circuit equals the sum of all individual resistances."
   },
   {
     "id": "T023",
     "topic": "Series Circuits",
-    "question": "A 120V source powers three series resistors: 15Ω, 25Ω, and 20Ω. What current flows in the circuit?",
+    "question": "A 120V source powers three series resistors: 15\u03a9, 25\u03a9, and 20\u03a9. What current flows in the circuit?",
     "options": {
       "A": "8 A",
       "B": "2 A",
@@ -296,7 +296,7 @@
       "D": "60 A"
     },
     "answer": "B",
-    "explanation": "Rt = 15 + 25 + 20 = 60Ω. I = E/Rt = 120V / 60Ω = 2A. The same 2A flows through all three resistors."
+    "explanation": "Rt = 15 + 25 + 20 = 60\u03a9. I = E/Rt = 120V / 60\u03a9 = 2A. The same 2A flows through all three resistors."
   },
   {
     "id": "T024",
@@ -309,7 +309,7 @@
       "D": "Voltage doubles across each successive component"
     },
     "answer": "C",
-    "explanation": "In a series circuit, voltage divides proportionally across components. The voltage drop across each resistor = I × R. Higher resistance components have larger voltage drops (voltage divider principle)."
+    "explanation": "In a series circuit, voltage divides proportionally across components. The voltage drop across each resistor = I \u00d7 R. Higher resistance components have larger voltage drops (voltage divider principle)."
   },
   {
     "id": "T025",
@@ -327,7 +327,7 @@
   {
     "id": "T026",
     "topic": "Series Circuits",
-    "question": "In the series circuit from T023 (2A, 15Ω, 25Ω, 20Ω), what is the voltage drop across the 25Ω resistor?",
+    "question": "In the series circuit from T023 (2A, 15\u03a9, 25\u03a9, 20\u03a9), what is the voltage drop across the 25\u03a9 resistor?",
     "options": {
       "A": "25 V",
       "B": "50 V",
@@ -335,7 +335,7 @@
       "D": "30 V"
     },
     "answer": "B",
-    "explanation": "V = IR = 2A × 25Ω = 50V. The current (2A) is the same throughout, so each voltage drop = I × individual R."
+    "explanation": "V = IR = 2A \u00d7 25\u03a9 = 50V. The current (2A) is the same throughout, so each voltage drop = I \u00d7 individual R."
   },
   {
     "id": "T027",
@@ -357,29 +357,29 @@
     "options": {
       "A": "The remaining components continue to operate normally",
       "B": "The remaining components operate at higher voltage",
-      "C": "The entire circuit stops — current cannot flow through an open series path",
+      "C": "The entire circuit stops \u2014 current cannot flow through an open series path",
       "D": "Current increases through remaining components"
     },
     "answer": "C",
-    "explanation": "In a series circuit, all components share the same single current path. If any component fails open, the path is broken and current drops to zero — all components in the series circuit stop functioning."
+    "explanation": "In a series circuit, all components share the same single current path. If any component fails open, the path is broken and current drops to zero \u2014 all components in the series circuit stop functioning."
   },
   {
     "id": "T029",
     "topic": "Series Circuits",
     "question": "A series circuit has a 24V supply and three equal resistors. Each resistor drops 8V. What is the resistance of each resistor if the current is 0.5A?",
     "options": {
-      "A": "48 Ω",
-      "B": "12 Ω",
-      "C": "16 Ω",
-      "D": "6 Ω"
+      "A": "48 \u03a9",
+      "B": "12 \u03a9",
+      "C": "16 \u03a9",
+      "D": "6 \u03a9"
     },
     "answer": "C",
-    "explanation": "R = V/I = 8V / 0.5A = 16Ω each. Total R = 24V / 0.5A = 48Ω = 3 × 16Ω. ✓"
+    "explanation": "R = V/I = 8V / 0.5A = 16\u03a9 each. Total R = 24V / 0.5A = 48\u03a9 = 3 \u00d7 16\u03a9. \u2713"
   },
   {
     "id": "T030",
     "topic": "Series Circuits",
-    "question": "Two resistors in series have values of 100Ω and 200Ω. They are connected to 60V. What percentage of the supply voltage drops across the 200Ω resistor?",
+    "question": "Two resistors in series have values of 100\u03a9 and 200\u03a9. They are connected to 60V. What percentage of the supply voltage drops across the 200\u03a9 resistor?",
     "options": {
       "A": "33.3%",
       "B": "50%",
@@ -387,7 +387,7 @@
       "D": "200%"
     },
     "answer": "C",
-    "explanation": "The 200Ω resistor is 200/300 = 66.7% of total resistance (300Ω). In a series circuit, voltage divides in proportion to resistance: V200 = 60V × (200/300) = 40V = 66.7% of 60V."
+    "explanation": "The 200\u03a9 resistor is 200/300 = 66.7% of total resistance (300\u03a9). In a series circuit, voltage divides in proportion to resistance: V200 = 60V \u00d7 (200/300) = 40V = 66.7% of 60V."
   },
   {
     "id": "T031",
@@ -395,17 +395,17 @@
     "question": "A fuse is always connected in series with the load it protects. Why?",
     "options": {
       "A": "Series connection allows the fuse to measure voltage",
-      "B": "In series, all current must flow through the fuse — if current exceeds the rating the fuse opens, interrupting the entire circuit",
+      "B": "In series, all current must flow through the fuse \u2014 if current exceeds the rating the fuse opens, interrupting the entire circuit",
       "C": "Parallel connection would be too expensive",
       "D": "Series fuses only protect against voltage surges"
     },
     "answer": "B",
-    "explanation": "A fuse must be in series because all circuit current flows through it. When current exceeds the fuse rating, the fuse element melts (opens), breaking the series path and stopping all current flow — protecting the circuit downstream."
+    "explanation": "A fuse must be in series because all circuit current flows through it. When current exceeds the fuse rating, the fuse element melts (opens), breaking the series path and stopping all current flow \u2014 protecting the circuit downstream."
   },
   {
     "id": "T032",
     "topic": "Series Circuits",
-    "question": "Four resistors (5Ω, 10Ω, 15Ω, 20Ω) are in series across 100V. What is the current and power consumed by the 10Ω resistor?",
+    "question": "Four resistors (5\u03a9, 10\u03a9, 15\u03a9, 20\u03a9) are in series across 100V. What is the current and power consumed by the 10\u03a9 resistor?",
     "options": {
       "A": "I = 2A, P = 40W",
       "B": "I = 2A, P = 20W",
@@ -413,7 +413,7 @@
       "D": "I = 10A, P = 1000W"
     },
     "answer": "A",
-    "explanation": "Rt = 5+10+15+20 = 50Ω. I = 100/50 = 2A. P10 = I²R = (2)² × 10 = 40W. (Or: V10 = 2×10 = 20V; P = 20×2 = 40W.)"
+    "explanation": "Rt = 5+10+15+20 = 50\u03a9. I = 100/50 = 2A. P10 = I\u00b2R = (2)\u00b2 \u00d7 10 = 40W. (Or: V10 = 2\u00d710 = 20V; P = 20\u00d72 = 40W.)"
   },
   {
     "id": "T033",
@@ -426,20 +426,20 @@
       "D": "Zero in branches with low resistance"
     },
     "answer": "B",
-    "explanation": "In a parallel circuit, all branches connect directly between the same two nodes (supply voltage terminals). Therefore, each branch has the full supply voltage across it — voltage is equal across all parallel branches."
+    "explanation": "In a parallel circuit, all branches connect directly between the same two nodes (supply voltage terminals). Therefore, each branch has the full supply voltage across it \u2014 voltage is equal across all parallel branches."
   },
   {
     "id": "T034",
     "topic": "Parallel Circuits",
-    "question": "Two resistors, 4Ω and 12Ω, are connected in parallel. What is the total equivalent resistance?",
+    "question": "Two resistors, 4\u03a9 and 12\u03a9, are connected in parallel. What is the total equivalent resistance?",
     "options": {
-      "A": "16 Ω",
-      "B": "8 Ω",
-      "C": "3 Ω",
-      "D": "48 Ω"
+      "A": "16 \u03a9",
+      "B": "8 \u03a9",
+      "C": "3 \u03a9",
+      "D": "48 \u03a9"
     },
     "answer": "C",
-    "explanation": "1/Rt = 1/R1 + 1/R2 = 1/4 + 1/12 = 3/12 + 1/12 = 4/12. Rt = 12/4 = 3Ω. Parallel resistance is always less than the smallest individual resistor."
+    "explanation": "1/Rt = 1/R1 + 1/R2 = 1/4 + 1/12 = 3/12 + 1/12 = 4/12. Rt = 12/4 = 3\u03a9. Parallel resistance is always less than the smallest individual resistor."
   },
   {
     "id": "T035",
@@ -457,7 +457,7 @@
   {
     "id": "T036",
     "topic": "Parallel Circuits",
-    "question": "Three parallel resistors: 10Ω, 20Ω, and 30Ω across 60V. What is the total current drawn from the supply?",
+    "question": "Three parallel resistors: 10\u03a9, 20\u03a9, and 30\u03a9 across 60V. What is the total current drawn from the supply?",
     "options": {
       "A": "1 A",
       "B": "6 A",
@@ -483,15 +483,15 @@
   {
     "id": "T038",
     "topic": "Parallel Circuits",
-    "question": "Two equal resistors of 50Ω are connected in parallel. What is their combined resistance?",
+    "question": "Two equal resistors of 50\u03a9 are connected in parallel. What is their combined resistance?",
     "options": {
-      "A": "100 Ω",
-      "B": "50 Ω",
-      "C": "25 Ω",
-      "D": "0 Ω"
+      "A": "100 \u03a9",
+      "B": "50 \u03a9",
+      "C": "25 \u03a9",
+      "D": "0 \u03a9"
     },
     "answer": "C",
-    "explanation": "For two equal resistors in parallel: Rt = R/2 = 50/2 = 25Ω. Two identical resistors in parallel always produce half the individual resistance."
+    "explanation": "For two equal resistors in parallel: Rt = R/2 = 50/2 = 25\u03a9. Two identical resistors in parallel always produce half the individual resistance."
   },
   {
     "id": "T039",
@@ -531,7 +531,7 @@
       "D": "Voltage across remaining branches drops"
     },
     "answer": "B",
-    "explanation": "Unlike series circuits, a failure in one parallel branch only removes that branch from the circuit. The other branches maintain full supply voltage and continue operating normally — this is why home wiring uses parallel circuits."
+    "explanation": "Unlike series circuits, a failure in one parallel branch only removes that branch from the circuit. The other branches maintain full supply voltage and continue operating normally \u2014 this is why home wiring uses parallel circuits."
   },
   {
     "id": "T042",
@@ -549,15 +549,15 @@
   {
     "id": "T043",
     "topic": "Parallel Circuits",
-    "question": "Three parallel resistors (R1=2Ω, R2=3Ω, R3=6Ω). What is the total equivalent resistance?",
+    "question": "Three parallel resistors (R1=2\u03a9, R2=3\u03a9, R3=6\u03a9). What is the total equivalent resistance?",
     "options": {
-      "A": "11 Ω",
-      "B": "1 Ω",
-      "C": "6 Ω",
-      "D": "0.36 Ω"
+      "A": "11 \u03a9",
+      "B": "1 \u03a9",
+      "C": "6 \u03a9",
+      "D": "0.36 \u03a9"
     },
     "answer": "B",
-    "explanation": "1/Rt = 1/2 + 1/3 + 1/6 = 3/6 + 2/6 + 1/6 = 6/6 = 1. Therefore Rt = 1Ω."
+    "explanation": "1/Rt = 1/2 + 1/3 + 1/6 = 3/6 + 2/6 + 1/6 = 6/6 = 1. Therefore Rt = 1\u03a9."
   },
   {
     "id": "T044",
@@ -583,7 +583,7 @@
       "D": "The ratio of voltage to current"
     },
     "answer": "B",
-    "explanation": "Frequency in hertz (Hz) is the number of complete cycles (full sine waves) per second. In the US, standard AC frequency is 60Hz — 60 complete cycles every second."
+    "explanation": "Frequency in hertz (Hz) is the number of complete cycles (full sine waves) per second. In the US, standard AC frequency is 60Hz \u2014 60 complete cycles every second."
   },
   {
     "id": "T046",
@@ -596,7 +596,7 @@
       "D": "60 milliseconds"
     },
     "answer": "C",
-    "explanation": "Period T = 1/f = 1/60 ≈ 0.0167 seconds = 16.7 milliseconds. Period is the time for one complete cycle, the reciprocal of frequency."
+    "explanation": "Period T = 1/f = 1/60 \u2248 0.0167 seconds = 16.7 milliseconds. Period is the time for one complete cycle, the reciprocal of frequency."
   },
   {
     "id": "T047",
@@ -622,72 +622,72 @@
       "D": "240 V"
     },
     "answer": "B",
-    "explanation": "Vpeak = VRMS × √2 = 120 × 1.414 = 169.7V. The peak voltage of a standard 120V (RMS) circuit is approximately 170V."
+    "explanation": "Vpeak = VRMS \u00d7 \u221a2 = 120 \u00d7 1.414 = 169.7V. The peak voltage of a standard 120V (RMS) circuit is approximately 170V."
   },
   {
     "id": "T049",
     "topic": "AC Theory",
     "question": "Inductive reactance (XL) is calculated by which formula?",
     "options": {
-      "A": "XL = R/2πfL",
-      "B": "XL = 2πfL",
-      "C": "XL = 1/(2πfC)",
-      "D": "XL = 2πf/L"
+      "A": "XL = R/2\u03c0fL",
+      "B": "XL = 2\u03c0fL",
+      "C": "XL = 1/(2\u03c0fC)",
+      "D": "XL = 2\u03c0f/L"
     },
     "answer": "B",
-    "explanation": "Inductive reactance XL = 2πfL, where f is frequency (Hz) and L is inductance (henries). Inductive reactance increases with frequency — inductors oppose AC more at higher frequencies."
+    "explanation": "Inductive reactance XL = 2\u03c0fL, where f is frequency (Hz) and L is inductance (henries). Inductive reactance increases with frequency \u2014 inductors oppose AC more at higher frequencies."
   },
   {
     "id": "T050",
     "topic": "AC Theory",
     "question": "A 0.1H inductor is connected to 60Hz AC. What is its inductive reactance?",
     "options": {
-      "A": "6 Ω",
-      "B": "37.7 Ω",
-      "C": "0.6 Ω",
-      "D": "376.8 Ω"
+      "A": "6 \u03a9",
+      "B": "37.7 \u03a9",
+      "C": "0.6 \u03a9",
+      "D": "376.8 \u03a9"
     },
     "answer": "B",
-    "explanation": "XL = 2πfL = 2 × 3.14159 × 60 × 0.1 = 37.7Ω."
+    "explanation": "XL = 2\u03c0fL = 2 \u00d7 3.14159 \u00d7 60 \u00d7 0.1 = 37.7\u03a9."
   },
   {
     "id": "T051",
     "topic": "AC Theory",
     "question": "Capacitive reactance (XC) is calculated by:",
     "options": {
-      "A": "XC = 2πfC",
-      "B": "XC = 1/(2πfC)",
-      "C": "XC = 2πf/C",
-      "D": "XC = 2πfL"
+      "A": "XC = 2\u03c0fC",
+      "B": "XC = 1/(2\u03c0fC)",
+      "C": "XC = 2\u03c0f/C",
+      "D": "XC = 2\u03c0fL"
     },
     "answer": "B",
-    "explanation": "Capacitive reactance XC = 1/(2πfC), where f is frequency and C is capacitance in farads. Unlike inductors, capacitors oppose AC more at lower frequencies — XC decreases as frequency increases."
+    "explanation": "Capacitive reactance XC = 1/(2\u03c0fC), where f is frequency and C is capacitance in farads. Unlike inductors, capacitors oppose AC more at lower frequencies \u2014 XC decreases as frequency increases."
   },
   {
     "id": "T052",
     "topic": "AC Theory",
     "question": "In a purely inductive AC circuit, the current:",
     "options": {
-      "A": "Leads the voltage by 90°",
+      "A": "Leads the voltage by 90\u00b0",
       "B": "Is in phase with the voltage",
-      "C": "Lags the voltage by 90°",
-      "D": "Leads the voltage by 45°"
+      "C": "Lags the voltage by 90\u00b0",
+      "D": "Leads the voltage by 45\u00b0"
     },
     "answer": "C",
-    "explanation": "In a purely inductive circuit, current lags voltage by 90°. The inductor's opposing EMF (back-EMF) causes current to peak 90° after voltage peaks. Memory aid: 'ELI' — in an inductive (L) circuit, voltage (E) leads current (I)."
+    "explanation": "In a purely inductive circuit, current lags voltage by 90\u00b0. The inductor's opposing EMF (back-EMF) causes current to peak 90\u00b0 after voltage peaks. Memory aid: 'ELI' \u2014 in an inductive (L) circuit, voltage (E) leads current (I)."
   },
   {
     "id": "T053",
     "topic": "AC Theory",
     "question": "In a purely capacitive AC circuit, the current:",
     "options": {
-      "A": "Lags the voltage by 90°",
+      "A": "Lags the voltage by 90\u00b0",
       "B": "Is in phase with the voltage",
-      "C": "Leads the voltage by 90°",
-      "D": "Lags the voltage by 45°"
+      "C": "Leads the voltage by 90\u00b0",
+      "D": "Lags the voltage by 45\u00b0"
     },
     "answer": "C",
-    "explanation": "In a purely capacitive circuit, current leads voltage by 90°. The capacitor must charge before voltage builds up, so current flows first. Memory aid: 'ICE' — in a capacitive (C) circuit, current (I) leads voltage (E)."
+    "explanation": "In a purely capacitive circuit, current leads voltage by 90\u00b0. The capacitor must charge before voltage builds up, so current flows first. Memory aid: 'ICE' \u2014 in a capacitive (C) circuit, current (I) leads voltage (E)."
   },
   {
     "id": "T054",
@@ -700,7 +700,7 @@
       "D": "The power factor of the circuit"
     },
     "answer": "B",
-    "explanation": "Impedance (Z, measured in ohms) is the total opposition to AC current flow, combining resistance (R) and reactance (XL and XC). Z = √(R² + X²). Ohm's Law applies: I = E/Z."
+    "explanation": "Impedance (Z, measured in ohms) is the total opposition to AC current flow, combining resistance (R) and reactance (XL and XC). Z = \u221a(R\u00b2 + X\u00b2). Ohm's Law applies: I = E/Z."
   },
   {
     "id": "T055",
@@ -713,20 +713,20 @@
       "D": "DC cannot power motors"
     },
     "answer": "B",
-    "explanation": "AC can be stepped up to high voltages using transformers for efficient long-distance transmission (low I²R losses), then stepped back down for safe utilization. DC voltage cannot be transformed directly — this was the decisive advantage of AC in the 'War of Currents.'"
+    "explanation": "AC can be stepped up to high voltages using transformers for efficient long-distance transmission (low I\u00b2R losses), then stepped back down for safe utilization. DC voltage cannot be transformed directly \u2014 this was the decisive advantage of AC in the 'War of Currents.'"
   },
   {
     "id": "T056",
     "topic": "AC Theory",
     "question": "A sine wave completes 60 cycles per second. How many degrees does it traverse in one complete cycle?",
     "options": {
-      "A": "90°",
-      "B": "180°",
-      "C": "270°",
-      "D": "360°"
+      "A": "90\u00b0",
+      "B": "180\u00b0",
+      "C": "270\u00b0",
+      "D": "360\u00b0"
     },
     "answer": "D",
-    "explanation": "One complete cycle of a sine wave traverses 360°. At 60Hz, the wave completes 360° sixty times per second. A half-cycle is 180° and a quarter-cycle is 90°."
+    "explanation": "One complete cycle of a sine wave traverses 360\u00b0. At 60Hz, the wave completes 360\u00b0 sixty times per second. A half-cycle is 180\u00b0 and a quarter-cycle is 90\u00b0."
   },
   {
     "id": "T057",
@@ -752,7 +752,7 @@
       "D": "476 V"
     },
     "answer": "C",
-    "explanation": "V1/V2 = N1/N2 → 480/V2 = 4/1 → V2 = 480/4 = 120V. A 4:1 transformer steps 480V down to 120V. This matches the 4:1 XFMR in Circuit A."
+    "explanation": "V1/V2 = N1/N2 \u2192 480/V2 = 4/1 \u2192 V2 = 480/4 = 120V. A 4:1 transformer steps 480V down to 120V. This matches the 4:1 XFMR in Circuit A."
   },
   {
     "id": "T059",
@@ -765,7 +765,7 @@
       "D": "120 V"
     },
     "answer": "C",
-    "explanation": "V2 = V1 / ratio = 480 / ~9 ≈ ~53V. However, Circuit A shows a ~9:1 XFMR with a 24V secondary, suggesting the primary is from the 208V secondary of the main transformer: 208/~9 ≈ 24V.",
+    "explanation": "V2 = V1 / ratio = 480 / ~9 \u2248 ~53V. However, Circuit A shows a ~9:1 XFMR with a 24V secondary, suggesting the primary is from the 208V secondary of the main transformer: 208/~9 \u2248 24V.",
     "svgId": "circuit-a"
   },
   {
@@ -779,7 +779,7 @@
       "D": "Reverses the phase of voltage"
     },
     "answer": "B",
-    "explanation": "A step-up transformer has N2 > N1, so V2 > V1. It increases voltage while decreasing current proportionally. Power in = Power out (minus losses): V1×I1 ≈ V2×I2."
+    "explanation": "A step-up transformer has N2 > N1, so V2 > V1. It increases voltage while decreasing current proportionally. Power in = Power out (minus losses): V1\u00d7I1 \u2248 V2\u00d7I2."
   },
   {
     "id": "T061",
@@ -788,11 +788,11 @@
     "options": {
       "A": "Current also steps up",
       "B": "Current stays the same",
-      "C": "Current decreases proportionally (V×I is approximately constant)",
+      "C": "Current decreases proportionally (V\u00d7I is approximately constant)",
       "D": "Current becomes DC"
     },
     "answer": "C",
-    "explanation": "Transformers conserve power (P = VI). If V steps up by ratio n, current must step down by ratio n: I2 = I1/n. This is why power is transmitted at high voltage — less current means less I²R loss in conductors."
+    "explanation": "Transformers conserve power (P = VI). If V steps up by ratio n, current must step down by ratio n: I2 = I1/n. This is why power is transmitted at high voltage \u2014 less current means less I\u00b2R loss in conductors."
   },
   {
     "id": "T062",
@@ -805,7 +805,7 @@
       "D": "880 turns"
     },
     "answer": "B",
-    "explanation": "N1/N2 = V1/V2 → N2 = N1 × (V2/V1) = 1,000 × (120/480) = 1,000 × 0.25 = 250 turns."
+    "explanation": "N1/N2 = V1/V2 \u2192 N2 = N1 \u00d7 (V2/V1) = 1,000 \u00d7 (120/480) = 1,000 \u00d7 0.25 = 250 turns."
   },
   {
     "id": "T063",
@@ -813,12 +813,12 @@
     "question": "Why are transformers used for electrical isolation?",
     "options": {
       "A": "Transformers reduce voltage to zero",
-      "B": "The primary and secondary circuits are magnetically coupled but not directly electrically connected — ground faults on one side do not automatically affect the other",
+      "B": "The primary and secondary circuits are magnetically coupled but not directly electrically connected \u2014 ground faults on one side do not automatically affect the other",
       "C": "Isolation transformers increase current",
       "D": "Transformers remove all harmonics"
     },
     "answer": "B",
-    "explanation": "An isolation transformer (1:1 ratio) provides galvanic isolation — the primary and secondary are coupled by a magnetic field only, with no direct electrical connection. A ground fault on the secondary does not return through the primary ground, reducing shock hazard in sensitive applications."
+    "explanation": "An isolation transformer (1:1 ratio) provides galvanic isolation \u2014 the primary and secondary are coupled by a magnetic field only, with no direct electrical connection. A ground fault on the secondary does not return through the primary ground, reducing shock hazard in sensitive applications."
   },
   {
     "id": "T064",
@@ -831,7 +831,7 @@
       "D": "480 A"
     },
     "answer": "C",
-    "explanation": "Power in = Power out: P = V1×I1 = 480×5 = 2,400W. I2 = P/V2 = 2,400/120 = 20A. When voltage steps down 4:1, current steps up 4:1."
+    "explanation": "Power in = Power out: P = V1\u00d7I1 = 480\u00d75 = 2,400W. I2 = P/V2 = 2,400/120 = 20A. When voltage steps down 4:1, current steps up 4:1."
   },
   {
     "id": "T065",
@@ -844,7 +844,7 @@
       "D": "Increase the magnetic flux in the core"
     },
     "answer": "B",
-    "explanation": "Laminating the core into thin sheets insulated from each other restricts eddy currents to small areas within each lamination, dramatically reducing I²R losses in the core. Solid cores would have large circulating currents and excessive heat."
+    "explanation": "Laminating the core into thin sheets insulated from each other restricts eddy currents to small areas within each lamination, dramatically reducing I\u00b2R losses in the core. Solid cores would have large circulating currents and excessive heat."
   },
   {
     "id": "T066",
@@ -857,7 +857,7 @@
       "D": "The ratio of core cross-section to winding length"
     },
     "answer": "B",
-    "explanation": "The turns ratio (N1:N2) is the fundamental parameter governing transformer behavior: V1/V2 = N1/N2 (voltage ratio), I2/I1 = N1/N2 (current ratio), and Z1/Z2 = (N1/N2)² (impedance ratio). All transformation properties derive from this single ratio."
+    "explanation": "The turns ratio (N1:N2) is the fundamental parameter governing transformer behavior: V1/V2 = N1/N2 (voltage ratio), I2/I1 = N1/N2 (current ratio), and Z1/Z2 = (N1/N2)\u00b2 (impedance ratio). All transformation properties derive from this single ratio."
   },
   {
     "id": "T067",
@@ -870,7 +870,7 @@
       "D": "2:1"
     },
     "answer": "B",
-    "explanation": "Turns ratio = V1/V2 = 480/120 = 4:1. This is a step-down transformer — the primary has 4 times more turns than the secondary, reducing voltage from 480V to 120V.",
+    "explanation": "Turns ratio = V1/V2 = 480/120 = 4:1. This is a step-down transformer \u2014 the primary has 4 times more turns than the secondary, reducing voltage from 480V to 120V.",
     "svgId": "circuit-a"
   },
   {
@@ -892,12 +892,12 @@
     "question": "In a 3-phase wye (Y) system, the relationship between line voltage and phase voltage is:",
     "options": {
       "A": "Vline = Vphase",
-      "B": "Vline = Vphase / √3",
-      "C": "Vline = √3 × Vphase",
-      "D": "Vline = 3 × Vphase"
+      "B": "Vline = Vphase / \u221a3",
+      "C": "Vline = \u221a3 \u00d7 Vphase",
+      "D": "Vline = 3 \u00d7 Vphase"
     },
     "answer": "C",
-    "explanation": "In a wye-connected system: Vline = √3 × Vphase ≈ 1.732 × Vphase. A 208V/120V system has Vphase = 120V and Vline = 120 × 1.732 = 208V. This is why 208/120V and 480/277V are common 3-phase/single-phase combinations."
+    "explanation": "In a wye-connected system: Vline = \u221a3 \u00d7 Vphase \u2248 1.732 \u00d7 Vphase. A 208V/120V system has Vphase = 120V and Vline = 120 \u00d7 1.732 = 208V. This is why 208/120V and 480/277V are common 3-phase/single-phase combinations."
   },
   {
     "id": "T070",
@@ -910,20 +910,20 @@
       "D": "160 V"
     },
     "answer": "B",
-    "explanation": "Vphase = Vline / √3 = 480 / 1.732 = 277V. A 480V 3-phase wye system has 277V available between any phase and neutral — used for 277V lighting circuits."
+    "explanation": "Vphase = Vline / \u221a3 = 480 / 1.732 = 277V. A 480V 3-phase wye system has 277V available between any phase and neutral \u2014 used for 277V lighting circuits."
   },
   {
     "id": "T071",
     "topic": "3-Phase Systems",
-    "question": "In a delta (Δ) 3-phase connection, the relationship between line voltage and phase voltage is:",
+    "question": "In a delta (\u0394) 3-phase connection, the relationship between line voltage and phase voltage is:",
     "options": {
-      "A": "Vline = √3 × Vphase",
+      "A": "Vline = \u221a3 \u00d7 Vphase",
       "B": "Vline = Vphase (they are equal)",
-      "C": "Vline = Vphase / √3",
-      "D": "Vline = 3 × Vphase"
+      "C": "Vline = Vphase / \u221a3",
+      "D": "Vline = 3 \u00d7 Vphase"
     },
     "answer": "B",
-    "explanation": "In a delta connection, each winding is connected directly between two lines. Therefore Vline = Vphase — line and phase voltages are identical. This differs from the wye connection where Vline = √3 × Vphase."
+    "explanation": "In a delta connection, each winding is connected directly between two lines. Therefore Vline = Vphase \u2014 line and phase voltages are identical. This differs from the wye connection where Vline = \u221a3 \u00d7 Vphase."
   },
   {
     "id": "T072",
@@ -944,7 +944,7 @@
     "question": "Circuit A uses a 480V/208V 3-phase system. The 208V is derived from:",
     "options": {
       "A": "A separate single-phase transformer",
-      "B": "The 480V wye system where Vphase = 480/√3 ≈ 277V",
+      "B": "The 480V wye system where Vphase = 480/\u221a3 \u2248 277V",
       "C": "A step-down transformer converting 480V 3-phase to 208V 3-phase",
       "D": "Tapping off two phases of the 480V delta"
     },
@@ -957,18 +957,18 @@
     "topic": "3-Phase Systems",
     "question": "In a balanced 3-phase system, the three voltage waveforms are separated by:",
     "options": {
-      "A": "90° each",
-      "B": "45° each",
-      "C": "120° each",
-      "D": "180° each"
+      "A": "90\u00b0 each",
+      "B": "45\u00b0 each",
+      "C": "120\u00b0 each",
+      "D": "180\u00b0 each"
     },
     "answer": "C",
-    "explanation": "In a balanced 3-phase system, the three phases (A, B, C) are equally spaced at 120° apart (360°/3 = 120°). This 120° separation is what creates the constant power delivery characteristic of 3-phase systems."
+    "explanation": "In a balanced 3-phase system, the three phases (A, B, C) are equally spaced at 120\u00b0 apart (360\u00b0/3 = 120\u00b0). This 120\u00b0 separation is what creates the constant power delivery characteristic of 3-phase systems."
   },
   {
     "id": "T075",
     "topic": "3-Phase Systems",
-    "question": "What is the line current in a balanced wye-connected load of 10Ω per phase connected to a 208V 3-phase system?",
+    "question": "What is the line current in a balanced wye-connected load of 10\u03a9 per phase connected to a 208V 3-phase system?",
     "options": {
       "A": "20.8 A",
       "B": "12 A",
@@ -976,7 +976,7 @@
       "D": "3.46 A"
     },
     "answer": "B",
-    "explanation": "Vphase = 208/√3 = 120V. Iphase = Vphase/R = 120/10 = 12A. In a wye connection, Iline = Iphase = 12A."
+    "explanation": "Vphase = 208/\u221a3 = 120V. Iphase = Vphase/R = 120/10 = 12A. In a wye connection, Iline = Iphase = 12A."
   },
   {
     "id": "T076",
@@ -1009,13 +1009,13 @@
     "topic": "3-Phase Systems",
     "question": "Total 3-phase power in a balanced system is calculated as:",
     "options": {
-      "A": "P = Vline × Iline",
-      "B": "P = 3 × Vphase × Iphase",
-      "C": "P = √3 × Vline × Iline × PF",
+      "A": "P = Vline \u00d7 Iline",
+      "B": "P = 3 \u00d7 Vphase \u00d7 Iphase",
+      "C": "P = \u221a3 \u00d7 Vline \u00d7 Iline \u00d7 PF",
       "D": "Both B and C are correct (they are equivalent)"
     },
     "answer": "D",
-    "explanation": "Both formulas are equivalent for a balanced 3-phase system: P = 3 × Vphase × Iphase × PF = √3 × Vline × Iline × PF. The √3 in the second formula accounts for the line-to-phase voltage/current relationships in wye and delta connections."
+    "explanation": "Both formulas are equivalent for a balanced 3-phase system: P = 3 \u00d7 Vphase \u00d7 Iphase \u00d7 PF = \u221a3 \u00d7 Vline \u00d7 Iline \u00d7 PF. The \u221a3 in the second formula accounts for the line-to-phase voltage/current relationships in wye and delta connections."
   },
   {
     "id": "T079",
@@ -1042,7 +1042,7 @@
       "D": "120 V"
     },
     "answer": "D",
-    "explanation": "Vphase = Vline / √3 = 208 / 1.732 ≈ 120V. This is why 208V 3-phase wye systems provide 120V single-phase outlets — each phase-to-neutral is 120V."
+    "explanation": "Vphase = Vline / \u221a3 = 208 / 1.732 \u2248 120V. This is why 208V 3-phase wye systems provide 120V single-phase outlets \u2014 each phase-to-neutral is 120V."
   },
   {
     "id": "T081",
@@ -1064,12 +1064,12 @@
     "question": "In Circuit A, the symbol 'MS' represents:",
     "options": {
       "A": "Main Switch",
-      "B": "Motor Starter — a contactor that connects/disconnects the motor from the 3-phase supply",
+      "B": "Motor Starter \u2014 a contactor that connects/disconnects the motor from the 3-phase supply",
       "C": "Measurement System",
       "D": "Manual Stop button"
     },
     "answer": "B",
-    "explanation": "MS is the Motor Starter — a heavy-duty contactor whose main contacts connect the 3-phase power to the motor. It is controlled by a coil in the control circuit and includes overload relay protection.",
+    "explanation": "MS is the Motor Starter \u2014 a heavy-duty contactor whose main contacts connect the 3-phase power to the motor. It is controlled by a coil in the control circuit and includes overload relay protection.",
     "svgId": "circuit-a"
   },
   {
@@ -1083,7 +1083,7 @@
       "D": "Optional lighting circuits"
     },
     "answer": "B",
-    "explanation": "OL represents Overload Relays — thermal or electronic devices that monitor motor current. If motor current exceeds the set threshold for sufficient time, the OL trips, opening the control circuit and de-energizing the motor starter to protect the motor windings.",
+    "explanation": "OL represents Overload Relays \u2014 thermal or electronic devices that monitor motor current. If motor current exceeds the set threshold for sufficient time, the OL trips, opening the control circuit and de-energizing the motor starter to protect the motor windings.",
     "svgId": "circuit-a"
   },
   {
@@ -1091,7 +1091,7 @@
     "topic": "Schematic Reading",
     "question": "In Circuit B (AC_Circuit.png), there are four switches: A, B, C, and D. In a parallel circuit, each switch controls:",
     "options": {
-      "A": "The entire circuit — any switch can turn everything off",
+      "A": "The entire circuit \u2014 any switch can turn everything off",
       "B": "Only the branch it is in series with within the parallel circuit",
       "C": "All branches simultaneously",
       "D": "Only the voltage, not current"
@@ -1119,12 +1119,12 @@
     "question": "What does a ground symbol on a schematic indicate?",
     "options": {
       "A": "The circuit is de-energized at that point",
-      "B": "A connection to earth ground — the zero-volt reference potential",
+      "B": "A connection to earth ground \u2014 the zero-volt reference potential",
       "C": "A floating (ungrounded) circuit",
       "D": "A test point for current measurement"
     },
     "answer": "B",
-    "explanation": "The ground symbol (three descending horizontal lines or an earth symbol) indicates a connection to earth ground — the zero-volt reference. In Circuit A, test point 10 is the ground reference for the control circuit."
+    "explanation": "The ground symbol (three descending horizontal lines or an earth symbol) indicates a connection to earth ground \u2014 the zero-volt reference. In Circuit A, test point 10 is the ground reference for the control circuit."
   },
   {
     "id": "T087",
@@ -1137,7 +1137,7 @@
       "D": "Series and parallel connections"
     },
     "answer": "B",
-    "explanation": "In a ladder diagram, the vertical lines are the power rails — L1 (hot) on the left and L2 or neutral on the right. Each horizontal rung represents a complete control circuit path between these rails. The diagram resembles a ladder, hence the name."
+    "explanation": "In a ladder diagram, the vertical lines are the power rails \u2014 L1 (hot) on the left and L2 or neutral on the right. Each horizontal rung represents a complete control circuit path between these rails. The diagram resembles a ladder, hence the name."
   },
   {
     "id": "T088",
@@ -1146,7 +1146,7 @@
     "options": {
       "A": "The motor windings only",
       "B": "The 24V transformer secondary",
-      "C": "The power side — 3-phase supply through fuses, MS contacts, OLs, and motor",
+      "C": "The power side \u2014 3-phase supply through fuses, MS contacts, OLs, and motor",
       "D": "The ground bus connections only"
     },
     "answer": "C",
@@ -1177,7 +1177,7 @@
       "D": "Frequency of the AC supply"
     },
     "answer": "C",
-    "explanation": "A wattmeter measures real electrical power (P = V × I × cos φ). It has both voltage and current sensing elements. In Circuit B, it monitors the actual power consumed by the parallel circuit loads.",
+    "explanation": "A wattmeter measures real electrical power (P = V \u00d7 I \u00d7 cos \u03c6). It has both voltage and current sensing elements. In Circuit B, it monitors the actual power consumed by the parallel circuit loads.",
     "svgId": "circuit-b"
   },
   {
@@ -1205,7 +1205,7 @@
       "D": "24V"
     },
     "answer": "C",
-    "explanation": "Under normal operation, test points 2 and 5 are at the same potential — both on the same conductor or equipotential node. Voltage across two points on the same conductor is 0V, indicating no fault and normal current flow through that path.",
+    "explanation": "Under normal operation, test points 2 and 5 are at the same potential \u2014 both on the same conductor or equipotential node. Voltage across two points on the same conductor is 0V, indicating no fault and normal current flow through that path.",
     "svgId": "circuit-practice"
   },
   {
@@ -1227,13 +1227,13 @@
     "topic": "Fault Diagnosis",
     "question": "In the Practice Schematic, when fuse F1 is blown, what abnormal reading appears between test points 4 and 10?",
     "options": {
-      "A": "0V — open circuit removes all voltage",
-      "B": "120V — unchanged from normal",
+      "A": "0V \u2014 open circuit removes all voltage",
+      "B": "120V \u2014 unchanged from normal",
       "C": "An elevated voltage reading (208V range) due to back-feed through the circuit",
-      "D": "24V — the transformer voltage appears"
+      "D": "24V \u2014 the transformer voltage appears"
     },
     "answer": "C",
-    "explanation": "When F1 is blown, the open fuse creates a voltage divider effect. Current back-feeds through other circuit paths, causing an elevated (208V range) voltage to appear at test point 4 relative to point 10 — a telltale sign of a blown phase fuse.",
+    "explanation": "When F1 is blown, the open fuse creates a voltage divider effect. Current back-feeds through other circuit paths, causing an elevated (208V range) voltage to appear at test point 4 relative to point 10 \u2014 a telltale sign of a blown phase fuse.",
     "svgId": "circuit-practice"
   },
   {
@@ -1241,13 +1241,13 @@
     "topic": "Fault Diagnosis",
     "question": "In the Practice Schematic, when fuse F3 is blown, voltage between test points 4 and 6 reads:",
     "options": {
-      "A": "208V — unchanged from normal",
+      "A": "208V \u2014 unchanged from normal",
       "B": "24V",
       "C": "120V",
-      "D": "0V — F3 interrupts this circuit path"
+      "D": "0V \u2014 F3 interrupts this circuit path"
     },
     "answer": "D",
-    "explanation": "When F3 is blown, the circuit path between test points 4 and 6 is interrupted. With no current path through F3, both points are effectively at the same potential through the load, or the open circuit removes the voltage difference — reading 0V.",
+    "explanation": "When F3 is blown, the circuit path between test points 4 and 6 is interrupted. With no current path through F3, both points are effectively at the same potential through the load, or the open circuit removes the voltage difference \u2014 reading 0V.",
     "svgId": "circuit-practice"
   },
   {
@@ -1255,9 +1255,9 @@
     "topic": "Fault Diagnosis",
     "question": "In the Practice Schematic, when fuse F2 is blown, the 24V reading between test points 11 and 12:",
     "options": {
-      "A": "Drops to 0V — F2 powers the transformer",
+      "A": "Drops to 0V \u2014 F2 powers the transformer",
       "B": "Increases to 120V",
-      "C": "Remains at 24V — the 24V transformer is on a different phase than F2",
+      "C": "Remains at 24V \u2014 the 24V transformer is on a different phase than F2",
       "D": "Drops to 12V"
     },
     "answer": "C",
@@ -1269,13 +1269,13 @@
     "topic": "Fault Diagnosis",
     "question": "When testing a fuse in a de-energized circuit with a multimeter in continuity/ohms mode, a good fuse reads:",
     "options": {
-      "A": "OL (infinite resistance — open)",
-      "B": "Near 0Ω (close to a short — fuse wire is intact)",
+      "A": "OL (infinite resistance \u2014 open)",
+      "B": "Near 0\u03a9 (close to a short \u2014 fuse wire is intact)",
       "C": "The circuit's rated voltage",
       "D": "Negative resistance"
     },
     "answer": "B",
-    "explanation": "A good fuse measures near 0Ω because the fuse element (wire or strip) is intact and conductive. A blown fuse reads OL (overload/infinite resistance) because the element has melted, creating an open circuit. Never test fuses in an energized circuit with ohms mode."
+    "explanation": "A good fuse measures near 0\u03a9 because the fuse element (wire or strip) is intact and conductive. A blown fuse reads OL (overload/infinite resistance) because the element has melted, creating an open circuit. Never test fuses in an energized circuit with ohms mode."
   },
   {
     "id": "T098",
@@ -1283,12 +1283,12 @@
     "question": "A closed switch in an energized circuit measures 0V across its terminals. This indicates:",
     "options": {
       "A": "The switch is open and should be replaced",
-      "B": "The switch is correctly closed — 0V across a closed switch is normal operation",
+      "B": "The switch is correctly closed \u2014 0V across a closed switch is normal operation",
       "C": "There is a short circuit across the switch",
       "D": "The voltmeter leads are reversed"
     },
     "answer": "B",
-    "explanation": "A correctly closed switch is a low-resistance connection — both terminals are at essentially the same potential. Voltage (potential difference) across a good closed switch = 0V. Voltage appears across an OPEN switch, where the full supply voltage drops across the open gap."
+    "explanation": "A correctly closed switch is a low-resistance connection \u2014 both terminals are at essentially the same potential. Voltage (potential difference) across a good closed switch = 0V. Voltage appears across an OPEN switch, where the full supply voltage drops across the open gap."
   },
   {
     "id": "T099",
@@ -1301,7 +1301,7 @@
       "D": "All three fuses need replacement"
     },
     "answer": "C",
-    "explanation": "With intact fuses but a de-energized MS coil, the control circuit is interrupted. The most common cause is a tripped overload relay — its normally-closed contact opens when it trips, breaking the control circuit and preventing the starter from energizing.",
+    "explanation": "With intact fuses but a de-energized MS coil, the control circuit is interrupted. The most common cause is a tripped overload relay \u2014 its normally-closed contact opens when it trips, breaking the control circuit and preventing the starter from energizing.",
     "svgId": "circuit-a"
   },
   {
@@ -1310,7 +1310,7 @@
     "question": "Measuring voltage at a test point shows a reading higher than the expected supply voltage. This 'phantom voltage' most likely indicates:",
     "options": {
       "A": "The voltage source is over-voltage",
-      "B": "An open circuit upstream — current back-feeds through high-impedance paths (loads) creating a false high voltage reading",
+      "B": "An open circuit upstream \u2014 current back-feeds through high-impedance paths (loads) creating a false high voltage reading",
       "C": "The circuit is working correctly",
       "D": "A short circuit to the adjacent phase"
     },
@@ -1341,7 +1341,7 @@
       "D": "100 milliamperes"
     },
     "answer": "C",
-    "explanation": "A GFCI trips at 4-6 milliamperes — far below the 100-200mA that causes ventricular fibrillation. It detects the imbalance between hot and neutral current (indicating current flowing through a ground fault path, possibly through a person) and opens within 1/40 of a second."
+    "explanation": "A GFCI trips at 4-6 milliamperes \u2014 far below the 100-200mA that causes ventricular fibrillation. It detects the imbalance between hot and neutral current (indicating current flowing through a ground fault path, possibly through a person) and opens within 1/40 of a second."
   },
   {
     "id": "T103",
@@ -1349,12 +1349,12 @@
     "question": "Why is voltage stepped up for long-distance power transmission?",
     "options": {
       "A": "High voltage travels faster through conductors",
-      "B": "At high voltage and proportionally low current, I²R transmission losses are dramatically reduced",
+      "B": "At high voltage and proportionally low current, I\u00b2R transmission losses are dramatically reduced",
       "C": "High voltage requires smaller conductors",
       "D": "High voltage prevents corona discharge"
     },
     "answer": "B",
-    "explanation": "Transmission losses = I²R. Stepping voltage up (e.g., to 345kV) reduces current proportionally. Since losses scale with the SQUARE of current, halving current reduces losses by 75%. Transformers make this practical with AC — not feasible with DC at the time AC was adopted."
+    "explanation": "Transmission losses = I\u00b2R. Stepping voltage up (e.g., to 345kV) reduces current proportionally. Since losses scale with the SQUARE of current, halving current reduces losses by 75%. Transformers make this practical with AC \u2014 not feasible with DC at the time AC was adopted."
   },
   {
     "id": "T104",
@@ -1372,7 +1372,7 @@
   {
     "id": "T105",
     "topic": "Safety-Sprinkled Theory",
-    "question": "Why must fuses be sized correctly — not oversized — to protect conductors?",
+    "question": "Why must fuses be sized correctly \u2014 not oversized \u2014 to protect conductors?",
     "options": {
       "A": "Oversized fuses are more expensive",
       "B": "Oversized fuses allow conductors to carry current beyond their ampacity, overheating insulation and potentially causing fires before the fuse opens",
@@ -1380,7 +1380,7 @@
       "D": "Oversized fuses trip too quickly"
     },
     "answer": "B",
-    "explanation": "A fuse must be sized at or below the conductor's ampacity to protect the wire. An oversized fuse may allow sustained overcurrent that heats conductors beyond the insulation rating, degrading or igniting insulation — a hidden fire hazard that develops over time."
+    "explanation": "A fuse must be sized at or below the conductor's ampacity to protect the wire. An oversized fuse may allow sustained overcurrent that heats conductors beyond the insulation rating, degrading or igniting insulation \u2014 a hidden fire hazard that develops over time."
   },
   {
     "id": "T106",
@@ -1388,7 +1388,7 @@
     "question": "Voltage-rated rubber gloves (Class 00 through Class 4) must be matched to the circuit voltage because:",
     "options": {
       "A": "All rubber gloves provide the same insulation regardless of class",
-      "B": "Insulation breaks down when voltage exceeds its rated class — a lower-class glove on a higher-voltage circuit provides no protection",
+      "B": "Insulation breaks down when voltage exceeds its rated class \u2014 a lower-class glove on a higher-voltage circuit provides no protection",
       "C": "Higher-class gloves are always required regardless of circuit voltage",
       "D": "Glove class refers only to mechanical puncture resistance"
     },
@@ -1401,17 +1401,17 @@
     "question": "Ohm's Law explains why current flows through a person who contacts an energized conductor while standing on a grounded surface. Which expression describes the body current?",
     "options": {
       "A": "I = R/E",
-      "B": "I = E × R",
+      "B": "I = E \u00d7 R",
       "C": "I = E/R (body current = voltage / body resistance)",
-      "D": "I = E²/R"
+      "D": "I = E\u00b2/R"
     },
     "answer": "C",
-    "explanation": "The human body acts as a resistor in the shock circuit. I = E/R where E is the contact voltage and R is body resistance (approximately 500-1,000Ω for skin contact). Higher voltage or lower body resistance (wet skin) produces more current — and more severe shock."
+    "explanation": "The human body acts as a resistor in the shock circuit. I = E/R where E is the contact voltage and R is body resistance (approximately 500-1,000\u03a9 for skin contact). Higher voltage or lower body resistance (wet skin) produces more current \u2014 and more severe shock."
   },
   {
     "id": "T108",
     "topic": "Safety-Sprinkled Theory",
-    "question": "A 0.1Ω conductor carries 1,000A fault current for 0.5 seconds. How much heat energy is generated in the conductor?",
+    "question": "A 0.1\u03a9 conductor carries 1,000A fault current for 0.5 seconds. How much heat energy is generated in the conductor?",
     "options": {
       "A": "50 joules",
       "B": "500 joules",
@@ -1419,7 +1419,7 @@
       "D": "100 joules"
     },
     "answer": "C",
-    "explanation": "P = I²R = (1,000)² × 0.1 = 100,000W. Energy = P × t = 100,000 × 0.5 = 50,000J. This demonstrates why fast fault clearing is essential — energy increases directly with arc duration."
+    "explanation": "P = I\u00b2R = (1,000)\u00b2 \u00d7 0.1 = 100,000W. Energy = P \u00d7 t = 100,000 \u00d7 0.5 = 50,000J. This demonstrates why fast fault clearing is essential \u2014 energy increases directly with arc duration."
   },
   {
     "id": "T109",
@@ -1437,28 +1437,28 @@
   {
     "id": "T110",
     "topic": "Safety-Sprinkled Theory",
-    "question": "At 120V and a body resistance of 1,000Ω (dry skin), what current flows through a person in a shock circuit? Is this dangerous?",
+    "question": "At 120V and a body resistance of 1,000\u03a9 (dry skin), what current flows through a person in a shock circuit? Is this dangerous?",
     "options": {
-      "A": "0.12mA — not dangerous",
-      "B": "12mA — above the 'cannot let go' threshold",
-      "C": "120mA — above the ventricular fibrillation threshold, immediately life-threatening",
-      "D": "1,200mA — always instantly fatal"
+      "A": "0.12mA \u2014 not dangerous",
+      "B": "12mA \u2014 above the 'cannot let go' threshold",
+      "C": "120mA \u2014 above the ventricular fibrillation threshold, immediately life-threatening",
+      "D": "1,200mA \u2014 always instantly fatal"
     },
     "answer": "C",
-    "explanation": "I = E/R = 120V / 1,000Ω = 0.12A = 120mA. At 100-200mA, ventricular fibrillation can occur. 120V is genuinely lethal. Wet skin (500Ω) produces 240mA — even more dangerous. 120V AC causes many electrocution fatalities annually."
+    "explanation": "I = E/R = 120V / 1,000\u03a9 = 0.12A = 120mA. At 100-200mA, ventricular fibrillation can occur. 120V is genuinely lethal. Wet skin (500\u03a9) produces 240mA \u2014 even more dangerous. 120V AC causes many electrocution fatalities annually."
   },
   {
     "id": "T111",
     "topic": "Safety-Sprinkled Theory",
-    "question": "Equipment grounding conductors (EGC — the green wire) must be bonded to all metal enclosures because:",
+    "question": "Equipment grounding conductors (EGC \u2014 the green wire) must be bonded to all metal enclosures because:",
     "options": {
       "A": "They reduce the weight of the conduit system",
-      "B": "A phase-to-enclosure fault must have a low-resistance return path to trip the overcurrent device quickly — without bonding the enclosure stays energized",
+      "B": "A phase-to-enclosure fault must have a low-resistance return path to trip the overcurrent device quickly \u2014 without bonding the enclosure stays energized",
       "C": "The green color identifies the voltage level",
       "D": "Bonding is only required in wet locations"
     },
     "answer": "B",
-    "explanation": "The EGC provides the low-resistance fault current return path. When a phase conductor contacts an ungrounded enclosure, no low-resistance fault path exists — the breaker doesn't trip and the enclosure remains at full line voltage. Bonding ensures the fault current is sufficient to trip protection devices rapidly."
+    "explanation": "The EGC provides the low-resistance fault current return path. When a phase conductor contacts an ungrounded enclosure, no low-resistance fault path exists \u2014 the breaker doesn't trip and the enclosure remains at full line voltage. Bonding ensures the fault current is sufficient to trip protection devices rapidly."
   },
   {
     "id": "T112",
@@ -1466,7 +1466,7 @@
     "question": "A 480V:120V control transformer reduces arc flash risk in the control circuit because:",
     "options": {
       "A": "Transformers automatically de-energize if someone approaches",
-      "B": "Lower voltage means lower incident energy — a fault in a 120V control circuit releases far less arc energy than the same fault in a 480V circuit",
+      "B": "Lower voltage means lower incident energy \u2014 a fault in a 120V control circuit releases far less arc energy than the same fault in a 480V circuit",
       "C": "120V cannot cause arc flash",
       "D": "The transformer limits short circuit current to zero"
     },
@@ -1478,13 +1478,13 @@
     "topic": "Safety-Sprinkled Theory",
     "question": "In Circuit A, when the overload relay (OL) trips, the sequence of events is:",
     "options": {
-      "A": "OL melts the phase fuse → fuse opens → motor stops",
-      "B": "OL NC contact opens → MS coil de-energizes → MS main contacts open → motor disconnects from 3-phase power",
+      "A": "OL melts the phase fuse \u2192 fuse opens \u2192 motor stops",
+      "B": "OL NC contact opens \u2192 MS coil de-energizes \u2192 MS main contacts open \u2192 motor disconnects from 3-phase power",
       "C": "OL directly opens the 3-phase power conductors",
       "D": "OL triggers the GFCI which opens the circuit"
     },
     "answer": "B",
-    "explanation": "Overload relay sequence: The OL thermal/electronic element trips → its normally-closed (NC) contact in the control circuit opens → the MS (motor starter) coil loses power → the MS main power contacts open → the motor is disconnected from the 3-phase supply. The overload relay does not directly interrupt power current.",
+    "explanation": "Overload relay sequence: The OL thermal/electronic element trips \u2192 its normally-closed (NC) contact in the control circuit opens \u2192 the MS (motor starter) coil loses power \u2192 the MS main power contacts open \u2192 the motor is disconnected from the 3-phase supply. The overload relay does not directly interrupt power current.",
     "svgId": "circuit-a"
   },
   {
@@ -1493,22 +1493,22 @@
     "question": "Doubling voltage while resistance stays constant doubles the current. Why is this critical from an arc flash perspective?",
     "options": {
       "A": "Higher voltage only affects shock hazard, not arc flash",
-      "B": "Arc flash incident energy is proportional to current squared — doubling current quadruples the incident energy at a given distance",
+      "B": "Arc flash incident energy is proportional to current squared \u2014 doubling current quadruples the incident energy at a given distance",
       "C": "Higher voltage reduces arc flash duration",
       "D": "Voltage has no direct effect on incident energy"
     },
     "answer": "B",
-    "explanation": "Arc flash incident energy scales with available fault current. Since I doubles when V doubles (at constant R), and power scales with I², the incident energy at a given point quadruples. This is why higher-voltage equipment has more severe arc flash hazards and requires higher-rated PPE."
+    "explanation": "Arc flash incident energy scales with available fault current. Since I doubles when V doubles (at constant R), and power scales with I\u00b2, the incident energy at a given point quadruples. This is why higher-voltage equipment has more severe arc flash hazards and requires higher-rated PPE."
   },
   {
     "id": "T115",
     "topic": "Safety-Sprinkled Theory",
     "question": "A 3-phase motor normally draws 25A per phase at 480V. After one fuse blows (single-phase condition), the remaining phase currents will:",
     "options": {
-      "A": "Stay at 25A each — no change",
-      "B": "Drop to 12.5A each — balanced across two phases",
+      "A": "Stay at 25A each \u2014 no change",
+      "B": "Drop to 12.5A each \u2014 balanced across two phases",
       "C": "Increase significantly above 25A as the motor attempts to maintain torque on only two phases",
-      "D": "Immediately drop to 0A — the motor stops instantly"
+      "D": "Immediately drop to 0A \u2014 the motor stops instantly"
     },
     "answer": "C",
     "explanation": "During single-phasing, the motor attempts to maintain rated torque using only two phases, drawing substantially more current in each remaining phase. This rapid overcurrent quickly overheats motor windings unless overload relays respond. Single-phasing is a leading cause of motor failure."
@@ -1520,11 +1520,11 @@
     "options": {
       "A": "Reactive power to total apparent power",
       "B": "Real (true) power in kW to apparent power in kVA",
-      "C": "The phase angle in degrees to 360°",
+      "C": "The phase angle in degrees to 360\u00b0",
       "D": "Transformer efficiency percentage"
     },
     "answer": "B",
-    "explanation": "PF = Real Power (kW) / Apparent Power (kVA) = cos φ. Unity PF (1.0) means all drawn current does useful work. Low PF (inductive motors) means more current is drawn for the same real power output, increasing I²R conductor losses and arc flash risk due to higher current."
+    "explanation": "PF = Real Power (kW) / Apparent Power (kVA) = cos \u03c6. Unity PF (1.0) means all drawn current does useful work. Low PF (inductive motors) means more current is drawn for the same real power output, increasing I\u00b2R conductor losses and arc flash risk due to higher current."
   },
   {
     "id": "T117",
@@ -1532,12 +1532,12 @@
     "question": "Arc flash protection boundaries are larger (extend farther from equipment) for higher-voltage systems primarily because:",
     "options": {
       "A": "Higher-voltage equipment always has slower protective devices",
-      "B": "At higher voltages, the available fault current and arc energy are typically greater, so the 1.2 cal/cm² threshold is reached farther from the source",
+      "B": "At higher voltages, the available fault current and arc energy are typically greater, so the 1.2 cal/cm\u00b2 threshold is reached farther from the source",
       "C": "NFPA 70E sets boundaries based on equipment physical size only",
       "D": "Higher voltage reduces arc plasma temperature"
     },
     "answer": "B",
-    "explanation": "Higher-voltage systems generally have higher available fault current and may have longer arc clearing times, resulting in greater total incident energy. The arc flash protection boundary (1.2 cal/cm² threshold) therefore extends farther from the equipment, requiring larger exclusion zones and higher-rated PPE."
+    "explanation": "Higher-voltage systems generally have higher available fault current and may have longer arc clearing times, resulting in greater total incident energy. The arc flash protection boundary (1.2 cal/cm\u00b2 threshold) therefore extends farther from the equipment, requiring larger exclusion zones and higher-rated PPE."
   },
   {
     "id": "T118",
@@ -1545,7 +1545,7 @@
     "question": "Class II (double-insulated) power tools require no grounding prong because:",
     "options": {
       "A": "They operate below the dangerous voltage threshold",
-      "B": "Two independent insulation layers protect the user — if primary insulation fails, secondary insulation prevents the tool surface from becoming energized",
+      "B": "Two independent insulation layers protect the user \u2014 if primary insulation fails, secondary insulation prevents the tool surface from becoming energized",
       "C": "They are only used in dry locations",
       "D": "Double insulation allows higher tool voltages"
     },
@@ -1557,13 +1557,13 @@
     "topic": "Safety-Sprinkled Theory",
     "question": "In Circuit A, if fuse F2 blows, what voltage would you measure between test points 2 (line side of F2) and 5 (load side of F2)?",
     "options": {
-      "A": "0V — a blown fuse shows no voltage across it",
-      "B": "The full supply line voltage (208V or 480V) — the open fuse drops the full source voltage across it",
+      "A": "0V \u2014 a blown fuse shows no voltage across it",
+      "B": "The full supply line voltage (208V or 480V) \u2014 the open fuse drops the full source voltage across it",
       "C": "Half the supply voltage",
       "D": "24V from the control transformer"
     },
     "answer": "B",
-    "explanation": "Voltage is dropped across open circuit elements. With F2 blown (open), test point 2 is at full line voltage and test point 5 is at a different potential (through the load path). The full supply voltage appears across the blown fuse — a key diagnostic reading confirming which fuse has failed.",
+    "explanation": "Voltage is dropped across open circuit elements. With F2 blown (open), test point 2 is at full line voltage and test point 5 is at a different potential (through the load path). The full supply voltage appears across the blown fuse \u2014 a key diagnostic reading confirming which fuse has failed.",
     "svgId": "circuit-a"
   },
   {
@@ -1571,7 +1571,7 @@
     "topic": "Safety-Sprinkled Theory",
     "question": "Before working on a de-energized circuit, a voltmeter reads 0V. What additional step must ALWAYS be performed?",
     "options": {
-      "A": "No further verification needed — 0V confirms the circuit is safe",
+      "A": "No further verification needed \u2014 0V confirms the circuit is safe",
       "B": "Test the meter on a known live source before AND after testing the de-energized circuit to confirm the meter is functioning correctly",
       "C": "Ask a co-worker to verify the reading looks right",
       "D": "Wait 30 minutes for residual energy to dissipate"

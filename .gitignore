@@ -19,3 +19,6 @@ __pycache__/
 
 # Node
 node_modules/
+
+# Credentials
+# data/ai-config.json (Now safe to include without keys)

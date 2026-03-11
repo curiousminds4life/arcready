@@ -5,12 +5,12 @@
     "question": "What unit is used to measure incident energy from an arc flash event?",
     "options": {
       "A": "Volts per meter (V/m)",
-      "B": "Calories per centimeter squared (cal/cm²)",
+      "B": "Calories per centimeter squared (cal/cm\u00b2)",
       "C": "Joules per second (J/s)",
       "D": "Amperes per foot (A/ft)"
     },
     "answer": "B",
-    "explanation": "Incident energy is measured in cal/cm² (calories per centimeter squared), representing the thermal energy received at a working distance from an arc flash event.",
+    "explanation": "Incident energy is measured in cal/cm\u00b2 (calories per centimeter squared), representing the thermal energy received at a working distance from an arc flash event.",
     "standard": "both"
   },
   {
@@ -32,23 +32,23 @@
     "topic": "Arc Flash Fundamentals",
     "question": "At what incident energy level is energized work PROHIBITED under Workplace Safety Standards?",
     "options": {
-      "A": "Greater than 25 cal/cm²",
-      "B": "Greater than 40 cal/cm²",
-      "C": "Greater than 8 cal/cm²",
-      "D": "Greater than 100 cal/cm²"
+      "A": "Greater than 25 cal/cm\u00b2",
+      "B": "Greater than 40 cal/cm\u00b2",
+      "C": "Greater than 8 cal/cm\u00b2",
+      "D": "Greater than 100 cal/cm\u00b2"
     },
     "answer": "B",
-    "explanation": "Per Workplace Safety Standards, work on energized electrical equipment is PROHIBITED when incident energy exceeds 40 cal/cm². Equipment must be de-energized before work can proceed.",
+    "explanation": "Per Workplace Safety Standards, work on energized electrical equipment is PROHIBITED when incident energy exceeds 40 cal/cm\u00b2. Equipment must be de-energized before work can proceed.",
     "standard": "workplace",
     "text_nfpa": "At what incident energy level is energized work PROHIBITED under NFPA 70E Art.130?",
     "options_nfpa": {
-      "A": "Greater than 25 cal/cm²",
-      "B": "Greater than 40 cal/cm²",
-      "C": "Greater than 8 cal/cm²",
-      "D": "Greater than 100 cal/cm²"
+      "A": "Greater than 25 cal/cm\u00b2",
+      "B": "Greater than 40 cal/cm\u00b2",
+      "C": "Greater than 8 cal/cm\u00b2",
+      "D": "Greater than 100 cal/cm\u00b2"
     },
     "answer_nfpa": "B",
-    "explanation_nfpa": "Per NFPA 70E Art.130, work on energized electrical equipment is PROHIBITED when incident energy exceeds 40 cal/cm². Equipment must be de-energized before work can proceed."
+    "explanation_nfpa": "Per NFPA 70E Art.130, work on energized electrical equipment is PROHIBITED when incident energy exceeds 40 cal/cm\u00b2. Equipment must be de-energized before work can proceed."
   },
   {
     "id": "S004",
@@ -143,13 +143,13 @@
     "topic": "Arc Flash Fundamentals",
     "question": "What is the arc flash protection boundary?",
     "options": {
-      "A": "The distance at which a worker could receive a second-degree burn (1.2 cal/cm²) if unprotected",
+      "A": "The distance at which a worker could receive a second-degree burn (1.2 cal/cm\u00b2) if unprotected",
       "B": "The distance a worker must stand from all electrical equipment",
       "C": "The area around a panel marked with yellow tape",
       "D": "The distance between limited and restricted approach boundaries"
     },
     "answer": "A",
-    "explanation": "The arc flash protection boundary is the distance at which incident energy equals 1.2 cal/cm² — the threshold for a second-degree burn on unprotected skin. Anyone inside this boundary must wear appropriate arc-rated PPE.",
+    "explanation": "The arc flash protection boundary is the distance at which incident energy equals 1.2 cal/cm\u00b2 \u2014 the threshold for a second-degree burn on unprotected skin. Anyone inside this boundary must wear appropriate arc-rated PPE.",
     "standard": "both"
   },
   {
@@ -163,7 +163,7 @@
       "D": "Radiation burns from X-ray emission"
     },
     "answer": "C",
-    "explanation": "Arc flash primarily causes thermal burns from the intense heat of the arc plasma, which can reach temperatures of up to 35,000°F — four times hotter than the surface of the sun.",
+    "explanation": "Arc flash primarily causes thermal burns from the intense heat of the arc plasma, which can reach temperatures of up to 35,000\u00b0F \u2014 four times hotter than the surface of the sun.",
     "standard": "both"
   },
   {
@@ -254,20 +254,20 @@
     "topic": "Arc Flash Fundamentals",
     "question": "What is the correct JHA hierarchy of controls from first to last priority?",
     "options": {
-      "A": "PPE → Engineering → Administrative → Elimination",
-      "B": "Elimination → Substitution → Engineering → Awareness → Administrative → PPE",
-      "C": "Administrative → PPE → Engineering → Elimination",
-      "D": "PPE → Administrative → Substitution → Elimination"
+      "A": "PPE \u2192 Engineering \u2192 Administrative \u2192 Elimination",
+      "B": "Elimination \u2192 Substitution \u2192 Engineering \u2192 Awareness \u2192 Administrative \u2192 PPE",
+      "C": "Administrative \u2192 PPE \u2192 Engineering \u2192 Elimination",
+      "D": "PPE \u2192 Administrative \u2192 Substitution \u2192 Elimination"
     },
     "answer": "B",
     "explanation": "The JHA hierarchy of controls from Workplace Safety Standards prioritizes: Elimination (remove the hazard entirely), Substitution, Engineering controls, Awareness controls, Administrative controls, and PPE as the last resort.",
     "standard": "workplace",
     "text_nfpa": "What is the correct JHA hierarchy of controls from first to last priority?",
     "options_nfpa": {
-      "A": "PPE → Engineering → Administrative → Elimination",
-      "B": "Elimination → Substitution → Engineering → Awareness → Administrative → PPE",
-      "C": "Administrative → PPE → Engineering → Elimination",
-      "D": "PPE → Administrative → Substitution → Elimination"
+      "A": "PPE \u2192 Engineering \u2192 Administrative \u2192 Elimination",
+      "B": "Elimination \u2192 Substitution \u2192 Engineering \u2192 Awareness \u2192 Administrative \u2192 PPE",
+      "C": "Administrative \u2192 PPE \u2192 Engineering \u2192 Elimination",
+      "D": "PPE \u2192 Administrative \u2192 Substitution \u2192 Elimination"
     },
     "answer_nfpa": "B",
     "explanation_nfpa": "The JHA hierarchy of controls from NFPA 70E Art.130 prioritizes: Elimination (remove the hazard entirely), Substitution, Engineering controls, Awareness controls, Administrative controls, and PPE as the last resort."
@@ -300,7 +300,7 @@
     "topic": "Approach Boundaries",
     "question": "Crossing the Restricted Approach Boundary requires which of the following?",
     "options": {
-      "A": "No special requirements — any employee may enter",
+      "A": "No special requirements \u2014 any employee may enter",
       "B": "Only awareness training",
       "C": "Qualified person status and appropriate PPE; same as touching the conductor",
       "D": "Supervisor approval only"
@@ -315,7 +315,7 @@
     "question": "What does crossing the Prohibited Approach Boundary require?",
     "options": {
       "A": "Simply notifying a supervisor",
-      "B": "The same precautions as directly touching the live part — only under specific written permit",
+      "B": "The same precautions as directly touching the live part \u2014 only under specific written permit",
       "C": "Standard leather gloves",
       "D": "No requirements if wearing a hard hat"
     },
@@ -325,7 +325,7 @@
     "text_nfpa": "What does crossing the Arc Flash Boundary require?",
     "options_nfpa": {
       "A": "Simply notifying a supervisor",
-      "B": "The same precautions as directly touching the live part — only under specific written permit",
+      "B": "The same precautions as directly touching the live part \u2014 only under specific written permit",
       "C": "Standard leather gloves",
       "D": "No requirements if wearing a hard hat"
     },
@@ -360,20 +360,20 @@
     "topic": "Approach Boundaries",
     "question": "From outermost to innermost, what is the correct order of shock approach boundaries?",
     "options": {
-      "A": "Restricted → Limited → Prohibited",
-      "B": "Limited → Restricted → Prohibited",
-      "C": "Prohibited → Restricted → Limited",
-      "D": "Limited → Prohibited → Restricted"
+      "A": "Restricted \u2192 Limited \u2192 Prohibited",
+      "B": "Limited \u2192 Restricted \u2192 Prohibited",
+      "C": "Prohibited \u2192 Restricted \u2192 Limited",
+      "D": "Limited \u2192 Prohibited \u2192 Restricted"
     },
     "answer": "B",
     "explanation": "Moving toward the energy source: Limited Approach Boundary (outermost, unqualified persons stop here), then Restricted Approach Boundary (qualified persons with PPE), then Prohibited Approach Boundary (innermost, same as contact).",
     "standard": "workplace",
     "text_nfpa": "From outermost to innermost, what is the correct order of shock approach boundaries?",
     "options_nfpa": {
-      "A": "Restricted → Limited → Prohibited",
-      "B": "Limited → Restricted → Prohibited",
-      "C": "Prohibited → Restricted → Limited",
-      "D": "Limited → Prohibited → Restricted"
+      "A": "Restricted \u2192 Limited \u2192 Prohibited",
+      "B": "Limited \u2192 Restricted \u2192 Prohibited",
+      "C": "Prohibited \u2192 Restricted \u2192 Limited",
+      "D": "Limited \u2192 Prohibited \u2192 Restricted"
     },
     "answer_nfpa": "B",
     "explanation_nfpa": "Moving toward the energy source: Limited Approach Boundary (outermost, unqualified persons stop here), then Restricted Approach Boundary (qualified persons with PPE), then Arc Flash Boundary (innermost, same as contact). (Ref: NFPA 70E 2024)"
@@ -397,13 +397,13 @@
     "topic": "Approach Boundaries",
     "question": "The Arc Flash Protection Boundary is based on what specific incident energy threshold?",
     "options": {
-      "A": "4.0 cal/cm²",
-      "B": "8.0 cal/cm²",
-      "C": "1.2 cal/cm²",
-      "D": "0.5 cal/cm²"
+      "A": "4.0 cal/cm\u00b2",
+      "B": "8.0 cal/cm\u00b2",
+      "C": "1.2 cal/cm\u00b2",
+      "D": "0.5 cal/cm\u00b2"
     },
     "answer": "C",
-    "explanation": "The Arc Flash Protection Boundary is the distance at which incident energy equals 1.2 cal/cm² — the onset of a second-degree burn threshold on unprotected skin. PPE is required within this distance.",
+    "explanation": "The Arc Flash Protection Boundary is the distance at which incident energy equals 1.2 cal/cm\u00b2 \u2014 the onset of a second-degree burn threshold on unprotected skin. PPE is required within this distance.",
     "standard": "both"
   },
   {
@@ -413,11 +413,11 @@
     "options": {
       "A": "Yes, because they have PPE",
       "B": "Yes, because the label is just a recommendation",
-      "C": "No — the worker must be outside the 4-foot arc flash boundary unless the task requires closer proximity and PPE matches the incident energy at that distance",
-      "D": "No — no one may be within 10 feet of any panel"
+      "C": "No \u2014 the worker must be outside the 4-foot arc flash boundary unless the task requires closer proximity and PPE matches the incident energy at that distance",
+      "D": "No \u2014 no one may be within 10 feet of any panel"
     },
     "answer": "C",
-    "explanation": "Being inside the Arc Flash Boundary requires PPE rated for the actual incident energy at that working distance. Simply wearing PPE is acceptable only if that PPE meets or exceeds the cal/cm² at the worker's actual position.",
+    "explanation": "Being inside the Arc Flash Boundary requires PPE rated for the actual incident energy at that working distance. Simply wearing PPE is acceptable only if that PPE meets or exceeds the cal/cm\u00b2 at the worker's actual position.",
     "standard": "both"
   },
   {
@@ -476,7 +476,7 @@
     "topic": "Approach Boundaries",
     "question": "Overhead power lines require which safety action per Workplace Safety Standards?",
     "options": {
-      "A": "No special actions — overhead lines are insulated",
+      "A": "No special actions \u2014 overhead lines are insulated",
       "B": "A JHA is required; de-energize and ground where applicable",
       "C": "Workers must simply wear hard hats",
       "D": "Standard clearance of 1 foot is sufficient for all voltages"
@@ -486,7 +486,7 @@
     "standard": "workplace",
     "text_nfpa": "Overhead power lines require which safety action per NFPA 70E Art.130?",
     "options_nfpa": {
-      "A": "No special actions — overhead lines are insulated",
+      "A": "No special actions \u2014 overhead lines are insulated",
       "B": "A JHA is required; de-energize and ground where applicable",
       "C": "Workers must simply wear hard hats",
       "D": "Standard clearance of 1 foot is sufficient for all voltages"
@@ -556,7 +556,7 @@
       "D": "Panel name, circuit number, engineer signature, date"
     },
     "answer": "B",
-    "explanation": "Workplace Safety Standards states arc flash labels must show: (1) highest voltage present, (2) arc flash boundary distance, (3) incident energy in cal/cm², and (4) minimum arc rating required for PPE.",
+    "explanation": "Workplace Safety Standards states arc flash labels must show: (1) highest voltage present, (2) arc flash boundary distance, (3) incident energy in cal/cm\u00b2, and (4) minimum arc rating required for PPE.",
     "standard": "workplace",
     "text_nfpa": "Which four pieces of information are required to appear on an arc flash warning label per NFPA 70E Art.130?",
     "options_nfpa": {
@@ -566,12 +566,12 @@
       "D": "Panel name, circuit number, engineer signature, date"
     },
     "answer_nfpa": "B",
-    "explanation_nfpa": "NFPA 70E Art.130 states arc flash labels must show: (1) highest voltage present, (2) arc flash boundary distance, (3) incident energy in cal/cm², and (4) minimum arc rating required for PPE."
+    "explanation_nfpa": "NFPA 70E Art.130 states arc flash labels must show: (1) highest voltage present, (2) arc flash boundary distance, (3) incident energy in cal/cm\u00b2, and (4) minimum arc rating required for PPE."
   },
   {
     "id": "S032",
     "topic": "Arc Flash Label Reading",
-    "question": "An arc flash label reads: Incident Energy = 6.5 cal/cm². What is the minimum HRC category of PPE required?",
+    "question": "An arc flash label reads: Incident Energy = 6.5 cal/cm\u00b2. What is the minimum HRC category of PPE required?",
     "options": {
       "A": "HRC 0",
       "B": "HRC 1",
@@ -579,9 +579,9 @@
       "D": "HRC 3"
     },
     "answer": "C",
-    "explanation": "HRC 2 covers incident energy from 4 to 8 cal/cm² (per Workplace Safety Standards). At 6.5 cal/cm², HRC 2 rated PPE is the minimum required. HRC 1 only covers up to 4 cal/cm².",
+    "explanation": "HRC 2 covers incident energy from 4 to 8 cal/cm\u00b2 (per Workplace Safety Standards). At 6.5 cal/cm\u00b2, HRC 2 rated PPE is the minimum required. HRC 1 only covers up to 4 cal/cm\u00b2.",
     "standard": "workplace",
-    "text_nfpa": "An arc flash label reads: Incident Energy = 6.5 cal/cm². What is the minimum Arc Flash PPE Category category of PPE required?",
+    "text_nfpa": "An arc flash label reads: Incident Energy = 6.5 cal/cm\u00b2. What is the minimum Arc Flash PPE Category category of PPE required?",
     "options_nfpa": {
       "A": "Arc Flash PPE Category 0",
       "B": "Arc Flash PPE Category 1",
@@ -589,7 +589,7 @@
       "D": "Arc Flash PPE Category 3"
     },
     "answer_nfpa": "C",
-    "explanation_nfpa": "Arc Flash PPE Category 2 covers incident energy from 4 to 8 cal/cm² (per NFPA 70E Art.130). At 6.5 cal/cm², Arc Flash PPE Category 2 rated PPE is the minimum required. Arc Flash PPE Category 1 only covers up to 4 cal/cm²."
+    "explanation_nfpa": "Arc Flash PPE Category 2 covers incident energy from 4 to 8 cal/cm\u00b2 (per NFPA 70E Art.130). At 6.5 cal/cm\u00b2, Arc Flash PPE Category 2 rated PPE is the minimum required. Arc Flash PPE Category 1 only covers up to 4 cal/cm\u00b2."
   },
   {
     "id": "S033",
@@ -597,36 +597,36 @@
     "question": "What does the 'minimum arc rating' on an arc flash label represent?",
     "options": {
       "A": "The maximum voltage the panel can handle",
-      "B": "The cal/cm² rating that PPE must meet or exceed to provide adequate protection",
+      "B": "The cal/cm\u00b2 rating that PPE must meet or exceed to provide adequate protection",
       "C": "The minimum distance a worker must stand from the panel",
       "D": "The overcurrent protection rating of the panel"
     },
     "answer": "B",
-    "explanation": "The minimum arc rating indicates the minimum cal/cm² value that PPE must be rated for at the working distance. Workers must wear PPE with an arc rating at or above this value.",
+    "explanation": "The minimum arc rating indicates the minimum cal/cm\u00b2 value that PPE must be rated for at the working distance. Workers must wear PPE with an arc rating at or above this value.",
     "standard": "both"
   },
   {
     "id": "S034",
     "topic": "Arc Flash Label Reading",
-    "question": "An arc flash label shows an incident energy of 32 cal/cm². What action should a worker take?",
+    "question": "An arc flash label shows an incident energy of 32 cal/cm\u00b2. What action should a worker take?",
     "options": {
       "A": "Proceed with standard HRC 3 PPE",
-      "B": "Proceed only if wearing HRC 4 PPE (25-40 cal/cm² range)",
-      "C": "Contact supervision — incident energy above 40 cal/cm² is prohibited but 32 cal/cm² is in HRC 4 range",
+      "B": "Proceed only if wearing HRC 4 PPE (25-40 cal/cm\u00b2 range)",
+      "C": "Contact supervision \u2014 incident energy above 40 cal/cm\u00b2 is prohibited but 32 cal/cm\u00b2 is in HRC 4 range",
       "D": "Energized work is prohibited at this level"
     },
     "answer": "B",
-    "explanation": "32 cal/cm² falls within the HRC 4 range (25-40 cal/cm²). The worker may proceed with full HRC 4 PPE. Work is only prohibited above 40 cal/cm².",
+    "explanation": "32 cal/cm\u00b2 falls within the HRC 4 range (25-40 cal/cm\u00b2). The worker may proceed with full HRC 4 PPE. Work is only prohibited above 40 cal/cm\u00b2.",
     "standard": "workplace",
-    "text_nfpa": "An arc flash label shows an incident energy of 32 cal/cm². What action should a worker take?",
+    "text_nfpa": "An arc flash label shows an incident energy of 32 cal/cm\u00b2. What action should a worker take?",
     "options_nfpa": {
       "A": "Proceed with standard Arc Flash PPE Category 3 PPE",
-      "B": "Proceed only if wearing Arc Flash PPE Category 4 PPE (25-40 cal/cm² range)",
-      "C": "Contact supervision — incident energy above 40 cal/cm² is prohibited but 32 cal/cm² is in Arc Flash PPE Category 4 range",
+      "B": "Proceed only if wearing Arc Flash PPE Category 4 PPE (25-40 cal/cm\u00b2 range)",
+      "C": "Contact supervision \u2014 incident energy above 40 cal/cm\u00b2 is prohibited but 32 cal/cm\u00b2 is in Arc Flash PPE Category 4 range",
       "D": "Energized work is prohibited at this level"
     },
     "answer_nfpa": "B",
-    "explanation_nfpa": "32 cal/cm² falls within the Arc Flash PPE Category 4 range (25-40 cal/cm²). The worker may proceed with full Arc Flash PPE Category 4 PPE. Work is only prohibited above 40 cal/cm². (Ref: NFPA 70E 2024)"
+    "explanation_nfpa": "32 cal/cm\u00b2 falls within the Arc Flash PPE Category 4 range (25-40 cal/cm\u00b2). The worker may proceed with full Arc Flash PPE Category 4 PPE. Work is only prohibited above 40 cal/cm\u00b2. (Ref: NFPA 70E 2024)"
   },
   {
     "id": "S035",
@@ -645,25 +645,25 @@
   {
     "id": "S036",
     "topic": "Arc Flash Label Reading",
-    "question": "An arc flash label shows Arc Flash Boundary = 8 feet and Incident Energy = 12 cal/cm² at 18 inches. A worker plans to work at 3 feet. Which statement is correct?",
+    "question": "An arc flash label shows Arc Flash Boundary = 8 feet and Incident Energy = 12 cal/cm\u00b2 at 18 inches. A worker plans to work at 3 feet. Which statement is correct?",
     "options": {
       "A": "Working at 3 feet is safe because it is less than 8 feet",
-      "B": "The worker must wear PPE rated for at least HRC 3 (8-25 cal/cm²) since they are within the arc flash boundary",
+      "B": "The worker must wear PPE rated for at least HRC 3 (8-25 cal/cm\u00b2) since they are within the arc flash boundary",
       "C": "The worker can work at 3 feet with only safety glasses",
-      "D": "The incident energy at 3 feet will be higher than 12 cal/cm² since they are closer than 18 inches"
+      "D": "The incident energy at 3 feet will be higher than 12 cal/cm\u00b2 since they are closer than 18 inches"
     },
     "answer": "B",
-    "explanation": "The worker is inside the 8-foot arc flash boundary, so arc-rated PPE is required. The minimum arc rating must match or exceed the incident energy at the actual working distance. At 3 feet (farther than 18 inches), energy is less than 12 cal/cm² but HRC 3 PPE (rated for the label values) provides adequate protection.",
+    "explanation": "The worker is inside the 8-foot arc flash boundary, so arc-rated PPE is required. The minimum arc rating must match or exceed the incident energy at the actual working distance. At 3 feet (farther than 18 inches), energy is less than 12 cal/cm\u00b2 but HRC 3 PPE (rated for the label values) provides adequate protection.",
     "standard": "workplace",
-    "text_nfpa": "An arc flash label shows Arc Flash Boundary = 8 feet and Incident Energy = 12 cal/cm² at 18 inches. A worker plans to work at 3 feet. Which statement is correct?",
+    "text_nfpa": "An arc flash label shows Arc Flash Boundary = 8 feet and Incident Energy = 12 cal/cm\u00b2 at 18 inches. A worker plans to work at 3 feet. Which statement is correct?",
     "options_nfpa": {
       "A": "Working at 3 feet is safe because it is less than 8 feet",
-      "B": "The worker must wear PPE rated for at least Arc Flash PPE Category 3 (8-25 cal/cm²) since they are within the arc flash boundary",
+      "B": "The worker must wear PPE rated for at least Arc Flash PPE Category 3 (8-25 cal/cm\u00b2) since they are within the arc flash boundary",
       "C": "The worker can work at 3 feet with only safety glasses",
-      "D": "The incident energy at 3 feet will be higher than 12 cal/cm² since they are closer than 18 inches"
+      "D": "The incident energy at 3 feet will be higher than 12 cal/cm\u00b2 since they are closer than 18 inches"
     },
     "answer_nfpa": "B",
-    "explanation_nfpa": "The worker is inside the 8-foot arc flash boundary, so arc-rated PPE is required. The minimum arc rating must match or exceed the incident energy at the actual working distance. At 3 feet (farther than 18 inches), energy is less than 12 cal/cm² but Arc Flash PPE Category 3 PPE (rated for the label values) provides adequate protection. (Ref: NFPA 70E 2024)"
+    "explanation_nfpa": "The worker is inside the 8-foot arc flash boundary, so arc-rated PPE is required. The minimum arc rating must match or exceed the incident energy at the actual working distance. At 3 feet (farther than 18 inches), energy is less than 12 cal/cm\u00b2 but Arc Flash PPE Category 3 PPE (rated for the label values) provides adequate protection. (Ref: NFPA 70E 2024)"
   },
   {
     "id": "S037",
@@ -685,12 +685,12 @@
     "question": "What is the significance of the 'arc flash boundary' distance on a label?",
     "options": {
       "A": "It marks where the voltage drops to zero",
-      "B": "It is the distance at which incident energy equals 1.2 cal/cm² — onset of a second-degree burn for unprotected skin",
+      "B": "It is the distance at which incident energy equals 1.2 cal/cm\u00b2 \u2014 onset of a second-degree burn for unprotected skin",
       "C": "It is the distance the panel door can swing open",
       "D": "It marks the minimum distance for any electrical work"
     },
     "answer": "B",
-    "explanation": "The arc flash boundary marks the distance at which incident energy equals 1.2 cal/cm². Any person inside this boundary during an arc flash event without protection could receive a second-degree burn.",
+    "explanation": "The arc flash boundary marks the distance at which incident energy equals 1.2 cal/cm\u00b2. Any person inside this boundary during an arc flash event without protection could receive a second-degree burn.",
     "standard": "both"
   },
   {
@@ -704,7 +704,7 @@
       "D": "Only equipment with a fault current above 10,000 amperes"
     },
     "answer": "B",
-    "explanation": "Workplace Safety Standards specifically requires arc flash labels on switchboards, panelboards, motor control centers (MCCs), and industrial control panels — locations where workers could be exposed to arc flash hazards during normal operations.",
+    "explanation": "Workplace Safety Standards specifically requires arc flash labels on switchboards, panelboards, motor control centers (MCCs), and industrial control panels \u2014 locations where workers could be exposed to arc flash hazards during normal operations.",
     "standard": "workplace",
     "text_nfpa": "Arc flash labels are required on which of the following based on NFPA 70E Art.130?",
     "options_nfpa": {
@@ -714,12 +714,12 @@
       "D": "Only equipment with a fault current above 10,000 amperes"
     },
     "answer_nfpa": "B",
-    "explanation_nfpa": "NFPA 70E Art.130 specifically requires arc flash labels on switchboards, panelboards, motor control centers (MCCs), and industrial control panels — locations where workers could be exposed to arc flash hazards during normal operations."
+    "explanation_nfpa": "NFPA 70E Art.130 specifically requires arc flash labels on switchboards, panelboards, motor control centers (MCCs), and industrial control panels \u2014 locations where workers could be exposed to arc flash hazards during normal operations."
   },
   {
     "id": "S040",
     "topic": "Arc Flash Label Reading",
-    "question": "A label shows Incident Energy = 0.8 cal/cm². What HRC category applies?",
+    "question": "A label shows Incident Energy = 0.8 cal/cm\u00b2. What HRC category applies?",
     "options": {
       "A": "HRC 1",
       "B": "HRC 0",
@@ -727,9 +727,9 @@
       "D": "No PPE required at this level"
     },
     "answer": "B",
-    "explanation": "HRC Category 0 covers incident energy below 1.2 cal/cm². At 0.8 cal/cm², HRC 0 applies, which requires non-melting, flammable clothing but has the lowest arc-rated PPE requirements.",
+    "explanation": "HRC Category 0 covers incident energy below 1.2 cal/cm\u00b2. At 0.8 cal/cm\u00b2, HRC 0 applies, which requires non-melting, flammable clothing but has the lowest arc-rated PPE requirements.",
     "standard": "workplace",
-    "text_nfpa": "A label shows Incident Energy = 0.8 cal/cm². What Arc Flash PPE Category category applies?",
+    "text_nfpa": "A label shows Incident Energy = 0.8 cal/cm\u00b2. What Arc Flash PPE Category category applies?",
     "options_nfpa": {
       "A": "Arc Flash PPE Category 1",
       "B": "Arc Flash PPE Category 0",
@@ -737,99 +737,99 @@
       "D": "No PPE required at this level"
     },
     "answer_nfpa": "B",
-    "explanation_nfpa": "Arc Flash PPE Category Category 0 covers incident energy below 1.2 cal/cm². At 0.8 cal/cm², Arc Flash PPE Category 0 applies, which requires non-melting, flammable clothing but has the lowest arc-rated PPE requirements. (Ref: NFPA 70E 2024)"
+    "explanation_nfpa": "Arc Flash PPE Category Category 0 covers incident energy below 1.2 cal/cm\u00b2. At 0.8 cal/cm\u00b2, Arc Flash PPE Category 0 applies, which requires non-melting, flammable clothing but has the lowest arc-rated PPE requirements. (Ref: NFPA 70E 2024)"
   },
   {
     "id": "S041",
     "topic": "PPE & HRC Categories",
     "question": "What is the incident energy range for HRC Category 1?",
     "options": {
-      "A": "Less than 1.2 cal/cm²",
-      "B": "1.2 to 4 cal/cm²",
-      "C": "4 to 8 cal/cm²",
-      "D": "8 to 25 cal/cm²"
+      "A": "Less than 1.2 cal/cm\u00b2",
+      "B": "1.2 to 4 cal/cm\u00b2",
+      "C": "4 to 8 cal/cm\u00b2",
+      "D": "8 to 25 cal/cm\u00b2"
     },
     "answer": "B",
-    "explanation": "Per Workplace Safety Standards, HRC Category 1 covers incident energy from 1.2 to 4 cal/cm². This requires arc-rated clothing with a minimum 4 cal/cm² arc rating.",
+    "explanation": "Per Workplace Safety Standards, HRC Category 1 covers incident energy from 1.2 to 4 cal/cm\u00b2. This requires arc-rated clothing with a minimum 4 cal/cm\u00b2 arc rating.",
     "standard": "workplace",
     "text_nfpa": "What is the incident energy range for Arc Flash PPE Category Category 1?",
     "options_nfpa": {
-      "A": "Less than 1.2 cal/cm²",
-      "B": "1.2 to 4 cal/cm²",
-      "C": "4 to 8 cal/cm²",
-      "D": "8 to 25 cal/cm²"
+      "A": "Less than 1.2 cal/cm\u00b2",
+      "B": "1.2 to 4 cal/cm\u00b2",
+      "C": "4 to 8 cal/cm\u00b2",
+      "D": "8 to 25 cal/cm\u00b2"
     },
     "answer_nfpa": "B",
-    "explanation_nfpa": "Per NFPA 70E Art.130, Arc Flash PPE Category Category 1 covers incident energy from 1.2 to 4 cal/cm². This requires arc-rated clothing with a minimum 4 cal/cm² arc rating."
+    "explanation_nfpa": "Per NFPA 70E Art.130, Arc Flash PPE Category Category 1 covers incident energy from 1.2 to 4 cal/cm\u00b2. This requires arc-rated clothing with a minimum 4 cal/cm\u00b2 arc rating."
   },
   {
     "id": "S042",
     "topic": "PPE & HRC Categories",
     "question": "What is the incident energy range for HRC Category 2?",
     "options": {
-      "A": "1.2 to 4 cal/cm²",
-      "B": "4 to 8 cal/cm²",
-      "C": "8 to 25 cal/cm²",
-      "D": "25 to 40 cal/cm²"
+      "A": "1.2 to 4 cal/cm\u00b2",
+      "B": "4 to 8 cal/cm\u00b2",
+      "C": "8 to 25 cal/cm\u00b2",
+      "D": "25 to 40 cal/cm\u00b2"
     },
     "answer": "B",
-    "explanation": "Per Workplace Safety Standards, HRC Category 2 covers incident energy from 4 to 8 cal/cm². PPE must be rated at minimum 8 cal/cm².",
+    "explanation": "Per Workplace Safety Standards, HRC Category 2 covers incident energy from 4 to 8 cal/cm\u00b2. PPE must be rated at minimum 8 cal/cm\u00b2.",
     "standard": "workplace",
     "text_nfpa": "What is the incident energy range for Arc Flash PPE Category Category 2?",
     "options_nfpa": {
-      "A": "1.2 to 4 cal/cm²",
-      "B": "4 to 8 cal/cm²",
-      "C": "8 to 25 cal/cm²",
-      "D": "25 to 40 cal/cm²"
+      "A": "1.2 to 4 cal/cm\u00b2",
+      "B": "4 to 8 cal/cm\u00b2",
+      "C": "8 to 25 cal/cm\u00b2",
+      "D": "25 to 40 cal/cm\u00b2"
     },
     "answer_nfpa": "B",
-    "explanation_nfpa": "Per NFPA 70E Art.130, Arc Flash PPE Category Category 2 covers incident energy from 4 to 8 cal/cm². PPE must be rated at minimum 8 cal/cm²."
+    "explanation_nfpa": "Per NFPA 70E Art.130, Arc Flash PPE Category Category 2 covers incident energy from 4 to 8 cal/cm\u00b2. PPE must be rated at minimum 8 cal/cm\u00b2."
   },
   {
     "id": "S043",
     "topic": "PPE & HRC Categories",
     "question": "What is the incident energy range for HRC Category 3?",
     "options": {
-      "A": "4 to 8 cal/cm²",
-      "B": "8 to 25 cal/cm²",
-      "C": "25 to 40 cal/cm²",
-      "D": "Greater than 40 cal/cm²"
+      "A": "4 to 8 cal/cm\u00b2",
+      "B": "8 to 25 cal/cm\u00b2",
+      "C": "25 to 40 cal/cm\u00b2",
+      "D": "Greater than 40 cal/cm\u00b2"
     },
     "answer": "B",
-    "explanation": "Per Workplace Safety Standards, HRC Category 3 covers incident energy from 8 to 25 cal/cm². This requires a full arc flash suit system with a minimum arc rating of 25 cal/cm².",
+    "explanation": "Per Workplace Safety Standards, HRC Category 3 covers incident energy from 8 to 25 cal/cm\u00b2. This requires a full arc flash suit system with a minimum arc rating of 25 cal/cm\u00b2.",
     "standard": "workplace",
     "text_nfpa": "What is the incident energy range for Arc Flash PPE Category Category 3?",
     "options_nfpa": {
-      "A": "4 to 8 cal/cm²",
-      "B": "8 to 25 cal/cm²",
-      "C": "25 to 40 cal/cm²",
-      "D": "Greater than 40 cal/cm²"
+      "A": "4 to 8 cal/cm\u00b2",
+      "B": "8 to 25 cal/cm\u00b2",
+      "C": "25 to 40 cal/cm\u00b2",
+      "D": "Greater than 40 cal/cm\u00b2"
     },
     "answer_nfpa": "B",
-    "explanation_nfpa": "Per NFPA 70E Art.130, Arc Flash PPE Category Category 3 covers incident energy from 8 to 25 cal/cm². This requires a full arc flash suit system with a minimum arc rating of 25 cal/cm²."
+    "explanation_nfpa": "Per NFPA 70E Art.130, Arc Flash PPE Category Category 3 covers incident energy from 8 to 25 cal/cm\u00b2. This requires a full arc flash suit system with a minimum arc rating of 25 cal/cm\u00b2."
   },
   {
     "id": "S044",
     "topic": "PPE & HRC Categories",
     "question": "What is the incident energy range for HRC Category 4?",
     "options": {
-      "A": "8 to 25 cal/cm²",
-      "B": "25 to 40 cal/cm²",
-      "C": "Greater than 40 cal/cm²",
-      "D": "40 to 100 cal/cm²"
+      "A": "8 to 25 cal/cm\u00b2",
+      "B": "25 to 40 cal/cm\u00b2",
+      "C": "Greater than 40 cal/cm\u00b2",
+      "D": "40 to 100 cal/cm\u00b2"
     },
     "answer": "B",
-    "explanation": "Per Workplace Safety Standards, HRC Category 4 covers incident energy from 25 to 40 cal/cm². This is the highest rated protection category; above 40 cal/cm², energized work is prohibited.",
+    "explanation": "Per Workplace Safety Standards, HRC Category 4 covers incident energy from 25 to 40 cal/cm\u00b2. This is the highest rated protection category; above 40 cal/cm\u00b2, energized work is prohibited.",
     "standard": "workplace",
     "text_nfpa": "What is the incident energy range for Arc Flash PPE Category Category 4?",
     "options_nfpa": {
-      "A": "8 to 25 cal/cm²",
-      "B": "25 to 40 cal/cm²",
-      "C": "Greater than 40 cal/cm²",
-      "D": "40 to 100 cal/cm²"
+      "A": "8 to 25 cal/cm\u00b2",
+      "B": "25 to 40 cal/cm\u00b2",
+      "C": "Greater than 40 cal/cm\u00b2",
+      "D": "40 to 100 cal/cm\u00b2"
     },
     "answer_nfpa": "B",
-    "explanation_nfpa": "Per NFPA 70E Art.130, Arc Flash PPE Category Category 4 covers incident energy from 25 to 40 cal/cm². This is the highest rated protection category; above 40 cal/cm², energized work is prohibited."
+    "explanation_nfpa": "Per NFPA 70E Art.130, Arc Flash PPE Category Category 4 covers incident energy from 25 to 40 cal/cm\u00b2. This is the highest rated protection category; above 40 cal/cm\u00b2, energized work is prohibited."
   },
   {
     "id": "S045",
@@ -888,7 +888,7 @@
       "D": "IEC 900"
     },
     "answer": "A",
-    "explanation": "Per Workplace PPE Standards, arc flash clothing must comply with ASTM F-1506 and must be labeled with its cal/cm² arc rating to be considered arc-rated apparel.",
+    "explanation": "Per Workplace PPE Standards, arc flash clothing must comply with ASTM F-1506 and must be labeled with its cal/cm\u00b2 arc rating to be considered arc-rated apparel.",
     "standard": "workplace",
     "text_nfpa": "Arc flash protective clothing must comply with which standard per ASTM F1506?",
     "options_nfpa": {
@@ -898,7 +898,7 @@
       "D": "IEC 900"
     },
     "answer_nfpa": "A",
-    "explanation_nfpa": "Per ASTM F1506, arc flash clothing must comply with ASTM F-1506 and must be labeled with its cal/cm² arc rating to be considered arc-rated apparel. (Ref: NFPA 70E 2024)"
+    "explanation_nfpa": "Per ASTM F1506, arc flash clothing must comply with ASTM F-1506 and must be labeled with its cal/cm\u00b2 arc rating to be considered arc-rated apparel. (Ref: NFPA 70E 2024)"
   },
   {
     "id": "S048",
@@ -934,7 +934,7 @@
       "D": "Any ANSI-rated hard hat"
     },
     "answer": "B",
-    "explanation": "Per Workplace PPE Standards, hard hats for electrical work must meet ANSI Z89.1 Class B, which is tested at 20KV RMS for 3 minutes — the highest electrical protection class for head protection.",
+    "explanation": "Per Workplace PPE Standards, hard hats for electrical work must meet ANSI Z89.1 Class B, which is tested at 20KV RMS for 3 minutes \u2014 the highest electrical protection class for head protection.",
     "standard": "workplace",
     "text_nfpa": "Hard hats used for electrical work must meet which specification?",
     "options_nfpa": {
@@ -944,7 +944,7 @@
       "D": "Any ANSI-rated hard hat"
     },
     "answer_nfpa": "B",
-    "explanation_nfpa": "Per ASTM F1506, hard hats for electrical work must meet ANSI Z89.1 Class B, which is tested at 20KV RMS for 3 minutes — the highest electrical protection class for head protection. (Ref: NFPA 70E 2024)"
+    "explanation_nfpa": "Per ASTM F1506, hard hats for electrical work must meet ANSI Z89.1 Class B, which is tested at 20KV RMS for 3 minutes \u2014 the highest electrical protection class for head protection. (Ref: NFPA 70E 2024)"
   },
   {
     "id": "S050",
@@ -1020,7 +1020,7 @@
     "topic": "PPE & HRC Categories",
     "question": "Safety glasses must be worn in what position when using a face shield or arc flash hood?",
     "options": {
-      "A": "Removed — the face shield provides sufficient protection",
+      "A": "Removed \u2014 the face shield provides sufficient protection",
       "B": "Always worn UNDER face shields or hoods as secondary eye protection",
       "C": "Worn on top of the face shield",
       "D": "Optional when wearing a full arc suit"
@@ -1030,7 +1030,7 @@
     "standard": "workplace",
     "text_nfpa": "Safety glasses must be worn in what position when using a face shield or arc flash hood?",
     "options_nfpa": {
-      "A": "Removed — the face shield provides sufficient protection",
+      "A": "Removed \u2014 the face shield provides sufficient protection",
       "B": "Always worn UNDER face shields or hoods as secondary eye protection",
       "C": "Worn on top of the face shield",
       "D": "Optional when wearing a full arc suit"
@@ -1210,7 +1210,7 @@
       "D": "Notify affected employees"
     },
     "answer": "C",
-    "explanation": "Step 1 of the 8-step LOTOTO procedure from Workplace Safety Standards is to identify ALL energy sources associated with the equipment — electrical, hydraulic, pneumatic, mechanical, thermal, chemical, and gravity.",
+    "explanation": "Step 1 of the 8-step LOTOTO procedure from Workplace Safety Standards is to identify ALL energy sources associated with the equipment \u2014 electrical, hydraulic, pneumatic, mechanical, thermal, chemical, and gravity.",
     "standard": "workplace",
     "text_nfpa": "What is Step 1 of the NFPA 70E Art.120 Lockout/Tagout (LOTO) procedure?",
     "options_nfpa": {
@@ -1220,7 +1220,7 @@
       "D": "Notify affected employees"
     },
     "answer_nfpa": "C",
-    "explanation_nfpa": "Step 1 of the 7-step Lockout/Tagout (LOTO) procedure from NFPA 70E Art.120 is to identify ALL energy sources associated with the equipment — electrical, hydraulic, pneumatic, mechanical, thermal, chemical, and gravity."
+    "explanation_nfpa": "Step 1 of the 7-step Lockout/Tagout (LOTO) procedure from NFPA 70E Art.120 is to identify ALL energy sources associated with the equipment \u2014 electrical, hydraulic, pneumatic, mechanical, thermal, chemical, and gravity."
   },
   {
     "id": "S062",
@@ -1325,7 +1325,7 @@
       "D": "Shut down equipment"
     },
     "answer": "C",
-    "explanation": "Step 6 is to release or restrain stored energy. After isolating energy sources, residual energy must be dissipated or restrained — capacitors discharged, springs blocked, elevated components lowered or secured.",
+    "explanation": "Step 6 is to release or restrain stored energy. After isolating energy sources, residual energy must be dissipated or restrained \u2014 capacitors discharged, springs blocked, elevated components lowered or secured.",
     "standard": "workplace",
     "text_nfpa": "What is Step 6 of the NFPA 70E Art.120 Lockout/Tagout (LOTO) procedure?",
     "options_nfpa": {
@@ -1335,7 +1335,7 @@
       "D": "Shut down equipment"
     },
     "answer_nfpa": "C",
-    "explanation_nfpa": "Step 6 is to release or restrain stored energy. After isolating energy sources, residual energy must be dissipated or restrained — capacitors discharged, springs blocked, elevated components lowered or secured. (Ref: NFPA 70E 2024)"
+    "explanation_nfpa": "Step 6 is to release or restrain stored energy. After isolating energy sources, residual energy must be dissipated or restrained \u2014 capacitors discharged, springs blocked, elevated components lowered or secured. (Ref: NFPA 70E 2024)"
   },
   {
     "id": "S067",
@@ -1344,21 +1344,21 @@
     "options": {
       "A": "Apply lockout devices",
       "B": "Notify affected employees",
-      "C": "Verify isolation — attempt to start the equipment (Tryout)",
+      "C": "Verify isolation \u2014 attempt to start the equipment (Tryout)",
       "D": "Perform the maintenance work"
     },
     "answer": "C",
-    "explanation": "Step 7 is the Tryout — attempt to start the equipment using normal controls to verify it cannot be energized. This confirms the lockout is effective before work begins.",
+    "explanation": "Step 7 is the Tryout \u2014 attempt to start the equipment using normal controls to verify it cannot be energized. This confirms the lockout is effective before work begins.",
     "standard": "workplace",
     "text_nfpa": "What is Step 7 of the NFPA 70E Art.120 Lockout/Tagout (LOTO) procedure?",
     "options_nfpa": {
       "A": "Apply lockout devices",
       "B": "Notify affected employees",
-      "C": "Verify isolation — attempt to start the equipment (Tryout)",
+      "C": "Verify isolation \u2014 attempt to start the equipment (Tryout)",
       "D": "Perform the maintenance work"
     },
     "answer_nfpa": "C",
-    "explanation_nfpa": "Step 7 is the Tryout — attempt to start the equipment using normal controls to verify it cannot be energized. This confirms the lockout is effective before work begins. (Ref: NFPA 70E 2024)"
+    "explanation_nfpa": "Step 7 is the Tryout \u2014 attempt to start the equipment using normal controls to verify it cannot be energized. This confirms the lockout is effective before work begins. (Ref: NFPA 70E 2024)"
   },
   {
     "id": "S068",
@@ -1434,9 +1434,9 @@
     "topic": "Lockout/Tagout (LOTOTO)",
     "question": "Per Workplace Safety Standards, how many keys are permitted per LOTOTO lock?",
     "options": {
-      "A": "Two — one for the worker and one for their supervisor",
-      "B": "One key per associate only — never shared",
-      "C": "Three — worker, supervisor, and safety department",
+      "A": "Two \u2014 one for the worker and one for their supervisor",
+      "B": "One key per associate only \u2014 never shared",
+      "C": "Three \u2014 worker, supervisor, and safety department",
       "D": "No limit as long as a log is maintained"
     },
     "answer": "B",
@@ -1444,9 +1444,9 @@
     "standard": "workplace",
     "text_nfpa": "Per NFPA 70E Art.120, how many keys are permitted per Lockout/Tagout (LOTO) lock?",
     "options_nfpa": {
-      "A": "Two — one for the worker and one for their supervisor",
-      "B": "One key per associate only — never shared",
-      "C": "Three — worker, supervisor, and safety department",
+      "A": "Two \u2014 one for the worker and one for their supervisor",
+      "B": "One key per associate only \u2014 never shared",
+      "C": "Three \u2014 worker, supervisor, and safety department",
       "D": "No limit as long as a log is maintained"
     },
     "answer_nfpa": "B",
@@ -1483,7 +1483,7 @@
       "A": "No LOTOTO required",
       "B": "Limited LOTOTO only",
       "C": "Category 3 interlocks",
-      "D": "Full HECP Section D compliance — comprehensive LOTOTO"
+      "D": "Full HECP Section D compliance \u2014 comprehensive LOTOTO"
     },
     "answer": "D",
     "explanation": "Facility Service Level 4 service involves the most complex maintenance tasks and requires full HECP Section D compliance with comprehensive lockout/tagout procedures covering all energy sources.",
@@ -1493,7 +1493,7 @@
       "A": "No Lockout/Tagout (LOTO) required",
       "B": "Limited Lockout/Tagout (LOTO) only",
       "C": "Category 3 interlocks",
-      "D": "Full HECP Section D compliance — comprehensive Lockout/Tagout (LOTO)"
+      "D": "Full HECP Section D compliance \u2014 comprehensive Lockout/Tagout (LOTO)"
     },
     "answer_nfpa": "D",
     "explanation_nfpa": "Simple/Complex Lockout Level 4 service involves the most complex maintenance tasks and requires full HECP Section D compliance with comprehensive lockout/tagout procedures covering all energy sources. (Ref: NFPA 70E 2024)"
@@ -1569,7 +1569,7 @@
       "D": "The facility safety coordinator only"
     },
     "answer": "C",
-    "explanation": "Per NFPA 70E, Energized Work Permits must be approved by a qualified person in management or supervision — someone with responsibility for the work and knowledge of the electrical hazards involved.",
+    "explanation": "Per NFPA 70E, Energized Work Permits must be approved by a qualified person in management or supervision \u2014 someone with responsibility for the work and knowledge of the electrical hazards involved.",
     "standard": "both"
   },
   {
@@ -1606,7 +1606,7 @@
     "question": "What is the primary reason work should be performed de-energized (rather than energized) whenever possible?",
     "options": {
       "A": "De-energized work is faster",
-      "B": "Establishing an electrically safe work condition eliminates the electrical hazard entirely — the highest level of the JHA hierarchy",
+      "B": "Establishing an electrically safe work condition eliminates the electrical hazard entirely \u2014 the highest level of the JHA hierarchy",
       "C": "Insurance requirements mandate de-energized work",
       "D": "De-energized work does not require any PPE"
     },
@@ -1634,7 +1634,7 @@
     "question": "Working on or near energized conductors with exposed energized parts is considered:",
     "options": {
       "A": "Standard maintenance work requiring only awareness training",
-      "B": "Energized electrical work — subject to all NFPA 70E hazard controls",
+      "B": "Energized electrical work \u2014 subject to all NFPA 70E hazard controls",
       "C": "Acceptable at any voltage if a supervisor is present",
       "D": "Only hazardous above 277V"
     },
@@ -1648,7 +1648,7 @@
     "question": "What must be established before any maintenance work on electrical equipment according to NFPA 70E?",
     "options": {
       "A": "A verbal agreement with the supervisor",
-      "B": "An Electrically Safe Work Condition — unless an Energized Work Permit justifies otherwise",
+      "B": "An Electrically Safe Work Condition \u2014 unless an Energized Work Permit justifies otherwise",
       "C": "A standard work order",
       "D": "Only PPE selection"
     },
@@ -1691,7 +1691,7 @@
     "options": {
       "A": "Yes, if the unqualified person has completed awareness training",
       "B": "Yes, if the task is below 120V",
-      "C": "No — unqualified persons may not perform energized work independently",
+      "C": "No \u2014 unqualified persons may not perform energized work independently",
       "D": "Yes, as long as the qualified person is nearby"
     },
     "answer": "C",
@@ -1731,7 +1731,7 @@
     "topic": "Qualified Person Rules",
     "question": "A Qualified Person determines that a task requires working within the arc flash boundary. What must they do before proceeding?",
     "options": {
-      "A": "Proceed immediately — being qualified grants automatic permission",
+      "A": "Proceed immediately \u2014 being qualified grants automatic permission",
       "B": "Obtain an Energized Work Permit if the work cannot be performed de-energized, and don appropriate arc-rated PPE",
       "C": "Simply notify a co-worker",
       "D": "The Qualified Person may waive PPE requirements based on experience"
@@ -1743,25 +1743,25 @@
   {
     "id": "S090",
     "topic": "Qualified Person Rules",
-    "question": "A Qualified Person encounters an arc flash label showing an incident energy exceeding 40 cal/cm². What should they do?",
+    "question": "A Qualified Person encounters an arc flash label showing an incident energy exceeding 40 cal/cm\u00b2. What should they do?",
     "options": {
       "A": "Proceed with full HRC 4 PPE (maximum protection)",
-      "B": "De-energize the equipment before performing any work — energized work above 40 cal/cm² is PROHIBITED",
+      "B": "De-energize the equipment before performing any work \u2014 energized work above 40 cal/cm\u00b2 is PROHIBITED",
       "C": "Call for a second qualified person to assist",
       "D": "Proceed only if they have HRC 5 PPE"
     },
     "answer": "B",
-    "explanation": "Per Workplace Safety Standards, energized work is PROHIBITED when incident energy exceeds 40 cal/cm². No HRC category exists for this level. The equipment must be de-energized before work proceeds.",
+    "explanation": "Per Workplace Safety Standards, energized work is PROHIBITED when incident energy exceeds 40 cal/cm\u00b2. No HRC category exists for this level. The equipment must be de-energized before work proceeds.",
     "standard": "workplace",
-    "text_nfpa": "A Qualified Person encounters an arc flash label showing an incident energy exceeding 40 cal/cm². What should they do?",
+    "text_nfpa": "A Qualified Person encounters an arc flash label showing an incident energy exceeding 40 cal/cm\u00b2. What should they do?",
     "options_nfpa": {
       "A": "Proceed with full Arc Flash PPE Category 4 PPE (maximum protection)",
-      "B": "De-energize the equipment before performing any work — energized work above 40 cal/cm² is PROHIBITED",
+      "B": "De-energize the equipment before performing any work \u2014 energized work above 40 cal/cm\u00b2 is PROHIBITED",
       "C": "Call for a second qualified person to assist",
       "D": "Proceed only if they have Arc Flash PPE Category 5 PPE"
     },
     "answer_nfpa": "B",
-    "explanation_nfpa": "Per NFPA 70E Art.130, energized work is PROHIBITED when incident energy exceeds 40 cal/cm². No Arc Flash PPE Category category exists for this level. The equipment must be de-energized before work proceeds."
+    "explanation_nfpa": "Per NFPA 70E Art.130, energized work is PROHIBITED when incident energy exceeds 40 cal/cm\u00b2. No Arc Flash PPE Category category exists for this level. The equipment must be de-energized before work proceeds."
   },
   {
     "id": "S091",
@@ -1866,7 +1866,7 @@
       "D": "Mark them as defective and return to storage"
     },
     "answer": "B",
-    "explanation": "Per Workplace PPE Standards, rubber gloves that fail electrical testing must be DESTROYED immediately to prevent any possibility of their accidental use. There is no repair option — failed gloves are never returned to service.",
+    "explanation": "Per Workplace PPE Standards, rubber gloves that fail electrical testing must be DESTROYED immediately to prevent any possibility of their accidental use. There is no repair option \u2014 failed gloves are never returned to service.",
     "standard": "workplace",
     "text_nfpa": "When rubber gloves fail electrical testing, what action must be taken?",
     "options_nfpa": {
@@ -1876,7 +1876,7 @@
       "D": "Mark them as defective and return to storage"
     },
     "answer_nfpa": "B",
-    "explanation_nfpa": "Per NFPA 70E 130.7, rubber gloves that fail electrical testing must be DESTROYED immediately to prevent any possibility of their accidental use. There is no repair option — failed gloves are never returned to service."
+    "explanation_nfpa": "Per NFPA 70E 130.7, rubber gloves that fail electrical testing must be DESTROYED immediately to prevent any possibility of their accidental use. There is no repair option \u2014 failed gloves are never returned to service."
   },
   {
     "id": "S096",
@@ -1929,20 +1929,20 @@
     "topic": "PPE Inspection & Testing",
     "question": "A rubber glove's test date stamp shows testing was performed 7 months ago. Is this glove acceptable for use?",
     "options": {
-      "A": "Yes — gloves are tested annually",
-      "B": "No — the test date must not exceed 6 months for gloves in service",
-      "C": "Yes — as long as it passes the visual and air test",
-      "D": "Yes — 7 months is within the acceptable range"
+      "A": "Yes \u2014 gloves are tested annually",
+      "B": "No \u2014 the test date must not exceed 6 months for gloves in service",
+      "C": "Yes \u2014 as long as it passes the visual and air test",
+      "D": "Yes \u2014 7 months is within the acceptable range"
     },
     "answer": "B",
     "explanation": "Per Workplace PPE Standards, the rubber glove test date must not exceed 6 months for gloves in service. A glove tested 7 months ago is overdue for retesting and must not be used until recertified by an ASTM-certified vendor.",
     "standard": "workplace",
     "text_nfpa": "A rubber glove's test date stamp shows testing was performed 7 months ago. Is this glove acceptable for use?",
     "options_nfpa": {
-      "A": "Yes — gloves are tested annually",
-      "B": "No — the test date must not exceed 6 months for gloves in service",
-      "C": "Yes — as long as it passes the visual and air test",
-      "D": "Yes — 7 months is within the acceptable range"
+      "A": "Yes \u2014 gloves are tested annually",
+      "B": "No \u2014 the test date must not exceed 6 months for gloves in service",
+      "C": "Yes \u2014 as long as it passes the visual and air test",
+      "D": "Yes \u2014 7 months is within the acceptable range"
     },
     "answer_nfpa": "B",
     "explanation_nfpa": "Per NFPA 70E 130.7, the rubber glove test date must not exceed 6 months for gloves in service. A glove tested 7 months ago is overdue for retesting and must not be used until recertified by an ASTM-certified vendor."
@@ -2119,7 +2119,7 @@
       "D": "Notify the safety department and continue working while awaiting a replacement"
     },
     "answer": "B",
-    "explanation": "Any damage to arc flash PPE — including cracks in face shields — requires immediate removal from service. Cracked face shields cannot provide reliable arc flash protection and must be replaced before work continues.",
+    "explanation": "Any damage to arc flash PPE \u2014 including cracks in face shields \u2014 requires immediate removal from service. Cracked face shields cannot provide reliable arc flash protection and must be replaced before work continues.",
     "standard": "both"
   },
   {
@@ -2156,7 +2156,7 @@
       "D": "20,000V AC"
     },
     "answer": "C",
-    "explanation": "Per Workplace PPE Standards, insulated tools are tested at 10,000V AC during manufacture — ten times their rated working voltage — providing a safety factor for tools rated at 1,000V AC.",
+    "explanation": "Per Workplace PPE Standards, insulated tools are tested at 10,000V AC during manufacture \u2014 ten times their rated working voltage \u2014 providing a safety factor for tools rated at 1,000V AC.",
     "standard": "workplace",
     "text_nfpa": "At what voltage are insulated tools tested during manufacture per ASTM F1506?",
     "options_nfpa": {
@@ -2166,7 +2166,7 @@
       "D": "20,000V AC"
     },
     "answer_nfpa": "C",
-    "explanation_nfpa": "Per ASTM F1506, insulated tools are tested at 10,000V AC during manufacture — ten times their rated working voltage — providing a safety factor for tools rated at 1,000V AC. (Ref: NFPA 70E 2024)"
+    "explanation_nfpa": "Per ASTM F1506, insulated tools are tested at 10,000V AC during manufacture \u2014 ten times their rated working voltage \u2014 providing a safety factor for tools rated at 1,000V AC. (Ref: NFPA 70E 2024)"
   },
   {
     "id": "S109",
@@ -2243,7 +2243,7 @@
     "question": "Which insulated tool marking indicates the double triangle rating symbol?",
     "options": {
       "A": "A red square with the voltage printed inside",
-      "B": "Two triangles side by side with “1000V” — the IEC international standard symbol for insulated tools",
+      "B": "Two triangles side by side with \u201c1000V\u201d \u2014 the IEC international standard symbol for insulated tools",
       "C": "An orange diamond with kV rating",
       "D": "A yellow circle with the ASTM approval number"
     },
@@ -2279,7 +2279,7 @@
     "topic": "Safety Scenarios",
     "question": "A worker is asked to quickly tighten a loose wire in an energized 480V MCC because taking it off-line will cause a production shutdown. The correct action is:",
     "options": {
-      "A": "Tighten it quickly while being careful — the production impact justifies the risk",
+      "A": "Tighten it quickly while being careful \u2014 the production impact justifies the risk",
       "B": "Refuse to perform the work energized unless a formal Energized Work Permit is issued, proper arc-rated PPE is donned, and a qualified person approves",
       "C": "Tighten it wearing only leather gloves since 480V is low risk",
       "D": "Ask a co-worker to hold a flashlight while working"
@@ -2299,7 +2299,7 @@
       "D": "Leave the lock on until a replacement key is found"
     },
     "answer": "C",
-    "explanation": "Lost key situations must follow the facility's documented lock removal procedure per Workplace Safety Standards. This requires supervisor authorization, verification that all personnel are clear of the equipment, and documentation — never unilateral removal.",
+    "explanation": "Lost key situations must follow the facility's documented lock removal procedure per Workplace Safety Standards. This requires supervisor authorization, verification that all personnel are clear of the equipment, and documentation \u2014 never unilateral removal.",
     "standard": "workplace",
     "text_nfpa": "During Lockout/Tagout (LOTO) removal after maintenance, a worker discovers they have lost their personal lock key. What should they do?",
     "options_nfpa": {
@@ -2309,37 +2309,37 @@
       "D": "Leave the lock on until a replacement key is found"
     },
     "answer_nfpa": "C",
-    "explanation_nfpa": "Lost key situations must follow the facility's documented lock removal procedure per NFPA 70E Art.120. This requires supervisor authorization, verification that all personnel are clear of the equipment, and documentation — never unilateral removal."
+    "explanation_nfpa": "Lost key situations must follow the facility's documented lock removal procedure per NFPA 70E Art.120. This requires supervisor authorization, verification that all personnel are clear of the equipment, and documentation \u2014 never unilateral removal."
   },
   {
     "id": "S116",
     "topic": "Safety Scenarios",
-    "question": "A worker arrives at an electrical panel to perform a voltage reading. The arc flash label shows 9 cal/cm² incident energy. They have HRC 2 (rated to 8 cal/cm²) PPE available. Can they proceed?",
+    "question": "A worker arrives at an electrical panel to perform a voltage reading. The arc flash label shows 9 cal/cm\u00b2 incident energy. They have HRC 2 (rated to 8 cal/cm\u00b2) PPE available. Can they proceed?",
     "options": {
-      "A": "Yes — HRC 2 is close enough for 9 cal/cm²",
-      "B": "No — the PPE is rated below the actual incident energy; HRC 3 PPE (rated 8-25 cal/cm²) is required",
-      "C": "Yes — voltage readings have no arc flash risk",
+      "A": "Yes \u2014 HRC 2 is close enough for 9 cal/cm\u00b2",
+      "B": "No \u2014 the PPE is rated below the actual incident energy; HRC 3 PPE (rated 8-25 cal/cm\u00b2) is required",
+      "C": "Yes \u2014 voltage readings have no arc flash risk",
       "D": "Yes if they stay outside the arc flash boundary"
     },
     "answer": "B",
-    "explanation": "PPE must meet or exceed the actual incident energy. At 9 cal/cm², HRC 2 PPE rated to 8 cal/cm² is insufficient. HRC 3 PPE (rated for 8-25 cal/cm²) is required before proceeding with the task.",
+    "explanation": "PPE must meet or exceed the actual incident energy. At 9 cal/cm\u00b2, HRC 2 PPE rated to 8 cal/cm\u00b2 is insufficient. HRC 3 PPE (rated for 8-25 cal/cm\u00b2) is required before proceeding with the task.",
     "standard": "workplace",
-    "text_nfpa": "A worker arrives at an electrical panel to perform a voltage reading. The arc flash label shows 9 cal/cm² incident energy. They have Arc Flash PPE Category 2 (rated to 8 cal/cm²) PPE available. Can they proceed?",
+    "text_nfpa": "A worker arrives at an electrical panel to perform a voltage reading. The arc flash label shows 9 cal/cm\u00b2 incident energy. They have Arc Flash PPE Category 2 (rated to 8 cal/cm\u00b2) PPE available. Can they proceed?",
     "options_nfpa": {
-      "A": "Yes — Arc Flash PPE Category 2 is close enough for 9 cal/cm²",
-      "B": "No — the PPE is rated below the actual incident energy; Arc Flash PPE Category 3 PPE (rated 8-25 cal/cm²) is required",
-      "C": "Yes — voltage readings have no arc flash risk",
+      "A": "Yes \u2014 Arc Flash PPE Category 2 is close enough for 9 cal/cm\u00b2",
+      "B": "No \u2014 the PPE is rated below the actual incident energy; Arc Flash PPE Category 3 PPE (rated 8-25 cal/cm\u00b2) is required",
+      "C": "Yes \u2014 voltage readings have no arc flash risk",
       "D": "Yes if they stay outside the arc flash boundary"
     },
     "answer_nfpa": "B",
-    "explanation_nfpa": "PPE must meet or exceed the actual incident energy. At 9 cal/cm², Arc Flash PPE Category 2 PPE rated to 8 cal/cm² is insufficient. Arc Flash PPE Category 3 PPE (rated for 8-25 cal/cm²) is required before proceeding with the task. (Ref: NFPA 70E 2024)"
+    "explanation_nfpa": "PPE must meet or exceed the actual incident energy. At 9 cal/cm\u00b2, Arc Flash PPE Category 2 PPE rated to 8 cal/cm\u00b2 is insufficient. Arc Flash PPE Category 3 PPE (rated for 8-25 cal/cm\u00b2) is required before proceeding with the task. (Ref: NFPA 70E 2024)"
   },
   {
     "id": "S117",
     "topic": "Safety Scenarios",
     "question": "An unqualified worker in a production area notices sparking inside an electrical panel. What should they do?",
     "options": {
-      "A": "Open the panel and investigate — quick action prevents damage",
+      "A": "Open the panel and investigate \u2014 quick action prevents damage",
       "B": "Stay outside the limited approach boundary, immediately notify a qualified person, and evacuate the area if necessary",
       "C": "Use a fire extinguisher on the panel",
       "D": "Call the equipment manufacturer for advice"
@@ -2353,30 +2353,30 @@
     "topic": "Safety Scenarios",
     "question": "A worker wearing synthetic polyester work clothes is asked to perform a panel inspection. Before they approach the energized equipment, what must happen?",
     "options": {
-      "A": "Nothing — polyester is acceptable if not directly touching conductors",
+      "A": "Nothing \u2014 polyester is acceptable if not directly touching conductors",
       "B": "The worker must change into non-melting, non-flammable clothing or arc-rated apparel before approaching energized equipment",
       "C": "The worker can proceed if they wear leather gloves",
       "D": "Polyester is only prohibited above 480V"
     },
     "answer": "B",
-    "explanation": "Workplace Safety Standards prohibits synthetic meltable fabrics (acetate, nylon, polyester, rayon) during electrical work unless they are arc-rated. The worker must change into appropriate clothing — natural fibers or arc-rated apparel — before approaching energized equipment.",
+    "explanation": "Workplace Safety Standards prohibits synthetic meltable fabrics (acetate, nylon, polyester, rayon) during electrical work unless they are arc-rated. The worker must change into appropriate clothing \u2014 natural fibers or arc-rated apparel \u2014 before approaching energized equipment.",
     "standard": "workplace",
     "text_nfpa": "A worker wearing synthetic polyester work clothes is asked to perform a panel inspection. Before they approach the energized equipment, what must happen?",
     "options_nfpa": {
-      "A": "Nothing — polyester is acceptable if not directly touching conductors",
+      "A": "Nothing \u2014 polyester is acceptable if not directly touching conductors",
       "B": "The worker must change into non-melting, non-flammable clothing or arc-rated apparel before approaching energized equipment",
       "C": "The worker can proceed if they wear leather gloves",
       "D": "Polyester is only prohibited above 480V"
     },
     "answer_nfpa": "B",
-    "explanation_nfpa": "NFPA 70E Art.130 prohibits synthetic meltable fabrics (acetate, nylon, polyester, rayon) during electrical work unless they are arc-rated. The worker must change into appropriate clothing — natural fibers or arc-rated apparel — before approaching energized equipment."
+    "explanation_nfpa": "NFPA 70E Art.130 prohibits synthetic meltable fabrics (acetate, nylon, polyester, rayon) during electrical work unless they are arc-rated. The worker must change into appropriate clothing \u2014 natural fibers or arc-rated apparel \u2014 before approaching energized equipment."
   },
   {
     "id": "S119",
     "topic": "Safety Scenarios",
     "question": "During a LOTOTO application, a worker isolates the main circuit breaker but realizes there is also a secondary feed from a UPS (uninterruptible power supply). What must they do?",
     "options": {
-      "A": "Proceed — the main breaker is isolated so the equipment is safe",
+      "A": "Proceed \u2014 the main breaker is isolated so the equipment is safe",
       "B": "Go back to Step 1 and identify all energy sources; the UPS must also be isolated and locked out before work proceeds",
       "C": "Place a warning tag on the UPS and proceed",
       "D": "Note the UPS in the work order and address it later"
@@ -2386,7 +2386,7 @@
     "standard": "workplace",
     "text_nfpa": "During a Lockout/Tagout (LOTO) application, a worker isolates the main circuit breaker but realizes there is also a secondary feed from a UPS (uninterruptible power supply). What must they do?",
     "options_nfpa": {
-      "A": "Proceed — the main breaker is isolated so the equipment is safe",
+      "A": "Proceed \u2014 the main breaker is isolated so the equipment is safe",
       "B": "Go back to Step 1 and identify all energy sources; the UPS must also be isolated and locked out before work proceeds",
       "C": "Place a warning tag on the UPS and proceed",
       "D": "Note the UPS in the work order and address it later"
@@ -2399,164 +2399,14 @@
     "topic": "Safety Scenarios",
     "question": "A supervisor verbally tells a worker that arc-rated PPE is 'not really necessary' for a quick task inside an energized panel because 'it won't take long.' The worker should:",
     "options": {
-      "A": "Trust the supervisor — they are more experienced",
+      "A": "Trust the supervisor \u2014 they are more experienced",
       "B": "Comply but work as fast as possible",
-      "C": "Refuse to perform the work without proper PPE — arc flash events are instantaneous and duration of task is irrelevant",
+      "C": "Refuse to perform the work without proper PPE \u2014 arc flash events are instantaneous and duration of task is irrelevant",
       "D": "Perform the task but file a safety report afterward"
     },
     "answer": "C",
-    "explanation": "Arc flash events are instantaneous — the duration of a task provides no protection. Every worker has the right and responsibility to refuse unsafe work. Arc-rated PPE is required regardless of how quick the task is when working inside the arc flash boundary.",
+    "explanation": "Arc flash events are instantaneous \u2014 the duration of a task provides no protection. Every worker has the right and responsibility to refuse unsafe work. Arc-rated PPE is required regardless of how quick the task is when working inside the arc flash boundary.",
     "standard": "both"
-  },
-  {
-    "id": 121,
-    "standard": "nfpa",
-    "topic": "LOTO",
-    "difficulty": "medium",
-    "question": "Under NFPA 70E 2024 Sec 120.2, when is Complex Lockout/Tagout required instead of Simple Lockout?",
-    "options": {
-      "A": "Any time more than one energy source exists",
-      "B": "Multiple energy sources, workers, craft groups, or locations requiring a written plan",
-      "C": "Only for equipment above 480V",
-      "D": "All electrical lockouts require Complex LOTO"
-    },
-    "answer": "B",
-    "explanation": "NFPA 70E 2024 Sec 120.2: Complex LOTO required for multiple energy sources, persons, craft groups, or locations. Requires written plan and designated person-in-charge. Simple LOTO: single person, single source."
-  },
-  {
-    "id": 122,
-    "standard": "nfpa",
-    "topic": "Arc Flash",
-    "difficulty": "hard",
-    "question": "NFPA 70E 2024 Sec 130.5(B): Which statement about the two PPE selection methods is CORRECT?",
-    "options": {
-      "A": "Both methods may be used on the same equipment simultaneously",
-      "B": "Incident energy analysis always supersedes the PPE category method",
-      "C": "Only ONE method shall be used per piece of equipment — not both",
-      "D": "PPE category method always requires a site arc flash study first"
-    },
-    "answer": "C",
-    "explanation": "NFPA 70E 2024 Sec 130.5(B): Both methods shall NOT be used for the same equipment. Choose either incident energy analysis OR arc flash PPE category method per Table 130.5(G)."
-  },
-  {
-    "id": 123,
-    "standard": "nfpa",
-    "topic": "LOTO",
-    "difficulty": "hard",
-    "question": "NFPA 70E 2024 Sec 120.6(B) requires voltage testing to verify electrically safe work condition must include:",
-    "options": {
-      "A": "Phase-to-ground testing only",
-      "B": "Phase-to-phase testing only",
-      "C": "Phase-to-phase AND phase-to-ground, plus confirming meter on known live source before and after",
-      "D": "Visual inspection of disconnecting means position only"
-    },
-    "answer": "C",
-    "explanation": "NFPA 70E 2024 Sec 120.6(B): Test each phase-to-phase AND phase-to-ground. Verify instrument on known live source before AND after. Prevents false zero-volt readings."
-  },
-  {
-    "id": 124,
-    "standard": "nfpa",
-    "topic": "LOTO",
-    "difficulty": "medium",
-    "question": "Under NFPA 70E 2024, if a qualified person leaves the work location, what must happen before work resumes?",
-    "options": {
-      "A": "Nothing — LOTO verification remains valid indefinitely",
-      "B": "Notify the person-in-charge verbally",
-      "C": "Re-verify the electrically safe work condition with voltage testing",
-      "D": "Issue a new energized work permit"
-    },
-    "answer": "C",
-    "explanation": "NFPA 70E 2024 Sec 120.6(B): Electrically safe work condition must be re-verified when workers return after absence. Locks still in place is insufficient — complete voltage test required."
-  },
-  {
-    "id": 125,
-    "standard": "nfpa",
-    "topic": "Arc Flash",
-    "difficulty": "easy",
-    "question": "Per NFPA 70E 2024 Article 100, the Arc Flash Boundary is the distance at which incident energy equals:",
-    "options": {
-      "A": "0.5 cal/cm² — threshold for first-degree burn",
-      "B": "1.2 cal/cm² — onset of second-degree burn on unprotected skin",
-      "C": "4.0 cal/cm² — minimum Arc Flash PPE Category 1",
-      "D": "8.0 cal/cm² — minimum Arc Flash PPE Category 2"
-    },
-    "answer": "B",
-    "explanation": "NFPA 70E 2024 Art 100: Arc Flash Boundary = 1.2 cal/cm², onset of second-degree burn on unprotected skin. Arc-rated PPE required inside this distance."
-  },
-  {
-    "id": 126,
-    "standard": "nfpa",
-    "topic": "Arc Flash",
-    "difficulty": "medium",
-    "question": "NFPA 70E 2024 Sec 130.5(G): Arc flash hazard analysis must be reviewed at intervals not exceeding:",
-    "options": {
-      "A": "1 year",
-      "B": "3 years",
-      "C": "5 years",
-      "D": "10 years or upon major changes"
-    },
-    "answer": "C",
-    "explanation": "NFPA 70E 2024 Sec 130.5(G): Arc flash analysis reviewed at intervals not exceeding 5 years, or when major modifications to the electrical system occur."
-  },
-  {
-    "id": 127,
-    "standard": "nfpa",
-    "topic": "Qualified Person",
-    "difficulty": "medium",
-    "question": "NFPA 70E 2024 Sec 110.2(D): A Qualified Person must demonstrate skills and knowledge at minimum how often?",
-    "options": {
-      "A": "Every 6 months",
-      "B": "Annually (every year)",
-      "C": "Every 2 years",
-      "D": "Every 3 years"
-    },
-    "answer": "B",
-    "explanation": "NFPA 70E 2024 Sec 110.2(D): Annual demonstration of skills and knowledge required. Workers absent 12+ months need additional training before performing independently."
-  },
-  {
-    "id": 128,
-    "standard": "nfpa",
-    "topic": "Energized Work",
-    "difficulty": "hard",
-    "question": "NFPA 70E 2024 Sec 130.2(B)(2) explicitly EXEMPTS which from requiring an energized electrical work permit?",
-    "options": {
-      "A": "Replacing a blown fuse in an energized panel",
-      "B": "Infrared thermography outside the Restricted Approach Boundary without removing covers",
-      "C": "Voltage measurements with a multimeter inside a live panel",
-      "D": "Any diagnostic task under 5 minutes"
-    },
-    "answer": "B",
-    "explanation": "NFPA 70E 2024 Sec 130.2(B)(2): Non-contact diagnostics (IR thermography) outside the Restricted Approach Boundary without removing covers are exempt from energized work permit requirements."
-  },
-  {
-    "id": 129,
-    "standard": "nfpa",
-    "topic": "Arc Flash",
-    "difficulty": "medium",
-    "question": "NFPA 70E 2024 Sec 130.7(E) requires arc flash barricades be placed:",
-    "options": {
-      "A": "At the Restricted Approach Boundary only",
-      "B": "At or outside the Arc Flash Boundary to prevent unqualified persons from entering",
-      "C": "At any convenient location near the work",
-      "D": "Only when incident energy exceeds 8 cal/cm²"
-    },
-    "answer": "B",
-    "explanation": "NFPA 70E 2024 Sec 130.7(E): Barricades placed at or outside the arc flash boundary when it extends beyond the Limited Approach Boundary. Warning signs required."
-  },
-  {
-    "id": 130,
-    "standard": "nfpa",
-    "topic": "PPE",
-    "difficulty": "easy",
-    "question": "NFPA 70E 2024 Sec 130.6(D) prohibits conductive jewelry and clothing within the Limited Approach Boundary of:",
-    "options": {
-      "A": "Any energized circuit regardless of voltage",
-      "B": "Only circuits above 600V",
-      "C": "Exposed energized conductors at 50V or more",
-      "D": "Only if not covered by arc-rated gloves"
-    },
-    "answer": "C",
-    "explanation": "NFPA 70E 2024 Sec 130.6(D): Conductive articles prohibited within Limited Approach Boundary of exposed energized conductors at 50V or more."
   },
   {
     "id": "S121",
