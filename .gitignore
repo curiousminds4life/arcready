@@ -22,3 +22,4 @@ node_modules/
 
 # Credentials
 # data/ai-config.json (Now safe to include without keys)
+.env

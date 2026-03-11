@@ -21,6 +21,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(200); exit; }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST')    { http_response_code(405); die('{"error":"Method not allowed"}'); }
 
 // ── Config ────────────────────────────────────────────────────
+// Attempt to load .env if it exists (for local development)
+$envFile = __DIR__ . '/.env';
+if (file_exists($envFile)) {
+    $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) continue;
+        list($name, $value) = explode('=', $line, 2);
+        putenv(trim($name) . '=' . trim($value));
+    }
+}
+
 $OPENROUTER_KEY = getenv('OPENROUTER_KEY') ?: 'YOUR_OPENROUTER_KEY_HERE';
 $RATE_LIMIT     = 30;   // max requests per hour per IP
 $RATE_WINDOW    = 3600; // seconds
@@ -54,8 +65,8 @@ if (!$body || !isset($body['model'], $body['messages']) || !is_array($body['mess
 
 // ── Allowlist of permitted models ─────────────────────────────
 $allowed_models = [
-    'meta-llama/llama-3.1-8b-instruct:free',
-    'meta-llama/llama-3.1-8b-instruct',
+    'meta-llama/llama-3.3-70b-instruct:free',
+    'meta-llama/llama-3.2-3b-instruct:free',
     'google/gemini-flash-1.5',
     'google/gemini-2.0-flash-001',
     'anthropic/claude-haiku',

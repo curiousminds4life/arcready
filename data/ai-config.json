@@ -3,9 +3,9 @@
     "proxy_url": "ai-proxy.php",
     "dev_mode": false,
     "models": {
-        "explain": "meta-llama/llama-3.1-8b-instruct:free",
-        "chat": "meta-llama/llama-3.1-8b-instruct:free",
-        "hint": "meta-llama/llama-3.1-8b-instruct:free",
+        "explain": "meta-llama/llama-3.3-70b-instruct:free",
+        "chat": "meta-llama/llama-3.3-70b-instruct:free",
+        "hint": "meta-llama/llama-3.3-70b-instruct:free",
         "coach": "google/gemini-flash-1.5"
     },
     "limits": {
