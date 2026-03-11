@@ -2557,5 +2557,215 @@
     },
     "answer": "C",
     "explanation": "NFPA 70E 2024 Sec 130.6(D): Conductive articles prohibited within Limited Approach Boundary of exposed energized conductors at 50V or more."
+  },
+  {
+    "id": "S121",
+    "topic": "Portable Equipment Safety",
+    "question": "According to worksite document, what is the maximum length allowed for an extension cord used on the premises?",
+    "options": {
+      "A": "25 feet",
+      "B": "50 feet",
+      "C": "100 feet",
+      "D": "125 feet"
+    },
+    "answer": "C",
+    "explanation": "Site policy restricts flexible extension cords to a maximum length of 100 feet[cite: 1429].",
+    "standard": "both"
+  },
+  {
+    "id": "S122",
+    "topic": "Arc Flash Protection",
+    "question": "What is the required Arc Flash PPE category for voltage testing in an uncalculated 208 VAC single-phase control cabinet according to worksite document?",
+    "options": {
+      "A": "AF PPE 0",
+      "B": "AF PPE 1",
+      "C": "AF PPE 4",
+      "D": "Non-melting clothing only"
+    },
+    "answer": "B",
+    "explanation": "For an uncalculated 208 VAC single-phase control cabinet, the minimum requirement is AF PPE 1[cite: 11, 404].",
+    "standard": "both"
+  },
+  {
+    "id": "S123",
+    "topic": "Personal Protective Equipment",
+    "question": "According to worksite document, where should an associate obtain and return voltage-rated rubber gloves?",
+    "options": {
+      "A": "The EHS Department",
+      "B": "The Cribmaster or Spare Parts",
+      "C": "They are personally issued to all cardholders",
+      "D": "Directly from the manufacturer"
+    },
+    "answer": "B",
+    "explanation": "Rubber gloves are managed through Spare Parts or the Cribmaster system[cite: 16, 18].",
+    "standard": "both"
+  },
+  {
+    "id": "S124",
+    "topic": "Safety Labeling",
+    "question": "Which of the following items is NOT required to be listed on a standard Arc Flash label according to worksite document?",
+    "options": {
+      "A": "Arc Flash Boundary",
+      "B": "Nominal Voltage",
+      "C": "Arc Blast Energy Level",
+      "D": "Limited Approach Boundary"
+    },
+    "answer": "C",
+    "explanation": "Arc Flash labels must include the boundary, voltage, and incident energy, but 'Arc Blast' energy levels are not a standard calculated value listed on these labels[cite: 23, 28, 1329].",
+    "standard": "both"
+  },
+  {
+    "id": "S125",
+    "topic": "Electrical Qualification",
+    "question": "According to worksite document, at what voltage level and below is electrical qualification no longer required for working on live circuits?",
+    "options": {
+      "A": "120 VAC",
+      "B": "50 VAC",
+      "C": "24 VAC",
+      "D": "Qualification is always required for all voltages"
+    },
+    "answer": "C",
+    "explanation": "The policy specifies that qualification for live work is required for 50 volts and above; below 50 volts (such as 24V), the same level of qualification is not mandated[cite: 36, 1159].",
+    "standard": "both"
+  },
+  {
+    "id": "S126",
+    "topic": "Risk Assessment",
+    "question": "Which of these activities is NOT a required step in a Job Hazard Analysis (Risk Assessment) according to worksite document?",
+    "options": {
+      "A": "Identifying the Arc Flash Boundary",
+      "B": "Determining the Shock Protection Boundary",
+      "C": "Formally documenting every pre-job analysis",
+      "D": "Assessing potential for electric shock"
+    },
+    "answer": "C",
+    "explanation": "While a JHA is required as a pre-job task, the site policy states it is not required to be formally documented for every instance[cite: 1249].",
+    "standard": "both"
+  },
+  {
+    "id": "S127",
+    "topic": "Meter Verification",
+    "question": "When is an associate NOT required to verify their meter on a known good voltage source according to worksite document?",
+    "options": {
+      "A": "Before taking live readings",
+      "B": "After checking for a de-energized state",
+      "C": "During an annual calibration check only",
+      "D": "Prior to establishing a safe work area"
+    },
+    "answer": "C",
+    "explanation": "Associates must verify meter operation before and after testing for absence of voltage; an annual check alone is insufficient for daily safety tasks[cite: 1138, 1140].",
+    "standard": "both"
+  },
+  {
+    "id": "S128",
+    "topic": "PPE Requirements",
+    "question": "According to worksite document, what is the PPE requirement for voltage testing in an uncalculated 208 VAC 3-phase, hard-wired device?",
+    "options": {
+      "A": "AF PPE 0",
+      "B": "AF PPE 4",
+      "C": "Non-melting clothing",
+      "D": "No entry allowed"
+    },
+    "answer": "D",
+    "explanation": "Uncalculated 3-phase systems at this voltage are marked as 'Danger, No Entry Allowed' for testing without further assessment[cite: 55, 60].",
+    "standard": "both"
+  },
+  {
+    "id": "S129",
+    "topic": "Tool Safety",
+    "question": "Which of the following items is permitted inside an electrical cabinet before an electrically safe work area is established according to worksite document?",
+    "options": {
+      "A": "A metal necklace",
+      "B": "Metal-rimmed glasses",
+      "C": "A non-conductive flashlight",
+      "D": "A conductive measuring tape"
+    },
+    "answer": "C",
+    "explanation": "Conductive articles like jewelry or metal glasses are prohibited; only non-conductive accessories like a proper flashlight are allowed[cite: 72, 967].",
+    "standard": "both"
+  },
+  {
+    "id": "S130",
+    "topic": "Extension Cord Specifications",
+    "question": "What is the minimum wire gauge (AWG) permitted for extension cords according to worksite document?",
+    "options": {
+      "A": "16 AWG",
+      "B": "14 AWG",
+      "C": "12 AWG",
+      "D": "10 AWG"
+    },
+    "answer": "B",
+    "explanation": "The policy requires a minimum of 14-gauge wire for all extension cords used on site[cite: 79, 1429].",
+    "standard": "both"
+  },
+  {
+    "id": "S131",
+    "topic": "Instrument Authorization",
+    "question": "Which meter is NOT authorized for use in establishing an electrically safe work area according to worksite document?",
+    "options": {
+      "A": "TEGAM",
+      "B": "Metrix MX 57-EX",
+      "C": "Fluke 87",
+      "D": "Fluke T5"
+    },
+    "answer": "C",
+    "explanation": "The Fluke 87 is not authorized for establishing an electrically safe work area because its leads can be removed; the Fluke T5 or Metrix are the approved handheld testers[cite: 86, 1137].",
+    "standard": "both"
+  },
+  {
+    "id": "S132",
+    "topic": "Inspections",
+    "question": "Which item requires a visual inspection before every use rather than a formal semi-annual inspection according to worksite document?",
+    "options": {
+      "A": "Insulated Tools",
+      "B": "Voltage-Rated Rubber Gloves",
+      "C": "Arc Rated Lab Coats",
+      "D": "Dielectric Overshoes"
+    },
+    "answer": "A",
+    "explanation": "Insulated tools require a visual inspection prior to each use to check for damage to the insulation[cite: 89, 2096].",
+    "standard": "both"
+  },
+  {
+    "id": "S133",
+    "topic": "Boundary Hazards",
+    "question": "The Limited and Restricted approach boundaries are primarily designed to protect against which hazard according to worksite document?",
+    "options": {
+      "A": "Arc Flash",
+      "B": "Arc Blast",
+      "C": "Electric Shock",
+      "D": "Thermal Burn"
+    },
+    "answer": "C",
+    "explanation": "Limited and Restricted approach boundaries are shock hazard approach limits[cite: 702, 705].",
+    "standard": "both"
+  },
+  {
+    "id": "S134",
+    "topic": "Classified Areas",
+    "question": "According to worksite document, which meter must be used when establishing an electrically safe work area in a 'Classified' (hazardous) area?",
+    "options": {
+      "A": "Fluke T5",
+      "B": "Metrix MX 57-EX",
+      "C": "Fluke 87",
+      "D": "TEGAM"
+    },
+    "answer": "B",
+    "explanation": "In classified areas where flammable vapors or dust may exist, intrinsically safe equipment like the Metrix MX 57-EX is required[cite: 837, 1137].",
+    "standard": "both"
+  },
+  {
+    "id": "S135",
+    "topic": "Unqualified Personnel",
+    "question": "According to worksite document, when is an unqualified person permitted to cross the Restricted Approach boundary?",
+    "options": {
+      "A": "When wearing proper PPE and escorted by a Blue Card holder",
+      "B": "When escorted by a Green Card holder",
+      "C": "Only when the equipment is de-energized",
+      "D": "Under no circumstances while energized"
+    },
+    "answer": "D",
+    "explanation": "Policy states that under no circumstance should an Unqualified Person cross the restricted approach boundary of energized equipment[cite: 969, 134].",
+    "standard": "both"
   }
 ]

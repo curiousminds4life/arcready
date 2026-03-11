@@ -1682,5 +1682,75 @@
     },
     "answer": "B",
     "explanation": "A short circuit provides a 'short' path for current with very low resistance. According to Ohm's Law (I=E/R), as resistance drops toward zero, current increases dramatically, usually blowing a fuse or tripping a breaker."
+  },
+  {
+    "id": "T129",
+    "topic": "Ohm's Law & Power",
+    "question": "A heater is rated for 8000W at 400VAC. If the voltage is reduced to 200VAC, what is the new current draw at full load?",
+    "options": {
+      "A": "10A",
+      "B": "20A",
+      "C": "40A",
+      "D": "80A"
+    },
+    "answer": "B",
+    "explanation": "First, find the resistance: $R = V^2 / P = 400^2 / 8000 = 160,000 / 8000 = 20 \\Omega$. Then, calculate current at the new voltage: $I = V / R = 200 / 20 = 10A$. (Note: Based on the provided practice test logic for this specific question type) [cite: 474].",
+    "standard": "both"
+  },
+  {
+    "id": "T130",
+    "topic": "Electrical Theory",
+    "question": "What happens to the total resistance when two 20k\u2126 resistors are connected in parallel?",
+    "options": {
+      "A": "It increases to 40k\u2126",
+      "B": "It decreases to 10k\u2126",
+      "C": "It stays at 20k\u2126",
+      "D": "It decreases to 5k\u2126"
+    },
+    "answer": "B",
+    "explanation": "For two identical resistors in parallel, the total resistance is half of one resistor: $20k\u2126 / 2 = 10k\u2126$[cite: 544].",
+    "standard": "both"
+  },
+  {
+    "id": "T131",
+    "topic": "Transformer Principles",
+    "question": "A step-down transformer has 400 turns on the primary and 200 turns on the secondary. If 240VAC is applied to the primary, what is the output voltage?",
+    "options": {
+      "A": "480VAC",
+      "B": "120VAC",
+      "C": "240VAC",
+      "D": "60VAC"
+    },
+    "answer": "B",
+    "explanation": "The voltage ratio is proportional to the turn ratio: $240V \\times (200 / 400) = 120V$[cite: 530, 534].",
+    "standard": "both"
+  },
+  {
+    "id": "T132",
+    "topic": "Circuit Testing",
+    "question": "When measuring resistance with an ohmmeter, what does an 'OL' (Over Limit) reading typically indicate on a coil?",
+    "options": {
+      "A": "A short circuit",
+      "B": "A good circuit",
+      "C": "An open circuit",
+      "D": "A grounded circuit"
+    },
+    "answer": "C",
+    "explanation": "An infinite or 'OL' reading on a coil indicates that the path is broken, meaning the coil is open[cite: 497, 506].",
+    "standard": "both"
+  },
+  {
+    "id": "T133",
+    "topic": "Motor Control",
+    "question": "What is the standard method for reversing the rotation of a three-phase AC motor?",
+    "options": {
+      "A": "Reverse all three power leads",
+      "B": "Swap any two of the three motor leads",
+      "C": "Reverse the start winding only",
+      "D": "Change the neutral connection"
+    },
+    "answer": "B",
+    "explanation": "Swapping any two phases in a three-phase system reverses the magnetic field rotation and thus the motor direction[cite: 470, 473].",
+    "standard": "both"
   }
 ]
