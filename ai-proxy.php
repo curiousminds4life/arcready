@@ -32,7 +32,7 @@ if (file_exists($envFile)) {
     }
 }
 
-$OPENROUTER_KEY = getenv('OPENROUTER_KEY') ?: 'YOUR_OPENROUTER_KEY_HERE';
+$OPENROUTER_KEY = getenv('OPENROUTER_KEY') ?: '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';
 $RATE_LIMIT     = 30;   // max requests per hour per IP
 $RATE_WINDOW    = 3600; // seconds
 $TMP_DIR        = sys_get_temp_dir();
